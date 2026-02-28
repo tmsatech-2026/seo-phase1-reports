@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Metadata Report – La Kruger Lifestyle Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --grey-pill:#6B7280;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(150deg, rgba(26,26,44,0.82) 0%, rgba(30,18,10,0.78) 60%, rgba(40,25,15,0.75) 100%), url('https://b-cdn.springnest.com/media/img/31/elephants-279505_19200737343.jpg?crop=1920%2C960%2C0%2C54&width=1500') center/cover;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 60px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-size: 38px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .hero-sub { font-size: 1.3rem; font-weight: 600; letter-spacing: 0.08em; color: rgba(255,255,255,0.90); text-transform: uppercase; margin-top: 10px; margin-bottom: 20px; line-height: 1.3; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* KPI cards */
+    .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; max-width: 1200px; margin: -28px auto 0; padding: 0 48px; }
+    .kpi { border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 22px 20px 18px; color: #fff; text-align: center; }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: var(--red); }
+    .kpi-icon { margin-bottom: 10px; opacity: 0.90; display: flex; justify-content: center; align-items: center; }
+    .kpi-icon svg { display: block; width: 28px; height: 28px; }
+    .kpi-num { font-size: 38px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: #fff; }
+    .kpi-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* Wrap */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* CRITICAL ISSUES BANNER */
+    .critical-issues-banner {
+      background: linear-gradient(135deg, rgba(224, 90, 78, 0.95) 0%, rgba(239, 68, 68, 0.95) 100%);
+      border: 2px solid var(--red);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 24px 0 24px 0;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
+    }
+
+    .critical-issues-banner h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .critical-issues-banner h2::before {
+      content: '⚠️';
+      font-size: 24px;
+    }
+
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .issue-box {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .issue-number {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .issue-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      opacity: 0.95;
+      line-height: 1.3;
+    }
+
+    .critical-summary {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Opening paragraph */
+    .opening-para { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 20px; margin: 24px 0 12px 0; border-left: 4px solid var(--gold); }
+    .opening-para p { font-size: 15px; line-height: 1.7; color: var(--text); margin-bottom: 12px; }
+    .opening-para p:last-child { margin-bottom: 0; }
+
+    /* Page item card */
+    .page-item { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; transition: box-shadow 0.2s; }
+    .page-item:hover { box-shadow: var(--shadow-md); }
+
+    .page-heading { padding: 16px 24px; border-bottom: 1px solid var(--border); }
+    .page-title { font-size: 16px; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    .page-url { font-size: 12px; color: var(--blue); text-decoration: none; }
+    .page-url:hover { text-decoration: underline; }
+    .page-type-badge { background: #f3f4f6; color: #6b7280; padding: 3px 8px; border-radius: 4px; font-size: 10px; margin-left: 8px; }
+
+    /* Page body */
+    .page-body { padding: 24px; }
+
+    .field { margin-bottom: 20px; }
+    .field-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 6px; }
+    .field-content { background: #f9f9f9; border: 1px solid var(--border); border-radius: 6px; padding: 12px; font-size: 13px; line-height: 1.5; color: var(--text); word-break: break-word; }
+
+    /* Badges */
+    .badge { display: inline-flex; align-items: center; border-radius: 6px; padding: 3px 10px; font-size: 10px; font-weight: 700; color: #fff; margin-left: 8px; }
+    .badge-good    { background: var(--green); }
+    .badge-ok      { background: var(--amber); }
+    .badge-warn    { background: var(--red); }
+
+    /* Section header */
+    .section-header { font-size: 24px; font-weight: 700; letter-spacing: 0.5px; color: var(--text); margin: 50px 0 20px 0; }
+
+    /* Instruction text */
+    .instruction-text { background: #f0f9f3; border: 1px solid #c8e6c9; border-radius: var(--radius); padding: 16px 20px; margin: 20px 0 30px; font-size: 13px; line-height: 1.6; color: var(--text); }
+    .instruction-text strong { color: var(--text); }
+
+    /* Top 3 Issues Section */
+    .top-three-issues {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin: 24px 0 24px 0;
+      border-left: 4px solid var(--gold);
+    }
+
+    .top-three-issues h2 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    .issues-list {
+      display: grid;
+      gap: 20px;
+    }
+
+    .issue-item {
+      background: #f9f9f9;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .issue-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .issue-rank {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .issue-stats {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .issue-impact {
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .issue-solution {
+      background: rgba(22, 163, 74, 0.08);
+      border: 1px solid rgba(22, 163, 74, 0.2);
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .issue-solution strong {
+      color: var(--green);
+    }
+
+    .priority-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-left: 8px;
+    }
+
+    .priority-critical {
+      background: rgba(239, 90, 78, 0.2);
+      color: #E05A4E;
+    }
+
+    .priority-medium {
+      background: rgba(37, 99, 235, 0.2);
+      color: #2563EB;
+    }
+
+    /* Footer */
+    .footer { text-align: center; padding: 28px 48px 44px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); margin-top: 40px; }
+
+    /* Mobile responsive */
+    @media (max-width: 767px) {
+      .hero { padding: 40px 16px 36px; }
+      .hero h1 { font-size: 22px; }
+      .hero-sub { font-size: 1rem; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 16px; margin: 16px auto 0; gap: 10px; }
+      .kpi { padding: 12px; min-height: 80px; display: flex; flex-direction: column; justify-content: center; }
+      .kpi-num { font-size: 1.7rem; }
+      .kpi-icon svg { width: 20px; height: 20px; }
+      .wrap { padding: 0 16px; }
+      .issues-grid { grid-template-columns: repeat(2, 1fr); }
+      .critical-issues-banner { padding: 16px; margin: 16px 0 16px 0; }
+      .critical-issues-banner h2 { font-size: 16px; }
+      .issue-number { font-size: 24px; }
+      .page-title { font-size: 14px; }
+      .section-header { font-size: 18px; margin: 30px 0 15px 0; }
+      .opening-para { padding: 12px 16px; margin: 16px 0 8px 0; }
+      .opening-para p { font-size: 14px; }
+      .top-three-issues { padding: 16px; margin: 16px 0 16px 0; }
+      .top-three-issues h2 { font-size: 16px; }
+      .issue-item { padding: 16px; }
+      .issue-name { font-size: 14px; }
+      .issue-rank { font-size: 18px; }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .hero { padding: 56px 32px 48px; }
+      .hero h1 { font-size: 28px; }
+      .kpi-grid { grid-template-columns: repeat(3, 1fr); padding: 0 32px; margin: 16px auto 0; }
+      .wrap { padding: 0 32px; }
+      .footer { padding: 28px 32px 40px; }
+      .issues-grid { grid-template-columns: repeat(2, 1fr); }
+      .critical-issues-banner { padding: 20px; margin: 20px 0 20px 0; }
+      .top-three-issues { padding: 20px; margin: 20px 0 20px 0; }
+      .top-three-issues h2 { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Phase 1 Baseline</div>
+    <h1>La Kruger Lifestyle Lodge</h1>
+    <p class="hero-sub">Current State Assessment & Critical Issues Summary</p>
+    <div class="hero-chips">
+      <div class="chip">Generated <strong>28 February 2026</strong></div>
+      <div class="chip">50 Pages Crawled</div>
+      <div class="chip">Phase 1 Review Gate</div>
+    </div>
+  </div>
+</header>
+
+<div class="kpi-grid">
+  <div class="kpi c-blue">
+    <div class="kpi-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+    <div class="kpi-num">50</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+  <div class="kpi c-green">
+    <div class="kpi-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="kpi-num">1</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+  <div class="kpi c-red">
+    <div class="kpi-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+    <div class="kpi-num">49</div>
+    <div class="kpi-label">Need Work (98%)</div>
+  </div>
+  <div class="kpi c-amber">
+    <div class="kpi-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div class="kpi-num">120-160</div>
+    <div class="kpi-label">Optimal Desc Length</div>
+  </div>
+  <div class="kpi" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="kpi-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+    <div class="kpi-num">2%</div>
+    <div class="kpi-label">Health Score</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- CRITICAL ISSUES BANNER -->
+  <div class="critical-issues-banner">
+    <h2>Critical SEO Issues Identified</h2>
+    <div class="issues-grid">
+      <div class="issue-box">
+        <span class="issue-number">12</span>
+        <span class="issue-label">Missing Meta Descriptions</span>
+      </div>
+      <div class="issue-box">
+        <span class="issue-number">2</span>
+        <span class="issue-label">Too Short (&lt; 120 chars)</span>
+      </div>
+      <div class="issue-box">
+        <span class="issue-number">35</span>
+        <span class="issue-label">Too Long (&gt; 160 chars)</span>
+      </div>
+      <div class="issue-box">
+        <span class="issue-number">49/50</span>
+        <span class="issue-label">Pages Require Optimization</span>
+      </div>
+    </div>
+    <div class="critical-summary">
+      <strong>Impact:</strong> 98% of your pages are not displaying optimally in Google search results. Meta descriptions are either missing, too short (won't show full value prop), or too long (truncated by Google). This directly reduces click-through rates from search. Phase 2+3 will generate optimized 120-160 character descriptions for all pages.
+    </div>
+  </div>
+
+  <div class="opening-para">
+    <p><strong>Why This Matters:</strong> This is a typical finding with SpringNest websites. When clients don't specifically invest time editing their SEO metadata, SpringNest (or Google itself) decides what descriptions and titles appear in search results. The result? Potential customers searching for your services don't see optimized, compelling previews—they see whatever was auto-generated. This directly impacts click-through rates and bookings.</p>
+    <p><strong>The Solution:</strong> By supplying Google with properly optimized meta titles and meta descriptions, you take control of how your business appears in search. A compelling 120-160 character description alone can increase clicks by 20-30%. Phase 2+3 will generate AI-optimized recommendations for every page, turning this critical issue into a quick win.</p>
+  </div>
+
+  <!-- TOP 3 KEY ISSUES SECTION -->
+  <div class="top-three-issues">
+    <h2>📊 Top 3 Key Issues To Address</h2>
+    <div class="issues-list">
+
+      <!-- Issue 1 -->
+      <div class="issue-item">
+        <div class="issue-name">
+          <span class="issue-rank">1️⃣</span>
+          Descriptions Too Long
+          <span class="priority-badge priority-critical">CRITICAL</span>
+        </div>
+        <div class="issue-stats">
+          <strong>34 pages (68%)</strong> — Meta descriptions exceeding Google's 160-character display limit
+        </div>
+        <div class="issue-impact">
+          <strong>Impact:</strong> Google truncates descriptions beyond 160 characters with "..." Searchers never see the end of your value proposition, directly reducing click-through rates by 20-30%.
+        </div>
+        <div class="issue-solution">
+          <strong>✓ Solution:</strong> Condense all long descriptions to 120-160 characters while preserving your unique selling points and keywords.
+        </div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 10px;">
+          Example: Your Accommodation page is currently 284 characters—needs condensing to ~150 chars
+        </div>
+      </div>
+
+      <!-- Issue 2 -->
+      <div class="issue-item">
+        <div class="issue-name">
+          <span class="issue-rank">2️⃣</span>
+          Missing Descriptions
+          <span class="priority-badge priority-critical">CRITICAL</span>
+        </div>
+        <div class="issue-stats">
+          <strong>12 pages (24%)</strong> — Pages with no meta description (0 characters)
+        </div>
+        <div class="issue-impact">
+          <strong>Impact:</strong> Without a meta description, Google auto-generates one from your page content. Result: Zero control over how your business appears in search results.
+        </div>
+        <div class="issue-solution">
+          <strong>✓ Solution:</strong> Create compelling 120-160 character descriptions for each missing page, matching the page's value proposition and search intent.
+        </div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 10px;">
+          Affected pages: Activities, Blog, Location, Guest Book, Special Offers, and 7 others
+        </div>
+      </div>
+
+      <!-- Issue 3 -->
+      <div class="issue-item">
+        <div class="issue-name">
+          <span class="issue-rank">3️⃣</span>
+          Missing H1 Headings
+          <span class="priority-badge priority-medium">MEDIUM</span>
+        </div>
+        <div class="issue-stats">
+          <strong>4 pages (8%)</strong> — Pages without a main H1 heading
+        </div>
+        <div class="issue-impact">
+          <strong>Impact:</strong> H1 headings signal your page's primary topic to Google. Missing H1s create unclear page structure and can impact both ranking potential and content clarity.
+        </div>
+        <div class="issue-solution">
+          <strong>✓ Solution:</strong> Add a main H1 heading to each affected page, matching the page's content intent, title tag, and primary keywords.
+        </div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 10px;">
+          Pages affected: Homepage, Location, and 2 activity booking pages
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-header">Pages with Most Critical Issues</div>
+
+  <!-- RATES PAGE - CRITICAL -->
+  <div class="page-item">
+    <div class="page-heading">
+      <div class="page-title">
+        <a href="https://www.lakruger.com/rooms/kruger-activities-rates/" class="page-url" target="_blank">/rooms/kruger-activities-rates/</a>
+        <span class="page-type-badge">CRITICAL</span>
+      </div>
+    </div>
+    <div class="page-body">
+      <div class="field">
+        <div class="field-label">Title Tag</div>
+        <div class="field-content">Rates - La Kruger Lifestyle Lodge <span class="badge badge-ok">⚠ 35 chars (too short)</span></div>
+      </div>
+      <div class="field">
+        <div class="field-label">Meta Description</div>
+        <div class="field-content" style="background: rgba(239, 90, 78, 0.1); border-color: rgba(239, 90, 78, 0.3);"><strong style="color: #E05A4E;">🚨 CRITICAL ISSUE:</strong> 5,846 characters. Contains all 2026/2027 accommodation rates, activity pricing, booking terms, and cancellation policies. <span class="badge badge-warn">✗ 37x too long</span></div>
+      </div>
+      <div class="field">
+        <div class="field-label">H1 Heading</div>
+        <div class="field-content">Rates <span class="badge badge-good">✓</span></div>
+      </div>
+      <div class="field">
+        <div class="field-label">What Needs to Happen</div>
+        <div class="field-content" style="background: rgba(224, 90, 78, 0.08); border-color: rgba(224, 90, 78, 0.25);">Condensed to ~150 chars: "Accommodation rates, activity pricing, booking terms, and cancellation policies for La Kruger Lifestyle Lodge. Plan your safari adventure with transparent pricing."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSING DESCRIPTIONS -->
+  <div class="page-item">
+    <div class="page-heading">
+      <div class="page-title">
+        <span class="page-type-badge">12 PAGES MISSING</span>
+      </div>
+    </div>
+    <div class="page-body">
+      <div class="field">
+        <div class="field-label">Pages with No Description (0 chars)</div>
+        <div class="field-content">Activities & Excursions, Open Vehicle Safaris (listing), Kruger National Park (listing), Regional Day Trips, Private Transfers, Shuttle Services, Car Rental Reservation, Location, Guest Book, Blog, Privacy Policy, Special Offers</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Impact</div>
+        <div class="field-content" style="background: rgba(239, 90, 78, 0.1); border-color: rgba(239, 90, 78, 0.35);">Google will generate a description from your page content automatically. This often isn't compelling and may not include the keywords searchers want to see. <span class="badge badge-warn">✗ Missing opportunity</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOO SHORT -->
+  <div class="page-item">
+    <div class="page-heading">
+      <div class="page-title">
+        <span class="page-type-badge">2 PAGES TOO SHORT</span>
+      </div>
+    </div>
+    <div class="page-body">
+      <div class="field">
+        <div class="field-label">Pages Under 120 Characters</div>
+        <div class="field-content">
+          1. Activities Promo: "ON ALL KRUGER NATIONAL PARK ACTIVITIES FOR CONFIRMED BOOKINGS" (60 chars)<br/>
+          2. Regional Promo: "ON ALL REGIONAL DAY TOURS FOR CONFIRMED BOOKINGS" (48 chars)
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-label">Impact</div>
+        <div class="field-content" style="background: rgba(217, 119, 6, 0.15); border-color: rgba(217, 119, 6, 0.35);">You're leaving 60-70 characters of wasted space in Google search results. These descriptions lack context and compelling copy. <span class="badge badge-ok">⚠ Missed opportunity</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOO LONG (35 pages) -->
+  <div class="page-item">
+    <div class="page-heading">
+      <div class="page-title">
+        <span class="page-type-badge">35 PAGES TOO LONG</span>
+      </div>
+    </div>
+    <div class="page-body">
+      <div class="field">
+        <div class="field-label">Pages Over 160 Characters (Examples)</div>
+        <div class="field-content">
+          Homepage (181), Accommodation (298), Luxury Bush Chalets (275), Villa King Suite (496), Villa King Family (568), Deluxe (245), Kruger Safari (324), Bush Braai (319), Bush Breakfast (313), Sunset (296), Night Drive (308), Morning Walk (289), Sunrise (335), Panorama Route (299), and 21 more pages all exceeding optimal length.
+        </div>
+      </div>
+      <div class="field">
+        <div class="field-label">Impact</div>
+        <div class="field-content" style="background: rgba(217, 119, 6, 0.15); border-color: rgba(217, 119, 6, 0.35);">Google truncates everything over 160 chars with "..." on desktop and even sooner on mobile. Searchers never see the end of your message. CTR drops because your key selling points get cut off. <span class="badge badge-ok">⚠ Major issue</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="instruction-text" style="margin-top: 40px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.05) 100%); border: 2px solid rgba(37, 99, 235, 0.3);">
+    <p><strong>🚀 Ready to Fix These Issues?</strong></p>
+    <p style="margin-top: 12px; font-size: 14px; line-height: 1.7;">You now have a clear picture of your SEO metadata challenges. The next step is taking action to turn these insights into improvements that drive more bookings.</p>
+
+    <p style="margin-top: 16px; font-weight: 600; color: var(--blue);">Tourism Marketing SA specializes in exactly this work:</p>
+    <ul style="margin: 12px 0 0 20px; line-height: 1.9; font-size: 14px;">
+      <li><strong>Phase 2+3 Optimization:</strong> We'll generate AI-optimized titles and descriptions (120-160 chars) for all 50 pages</li>
+      <li><strong>Implementation Support:</strong> We provide exact copy recommendations ready to paste into your CMS</li>
+      <li><strong>Strategy Alignment:</strong> Every optimization aligns with your brand voice and business goals</li>
+      <li><strong>Results Tracking:</strong> Monitor CTR improvements and booking impact after implementation</li>
+    </ul>
+
+    <p style="margin-top: 16px; font-weight: 600; color: var(--blue);">Expected Impact:</p>
+    <ul style="margin: 12px 0 0 20px; line-height: 1.9; font-size: 14px;">
+      <li>20-30% increase in search click-through rates</li>
+      <li>Better control over how your business appears in Google search</li>
+      <li>Improved conversion rates from search traffic</li>
+    </ul>
+
+    <p style="margin-top: 18px; font-size: 15px; color: var(--text);"><strong>Contact Tourism Marketing SA today to discuss Phase 2+3 and get your metadata optimized.</strong></p>
+
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=La%20Kruger%20Lifestyle%20Lodge%20-%20SEO%20Phase%202%2B3%20Assistance%20Request" style="display: inline-block; margin-top: 16px; background: linear-gradient(135deg, var(--blue) 0%, #1e40af 100%); color: #fff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 14px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); transition: all 0.2s; letter-spacing: 0.5px;">
+      📧 REQUEST PHASE 2+3 ASSISTANCE
+    </a>
+
+    <p style="margin-top: 12px; font-size: 13px; color: var(--muted);">Your quick win is waiting—let's turn this 98% metadata gap into a competitive advantage.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>La Kruger Lifestyle Lodge | SEO Phase 1 Baseline Report | 28 February 2026 | 49 of 50 pages require optimization</p>
+</div>
+
+</body>
+</html>
