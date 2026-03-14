@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SEO Audit Report – LANDRANI® Luxury Lodge</title>
+  <title>SEO Audit Report - LANDRANI® Luxury Lodge</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
       --green:    #16A34A;
       --amber:    #D97706;
       --red:      #E05A4E;
+      --purple:   #7C3AED;
       --bg:       #f0f2f5;
       --card:     #ffffff;
       --border:   #e4e7eb;
@@ -27,12 +28,12 @@
     html, body { max-width: 100%; overflow-x: hidden; }
     body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
 
-    /* Hero */
+    /* ── HERO ── */
     .hero {
       background: linear-gradient(150deg, rgba(10,10,20,0.80) 0%, rgba(26,18,8,0.76) 55%, rgba(50,35,10,0.72) 100%),
                   url('https://landrani.com/wp-content/uploads/IMG_3464.jpg') center/cover no-repeat;
       border-bottom: 3px solid var(--gold);
-      padding: 72px 48px 60px;
+      padding: 72px 48px 68px;
       color: #fff;
     }
     .hero-inner { max-width: 1200px; margin: 0 auto; }
@@ -45,54 +46,79 @@
     }
     .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
     .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
-    .hero h1 .by-line { font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.70); display: block; margin-top: 6px; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
     .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
     .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
-    .hero-sub { font-size: 1.05rem; font-weight: 400; color: rgba(255,255,255,0.80); margin-bottom: 24px; line-height: 1.5; max-width: 680px; }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
     .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
     .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
 
-    /* KPI grid */
-    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1200px; margin: -28px auto 0; padding: 0 48px; }
-    .kpi { border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 24px 20px 20px; color: #fff; text-align: center; }
-    .kpi.c-blue  { background: var(--blue); }
-    .kpi.c-amber { background: var(--amber); }
-    .kpi.c-green { background: var(--green); }
-    .kpi.c-red   { background: var(--red); }
-    .kpi-num   { font-size: 42px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
-    .kpi-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+    /* ── KPI CARDS (5-up) ── */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
 
-    /* Wrap */
+    /* ── WRAP ── */
     .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
 
-    /* Critical banner */
-    .critical-banner {
+    /* ── CRITICAL ISSUES SECTION ── */
+    .critical-section {
       background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
-      border-radius: var(--radius); padding: 24px 28px; margin: 28px 0 8px;
-      color: #fff; box-shadow: 0 4px 20px rgba(231,76,60,0.28);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
     }
-    .critical-banner h2 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-    .critical-banner h2::before { content: '⚠'; font-size: 16px; }
-    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-    .cstat { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px; text-align: center; }
-    .cstat-num { font-size: 32px; font-weight: 800; line-height: 1; }
-    .cstat-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 4px; }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
 
-    /* Section headings */
+    /* ── SECTION HEADINGS ── */
     .section-head { margin: 40px 0 18px; }
     .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
     .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
 
-    /* Google Ads callout */
+    /* ── GOOGLE ADS CALLOUT ── */
     .ads-callout {
-      background: #fffbf0; border: 1px solid #fcd34d; border-left: 4px solid var(--amber);
-      border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0 0;
-      font-size: 13px; color: #444; line-height: 1.6;
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
     }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
     .ads-callout strong { color: var(--text); }
 
-    /* Issue cards */
+    /* ── ISSUE CARDS ── */
     .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
     .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
     .issue-card.critical { border-top: 4px solid var(--red); }
@@ -101,36 +127,91 @@
     .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
     .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
     .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .issue-card .stat-line { font-size: 28px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
     .issue-card.medium .stat-line { color: var(--amber); }
     .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
-    .issue-card .why { background: #f8f9fa; border-left: 3px solid var(--border); border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; }
-    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
 
-    /* Page table */
-    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 32px; }
+    /* ── TOOLTIPS ── */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* ── PAGE TABLE ── */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
     .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
     .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
-    .page-table td { padding: 11px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: top; line-height: 1.5; }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
     .page-table tr:last-child td { border-bottom: none; }
     .page-table tr:hover td { background: #fafbfc; }
-    .desc-text { font-size: 11px; color: #333; max-width: 260px; }
-    .desc-missing { font-size: 11px; color: #aaa; font-style: italic; }
-    .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
-    .badge.ok      { background: rgba(22,163,74,0.10);  color: var(--green); }
-    .badge.short   { background: rgba(217,119,6,0.10);  color: var(--amber); }
-    .badge.missing { background: rgba(224,90,78,0.10);  color: var(--red); }
-    .badge.critical{ background: rgba(224,90,78,0.10);  color: var(--red); }
-    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); max-width: 180px; word-break: break-all; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
 
-    /* Why SEO matters */
+    /* ── TABLE LEGEND ── */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── WHY IT MATTERS (vector icon cards) ── */
     .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
-    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
-    .explain-icon { font-size: 28px; margin-bottom: 12px; }
-    .explain-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-    .explain-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-    /* CTA */
+    /* ── CTA ── */
     .cta-section {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
       border-radius: var(--radius); padding: 40px 48px; margin: 32px 0;
@@ -145,14 +226,18 @@
       box-shadow: 0 4px 14px rgba(212,165,116,0.35);
     }
 
-    /* Footer */
-    .footer { background: var(--text); color: rgba(255,255,255,0.55); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    /* ── FOOTER ── */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
     .footer strong { color: var(--gold); }
 
-    .spacer { height: 36px; }
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
 
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+    }
     @media (max-width: 768px) {
-      .hero { padding: 48px 20px 40px; }
+      .hero { padding: 48px 20px 52px; }
       .hero h1 { font-size: 24px; }
       .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
       .wrap { padding: 0 20px; }
@@ -165,83 +250,136 @@
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-badge">SEO Audit Report</div>
     <h1>
       LANDRANI® Luxury Lodge
-      <span class="by-line">— SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
     </h1>
-    <p class="hero-sub">Website SEO Health Assessment — landrani.com &nbsp;|&nbsp; Prepared March 2026</p>
+    <p class="hero-sub">Website SEO Health Assessment - landrani.com &nbsp;|&nbsp; Prepared March 2026</p>
     <div class="hero-chips">
       <span class="chip"><strong>8</strong> pages audited</span>
-      <span class="chip"><strong>Klein Karoo</strong> · Oudtshoorn, South Africa</span>
+      <span class="chip"><strong>Klein Karoo</strong> - Oudtshoorn, South Africa</span>
       <span class="chip"><strong>Platform:</strong> WordPress / Divi</span>
       <span class="chip"><strong>Audit date:</strong> 14 March 2026</span>
     </div>
   </div>
 </div>
 
-<!-- KPI CARDS -->
+<!-- ══ KPI CARDS (5-up with vector icons) ══ -->
 <div class="kpi-grid">
+
   <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
     <div class="kpi-num">8</div>
-    <div class="kpi-label">Pages Audited</div>
+    <div class="kpi-label">Pages Crawled</div>
   </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">1</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
   <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
     <div class="kpi-num">7</div>
-    <div class="kpi-label">Pages Need Work</div>
+    <div class="kpi-label">Need Work (87%)</div>
   </div>
+
   <div class="kpi c-amber">
-    <div class="kpi-num">6</div>
-    <div class="kpi-label">Missing H1 Tags</div>
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+      </svg>
+    </div>
+    <div class="kpi-num" style="font-size:22px;margin-top:4px;">140-160</div>
+    <div class="kpi-label">Optimal Desc Length</div>
   </div>
-  <div class="kpi c-red">
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
     <div class="kpi-num">44%</div>
-    <div class="kpi-label">SEO Health Score</div>
+    <div class="kpi-label">Health Score</div>
   </div>
+
 </div>
 
-<div class="spacer"></div>
+<div class="spacer-lg"></div>
 
 <div class="wrap">
 
-  <!-- CRITICAL BANNER -->
-  <div class="critical-banner">
-    <h2>Critical Issues Detected Across landrani.com</h2>
+  <!-- ══ CRITICAL ISSUES SECTION ══ -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified</h2>
+    </div>
+
     <div class="critical-stats">
       <div class="cstat">
         <div class="cstat-num">6</div>
-        <div class="cstat-lbl">Pages Missing H1</div>
-      </div>
-      <div class="cstat">
-        <div class="cstat-num">7</div>
-        <div class="cstat-lbl">Weak or Missing Descriptions</div>
-      </div>
-      <div class="cstat">
-        <div class="cstat-num">8</div>
-        <div class="cstat-lbl">Titles Under 60 Chars</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
       </div>
       <div class="cstat">
         <div class="cstat-num">1</div>
-        <div class="cstat-lbl">Broken Slug</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
       </div>
+      <div class="cstat">
+        <div class="cstat-num">6</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">8/8</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
+      </div>
+    </div>
+
+    <div class="critical-impact">
+      <strong>Impact:</strong> 7 of 8 pages on landrani.com are not displaying optimally in Google search results. Page titles are too short to rank competitively, meta descriptions are either missing or too short to drive clicks, and 6 pages have no H1 heading at all - the primary signal Google uses to understand what a page is about. These issues directly reduce click-through rates and organic visibility across all your key pages.
     </div>
   </div>
 
-  <!-- TOP 3 ISSUES -->
+  <!-- ══ TOP 3 KEY ISSUES ══ -->
   <div class="section-head">
     <h2>Top 3 Key Issues</h2>
-    <p>Ranked by SEO impact — fixing these will deliver the most immediate improvement in Google visibility.</p>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
     <div class="ads-callout">
-      <strong>Running Google Ads?</strong> Every rand you spend on Google Ads drives people to your website — but if the pages they land on have poor SEO, you're paying more per click than you should. Google's Quality Score (which directly affects your cost-per-click) is partly determined by on-page relevance signals like H1 tags, meta descriptions, and page structure. Fix the SEO, and your ads get cheaper. Beyond paid search, good SEO builds <strong>indefinite organic visibility</strong> — unlike Google Ads, which disappears the moment you pause your budget. Investing in SEO compounds over time and reduces your long-term dependence on paid clicks.
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. When you invest in Google Ads, every click costs money - and Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, is partly calculated from the relevance and quality of your landing pages. Pages without H1 headings, with thin meta descriptions, and short titles score lower - meaning you pay <strong>more per click</strong> for the same keywords than a competitor with well-optimised pages.
+      <br><br>
+      Beyond reducing your ad costs, SEO builds something Google Ads cannot: <strong>lasting organic visibility</strong>. The moment you pause your Google Ads budget, your visibility disappears. But a well-optimised page earns organic rankings that persist for months or years with no ongoing spend. Investing in SEO alongside your ads is not just smart - it protects the return on every rand you are already spending, and creates a second channel that compounds over time.
     </div>
   </div>
 
   <div class="issue-grid">
 
-    <!-- Issue 1 -->
     <div class="issue-card critical">
       <span class="issue-priority critical">Critical</span>
       <div class="stat-line">75%</div>
@@ -249,40 +387,38 @@
       <p>6 of 8 pages have no H1 tag at all. Only the homepage and privacy policy include one.</p>
       <div class="why">
         <strong>Why it matters</strong>
-        H1 tags are the primary on-page signal Google uses to understand what a page is about. Without an H1, Google must guess — and often ranks the wrong keyword (or none at all). For luxury accommodation, every page needs a clear H1 that includes location and category keywords.
+        H1 tags are the primary on-page signal Google uses to understand what a page is about. Without an H1, Google must guess - and often ranks the wrong keyword or none at all. For luxury accommodation, every page needs a clear H1 that includes location and category keywords.
       </div>
     </div>
 
-    <!-- Issue 2 -->
     <div class="issue-card critical">
       <span class="issue-priority critical">Critical</span>
       <div class="stat-line">87%</div>
       <h3>Meta Descriptions Too Short or Missing</h3>
-      <p>7 of 8 pages have descriptions outside the optimal 140–160 character range, or missing entirely.</p>
+      <p>7 of 8 pages have descriptions outside the optimal 140-160 character range, or missing entirely.</p>
       <div class="why">
         <strong>Why it matters</strong>
-        Meta descriptions are the single line of text that appears in Google search results below your page title. A short or missing description means Google writes its own — often pulling random body text that doesn't sell the property. Compelling descriptions directly increase click-through rates by 15–30%.
+        Meta descriptions are the line of text that appears in Google search results below your page title. A short or missing description means Google writes its own - often pulling random body text that does not sell the property. Compelling descriptions directly increase click-through rates by 15-30%.
       </div>
     </div>
 
-    <!-- Issue 3 -->
     <div class="issue-card medium">
       <span class="issue-priority medium">Medium</span>
       <div class="stat-line">1</div>
-      <h3>Broken URL Slug — Contact Page</h3>
-      <p>The Contact page URL is <code style="font-size:11px;background:#f0f2f5;padding:2px 5px;border-radius:3px;">/swap-the-busy-city-life/</code> — a creative tagline, not a keyword.</p>
+      <h3>Broken URL Slug - Contact Page</h3>
+      <p>The Contact page URL is <code style="font-size:11px;background:#f0f2f5;padding:2px 5px;border-radius:3px;">/swap-the-busy-city-life/</code> - a creative tagline, not a keyword.</p>
       <div class="why">
         <strong>Why it matters</strong>
-        URL slugs are a ranking signal. When someone searches "LANDRANI contact" or "book Oudtshoorn lodge", Google looks at the URL for relevance. A slug like <em>/swap-the-busy-city-life/</em> signals nothing to Google about the page's purpose, wasting a ranking opportunity.
+        URL slugs are a ranking signal. When someone searches "LANDRANI contact" or "book Oudtshoorn lodge", Google checks the URL for relevance. A slug like /swap-the-busy-city-life/ signals nothing about the page's purpose, wasting a direct ranking opportunity.
       </div>
     </div>
 
   </div>
 
-  <!-- PAGE-BY-PAGE TABLE -->
+  <!-- ══ PAGE-BY-PAGE TABLE ══ -->
   <div class="section-head">
     <h2>Page-by-Page Breakdown</h2>
-    <p>Full audit of all 8 pages — title length, full meta description, H1 status, and slug quality.</p>
+    <p>Full audit of all 8 pages - hover over any indicator for details on what it means and what the ideal is.</p>
   </div>
 
   <div class="page-table">
@@ -291,7 +427,7 @@
         <tr>
           <th>#</th>
           <th>Page</th>
-          <th>Title</th>
+          <th>Title (current)</th>
           <th>Title Len</th>
           <th>Meta Description (current)</th>
           <th>Desc Len</th>
@@ -300,131 +436,219 @@
         </tr>
       </thead>
       <tbody>
+
         <tr>
           <td>1</td>
           <td class="url-cell">Homepage</td>
           <td style="font-size:12px;">Luxurious Lodge Accommodation - LANDRANI®</td>
-          <td><span class="badge critical">41 ✗</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 41 characters. Ideal page titles are 60-65 characters. Short titles give Google less context and rank fewer keyword variations. Aim for a descriptive title that includes your location and key offering.">41 ✗</span>
+          </td>
           <td><span class="desc-text">Your getaway to deluxe tranquility in the Klein Karoo. Stay in a designer cabin, soak in the hot tub under the stars, savour sweeping mountain views.</span></td>
-          <td><span class="badge ok">152 ✓</span></td>
-          <td><span class="badge ok">✓</span></td>
+          <td>
+            <span class="badge ok" data-tip="152 characters - within the ideal 140-160 character range. Google displays this description in full in search results. Well done.">152 ✓</span>
+          </td>
+          <td>
+            <span class="badge ok" data-tip="H1 heading is present. Google uses the H1 as the primary signal for understanding what a page is about. This page is correctly set up.">✓</span>
+          </td>
           <td><span class="badge ok">/</span></td>
         </tr>
+
         <tr>
           <td>2</td>
           <td class="url-cell">/luxury-cabins/</td>
           <td style="font-size:12px;">Designer Cabins - LANDRANI®</td>
-          <td><span class="badge critical">27 ✗</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 27 characters. Ideal page titles are 60-65 characters. This title is far too short - it gives Google very little to rank on and will not attract clicks in search results. A stronger title would include cabin type, location, and a key benefit.">27 ✗</span>
+          </td>
           <td><span class="desc-text">Experience luxury lodge accommodation with our 9 enchanting cabins, designed in the spirit of idyllic island resorts.</span></td>
-          <td><span class="badge short">118 ⚠</span></td>
-          <td><span class="badge missing">✗</span></td>
-          <td><span class="badge ok">/luxury-cabins/</span></td>
+          <td>
+            <span class="badge warn" data-tip="118 characters - too short. Ideal is 140-160 characters. Descriptions under 140 chars leave unused space in Google search results. A longer, benefit-driven description will attract more clicks.">118 ⚠</span>
+          </td>
+          <td>
+            <span class="badge bad" data-tip="No H1 heading found on this page. The H1 is Google's primary on-page ranking signal. Without it, Google must guess what this page is about and will likely under-rank it for key search terms like 'luxury cabins Oudtshoorn'.">✗</span>
+          </td>
+          <td><span class="badge ok" style="font-size:10px;">/luxury-cabins/</span></td>
         </tr>
+
         <tr>
           <td>3</td>
           <td class="url-cell">/luxury-cabins-hot-tub/</td>
           <td style="font-size:12px;">Designer Cabins With Hot Tubs - LANDRANI®</td>
-          <td><span class="badge critical">41 ✗</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 41 characters. Ideal page titles are 60-65 characters. Adding a location keyword such as 'Klein Karoo' or 'Oudtshoorn' would strengthen this title significantly and help it rank in location-based searches.">41 ✗</span>
+          </td>
           <td><span class="desc-text">Experience luxury lodge accommodation with our 9 designer cabins (4 with hot tubs), designed in the spirit of idyllic island resorts.</span></td>
-          <td><span class="badge short">133 ⚠</span></td>
-          <td><span class="badge missing">✗</span></td>
-          <td><span class="badge ok">/luxury-cabins-hot-tub/</span></td>
+          <td>
+            <span class="badge warn" data-tip="133 characters - slightly short. Ideal is 140-160 characters. You are close - adding one more benefit phrase or a call to action would bring this into the optimal range.">133 ⚠</span>
+          </td>
+          <td>
+            <span class="badge bad" data-tip="No H1 heading found on this page. The H1 is Google's primary on-page ranking signal. A clear H1 like 'Hot Tub Cabins in Oudtshoorn - LANDRANI® Luxury Lodge' would directly improve rankings for hot tub accommodation searches.">✗</span>
+          </td>
+          <td><span class="badge ok" style="font-size:10px;">/luxury-cabins-hot-tub/</span></td>
         </tr>
+
         <tr>
           <td>4</td>
           <td class="url-cell">/dining/</td>
           <td style="font-size:12px;">Dining - LANDRANI®</td>
-          <td><span class="badge critical">18 ✗</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 18 characters - critically short. Ideal is 60-65 characters. A single-word title like 'Dining' gives Google almost nothing to rank on. A title like 'Farm-to-Table Dining and Lamb Meals - LANDRANI® Oudtshoorn' would rank far more effectively.">18 ✗</span>
+          </td>
           <td><span class="desc-text">We offer several convenient meal options to make your stay even more enjoyable.</span></td>
-          <td><span class="badge short">79 ⚠</span></td>
-          <td><span class="badge missing">✗</span></td>
+          <td>
+            <span class="badge warn" data-tip="79 characters - too short. Ideal is 140-160 characters. This description is less than half the recommended length. It leaves most of the available search result space empty and does not include any keywords or compelling reasons to click.">79 ⚠</span>
+          </td>
+          <td>
+            <span class="badge bad" data-tip="No H1 heading found on this page. Without an H1, Google has no clear signal for what this page offers. A heading like 'Dining Options at LANDRANI® Luxury Lodge' would improve both rankings and user experience.">✗</span>
+          </td>
           <td><span class="badge ok">/dining/</span></td>
         </tr>
+
         <tr>
           <td>5</td>
           <td class="url-cell">/included-activities/</td>
           <td style="font-size:12px;">Included Activities - LANDRANI®</td>
-          <td><span class="badge critical">31 ✗</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 31 characters. Ideal is 60-65 characters. Expanding this to include the location and types of activities (e.g. 'Wildlife, Hiking and Lodge Activities at LANDRANI® Klein Karoo') would help it appear in activity-based searches.">31 ✗</span>
+          </td>
           <td><span class="desc-text">Experiences you can enjoy at LANDRANI® Luxury Lodge.</span></td>
-          <td><span class="badge short">52 ⚠</span></td>
-          <td><span class="badge missing">✗</span></td>
-          <td><span class="badge ok">/included-activities/</span></td>
+          <td>
+            <span class="badge warn" data-tip="52 characters - very short. Ideal is 140-160 characters. At less than a third of the recommended length, this description is unlikely to attract clicks. It should describe specific activities available and include location keywords.">52 ⚠</span>
+          </td>
+          <td>
+            <span class="badge bad" data-tip="No H1 heading found on this page. A clear H1 describing the activities (e.g. 'Things to Do at LANDRANI® Luxury Lodge, Oudtshoorn') would directly improve Google rankings for activity and experience searches.">✗</span>
+          </td>
+          <td><span class="badge ok" style="font-size:10px;">/included-activities/</span></td>
         </tr>
+
         <tr>
           <td>6</td>
           <td class="url-cell">/experience-landrani/</td>
           <td style="font-size:12px;">Experience Landrani - LANDRANI®</td>
-          <td><span class="badge critical">31 ✗</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 31 characters. Ideal is 60-65 characters. A title like 'Photo Gallery - LANDRANI® Luxury Lodge, Klein Karoo' would help this page surface in image and experience searches.">31 ✗</span>
+          </td>
           <td><span class="desc-text">Experience LANDRANI. Let this hospitable place be your "Home away from home".</span></td>
-          <td><span class="badge short">77 ⚠</span></td>
-          <td><span class="badge missing">✗</span></td>
-          <td><span class="badge ok">/experience-landrani/</span></td>
+          <td>
+            <span class="badge warn" data-tip="77 characters - too short. Ideal is 140-160 characters. This description reads as a tagline rather than a searchable summary. It should describe what visitors will see or experience and include relevant keywords.">77 ⚠</span>
+          </td>
+          <td>
+            <span class="badge bad" data-tip="No H1 heading found on this page. Without an H1, Google cannot determine the page's primary topic. An H1 like 'LANDRANI® Luxury Lodge Gallery - Klein Karoo' would help it rank for visual and gallery searches.">✗</span>
+          </td>
+          <td><span class="badge ok" style="font-size:10px;">/experience-landrani/</span></td>
         </tr>
+
         <tr>
           <td>7</td>
           <td class="url-cell">/swap-the-busy-city-life/</td>
           <td style="font-size:12px;">Contact Us - LANDRANI®</td>
-          <td><span class="badge critical">22 ✗</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 22 characters. Ideal is 60-65 characters. A more descriptive title like 'Contact LANDRANI® Luxury Lodge - Book Your Stay in Oudtshoorn' would perform significantly better in search.">22 ✗</span>
+          </td>
           <td><span class="desc-text">Swap the busy city life for a magical retreat to LANDRANI® Luxury Lodge. We look forward to welcoming you to a luxurious stay with us.</span></td>
-          <td><span class="badge short">134 ⚠</span></td>
-          <td><span class="badge missing">✗</span></td>
-          <td><span class="badge missing">⚠ Non-keyword</span></td>
+          <td>
+            <span class="badge warn" data-tip="134 characters - just below the ideal range of 140-160 characters. Adding a short phrase such as 'Contact us to book.' would bring this into the optimal range.">134 ⚠</span>
+          </td>
+          <td>
+            <span class="badge bad" data-tip="No H1 heading found on this page. A contact page H1 like 'Book Your Stay at LANDRANI® - Contact Us' would improve both usability and ranking signals.">✗</span>
+          </td>
+          <td>
+            <span class="badge bad" data-tip="The URL /swap-the-busy-city-life/ contains no keywords relevant to a contact or booking page. Google uses URL slugs as a ranking signal. A URL like /contact/ or /book-oudtshoorn-lodge/ would be far more effective.">⚠ Non-keyword slug</span>
+          </td>
         </tr>
+
         <tr>
           <td>8</td>
           <td class="url-cell">/privacy-policy/</td>
           <td style="font-size:12px;">Privacy Policy - LANDRANI®</td>
-          <td><span class="badge critical">26 ✗</span></td>
-          <td><span class="desc-missing">— not set —</span></td>
-          <td><span class="badge missing">0 ✗</span></td>
-          <td><span class="badge ok">✓</span></td>
-          <td><span class="badge ok">/privacy-policy/</span></td>
+          <td>
+            <span class="badge bad" data-tip="Title is 26 characters. Ideal is 60-65 characters. Privacy policy pages are lower priority for SEO, but the title still contributes to overall site quality signals.">26 ✗</span>
+          </td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td>
+            <span class="badge bad" data-tip="No meta description is set on this page. Google will auto-generate one from page content - usually a poor quality snippet that does not represent the page well. Even a basic description should be added.">0 ✗</span>
+          </td>
+          <td>
+            <span class="badge ok" data-tip="H1 heading is present on this page.">✓</span>
+          </td>
+          <td><span class="badge ok" style="font-size:10px;">/privacy-policy/</span></td>
         </tr>
+
       </tbody>
     </table>
   </div>
 
-  <!-- Legend -->
-  <p style="font-size:11px;color:var(--muted);margin:-20px 0 32px;padding:0 2px;">
-    <strong>Title length:</strong> ✗ = under 60 characters (needs improvement) &nbsp;|&nbsp;
-    <strong>Desc length:</strong> ✓ = 140–160 chars (optimal) · ⚠ = outside range · ✗ = missing &nbsp;|&nbsp;
-    <strong>H1:</strong> ✓ = present · ✗ = missing
-  </p>
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title ideal: 60-65 chars &nbsp;|&nbsp; Description ideal: 140-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
 
-  <!-- WHY SEO MATTERS -->
+  <!-- ══ WHY IT MATTERS ══ -->
   <div class="section-head">
     <h2>Why This Matters for LANDRANI®</h2>
-    <p>Organic search and AI visibility are increasingly important channels for luxury accommodation — here's what's at stake.</p>
+    <p>Organic search and AI visibility are increasingly important channels for luxury accommodation.</p>
   </div>
 
   <div class="explain-grid">
+
     <div class="explain-card">
-      <div class="explain-icon">🔍</div>
-      <h3>Google Search — Your Highest-Intent Channel</h3>
-      <p>People searching "luxury lodge Oudtshoorn" or "Klein Karoo accommodation with hot tub" are actively looking to book — not casually browsing. But if your pages lack H1s and have thin descriptions, Google won't rank them competitively. You're leaving high-intent traffic to competitors who have spent 30 minutes fixing their metadata.</p>
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>People searching "luxury lodge Oudtshoorn" or "Klein Karoo accommodation with hot tub" are actively looking to book. If your pages lack H1s and have thin descriptions, Google will not rank them competitively - leaving high-intent traffic to competitors who have spent 30 minutes fixing their metadata.</p>
+      </div>
     </div>
+
     <div class="explain-card">
-      <div class="explain-icon">🤖</div>
-      <h3>ChatGPT &amp; AI Search — The New Discovery Channel</h3>
-      <p>When someone asks ChatGPT or Perplexity "what are the best luxury lodges near Oudtshoorn?", the AI reads your website to decide whether to mention LANDRANI®. Clear H1s, well-structured descriptions, and strong on-page signals dramatically increase the chance your lodge is cited in AI-generated answers — a channel growing faster than traditional SEO.</p>
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks ChatGPT or Perplexity "what are the best luxury lodges near Oudtshoorn?", the AI reads your website to decide whether to mention LANDRANI®. Clear H1s, well-structured descriptions, and strong on-page signals dramatically increase the chance your lodge is cited in AI-generated answers.</p>
+      </div>
     </div>
+
     <div class="explain-card">
-      <div class="explain-icon">📈</div>
-      <h3>Google Ads Gets More Expensive Without Good SEO</h3>
-      <p>If you're running Google Ads, Google's Quality Score partly depends on landing page relevance — which includes H1s and metadata. Poor on-page SEO means higher cost-per-click for the same ads. Good SEO and good ads compound: the organic traffic you earn reduces your reliance on paid clicks and improves your overall cost of acquisition.</p>
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>Google's Quality Score - which sets your cost-per-click - is partly determined by landing page relevance, including H1s and metadata. Poor on-page SEO means higher ad costs for the same keywords. Fix the SEO and your ads get cheaper, while organic traffic compounds in the background at no extra cost.</p>
+      </div>
     </div>
+
     <div class="explain-card">
-      <div class="explain-icon">⭐</div>
-      <h3>You Have the Reviews — But Google Can't Find You</h3>
-      <p>LANDRANI® is rated #1 in Oudtshoorn on TripAdvisor with a 97% Booking.com score. That's exceptional social proof — but it lives behind third-party platforms. Better on-site SEO ensures that same trust and authority transfers to your own website, so you capture more direct bookings (higher margin, no OTA commission) through Google search.</p>
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>You Have the Reviews - But Google Can't Find You</h3>
+        <p>LANDRANI® is rated #1 in Oudtshoorn on TripAdvisor with a 97% Booking.com score. That is exceptional social proof - but it lives on third-party platforms. Better on-site SEO transfers that authority to your own website, driving more direct bookings with no OTA commission.</p>
+      </div>
     </div>
+
   </div>
 
-  <!-- CTA -->
+  <!-- ══ CTA ══ -->
   <div class="cta-section">
     <h2>Ready to Fix These Issues?</h2>
-    <p>Our SEO team can implement all the improvements for LANDRANI® and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6–8 weeks.</p>
-    <a href="mailto:jacques@tourismmarketing.co.za?subject=Please%20assist%20with%20SEO%20Audit%20for%20LANDRANI%C2%AE%20Luxury%20Lodge" class="cta-btn">Get in Touch →</a>
+    <p>Our SEO team can implement all the improvements for LANDRANI® and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=Please%20assist%20with%20SEO%20Audit%20for%20LANDRANI%C2%AE%20Luxury%20Lodge" class="cta-btn">Get in Touch</a>
   </div>
 
 </div><!-- /wrap -->
