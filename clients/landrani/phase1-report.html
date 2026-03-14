@@ -30,7 +30,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(150deg, rgba(10,10,20,0.80) 0%, rgba(26,18,8,0.76) 55%, rgba(50,35,10,0.72) 100%),
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
                   url('https://landrani.com/wp-content/uploads/IMG_3464.jpg') center/cover no-repeat;
       border-bottom: 3px solid var(--gold);
       padding: 72px 48px 68px;
@@ -56,7 +56,7 @@
 
     /* ── KPI CARDS (5-up) ── */
     .kpi-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
       max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
     }
     .kpi {
@@ -213,18 +213,23 @@
 
     /* ── CTA ── */
     .cta-section {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
-      border-radius: var(--radius); padding: 40px 48px; margin: 32px 0;
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
       color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
     }
-    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 10px; }
-    .cta-section p  { font-size: 15px; color: rgba(255,255,255,0.72); max-width: 560px; margin: 0 auto 28px; line-height: 1.6; }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
     .cta-btn {
-      display: inline-block; background: var(--gold); color: #1a1a2e;
-      font-weight: 700; font-size: 14px; letter-spacing: 0.5px;
-      padding: 14px 36px; border-radius: 8px; text-decoration: none;
-      box-shadow: 0 4px 14px rgba(212,165,116,0.35);
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
 
     /* ── FOOTER ── */
     .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
@@ -234,7 +239,7 @@
     .spacer-sm { height: 24px; }
 
     @media (max-width: 900px) {
-      .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .hero { padding: 48px 20px 52px; }
@@ -299,16 +304,6 @@
     </div>
     <div class="kpi-num">7</div>
     <div class="kpi-label">Need Work (87%)</div>
-  </div>
-
-  <div class="kpi c-amber">
-    <div class="kpi-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
-      </svg>
-    </div>
-    <div class="kpi-num" style="font-size:22px;margin-top:4px;">140-160</div>
-    <div class="kpi-label">Optimal Desc Length</div>
   </div>
 
   <div class="kpi c-purple">
@@ -648,13 +643,13 @@
   <div class="cta-section">
     <h2>Ready to Fix These Issues?</h2>
     <p>Our SEO team can implement all the improvements for LANDRANI® and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
-    <a href="mailto:jacques@tourismmarketing.co.za?subject=Please%20assist%20with%20SEO%20Audit%20for%20LANDRANI%C2%AE%20Luxury%20Lodge" class="cta-btn">Get in Touch</a>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=Please%20assist%20with%20SEO%20Audit%20for%20LANDRANI%C2%AE%20Luxury%20Lodge" class="cta-btn">Get in Touch - Let's Fix This</a>
   </div>
 
 </div><!-- /wrap -->
 
 <div class="footer">
-  <strong>TourismMarketing.co.za</strong> &nbsp;·&nbsp; SEO Audit for LANDRANI® Luxury Lodge &nbsp;·&nbsp; March 2026<br>
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for LANDRANI® Luxury Lodge &nbsp;·&nbsp; March 2026<br>
   <span style="margin-top:6px;display:block;">This report was generated from a live crawl of landrani.com conducted on 14 March 2026.</span>
 </div>
 
