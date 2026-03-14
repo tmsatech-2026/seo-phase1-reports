@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Les Chambres Guesthouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* -- HERO -- */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://b-cdn.springnest.com/media/img/sr/les_chambres_29e4f1181.jpg?crop=7008%2C4332%2C0%2C337&width=1600') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* -- KPI CARDS (4-up) -- */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* -- WRAP -- */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* -- CRITICAL ISSUES SECTION -- */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* -- SECTION HEADINGS -- */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* -- GOOGLE ADS CALLOUT -- */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* -- ISSUE CARDS -- */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* -- TOOLTIPS -- */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* -- PAGE TABLE -- */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+
+    /* -- TABLE LEGEND -- */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* -- WHY IT MATTERS (vector icon cards) -- */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* -- CTA -- */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* -- FOOTER -- */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- == HERO == -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Les Chambres Guesthouse
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - leschambres.co.za &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>16</strong> pages audited</span>
+      <span class="chip"><strong>Franschhoek, Western Cape</strong></span>
+      <span class="chip"><strong>Platform:</strong> Springnest</span>
+      <span class="chip"><strong>Audit date:</strong> 14 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- == KPI CARDS == -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">16</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">4</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">12</div>
+    <div class="kpi-label">Need Work (75%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num">60%</div>
+    <div class="kpi-label">Health Score · Needs Work</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- == CRITICAL ISSUES SECTION == -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - leschambres.co.za</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">3</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">16/16</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
+      </div>
+    </div>
+
+    <div class="critical-impact">
+      <strong>Impact:</strong> Every single one of the 16 pages on leschambres.co.za has a page title that is too short to rank competitively in Google. 3 pages have no meta description at all - Google will write its own copy for these, typically pulling unhelpful body text that fails to attract clicks. A further 13 pages have descriptions that far exceed 160 characters and will be visibly truncated in search results. Taken together, these issues suppress visibility and reduce click-through rates across the entire site - from the homepage to each room page.
+    </div>
+  </div>
+
+  <!-- == TOP 3 KEY ISSUES == -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. When you invest in Google Ads, every click costs money - and Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, is partly calculated from the relevance and quality of your landing pages. Pages with titles that are too short and descriptions that are either missing or truncated score lower - meaning you pay <strong>more per click</strong> for the same keywords than a competitor with well-optimised pages.
+      <br><br>
+      Beyond reducing your ad costs, SEO builds something Google Ads cannot: <strong>lasting organic visibility</strong>. The moment you pause your Google Ads budget, your visibility disappears. But a well-optimised page earns organic rankings that persist for months or years with no ongoing spend. Investing in SEO alongside your ads is not just smart - it protects the return on every rand you are already spending, and creates a second channel that compounds over time.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">16/16</div>
+      <h3>All Page Titles Too Short</h3>
+      <p>Every page on leschambres.co.za has a title under 60 characters - the minimum needed for Google to rank a page competitively. Not a single page meets the threshold.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Page titles are the single most important on-page SEO signal. They appear as the blue link in Google search results and tell Google what the page is about. Titles under 60 characters leave valuable keyword space unused - a Franschhoek competitor with a 62-character title beats your 35-character title every time for local accommodation searches.
+      </div>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">3 MISSING</div>
+      <h3>Meta Descriptions Completely Missing</h3>
+      <p>The Contact, Guest Reviews, and Privacy pages have no meta description at all. Google will auto-generate copy for these - usually pulling random body text that does not sell the property.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Meta descriptions are the line of text that appears below your page title in Google search results. When missing, Google writes its own - often pulling unhelpful fragments like navigation labels or cookie consent text. A well-crafted description for your Contact page alone can increase booking enquiry click-throughs by 15-25%.
+      </div>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">13/16</div>
+      <h3>Descriptions Too Long - Google Truncates Them</h3>
+      <p>13 of the 16 pages have meta descriptions that far exceed the 160-character limit. Google cuts these off mid-sentence in search results, leaving a broken, unfinished message for potential guests.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        When a description is truncated, the sentence ends abruptly with an ellipsis (...) in search results. This makes the listing look unpolished and reduces the chance that a searcher clicks through. The room descriptions on leschambres.co.za are detailed and well-written - they just need to be trimmed to a punchy 140-160 character summary that encourages the click.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- == PAGE-BY-PAGE TABLE == -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 16 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+          <th>Slug</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>1</td>
+          <td class="url-cell">/</td>
+          <td style="font-size:12px;">Les Chambres Guesthouse Franschhoek</td>
+          <td><span class="badge bad" data-tip="Title is 35 characters. Ideal page titles are 60-65 characters. The homepage title should lead with location and accommodation type - e.g. 'Les Chambres Guesthouse - Luxury Boutique Accommodation Franschhoek' (66 chars).">35 ✗</span></td>
+          <td><span class="desc-text">Les Chambres Guesthouse is situated just off the main road in Franschhoek, our guests can enjoy walking from the guesthouse to the main road...</span></td>
+          <td><span class="badge warn" data-tip="~325 characters - well over the 160-character ideal. Google will truncate this in search results. Trim to a 140-160 character summary highlighting the 2-minute walk to Franschhoek's restaurants and the tranquil garden setting.">~325 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Les Chambres Guesthouse Franschhoek'">✓</span></td>
+          <td><span class="badge ok">/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="url-cell">/collections/accommodation-2/</td>
+          <td style="font-size:12px;">Rooms and Accommodation - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 49 characters. Ideal is 60-65 characters. Consider 'Luxury Rooms and Suites - Les Chambres Guesthouse Franschhoek' (59 chars) to target the right keywords.">49 ✗</span></td>
+          <td><span class="desc-text">The intimate atmosphere of our 7-room guesthouse allows us to provide personalised customer service. The four Superior King suites pay homage...</span></td>
+          <td><span class="badge warn" data-tip="~618 characters - far over the 160-character limit. This description reads like the full page copy rather than a search snippet. Write a focused 140-160 character summary of the suite range and Franschhoek setting.">~618 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Rooms and Accommodation'">✓</span></td>
+          <td><span class="badge warn" data-tip="The URL slug '/collections/accommodation-2/' includes an unnecessary '-2' suffix that serves no SEO purpose. Ideal: '/accommodation/' or '/rooms-and-suites/'.">⚠ slug</span></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="url-cell">/rooms/superior-king-suite-1/</td>
+          <td style="font-size:12px;">Superior King Suite 1 - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 47 characters. Ideal is 60-65 characters. Consider 'Superior King Suite - Les Chambres Guesthouse Franschhoek' (56 chars) or add a key feature like 'pool view'.">47 ✗</span></td>
+          <td><span class="desc-text">Our luxuriously appointed Superior King Suite 1 offers fantastic accommodations. You'll relax in an inviting king-size bed, a separate bathroom...</span></td>
+          <td><span class="badge warn" data-tip="~328 characters - over the 160-character limit. Trim to a 140-160 character summary that highlights the Nespresso, Africology toiletries and the beige-and-maroon decor.">~328 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Superior King Suite 1'">✓</span></td>
+          <td><span class="badge ok">/rooms/superior-king-suite-1/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="url-cell">/rooms/superior-king-suite-2/</td>
+          <td style="font-size:12px;">Superior King Suite 2 - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 47 characters. Ideal is 60-65 characters. Add a differentiating feature - e.g. 'Superior King Suite with Garden View - Les Chambres' (52 chars) - or include Franschhoek.">47 ✗</span></td>
+          <td><span class="desc-text">Our luxuriously appointed Superior King Suite 2 offers fantastic accommodations. You'll relax in an inviting king-size bed and a separate bathroom...</span></td>
+          <td><span class="badge warn" data-tip="~342 characters - over the 160-character limit. Trim to highlight the garden and pool view, king-size bed and Africology amenities in 140-160 characters.">~342 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Superior King Suite 2'">✓</span></td>
+          <td><span class="badge ok">/rooms/superior-king-suite-2/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td class="url-cell">/rooms/superior-king-twin-suite-3/</td>
+          <td style="font-size:12px;">Superior King / Twin Suite 3 - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 54 characters. Ideal is 60-65 characters. Close - just 6 characters short. Add 'Franschhoek' to reach the target: 'Superior King Twin Suite 3 - Les Chambres Franschhoek' (53 chars) - or include 'Private Courtyard'.">54 ✗</span></td>
+          <td><span class="desc-text">Our luxuriously appointed Superior King Suite 3 offers fantastic accommodation. You can relax in an inviting king-size bed, which can also be converted...</span></td>
+          <td><span class="badge warn" data-tip="~451 characters - far over the 160-character limit. Trim to a focused 140-160 character summary. Note: includes a note about the Jacuzzi being removed Sep 2026 - this should be removed from the meta description.">~451 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Superior King / Twin Suite 3'">✓</span></td>
+          <td><span class="badge ok">/rooms/superior-king-twin-suite-3/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td class="url-cell">/rooms/superior-king-twin-suite-4/</td>
+          <td style="font-size:12px;">Superior King / Twin Suite 4 - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 54 characters. Ideal is 60-65 characters. Just 6 characters short. Adding 'Franschhoek' or a feature phrase will bring this to the optimal range.">54 ✗</span></td>
+          <td><span class="desc-text">Our luxuriously appointed Superior King Suite 4 offers fantastic accommodation. You can relax in an inviting king-size bed, which can also be converted...</span></td>
+          <td><span class="badge warn" data-tip="~447 characters - far over the 160-character limit. Also includes the Jacuzzi removal note which should not appear in the meta description shown to searchers.">~447 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Superior King / Twin Suite 4'">✓</span></td>
+          <td><span class="badge ok">/rooms/superior-king-twin-suite-4/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td class="url-cell">/rooms/2-bedroom-classic-suite/</td>
+          <td style="font-size:12px;">Junior Suite 1 - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 40 characters. Ideal is 60-65 characters. Consider 'Junior Suite 1 - Boutique Guesthouse Franschhoek | Les Chambres' (61 chars) or similar.">40 ✗</span></td>
+          <td><span class="desc-text">Luxuriously appointed, our Junior Suite 1 (25m2) on the first floor provides cosy accommodation under the eaves. The room has a bedroom with seating area...</span></td>
+          <td><span class="badge warn" data-tip="~477 characters - far over the 160-character limit. Trim to highlight the loft feel, king-size bed, steep-stair access note and the beige-gold-blue decor in 140-160 characters.">~477 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Junior Suite 1'">✓</span></td>
+          <td><span class="badge warn" data-tip="The URL slug '/rooms/2-bedroom-classic-suite/' does not match the page name 'Junior Suite 1' and references a '2-bedroom' category that no longer applies. Ideal: '/rooms/junior-suite-1/'">⚠ mismatch</span></td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td class="url-cell">/rooms/junior-suite-2/</td>
+          <td style="font-size:12px;">Junior Suite 2 - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 40 characters. Ideal is 60-65 characters. Consider 'Junior Suite 2 - Loft Room at Les Chambres Guesthouse Franschhoek' (63 chars).">40 ✗</span></td>
+          <td><span class="desc-text">Luxuriously appointed, our Junior Suite 2 (25m2) on the first floor provides lovely accommodation. A beautiful loft suite under the eaves with a separate bathroom...</span></td>
+          <td><span class="badge warn" data-tip="~369 characters - over the 160-character limit. Trim to a 140-160 character summary of the loft character, king-size bed and beige-gold-blue-green decor.">~369 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Junior Suite 2'">✓</span></td>
+          <td><span class="badge ok">/rooms/junior-suite-2/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td class="url-cell">/rooms/full-booking-terms-and-conditions/</td>
+          <td style="font-size:12px;">Full Booking Terms and Conditions - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 59 characters - just 1 character short of the 60-character threshold. The easiest fix on the site: add a comma or abbreviation to push it to 60+.">59 ✗</span></td>
+          <td><span class="desc-text">BOOKING CONDITIONS - Included in the Bed and Breakfast rate: 15% VAT, Breakfast each morning 08:00-10:00, Use of the swimming pool, Free parking...</span></td>
+          <td><span class="badge warn" data-tip="~235 characters - over the 160-character limit. A booking terms page description should be a concise one-liner about the cancellation policy and check-in window, not a list of inclusions.">~235 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Full Booking Terms and Conditions'">✓</span></td>
+          <td><span class="badge warn" data-tip="The slug '/rooms/full-booking-terms-and-conditions/' sits under the /rooms/ path, which implies it is a room page. Booking terms should live at '/booking-terms/' or '/terms-and-conditions/'.">⚠ wrong path</span></td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td class="url-cell">/rooms/owners-cottage/</td>
+          <td style="font-size:12px;">Owners Cottage - Suite 1 - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 50 characters. Ideal is 60-65 characters. Consider 'Owners Cottage Suite - Private Terrace | Les Chambres Franschhoek' (62 chars).">50 ✗</span></td>
+          <td><span class="desc-text">Owners Cottage Suite 1 at Les Chambres Guesthouse is a modern luxury. This beautifully appointed suite features a nicely designed bedroom and a terrace overlooking the pool...</span></td>
+          <td><span class="badge warn" data-tip="~335 characters - over the 160-character limit. Trim to highlight the pool-facing terrace, blue-and-beige decor and Nespresso setup in 140-160 characters.">~335 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Owners Cottage - Suite 1'">✓</span></td>
+          <td><span class="badge ok">/rooms/owners-cottage/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td class="url-cell">/pages/facilities/</td>
+          <td style="font-size:12px;">Facilities - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters. Ideal is 60-65 characters. 'Facilities - Swimming Pool, Garden and Spa | Les Chambres Franschhoek' (69 chars) is more descriptive and keyword-rich.">36 ✗</span></td>
+          <td><span class="desc-text">During your stay at Les Chambres guesthouse, you can relax by the pool, sit on the terrace and be enchanted by our beautiful rose garden. Spa treatments via Na-Niamh...</span></td>
+          <td><span class="badge warn" data-tip="~274 characters - over the 160-character limit. Trim to a concise 140-160 character summary of the pool, rose garden, terrace and in-room spa treatments.">~274 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Facilities'">✓</span></td>
+          <td><span class="badge ok">/pages/facilities/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>12</td>
+          <td class="url-cell">/contact/contact-us/</td>
+          <td style="font-size:12px;">Contact us - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters. Ideal is 60-65 characters. 'Contact Us - Book a Room at Les Chambres Guesthouse Franschhoek' (61 chars) targets booking intent searches.">36 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description found. Google will write its own - often pulling contact form labels or address text. Write a 140-160 character description inviting guests to contact the team directly for reservations and enquiries.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Contact us'">✓</span></td>
+          <td><span class="badge ok">/contact/contact-us/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>13</td>
+          <td class="url-cell">/guestbook/</td>
+          <td style="font-size:12px;">Guest Reviews - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters. Ideal is 60-65 characters. 'Guest Reviews and Testimonials - Les Chambres Guesthouse Franschhoek' (67 chars) targets review-seeking searches.">39 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description found. This is a valuable social proof page - a description like 'Read what guests say about their stay at Les Chambres Guesthouse in Franschhoek. Rated highly for personalised service and beautiful rooms.' would drive clicks.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Guest Reviews'">✓</span></td>
+          <td><span class="badge ok">/guestbook/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+          <td class="url-cell">/terms/</td>
+          <td style="font-size:12px;">Terms and Conditions - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 46 characters. Ideal is 60-65 characters. For a legal page, the title is less critical - but 'Terms and Conditions - Les Chambres Guesthouse Franschhoek' (62 chars) adds location context.">46 ✗</span></td>
+          <td><span class="desc-text">Cancellation policy - if you booked a certain rate, please note the different cancellation policies. 21-Day Cancellation: Cancellations 0-21 days before arrival charged 100% fee...</span></td>
+          <td><span class="badge warn" data-tip="~199 characters - over the 160-character limit. For a terms page, trim to the key cancellation window and check-out time - the two things guests most need to know before booking.">~199 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Terms and Conditions'">✓</span></td>
+          <td><span class="badge ok">/terms/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td class="url-cell">/privacy/</td>
+          <td style="font-size:12px;">Privacy Policy - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 40 characters. For a privacy policy page, SEO impact is minimal - but adding the property name in full ('Privacy Policy - Les Chambres Guesthouse Franschhoek') improves completeness.">40 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description found. Privacy pages are low-traffic so the impact is minimal, but Google will index the page with no description context. A simple 'Les Chambres Guesthouse privacy policy - how we collect and use your personal information.' is sufficient.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Privacy Policy'">✓</span></td>
+          <td><span class="badge ok">/privacy/ ✓</span></td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td class="url-cell">/bookingterms/</td>
+          <td style="font-size:12px;">Booking Terms - Les Chambres Guesthouse</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters. Ideal is 60-65 characters. 'Booking Terms - Les Chambres Guesthouse Franschhoek | Adults Only' (64 chars) adds useful search context.">39 ✗</span></td>
+          <td><span class="desc-text">Included in the Bed and Breakfast rate: 15% VAT, Breakfast 08:00-10:00, Free parking, Honesty bar. House Rules: Check-in 14:00-19:00, Check-out 11:00. Adults only, no children under 16...</span></td>
+          <td><span class="badge warn" data-tip="~224 characters - over the 160-character limit. Trim to the most guest-critical info: check-in/out times, adults-only policy and breakfast inclusion, in 140-160 characters.">~224 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Booking Terms'">✓</span></td>
+          <td><span class="badge ok">/bookingterms/ ✓</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title ideal: 60-65 chars &nbsp;|&nbsp; Description ideal: 140-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- == WHY IT MATTERS == -->
+  <div class="section-head">
+    <h2>Why This Matters for Les Chambres Guesthouse</h2>
+    <p>Organic search and AI visibility are increasingly important channels for boutique accommodation in Franschhoek.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>People searching "guesthouse Franschhoek" or "boutique accommodation near wine route" are actively looking to book. If your titles are too short and descriptions are truncated, Google ranks competing properties above you - properties that may offer less but have simply spent 30 minutes fixing their metadata.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks ChatGPT or Perplexity "what are the best boutique guesthouses in Franschhoek?", the AI reads your website to decide whether to recommend Les Chambres. Strong titles, well-structured descriptions, and clear H1s dramatically increase the chance your guesthouse is cited in AI-generated answers.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>Google's Quality Score - which sets your cost-per-click - is partly determined by landing page relevance, including title tags and metadata. Short titles and missing descriptions on your room pages mean higher ad costs for the same keywords. Fix the SEO and your ads get cheaper, while organic traffic compounds in the background at no extra cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>You Have the Reviews - But Google Can't Fully Read You</h3>
+        <p>Les Chambres has excellent reviews and genuine repeat guests. That social proof is valuable - but it mostly lives on third-party platforms like TripAdvisor and Booking.com. Better on-site SEO pulls that authority into your own website, driving more direct bookings with no OTA commission deducted.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- == CTA == -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the title, description, and metadata improvements for Les Chambres Guesthouse and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Les%20Chambres%20Guesthouse" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for Les Chambres Guesthouse &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of leschambres.co.za conducted on 14 March 2026.</span>
+</div>
+
+</body>
+</html>

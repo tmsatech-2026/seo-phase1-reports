@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - West Coast Villa Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://westcoastvillarentals.com/wp-content/uploads/revslider/video-media/Drone-Video-Beach-Villa-Boardwalk_19-scaled.jpeg') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45); border-radius: 6px; padding: 5px 14px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1200px; margin: -32px auto 0; padding: 0 48px; }
+    .kpi { border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 22px 16px 18px; color: #fff; text-align: center; }
+    .kpi.c-blue { background: var(--blue); }
+    .kpi.c-green { background: var(--green); }
+    .kpi.c-red { background: #e74c3c; }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    .critical-section { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); border-radius: var(--radius); padding: 28px; margin: 32px 0 0; color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32); }
+    .critical-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92); }
+    .critical-impact strong { color: #fff; }
+
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    .ads-callout { background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0; font-size: 13px; color: #444; line-height: 1.7; }
+    .ads-callout .callout-title { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--amber); margin-bottom: 8px; }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium { background: rgba(217,119,6,0.12); color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1a1a2e; color: #fff; padding: 9px 13px; border-radius: 7px; font-size: 11px; font-weight: 400; line-height: 1.5; width: 230px; white-space: normal; text-align: left; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
+    [data-tip]::before { content: ''; position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #1a1a2e; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; }
+    [data-tip]:hover::after, [data-tip]:hover::before { opacity: 1; }
+
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent; }
+    .badge.ok { background: rgba(22,163,74,0.08); color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn { background: rgba(217,119,6,0.08); color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad { background: rgba(224,90,78,0.08); color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    .cta-section { background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%); border-radius: var(--radius); padding: 52px 48px; margin: 32px 0; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 8px 32px rgba(15,76,53,0.35); }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn { display: inline-block; background: #fff; color: #0f4c35; font-weight: 800; font-size: 17px; letter-spacing: 0.3px; padding: 18px 52px; border-radius: 10px; text-decoration: none; box-shadow: 0 6px 24px rgba(0,0,0,0.20); transition: transform 0.15s, box-shadow 0.15s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+    .spacer-lg { height: 44px; }
+
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; } .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; } .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; } .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      West Coast Villa Rentals
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - westcoastvillarentals.com &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>44</strong> pages audited</span>
+      <span class="chip"><strong>West Coast, South Africa</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress</span>
+      <span class="chip"><strong>Audit date:</strong> 14 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi c-blue">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+    <div class="kpi-num">44</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+  <div class="kpi c-green">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+    <div class="kpi-num">1</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+  <div class="kpi c-red">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+    <div class="kpi-num">43</div>
+    <div class="kpi-label">Need Work (98%)</div>
+  </div>
+  <div class="kpi c-purple">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+    <div class="kpi-num">38%</div>
+    <div class="kpi-label">Health Score · Critical</div>
+  </div>
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <h2>Critical SEO Issues Identified - westcoastvillarentals.com</h2>
+    </div>
+    <div class="critical-stats">
+      <div class="cstat"><div class="cstat-num">43</div><div class="cstat-lbl">Missing Meta Descriptions</div></div>
+      <div class="cstat"><div class="cstat-num">44</div><div class="cstat-lbl">Titles Outside Range</div></div>
+      <div class="cstat"><div class="cstat-num">2</div><div class="cstat-lbl">Missing H1 Headings</div></div>
+      <div class="cstat"><div class="cstat-num">44/44</div><div class="cstat-lbl">Pages Need Work</div></div>
+    </div>
+    <div class="critical-impact">
+      <strong>Impact:</strong> 43 of 44 pages on westcoastvillarentals.com have no meta description at all - including every single villa page in the collection. This means Google writes its own snippets for 28 luxury villa pages from whatever text it finds first, resulting in generic, unconvincing search results that lose bookings to competitors. Not one page has a title in the optimal 50-70 character range - all 44 titles use a template pattern that is either too short or too long. The "Our Villas" listing page - the primary gateway to the collection - shows "Listing with Paging" as its title, a WordPress theme default that is completely invisible to searchers.
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. Your Google Ads are driving traffic to individual villa pages - but 43 of those 44 pages have no meta description. Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, measures landing page relevance and content quality. Villa pages with missing descriptions and generic titles receive lower Quality Scores, meaning you pay <strong>more per click</strong> for "West Coast villa rental" and "Langebaan luxury villa" keywords than a competitor with properly optimised property pages.
+      <br><br>
+      Beyond ad costs, SEO builds lasting organic visibility. If each villa page had a compelling 140-155 char description highlighting its unique features - beachfront, pool, number of guests, location - these pages could rank organically for specific villa searches and capture travellers who never click ads but book directly from Google search results.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">43/44</div>
+      <h3>No Meta Descriptions on Any Villa Page</h3>
+      <p>Every villa page in the collection - all 28 properties from Moon House to Santos Villa - has no meta description. When Google generates snippets for "beachfront villa Langebaan" or "luxury villa West Coast", it pulls random body text instead of a crafted booking pitch. This directly costs bookings.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Meta descriptions are the sales copy in search results. For a villa like The Beach Villa - "Stunning beachfront villa on the West Coast, sleeping 8 guests, private pool, direct beach access. Book via West Coast Villa Rentals." - a 150-char description converts searchers into enquiries. Without it, Google writes something generic and the villa appears indistinguishable from budget alternatives.
+      </div>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">44/44</div>
+      <h3>All Titles Use Template Pattern Outside Optimal Range</h3>
+      <p>Every page title follows the pattern "Property Name - West Coast Villa Rentals" which results in titles that are either too short (under 40 chars) or in the warning zone (40-49 chars). None are in the optimal 50-70 char range. Titles are the strongest ranking signal Google has - this pattern wastes the opportunity entirely.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        A title like "Moon House - Luxury Beachfront Villa, Britannia Bay | West Coast" (64 chars) tells Google and travellers exactly what the property is, where it is, and what category it belongs to. The current "Moon House - West Coast Villa Rentals" (37 chars) gives Google almost no ranking signal for "Britannia Bay villa" or "luxury beachfront accommodation" searches.
+      </div>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">"Listing with Paging"</div>
+      <h3>Our Villas Page Shows WordPress Theme Default as Title</h3>
+      <p>The primary villa listing page at /our-villas/ - the most important landing page for anyone browsing the collection - has the title "Listing with Paging - West Coast Villa Rentals". This is a WordPress/WP Lister theme default. If a Google Ad sends traffic here, this is the title Google evaluates for Quality Score.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        "Listing with Paging" communicates nothing about the 28 luxury villas on the page. The correct title should be something like "Luxury Villa Rentals - West Coast South Africa | Browse All Properties" (67 chars). This single fix - changing one page title - would improve both organic ranking and Quality Score for the collection's most important page.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 44 pages - hover over any indicator for details.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">West Coast Villa Rentals - A Boutique Collection of luxury Accommodation</td>
+          <td><span class="badge warn" data-tip="Title is 72 characters - in the warning zone (71-80). Slightly over the ideal 50-70 char range. Consider trimming to 'West Coast Villa Rentals - Boutique Luxury Accommodation' (55 chars).">72 ⚠</span></td>
+          <td><span class="desc-text">West Coast Villa Rentals is a boutique accommodation agency based in Cape Town, offering a collection of Villas up the beautiful West Coast.</span></td>
+          <td><span class="badge ok" data-tip="140 characters - within the optimal 120-160 char range. Homepage description is the only one on the site that is set correctly.">140 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading present: 'Welcome to West Coast Villa Rentals'">✓</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/our-villas/" target="_blank" rel="noopener">/our-villas/</a></td>
+          <td style="font-size:12px;">Listing with Paging - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - in the warning zone (40-49). Also note: 'Listing with Paging' is a WordPress theme default that was never replaced. This is the villa collection's main page - it urgently needs a proper title like 'Luxury Villa Rentals - West Coast South Africa' (47 chars).">46 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on the villa listing page. This is the primary gateway to all 28 properties and it has no page heading for Google to read.">✗</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/locations/" target="_blank" rel="noopener">/locations/</a></td>
+          <td style="font-size:12px;">Locations - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters - below the 40-char critical threshold. Ideal: 'West Coast Locations - Langebaan, Britannia Bay &amp; St Helena Bay' (61 chars).">36 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Discover The Best Of The West Coast'">✓</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/our-recommendations/" target="_blank" rel="noopener">/our-recommendations/</a></td>
+          <td style="font-size:12px;">OUR RECOMMENDATIONS - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - in the warning zone. Also using ALL CAPS for 'OUR RECOMMENDATIONS' which is not recommended SEO practice. Ideal: 'Local Recommendations - West Coast Villa Rentals' (47 chars, normal case).">46 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Our Local Recommendations'">✓</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/our-story/booking-policy/" target="_blank" rel="noopener">/our-story/booking-policy/</a></td>
+          <td style="font-size:12px;">Booking Policy - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - in the warning zone (40-49). Acceptable for a policy page but could be expanded: 'Booking Policy - West Coast Villa Rentals | Reservations' (56 chars).">41 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Booking Policy'">✓</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/specials/" target="_blank" rel="noopener">/specials/</a></td>
+          <td style="font-size:12px;">Specials - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 35 characters - below the 40-char threshold. Ideal: 'Villa Rental Specials &amp; Deals - West Coast South Africa' (54 chars).">35 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Current Specials'">✓</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/list-with-us/" target="_blank" rel="noopener">/list-with-us/</a></td>
+          <td style="font-size:12px;">List with us - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters - just below the 40-char threshold. Ideal: 'List Your Villa with Us - West Coast Villa Rentals' (50 chars).">39 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'List Your Property With Us'">✓</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/contact/" target="_blank" rel="noopener">/contact/</a></td>
+          <td style="font-size:12px;">Contact - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 34 characters - below the 40-char threshold. Ideal: 'Contact West Coast Villa Rentals | Enquiries &amp; Bookings' (55 chars).">34 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on the contact page.">✗</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/our-story/" target="_blank" rel="noopener">/our-story/</a></td>
+          <td style="font-size:12px;">Our Story - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters - below the 40-char threshold. Ideal: 'Our Story - West Coast Villa Rentals | About Us' (46 chars).">36 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Our Story'">✓</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/our-story/faqs/" target="_blank" rel="noopener">/our-story/faqs/</a></td>
+          <td style="font-size:12px;">FAQ's - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 32 characters - well below the 40-char threshold. Ideal: 'Frequently Asked Questions - West Coast Villa Rentals' (52 chars).">32 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Frequently Asked Questions'">✓</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/reviews/" target="_blank" rel="noopener">/reviews/</a></td>
+          <td style="font-size:12px;">Reviews - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 34 characters - below the 40-char threshold. Ideal: 'Guest Reviews - West Coast Villa Rentals | West Coast' (53 chars).">34 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Reviews'">✓</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/areas/britannia-bay/" target="_blank" rel="noopener">/areas/britannia-bay/</a></td>
+          <td style="font-size:12px;">Britannia Bay - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 40 characters - in the warning zone (40-49). Ideal: 'Britannia Bay Villas - West Coast Accommodation South Africa' (59 chars).">40 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'britannia bay' (note: lowercase - consider capitalising)">✓</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/areas/cape-st-martin/" target="_blank" rel="noopener">/areas/cape-st-martin/</a></td>
+          <td style="font-size:12px;">Cape st Martin - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - in the warning zone. Also: 'st' should be 'St'. Ideal: 'Cape St Martin Villas - West Coast Accommodation' (48 chars).">41 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Cape st Martin' (note: mixed case - consider correcting to 'Cape St Martin')">✓</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/areas/langebaan/" target="_blank" rel="noopener">/areas/langebaan/</a></td>
+          <td style="font-size:12px;">Langebaan - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters - below the 40-char threshold. Langebaan is a high-value search term. Ideal: 'Langebaan Villa Rentals - Luxury Accommodation West Coast' (56 chars).">36 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Langebaan'">✓</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/areas/shelley-point/" target="_blank" rel="noopener">/areas/shelley-point/</a></td>
+          <td style="font-size:12px;">Shelley Point - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 40 characters - in the warning zone. Ideal: 'Shelley Point Villas - Luxury West Coast Accommodation' (53 chars).">40 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Shelley Point'">✓</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/areas/st-helena-bay/" target="_blank" rel="noopener">/areas/st-helena-bay/</a></td>
+          <td style="font-size:12px;">St Helena Bay - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 40 characters - in the warning zone. Ideal: 'St Helena Bay Villa Rentals - West Coast South Africa' (52 chars).">40 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'St Helena Bay'">✓</span></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/moon-house/" target="_blank" rel="noopener">/accommodation/moon-house/</a></td>
+          <td style="font-size:12px;">Moon House - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 37 characters - below the 40-char threshold. No location context. Ideal: 'Moon House - Luxury Villa Britannia Bay | West Coast' (51 chars).">37 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Moon House'">✓</span></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/beach-villa/" target="_blank" rel="noopener">/accommodation/beach-villa/</a></td>
+          <td style="font-size:12px;">The Beach Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - in the warning zone. No location. Ideal: 'The Beach Villa - Beachfront Luxury Rental, West Coast' (53 chars).">42 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'The Beach Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/villa-nima/" target="_blank" rel="noopener">/accommodation/villa-nima/</a></td>
+          <td style="font-size:12px;">Villa Nima - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 37 characters - below the 40-char threshold. Ideal: 'Villa Nima - Luxury Self-Catering, West Coast South Africa' (57 chars).">37 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Villa Nima'">✓</span></td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/the-beach-at-no-9/" target="_blank" rel="noopener">/accommodation/the-beach-at-no-9/</a></td>
+          <td style="font-size:12px;">The Beach at No 9 - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 44 characters - in the warning zone. Ideal: 'The Beach at No 9 - Beachfront Villa, West Coast' (47 chars).">44 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'The Beach At No 9'">✓</span></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/silver-bay-villa/" target="_blank" rel="noopener">/accommodation/silver-bay-villa/</a></td>
+          <td style="font-size:12px;">Silver Bay Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 43 characters - in the warning zone. Ideal: 'Silver Bay Villa - Luxury Rental, Shelley Point West Coast' (57 chars).">43 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Silver Bay Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/beach-retreat/" target="_blank" rel="noopener">/accommodation/beach-retreat/</a></td>
+          <td style="font-size:12px;">The Beach Retreat - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 44 characters - in the warning zone. Ideal: 'The Beach Retreat - Beachfront Villa Rental, West Coast' (54 chars).">44 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'The Beach Retreat'">✓</span></td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/villa-blu/" target="_blank" rel="noopener">/accommodation/villa-blu/</a></td>
+          <td style="font-size:12px;">Villa Blu - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters - below the 40-char threshold. Ideal: 'Villa Blu - Luxury Ocean View Villa, West Coast South Africa' (59 chars).">36 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Villa Blu'">✓</span></td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/thalassa-house/" target="_blank" rel="noopener">/accommodation/thalassa-house/</a></td>
+          <td style="font-size:12px;">Thalassa House - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - in the warning zone. Ideal: 'Thalassa House - Luxury Villa Rental West Coast South Africa' (59 chars).">41 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Thalassa House'">✓</span></td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/dunes-beach-house/" target="_blank" rel="noopener">/accommodation/dunes-beach-house/</a></td>
+          <td style="font-size:12px;">Dunes Beach House - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 44 characters - in the warning zone. Ideal: 'Dunes Beach House - Beachfront Villa Rental, West Coast' (54 chars).">44 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Dunes Beach House'">✓</span></td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/the-beach-house/" target="_blank" rel="noopener">/accommodation/the-beach-house/</a></td>
+          <td style="font-size:12px;">The Beach House - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - in the warning zone. Ideal: 'The Beach House - Luxury Beachfront Villa, West Coast' (52 chars).">42 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'The Beach House'">✓</span></td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/santorini-villa/" target="_blank" rel="noopener">/accommodation/santorini-villa/</a></td>
+          <td style="font-size:12px;">Santorini Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - in the warning zone. Ideal: 'Santorini Villa - Mediterranean Style Rental, West Coast' (55 chars).">42 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Santorini Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/shades-of-blue/" target="_blank" rel="noopener">/accommodation/shades-of-blue/</a></td>
+          <td style="font-size:12px;">Shades of Blue - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - in the warning zone. Ideal: 'Shades of Blue - Ocean View Villa Rental, West Coast' (51 chars).">41 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Shades Of Blue'">✓</span></td>
+        </tr>
+        <tr>
+          <td>29</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/nordic-villa/" target="_blank" rel="noopener">/accommodation/nordic-villa/</a></td>
+          <td style="font-size:12px;">Nordic Villa - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters - just below the 40-char threshold. Ideal: 'Nordic Villa - Luxury Self-Catering, West Coast South Africa' (59 chars).">39 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Nordic Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/beach-bliss/" target="_blank" rel="noopener">/accommodation/beach-bliss/</a></td>
+          <td style="font-size:12px;">Beach Bliss - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 38 characters - below the 40-char threshold. Ideal: 'Beach Bliss - Beachfront Villa Rental, West Coast SA' (51 chars).">38 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Beach Bliss'">✓</span></td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/bordeaux-villa/" target="_blank" rel="noopener">/accommodation/bordeaux-villa/</a></td>
+          <td style="font-size:12px;">Bordeaux Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - in the warning zone. Ideal: 'Bordeaux Villa - Luxury Wine Country Villa, West Coast' (53 chars).">41 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Bordeaux Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/the-bay-house/" target="_blank" rel="noopener">/accommodation/the-bay-house/</a></td>
+          <td style="font-size:12px;">The Bay House - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 40 characters - in the warning zone. Ideal: 'The Bay House - Luxury Villa Rental, West Coast South Africa' (59 chars).">40 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'The Bay House'">✓</span></td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/the-stopforth-house/" target="_blank" rel="noopener">/accommodation/the-stopforth-house/</a></td>
+          <td style="font-size:12px;">Stopforth House - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - in the warning zone. Ideal: 'Stopforth House - Luxury Villa Rental, West Coast SA' (51 chars).">42 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Stopforth House'">✓</span></td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/north-bay-beach-house/" target="_blank" rel="noopener">/accommodation/north-bay-beach-house/</a></td>
+          <td style="font-size:12px;">North Bay Beach House - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 48 characters - in the warning zone. Ideal: 'North Bay Beach House - Beachfront Villa, West Coast' (51 chars).">48 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'North Bay Beach House'">✓</span></td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/britannia-sands/" target="_blank" rel="noopener">/accommodation/britannia-sands/</a></td>
+          <td style="font-size:12px;">Britannia Sands - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - in the warning zone. Ideal: 'Britannia Sands - Beachfront Villa, Britannia Bay West Coast' (59 chars).">42 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Britannia Sands'">✓</span></td>
+        </tr>
+        <tr>
+          <td>36</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/north-bay-villa/" target="_blank" rel="noopener">/accommodation/north-bay-villa/</a></td>
+          <td style="font-size:12px;">North Bay Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - in the warning zone. Ideal: 'North Bay Villa - Luxury Beachfront Rental, West Coast' (53 chars).">42 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'North Bay Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>37</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/villa-shelley-bay/" target="_blank" rel="noopener">/accommodation/villa-shelley-bay/</a></td>
+          <td style="font-size:12px;">Villa Shelley Bay - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 44 characters - in the warning zone. Ideal: 'Villa Shelley Bay - Luxury Villa Rental, Shelley Point' (53 chars).">44 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Villa Shelley Bay'">✓</span></td>
+        </tr>
+        <tr>
+          <td>38</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/lagoon-farmhouse/" target="_blank" rel="noopener">/accommodation/lagoon-farmhouse/</a></td>
+          <td style="font-size:12px;">Lagoon Farmhouse - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 43 characters - in the warning zone. Ideal: 'Lagoon Farmhouse - Luxury Rural Villa Rental, West Coast' (55 chars).">43 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Lagoon Farmhouse'">✓</span></td>
+        </tr>
+        <tr>
+          <td>39</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/sea-crest-villa/" target="_blank" rel="noopener">/accommodation/sea-crest-villa/</a></td>
+          <td style="font-size:12px;">Sea Crest Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - in the warning zone. Ideal: 'Sea Crest Villa - Ocean View Rental, West Coast South Africa' (59 chars).">42 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Sea Crest Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>40</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/aurelia-beach-villa/" target="_blank" rel="noopener">/accommodation/aurelia-beach-villa/</a></td>
+          <td style="font-size:12px;">Aurelia Beach Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - in the warning zone. Ideal: 'Aurelia Beach Villa - Luxury Beachfront Rental, West Coast' (57 chars).">46 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Aurelia Beach Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>41</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/azure-villa/" target="_blank" rel="noopener">/accommodation/azure-villa/</a></td>
+          <td style="font-size:12px;">Azure Villa - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 38 characters - below the 40-char threshold. Ideal: 'Azure Villa - Luxury Ocean View Villa, West Coast SA' (51 chars).">38 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Azure Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>42</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/oystercatcher-villa/" target="_blank" rel="noopener">/accommodation/oystercatcher-villa/</a></td>
+          <td style="font-size:12px;">Oystercatcher Villa - West Coast Villa Rentals</td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - in the warning zone. Ideal: 'Oystercatcher Villa - Luxury Beachfront Rental, West Coast' (57 chars).">46 ⚠</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Oystercatcher Villa'">✓</span></td>
+        </tr>
+        <tr>
+          <td>43</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/the-kervs/" target="_blank" rel="noopener">/accommodation/the-kervs/</a></td>
+          <td style="font-size:12px;">The Kervs - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters - below the 40-char threshold. Ideal: 'The Kervs - Luxury Villa Rental, West Coast South Africa' (55 chars).">36 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'The Kervs'">✓</span></td>
+        </tr>
+        <tr>
+          <td>44</td>
+          <td class="url-cell"><a href="https://westcoastvillarentals.com/accommodation/santos-villa/" target="_blank" rel="noopener">/accommodation/santos-villa/</a></td>
+          <td style="font-size:12px;">Santos Villa - West Coast Villa Rentals</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters - just below the 40-char threshold. Ideal: 'Santos Villa - Luxury Self-Catering Villa, West Coast SA' (55 chars).">39 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Santos Villa'">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-70 chars &nbsp;|&nbsp; Description sweet spot: 120-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <div class="section-head">
+    <h2>Why This Matters for West Coast Villa Rentals</h2>
+    <p>A curated collection of 28 luxury villas deserves search visibility that matches the quality of the properties.</p>
+  </div>
+
+  <div class="explain-grid">
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>People searching "luxury villa Langebaan" or "beachfront villa West Coast South Africa" are actively planning a booking. When 43 of 44 pages have no meta description, every villa in the collection appears in search results with Google-generated snippets - often pulled from booking terms or navigation text instead of the villa's unique selling points. Competitors with complete descriptions win these clicks.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks Perplexity or ChatGPT "what are the best luxury villa rentals on the West Coast of South Africa?", the AI reads each property's website. Pages without descriptions and with generic titles provide almost no structured content for AI to work with - making it very difficult for West Coast Villa Rentals to appear in AI-generated recommendations, even though the collection is genuinely premium.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>Your Google Ads Are Paying a Premium</h3>
+        <p>Your ads are sending traffic to villa pages that have no meta descriptions and titles well outside the optimal range. Google's Quality Score evaluates landing page relevance for every keyword your ads target. Missing descriptions and weak titles on 44 pages directly reduce your Quality Score, raising cost-per-click across the entire account. Fixing the pages strengthens your ad performance at lower cost.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>WordPress + Yoast Makes This Achievable</h3>
+        <p>WordPress sites with Yoast SEO or RankMath have built-in SEO fields for every page and post - title, meta description, and focus keyword are all editable directly from the page editor. For 28 villa pages, a systematic approach using a consistent title template and description structure can be completed efficiently. The result is 28 villa pages Google can understand, rank individually, and recommend for specific search queries.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for West Coast Villa Rentals and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20Report%20-%20West%20Coast%20Villa%20Rentals" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for West Coast Villa Rentals &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of westcoastvillarentals.com conducted on 14 March 2026.</span>
+</div>
+
+</body>
+</html>

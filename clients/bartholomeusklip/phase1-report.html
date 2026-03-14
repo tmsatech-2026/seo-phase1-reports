@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Bartholomeus Klip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* -- HERO -- */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://www.bartholomeusklip.com/wp-content/uploads/2025/05/farm-hotel-cape-town0142-1024x683.jpg.webp') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* -- KPI CARDS (4-up) -- */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* -- WRAP -- */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* -- CRITICAL ISSUES SECTION -- */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* -- SECTION HEADINGS -- */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* -- GOOGLE ADS CALLOUT -- */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* -- ISSUE CARDS -- */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* -- TOOLTIPS -- */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* -- PAGE TABLE -- */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    /* -- TABLE LEGEND -- */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* -- WHY IT MATTERS (vector icon cards) -- */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* -- CTA -- */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* -- FOOTER -- */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- == HERO == -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Bartholomeus Klip
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - bartholomeusklip.com &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>67</strong> pages audited</span>
+      <span class="chip"><strong>Riebeek Kasteel, Cape Winelands</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress</span>
+      <span class="chip"><strong>Audit date:</strong> 14 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- == KPI CARDS == -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">67</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">4</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">63</div>
+    <div class="kpi-label">Need Work (94%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num">6%</div>
+    <div class="kpi-label">Health Score</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- == CRITICAL ISSUES SECTION == -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - bartholomeusklip.com</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">2</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">2</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">5</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">45/67</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
+      </div>
+    </div>
+
+    <div class="critical-impact">
+      <strong>Impact:</strong> 63 of 67 pages on bartholomeusklip.com are not displaying optimally in Google search results. The most widespread issue is meta descriptions that are too long - approximately 40 pages have descriptions exceeding 160 characters, which Google truncates mid-sentence. Additionally, 43 pages have title tags outside the 50-60 character sweet spot, with 12 titles critically short (under 40 characters) and 7 titles too long (over 70). Four event pages - including Mother's Day and Father's Day - have near-empty descriptions showing only a date, offering visitors no reason to click through. These issues combine to reduce organic click-through rates across your entire website.
+    </div>
+  </div>
+
+  <!-- == TOP 3 KEY ISSUES == -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. When you invest in Google Ads, every click costs money - and Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, is partly calculated from the relevance and quality of your landing pages. Pages with over-length meta descriptions, missing H1 headings, and short titles score lower - meaning you pay <strong>more per click</strong> for the same keywords than a competitor with well-optimised pages.
+      <br><br>
+      Beyond reducing your ad costs, SEO builds something Google Ads cannot: <strong>lasting organic visibility</strong>. The moment you pause your Google Ads budget, your visibility disappears. But a well-optimised page earns organic rankings that persist for months or years with no ongoing spend. Investing in SEO alongside your ads is not just smart - it protects the return on every rand you are already spending, and creates a second channel that compounds over time.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">60%</div>
+      <h3>Meta Descriptions Too Long</h3>
+      <p>Around 40 of 67 pages have meta descriptions longer than 160 characters. Google cuts these off mid-sentence in search results, replacing the end with "..." - so guests searching for luxury Cape farm accommodation see an incomplete, truncated pitch for Bartholomeus Klip.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        The meta description is the first thing a potential guest reads in Google search results - before clicking. When it gets truncated, your key selling point (the farm setting, the nature reserve, the full-board experience) often disappears. Studies show well-written, complete descriptions in the 150-160 character range improve click-through rates by 15-30%.
+      </div>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">43 pages</div>
+      <h3>Title Tags Outside Optimal Range</h3>
+      <p>43 of 67 pages have title tags outside the ideal 50-60 character range. 12 titles are critically short (under 40 characters, e.g. "Map | Bartholomeus Klip" at 23 chars) while 7 are too long (over 70 characters, getting cut off before completing the property name or location).</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Page titles are the blue clickable headline in Google search results - the single most important on-page SEO element. A title that is too short misses keyword opportunities and looks thin. A title that is too long gets truncated by Google, cutting off location or category keywords that drive bookings. The sweet spot is 50-60 characters.
+      </div>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">4 pages</div>
+      <h3>Event Pages With Near-Empty Descriptions</h3>
+      <p>Four pages have meta descriptions that contain almost no content. Mother's Day Lunch shows only "10 May 2026" and Father's Day Lunch shows only "21 June 2026" - no property name, no description of the event, no reason to click. The season update page shows only a partial quote.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Event pages represent direct revenue opportunities - guests searching for "Mother's Day lunch Cape Winelands" or "Father's Day lunch Riebeek Kasteel" could land on these pages. But a description showing just a date gives Google nothing to work with and gives guests no reason to click. Each of these pages needs a 150-160 character description that sells the experience.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- == PAGE-BY-PAGE TABLE == -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Sample audit of 25 key pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+          <th>Slug</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Luxury Cape Farmhouse Hotel &amp; Private Nature Reserve - Cape Town</td>
+          <td><span class="badge warn" data-tip="64 characters - slightly over the ideal 50-60 char range. Consider tightening to fit within 60 chars.">64 ⚠</span></td>
+          <td><span class="desc-text">Discover a serene home away from home at our Cape farmhouse hotel near Cape Town, offering exclusive luxury and wildlife experiences in a stunning private reserve.</span></td>
+          <td><span class="badge warn" data-tip="163 characters - 3 over the 160-char limit. Google will truncate this description in search results.">163 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/</span></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/sleep/" target="_blank" rel="noopener">/sleep/</a></td>
+          <td style="font-size:12px;">Luxury Farm Accommodation: Full-Board &amp; Self-Catering Stays</td>
+          <td><span class="badge ok" data-tip="59 characters - within the ideal 50-60 char range.">59 ✓</span></td>
+          <td><span class="desc-text">Choose your Cape Farm stay: all-inclusive Full-Board at the Farmhouse or Self-Catering at the private Heron House or Wild Olive House, with access to the nature reserve.</span></td>
+          <td><span class="badge warn" data-tip="168 characters - over the 160-char limit. Google will cut off the last 8 characters.">168 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/sleep/</span></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/stay/main-house-full-board/" target="_blank" rel="noopener">/stay/main-house-full-board/</a></td>
+          <td style="font-size:12px;">The Farmhouse: Full Board Accommodation - Riebeek Kasteel</td>
+          <td><span class="badge ok" data-tip="57 characters - within the ideal 50-60 char range.">57 ✓</span></td>
+          <td><span class="desc-text">Book a luxurious full-board stay in The Main Farmhouse (5 rooms). Includes gourmet meals, afternoon tea, and two daily guided nature drives in the Elandsberg Reserve.</span></td>
+          <td><span class="badge warn" data-tip="165 characters - over the 160-char limit. The last phrase about nature drives may get cut off.">165 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/stay/main-house/</span></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/stay/heron-house-self-catering/" target="_blank" rel="noopener">/stay/heron-house-self-catering/</a></td>
+          <td style="font-size:12px;">Heron House: Self-Catering Farm Accommodation For Groups - Riebeek Kasteel</td>
+          <td><span class="badge bad" data-tip="74 characters - too long. Google will truncate this title at around 60 characters, cutting off the location.">74 ✗</span></td>
+          <td><span class="desc-text">Book Heron House, a self-catering farmhouse for up to 12 guests in Riebeek Kasteel. Exclusive use, private pool, fully equipped kitchen, and direct access to Elandsberg Nature Reserve.</span></td>
+          <td><span class="badge warn" data-tip="184 characters - significantly over the 160-char limit. The nature reserve mention will be cut off.">184 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/stay/heron-house/</span></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/stay/wild-olive-house-self-catering/" target="_blank" rel="noopener">/stay/wild-olive-house-self-catering/</a></td>
+          <td style="font-size:12px;">Wild Olive House: Self-Catering Accommodation For Families - Riebeek Kasteel</td>
+          <td><span class="badge bad" data-tip="76 characters - too long. Google truncates titles at around 60 characters, losing the location entirely.">76 ✗</span></td>
+          <td><span class="desc-text">Book Wild Olive House, a self-catering holiday house for up to 6 guests in Riebeek Kasteel. Features a private pool, braai facilities, and direct access to the Elandsberg Nature Reserve.</span></td>
+          <td><span class="badge warn" data-tip="186 characters - over the 160-char limit. The nature reserve access detail gets cut off.">186 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/stay/wild-olive/</span></td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/contact/" target="_blank" rel="noopener">/contact/</a></td>
+          <td style="font-size:12px;">Contact &amp; Directions To Bartholomeus Klip Farm Stay &amp; Venue</td>
+          <td><span class="badge ok" data-tip="59 characters - within the ideal 50-60 char range.">59 ✓</span></td>
+          <td><span class="desc-text">Get in touch with Bartholomeus Klip for bookings, reservations, enquiries, and directions to our Farmhouse, Heron House, and Wild Olive House near Cape Town.</span></td>
+          <td><span class="badge ok" data-tip="156 characters - within the ideal 150-160 char range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/contact/</span></td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/eat/" target="_blank" rel="noopener">/eat/</a></td>
+          <td style="font-size:12px;">Gourmet Farm-Fresh Cape Food Restaurant - Riebeek Kasteel</td>
+          <td><span class="badge ok" data-tip="57 characters - within the ideal 50-60 char range.">57 ✓</span></td>
+          <td><span class="desc-text">Dine at the Conservatory Restaurant for farm-fresh Cape Food made with local produce. We offer Brunch, High Tea, Lunch, Dinner, and special Sunday Lunch/Wagyu Lunch experiences.</span></td>
+          <td><span class="badge warn" data-tip="177 characters - over the 160-char limit. The Wagyu Lunch mention gets truncated.">177 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/eat/</span></td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/food/brunch/" target="_blank" rel="noopener">/food/brunch/</a></td>
+          <td style="font-size:12px;">Farm Brunch At The Conservatory - Riebeek Kasteel</td>
+          <td><span class="badge warn" data-tip="49 characters - slightly under the ideal 50-60 char range. Adding one keyword would improve this.">49 ⚠</span></td>
+          <td><span class="desc-text">Enjoy a late Farm Brunch at The Conservatory, featuring a spread of fruits, cold meats, pastries, and a full English breakfast option. Booking essential.</span></td>
+          <td><span class="badge ok" data-tip="152 characters - within the ideal 150-160 char range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/food/brunch/</span></td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/food/high-tea/" target="_blank" rel="noopener">/food/high-tea/</a></td>
+          <td style="font-size:12px;">Luxury High Tea At The Conservatory</td>
+          <td><span class="badge bad" data-tip="35 characters - critically short. Missing the property name and location entirely. Google search shows a weak, anonymous title.">35 ✗</span></td>
+          <td><span class="desc-text">Indulge in a luxurious High Tea at The Conservatory, featuring scones, miniature quiches, elegant pastries, and a spectacular cake. Booking essential.</span></td>
+          <td><span class="badge ok" data-tip="150 characters - at the lower end of the ideal 150-160 char range.">150 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/food/high-tea/</span></td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/food/dinner/" target="_blank" rel="noopener">/food/dinner/</a></td>
+          <td style="font-size:12px;">Cape Farm Dinner At The Conservatory Restaurant</td>
+          <td><span class="badge warn" data-tip="47 characters - under the ideal 50-60 range. Adding a location would strengthen this.">47 ⚠</span></td>
+          <td><span class="desc-text">Enjoy a gourmet, tradition-inspired Cape Farm Dinner at The Conservatory. Savor exquisite dishes made with local produce and regional wines near Riebeek Kasteel.</span></td>
+          <td><span class="badge warn" data-tip="162 characters - 2 over the 160-char limit. Very minor truncation.">162 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/food/dinner/</span></td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/smoke-fire-pop-up/" target="_blank" rel="noopener">/smoke-fire-pop-up/</a></td>
+          <td style="font-size:12px;">Smoke &amp; Fire Pop-Up Restaurant | Bartholomeus Klip</td>
+          <td><span class="badge ok" data-tip="50 characters - at the lower end of the ideal 50-60 char range.">50 ✓</span></td>
+          <td><span class="desc-text">Some chefs use recipes. We rely on smoke signals. Out here, fire and smoke write their very own story, woven into the food, the people, and the lyrical views</span></td>
+          <td><span class="badge ok" data-tip="156 characters - within the ideal 150-160 char range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/smoke-fire-pop-up/</span></td>
+        </tr>
+
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/farm-wedding-venue/" target="_blank" rel="noopener">/farm-wedding-venue/</a></td>
+          <td style="font-size:12px;">Cape Farm Wedding Venue &amp; Nature Reserve Near Cape Town</td>
+          <td><span class="badge ok" data-tip="55 characters - within the ideal 50-60 char range.">55 ✓</span></td>
+          <td><span class="desc-text">Plan your elegant, intimate farm wedding at Bartholomeus Klip. Exclusive Cape Winelands venue with luxury accommodation, expert coordination, and stunning nature reserve settings.</span></td>
+          <td><span class="badge warn" data-tip="180 characters - over the 160-char limit. Nature reserve details get cut off.">180 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/farm-wedding-venue/</span></td>
+        </tr>
+
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/corporate-venue/" target="_blank" rel="noopener">/corporate-venue/</a></td>
+          <td style="font-size:12px;">Corporate Conference Venue &amp; Team Retreat Near Cape Town</td>
+          <td><span class="badge ok" data-tip="56 characters - within the ideal 50-60 char range.">56 ✓</span></td>
+          <td><span class="desc-text">Escape the boardroom. Book an inspiring corporate venue for conferences, strategy sessions, and team-building at our private farm stay and nature reserve near Cape Town.</span></td>
+          <td><span class="badge warn" data-tip="167 characters - over the 160-char limit. The Cape Town location mention gets cut off.">167 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/corporate-venue/</span></td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/introduction/" target="_blank" rel="noopener">/introduction/</a></td>
+          <td style="font-size:12px;">Luxury Farm Stay &amp; Nature Reserve Near Cape Town | Bartholomeus Klip</td>
+          <td><span class="badge warn" data-tip="69 characters - over the ideal 50-60 range. Google will truncate this before 'Bartholomeus Klip'.">69 ⚠</span></td>
+          <td><span class="desc-text">Experience the vitality of a working Cape farm and the 10,000-acre Elandsberg Nature Reserve. Offering luxury full-board and self-catering accommodation an hour from Cape Town.</span></td>
+          <td><span class="badge warn" data-tip="175 characters - over the 160-char limit. The Cape Town proximity gets truncated.">175 ⚠</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on this page. This is a key introductory page - Google has no primary signal for what it is about.">✗</span></td>
+          <td><span class="badge ok">/introduction/</span></td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/fast-facts/" target="_blank" rel="noopener">/fast-facts/</a></td>
+          <td style="font-size:12px;">Bartholomeus Klip Fast Facts: Location, Accommodation, &amp; Reserve Details</td>
+          <td><span class="badge bad" data-tip="72 characters - too long. Google will cut off at around 60 characters, losing the detail list.">72 ✗</span></td>
+          <td><span class="desc-text">Quickly find key details about Bartholomeus Klip: 10,000-acre reserve, 3 accommodation houses (14 rooms), Wagyu farm, Conservatory dining, and location near Riebeek-Kasteel &amp; Cape Town.</span></td>
+          <td><span class="badge warn" data-tip="186 characters - significantly over the 160-char limit.">186 ⚠</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on this page. Google cannot determine the primary topic of this content.">✗</span></td>
+          <td><span class="badge ok">/fast-facts/</span></td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/newsletter-archive/" target="_blank" rel="noopener">/newsletter-archive/</a></td>
+          <td style="font-size:12px;">Newsletter Archive | Bartholomeus Klip</td>
+          <td><span class="badge bad" data-tip="38 characters - critically short. The title gives Google almost no keyword context.">38 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description. Google will pull random text from the page - likely a newsletter teaser that does not sell the property.">✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/newsletter-archive/</span></td>
+        </tr>
+
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/newsletter/" target="_blank" rel="noopener">/newsletter/</a></td>
+          <td style="font-size:12px;">Newsletter | Bartholomeus Klip</td>
+          <td><span class="badge bad" data-tip="30 characters - critically short. No keywords beyond the brand name.">30 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description. Google will auto-generate one from page content.">✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/newsletter/</span></td>
+        </tr>
+
+        <tr>
+          <td>18</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/day-trips/" target="_blank" rel="noopener">/day-trips/</a></td>
+          <td style="font-size:12px;">Day Trips &amp; Guided Nature Drives</td>
+          <td><span class="badge bad" data-tip="31 characters - critically short. Missing the property name, location, and key selling points.">31 ✗</span></td>
+          <td><span class="desc-text">Book a day trip to Bartholomeus Klip. Enjoy a guided nature drive through Elandsberg Nature Reserve and world-class dining for brunch, lunch, or dinner.</span></td>
+          <td><span class="badge ok" data-tip="152 characters - within the ideal 150-160 char range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/day-trips/</span></td>
+        </tr>
+
+        <tr>
+          <td>19</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/the-quagga-project/" target="_blank" rel="noopener">/the-quagga-project/</a></td>
+          <td style="font-size:12px;">The Quagga Project: Bringing Back The Extinct Zebra At Bartholomeus Klip</td>
+          <td><span class="badge bad" data-tip="73 characters - too long. Google cuts this off before reaching 'Bartholomeus Klip'.">73 ✗</span></td>
+          <td><span class="desc-text">Learn about The Quagga Project, which successfully brought back the extinct Quagga (a Plains Zebra subspecies) through selective breeding. Bartholomeus Klip is a founder and home to 24 Quaggas.</span></td>
+          <td><span class="badge warn" data-tip="193 characters - significantly over the 160-char limit. The '24 Quaggas' fact gets cut off.">193 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/the-quagga-project/</span></td>
+        </tr>
+
+        <tr>
+          <td>20</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/almonds/" target="_blank" rel="noopener">/almonds/</a></td>
+          <td style="font-size:12px;">Discover The Joy Of Almonds At Bartholomeus Klip | Elandsberg</td>
+          <td><span class="badge warn" data-tip="61 characters - just over the ideal 50-60 range.">61 ⚠</span></td>
+          <td><span class="desc-text">Experience the almond harvest season at Bartholomeus Klip and savour the benefits of these nutritious nuts.</span></td>
+          <td><span class="badge bad" data-tip="107 characters - too short. This description ends before providing any hook or call to action. Visitors see a weak, thin preview in Google.">107 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/almonds/</span></td>
+        </tr>
+
+        <tr>
+          <td>21</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/events/season-update/" target="_blank" rel="noopener">/events/season-update/</a></td>
+          <td style="font-size:12px;">Season Update | Bartholomeus Klip</td>
+          <td><span class="badge bad" data-tip="33 characters - critically short. No keywords indicating what season, what activities, or what location.">33 ✗</span></td>
+          <td><span class="desc-text">There's no easy way to sum up the BK Experience - but special guests at our most recent Smoke &amp; Fire came close:</span></td>
+          <td><span class="badge bad" data-tip="113 characters - too short, and ends with a colon mid-sentence. Reads as an incomplete excerpt, not a compelling description.">113 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/events/season-update/</span></td>
+        </tr>
+
+        <tr>
+          <td>22</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/events/mothersdaylunch/" target="_blank" rel="noopener">/events/mothersdaylunch/</a></td>
+          <td style="font-size:12px;">Mother's Day Lunch | Bartholomeus Klip</td>
+          <td><span class="badge bad" data-tip="38 characters - too short. Missing location, experience details, and any keyword beyond the event name.">38 ✗</span></td>
+          <td><span class="desc-text">10 May 2026</span></td>
+          <td><span class="badge bad" data-tip="11 characters - just a date. Google search shows '10 May 2026' as the entire preview for this page. No venue, no menu, no booking prompt.">11 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge warn" data-tip="The slug 'mothersdaylunch' is missing a hyphen separator. Best practice is /mothers-day-lunch/ for readability and keyword clarity.">/events/mothersdaylunch/</span></td>
+        </tr>
+
+        <tr>
+          <td>23</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/events/fathers-day-lunch/" target="_blank" rel="noopener">/events/fathers-day-lunch/</a></td>
+          <td style="font-size:12px;">Father's Day Lunch | Bartholomeus Klip</td>
+          <td><span class="badge bad" data-tip="38 characters - too short. Missing location, experience details, and any keyword beyond the event name.">38 ✗</span></td>
+          <td><span class="desc-text">21 June 2026</span></td>
+          <td><span class="badge bad" data-tip="12 characters - just a date. Guests searching 'Father's Day lunch Cape Winelands' see only a date as the Google preview.">12 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/events/fathers-day-lunch/</span></td>
+        </tr>
+
+        <tr>
+          <td>24</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/interactive-map/" target="_blank" rel="noopener">/interactive-map/</a></td>
+          <td style="font-size:12px;">Map | Bartholomeus Klip</td>
+          <td><span class="badge bad" data-tip="23 characters - the shortest title on the site. A page this thin in signals will not rank for any meaningful keyword.">23 ✗</span></td>
+          <td><span class="desc-text">Many guests celebrate the peace and quiet they find at Bartholomeus Klip by retreating into a quiet corner - in our gardens, at the dam, around the pool or somewhere on the reserve.</span></td>
+          <td><span class="badge warn" data-tip="181 characters - over the 160-char limit.">181 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge warn" data-tip="The slug /interactive-map/ is functional but the title 'Map' does not match the H1 'Outdoor Activities'. Consider aligning title and H1.">/interactive-map/</span></td>
+        </tr>
+
+        <tr>
+          <td>25</td>
+          <td class="url-cell"><a href="https://www.bartholomeusklip.com/events/wagyu-lunch/" target="_blank" rel="noopener">/events/wagyu-lunch/</a></td>
+          <td style="font-size:12px;">Exclusive Wagyu Lunch For Two In Riebeek Kasteel</td>
+          <td><span class="badge warn" data-tip="48 characters - just under the ideal 50-60 range.">48 ⚠</span></td>
+          <td><span class="desc-text">Savour a premium Wagyu Lunch for Two at the Conservatory, featuring a 500g MS7 Prime Rib or two Wagyu Burgers, sides, and a complimentary bottle of wine.</span></td>
+          <td><span class="badge ok" data-tip="152 characters - within the ideal 150-160 char range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/events/wagyu-lunch/</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-60 chars &nbsp;|&nbsp; Description sweet spot: 150-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- == WHY IT MATTERS == -->
+  <div class="section-head">
+    <h2>Why This Matters for Bartholomeus Klip</h2>
+    <p>Organic search and AI visibility are increasingly important channels for luxury Cape Winelands properties.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>People searching "luxury farm hotel near Cape Town", "Cape Winelands nature reserve stay" or "Riebeek Kasteel accommodation" are actively looking to book. If your pages have truncated descriptions and weak titles, Google will not rank them competitively - leaving high-intent traffic to competitors who have their metadata in order.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks ChatGPT or Perplexity "what are the best luxury farm hotels in the Cape Winelands?", the AI reads your website to decide whether to recommend Bartholomeus Klip. Clear H1s, well-structured descriptions, and strong on-page signals dramatically increase the chance your property is cited in AI-generated answers.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>Google's Quality Score - which sets your cost-per-click - is partly determined by landing page relevance, including H1s and metadata. Poor on-page SEO means higher ad costs for the same keywords. Fix the SEO and your ads get cheaper, while organic traffic compounds in the background at no extra cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>You Have the Reviews - But Google Can't Find You</h3>
+        <p>Bartholomeus Klip has strong reviews on third-party platforms. That social proof is valuable - but it lives on third-party platforms. Better on-site SEO transfers that authority to your own website, driving more direct bookings with no OTA commission. With 67 pages indexed, there is significant organic potential to unlock.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- == CTA == -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Bartholomeus Klip and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Bartholomeus%20Klip" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for Bartholomeus Klip &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of bartholomeusklip.com conducted on 14 March 2026.</span>
+</div>
+
+</body>
+</html>
