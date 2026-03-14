@@ -29,8 +29,8 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(150deg, rgba(10,10,20,0.88) 0%, rgba(26,18,8,0.85) 55%, rgba(50,35,10,0.80) 100%),
-                  url('https://landrani.com/wp-content/uploads/Landrani-Luxury-Lodge.jpg') center/cover no-repeat;
+      background: linear-gradient(150deg, rgba(10,10,20,0.80) 0%, rgba(26,18,8,0.76) 55%, rgba(50,35,10,0.72) 100%),
+                  url('https://landrani.com/wp-content/uploads/IMG_3464.jpg') center/cover no-repeat;
       border-bottom: 3px solid var(--gold);
       padding: 72px 48px 60px;
       color: #fff;
@@ -44,7 +44,10 @@
       color: rgba(255,255,255,0.85); margin-bottom: 20px;
     }
     .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
-    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.70); display: block; margin-top: 6px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
     .hero-sub { font-size: 1.05rem; font-weight: 400; color: rgba(255,255,255,0.80); margin-bottom: 24px; line-height: 1.5; max-width: 680px; }
     .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
     .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
@@ -81,48 +84,53 @@
     .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
     .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
 
+    /* Google Ads callout */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fcd34d; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 14px 0 0;
+      font-size: 13px; color: #444; line-height: 1.6;
+    }
+    .ads-callout strong { color: var(--text); }
+
     /* Issue cards */
     .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
     .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
     .issue-card.critical { border-top: 4px solid var(--red); }
     .issue-card.medium   { border-top: 4px solid var(--amber); }
-    .issue-card.low      { border-top: 4px solid var(--green); }
     .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
     .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
     .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
-    .issue-priority.low      { background: rgba(22,163,74,0.12);  color: var(--green); }
     .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
     .issue-card .stat-line { font-size: 28px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
     .issue-card.medium .stat-line { color: var(--amber); }
-    .issue-card.low .stat-line { color: var(--green); }
     .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
-    .issue-card .why { background: #f8f9fa; border-left: 3px solid var(--border); border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0; font-size: 12px; color: #444; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid var(--border); border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; }
     .issue-card .why strong { color: var(--text); display: block; margin-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
-    .issue-card .fix { font-size: 12px; font-weight: 600; color: var(--blue); margin-top: 10px; }
 
     /* Page table */
     .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 32px; }
     .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
     .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
-    .page-table td { padding: 11px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: top; }
+    .page-table td { padding: 11px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: top; line-height: 1.5; }
     .page-table tr:last-child td { border-bottom: none; }
     .page-table tr:hover td { background: #fafbfc; }
-    .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; }
-    .badge.ok     { background: rgba(22,163,74,0.10);  color: var(--green); }
-    .badge.short  { background: rgba(217,119,6,0.10);  color: var(--amber); }
-    .badge.missing{ background: rgba(224,90,78,0.10);  color: var(--red); }
-    .badge.long   { background: rgba(37,99,235,0.10);  color: var(--blue); }
-    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); max-width: 220px; word-break: break-all; }
-    .slug-warn { font-family: monospace; font-size: 11px; color: var(--red); max-width: 220px; word-break: break-all; }
+    .desc-text { font-size: 11px; color: #333; max-width: 260px; }
+    .desc-missing { font-size: 11px; color: #aaa; font-style: italic; }
+    .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .badge.ok      { background: rgba(22,163,74,0.10);  color: var(--green); }
+    .badge.short   { background: rgba(217,119,6,0.10);  color: var(--amber); }
+    .badge.missing { background: rgba(224,90,78,0.10);  color: var(--red); }
+    .badge.critical{ background: rgba(224,90,78,0.10);  color: var(--red); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); max-width: 180px; word-break: break-all; }
 
-    /* Why SEO matters section */
+    /* Why SEO matters */
     .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
     .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
     .explain-icon { font-size: 28px; margin-bottom: 12px; }
     .explain-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
     .explain-card p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-    /* CTA section */
+    /* CTA */
     .cta-section {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
       border-radius: var(--radius); padding: 40px 48px; margin: 32px 0;
@@ -134,28 +142,18 @@
       display: inline-block; background: var(--gold); color: #1a1a2e;
       font-weight: 700; font-size: 14px; letter-spacing: 0.5px;
       padding: 14px 36px; border-radius: 8px; text-decoration: none;
-      box-shadow: 0 4px 14px rgba(212,165,116,0.35); transition: opacity .2s;
+      box-shadow: 0 4px 14px rgba(212,165,116,0.35);
     }
-    .cta-btn:hover { opacity: 0.88; }
-
-    /* Recommendations */
-    .rec-list { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 28px; margin-bottom: 32px; }
-    .rec-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #f0f2f5; }
-    .rec-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .rec-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; }
-    .rec-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .rec-body p  { font-size: 13px; color: var(--muted); line-height: 1.5; }
-    .rec-effort { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--green); margin-top: 6px; }
 
     /* Footer */
     .footer { background: var(--text); color: rgba(255,255,255,0.55); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
     .footer strong { color: var(--gold); }
 
-    /* Spacer */
     .spacer { height: 36px; }
 
     @media (max-width: 768px) {
       .hero { padding: 48px 20px 40px; }
+      .hero h1 { font-size: 24px; }
       .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
       .wrap { padding: 0 20px; }
       .issue-grid { grid-template-columns: 1fr; }
@@ -171,7 +169,10 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-badge">SEO Audit Report</div>
-    <h1>LANDRANI® Luxury Lodge</h1>
+    <h1>
+      LANDRANI® Luxury Lodge
+      <span class="by-line">— SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
+    </h1>
     <p class="hero-sub">Website SEO Health Assessment — landrani.com &nbsp;|&nbsp; Prepared March 2026</p>
     <div class="hero-chips">
       <span class="chip"><strong>8</strong> pages audited</span>
@@ -204,8 +205,9 @@
 
 <div class="spacer"></div>
 
-<!-- CRITICAL BANNER -->
 <div class="wrap">
+
+  <!-- CRITICAL BANNER -->
   <div class="critical-banner">
     <h2>Critical Issues Detected Across landrani.com</h2>
     <div class="critical-stats">
@@ -214,12 +216,12 @@
         <div class="cstat-lbl">Pages Missing H1</div>
       </div>
       <div class="cstat">
-        <div class="cstat-num">5</div>
-        <div class="cstat-lbl">Weak Descriptions</div>
+        <div class="cstat-num">7</div>
+        <div class="cstat-lbl">Weak or Missing Descriptions</div>
       </div>
       <div class="cstat">
-        <div class="cstat-num">1</div>
-        <div class="cstat-lbl">Missing Description</div>
+        <div class="cstat-num">8</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
       </div>
       <div class="cstat">
         <div class="cstat-num">1</div>
@@ -232,6 +234,9 @@
   <div class="section-head">
     <h2>Top 3 Key Issues</h2>
     <p>Ranked by SEO impact — fixing these will deliver the most immediate improvement in Google visibility.</p>
+    <div class="ads-callout">
+      <strong>Running Google Ads?</strong> Every rand you spend on Google Ads drives people to your website — but if the pages they land on have poor SEO, you're paying more per click than you should. Google's Quality Score (which directly affects your cost-per-click) is partly determined by on-page relevance signals like H1 tags, meta descriptions, and page structure. Fix the SEO, and your ads get cheaper. Beyond paid search, good SEO builds <strong>indefinite organic visibility</strong> — unlike Google Ads, which disappears the moment you pause your budget. Investing in SEO compounds over time and reduces your long-term dependence on paid clicks.
+    </div>
   </div>
 
   <div class="issue-grid">
@@ -246,20 +251,18 @@
         <strong>Why it matters</strong>
         H1 tags are the primary on-page signal Google uses to understand what a page is about. Without an H1, Google must guess — and often ranks the wrong keyword (or none at all). For luxury accommodation, every page needs a clear H1 that includes location and category keywords.
       </div>
-      <p class="fix">→ Add a keyword-rich H1 to each page (e.g. "Luxury Self-Catering Cabins in Oudtshoorn, Klein Karoo")</p>
     </div>
 
     <!-- Issue 2 -->
     <div class="issue-card critical">
       <span class="issue-priority critical">Critical</span>
-      <div class="stat-line">62%</div>
+      <div class="stat-line">87%</div>
       <h3>Meta Descriptions Too Short or Missing</h3>
-      <p>5 of 8 pages have descriptions under 120 characters — or none at all. Google's optimal range is 120–160 characters.</p>
+      <p>7 of 8 pages have descriptions outside the optimal 140–160 character range, or missing entirely.</p>
       <div class="why">
         <strong>Why it matters</strong>
         Meta descriptions are the single line of text that appears in Google search results below your page title. A short or missing description means Google writes its own — often pulling random body text that doesn't sell the property. Compelling descriptions directly increase click-through rates by 15–30%.
       </div>
-      <p class="fix">→ Rewrite all descriptions to 130–155 characters with clear benefit-driven copy including location keywords</p>
     </div>
 
     <!-- Issue 3 -->
@@ -272,7 +275,6 @@
         <strong>Why it matters</strong>
         URL slugs are a ranking signal. When someone searches "LANDRANI contact" or "book Oudtshoorn lodge", Google looks at the URL for relevance. A slug like <em>/swap-the-busy-city-life/</em> signals nothing to Google about the page's purpose, wasting a ranking opportunity.
       </div>
-      <p class="fix">→ Redirect to <code style="font-size:11px;background:#f0f2f5;padding:2px 5px;border-radius:3px;">/contact/</code> or <code style="font-size:11px;background:#f0f2f5;padding:2px 5px;border-radius:3px;">/book-oudtshoorn-lodge/</code> with a 301 redirect</p>
     </div>
 
   </div>
@@ -280,7 +282,7 @@
   <!-- PAGE-BY-PAGE TABLE -->
   <div class="section-head">
     <h2>Page-by-Page Breakdown</h2>
-    <p>Full audit of all 8 pages — title, description length, H1 status, and slug quality.</p>
+    <p>Full audit of all 8 pages — title length, full meta description, H1 status, and slug quality.</p>
   </div>
 
   <div class="page-table">
@@ -291,7 +293,7 @@
           <th>Page</th>
           <th>Title</th>
           <th>Title Len</th>
-          <th>Meta Description</th>
+          <th>Meta Description (current)</th>
           <th>Desc Len</th>
           <th>H1</th>
           <th>Slug</th>
@@ -301,86 +303,93 @@
         <tr>
           <td>1</td>
           <td class="url-cell">Homepage</td>
-          <td>Luxurious Lodge Accommodation - LANDRANI®</td>
-          <td><span class="badge ok">41</span></td>
-          <td>Your getaway to deluxe tranquility in the Klein Karoo…</td>
+          <td style="font-size:12px;">Luxurious Lodge Accommodation - LANDRANI®</td>
+          <td><span class="badge critical">41 ✗</span></td>
+          <td><span class="desc-text">Your getaway to deluxe tranquility in the Klein Karoo. Stay in a designer cabin, soak in the hot tub under the stars, savour sweeping mountain views.</span></td>
           <td><span class="badge ok">152 ✓</span></td>
-          <td><span class="badge ok">✓ Present</span></td>
+          <td><span class="badge ok">✓</span></td>
           <td><span class="badge ok">/</span></td>
         </tr>
         <tr>
           <td>2</td>
           <td class="url-cell">/luxury-cabins/</td>
-          <td>Designer Cabins - LANDRANI®</td>
-          <td><span class="badge ok">27</span></td>
-          <td>Experience luxury lodge accommodation with our 9 cabins…</td>
+          <td style="font-size:12px;">Designer Cabins - LANDRANI®</td>
+          <td><span class="badge critical">27 ✗</span></td>
+          <td><span class="desc-text">Experience luxury lodge accommodation with our 9 enchanting cabins, designed in the spirit of idyllic island resorts.</span></td>
           <td><span class="badge short">118 ⚠</span></td>
-          <td><span class="badge missing">✗ Missing</span></td>
+          <td><span class="badge missing">✗</span></td>
           <td><span class="badge ok">/luxury-cabins/</span></td>
         </tr>
         <tr>
           <td>3</td>
           <td class="url-cell">/luxury-cabins-hot-tub/</td>
-          <td>Designer Cabins With Hot Tubs - LANDRANI®</td>
-          <td><span class="badge ok">41</span></td>
-          <td>Experience luxury lodge accommodation with our 9 designer cabins (4 with hot tubs)…</td>
-          <td><span class="badge ok">133 ✓</span></td>
-          <td><span class="badge missing">✗ Missing</span></td>
+          <td style="font-size:12px;">Designer Cabins With Hot Tubs - LANDRANI®</td>
+          <td><span class="badge critical">41 ✗</span></td>
+          <td><span class="desc-text">Experience luxury lodge accommodation with our 9 designer cabins (4 with hot tubs), designed in the spirit of idyllic island resorts.</span></td>
+          <td><span class="badge short">133 ⚠</span></td>
+          <td><span class="badge missing">✗</span></td>
           <td><span class="badge ok">/luxury-cabins-hot-tub/</span></td>
         </tr>
         <tr>
           <td>4</td>
           <td class="url-cell">/dining/</td>
-          <td>Dining - LANDRANI®</td>
-          <td><span class="badge short">18 ⚠</span></td>
-          <td>We offer several convenient meal options…</td>
+          <td style="font-size:12px;">Dining - LANDRANI®</td>
+          <td><span class="badge critical">18 ✗</span></td>
+          <td><span class="desc-text">We offer several convenient meal options to make your stay even more enjoyable.</span></td>
           <td><span class="badge short">79 ⚠</span></td>
-          <td><span class="badge missing">✗ Missing</span></td>
+          <td><span class="badge missing">✗</span></td>
           <td><span class="badge ok">/dining/</span></td>
         </tr>
         <tr>
           <td>5</td>
           <td class="url-cell">/included-activities/</td>
-          <td>Included Activities - LANDRANI®</td>
-          <td><span class="badge ok">31</span></td>
-          <td>Experiences you can enjoy at LANDRANI® Luxury Lodge.</td>
+          <td style="font-size:12px;">Included Activities - LANDRANI®</td>
+          <td><span class="badge critical">31 ✗</span></td>
+          <td><span class="desc-text">Experiences you can enjoy at LANDRANI® Luxury Lodge.</span></td>
           <td><span class="badge short">52 ⚠</span></td>
-          <td><span class="badge missing">✗ Missing</span></td>
+          <td><span class="badge missing">✗</span></td>
           <td><span class="badge ok">/included-activities/</span></td>
         </tr>
         <tr>
           <td>6</td>
           <td class="url-cell">/experience-landrani/</td>
-          <td>Experience Landrani - LANDRANI®</td>
-          <td><span class="badge ok">31</span></td>
-          <td>Experience LANDRANI. Let this hospitable place be your "Home away from home".</td>
+          <td style="font-size:12px;">Experience Landrani - LANDRANI®</td>
+          <td><span class="badge critical">31 ✗</span></td>
+          <td><span class="desc-text">Experience LANDRANI. Let this hospitable place be your "Home away from home".</span></td>
           <td><span class="badge short">77 ⚠</span></td>
-          <td><span class="badge missing">✗ Missing</span></td>
+          <td><span class="badge missing">✗</span></td>
           <td><span class="badge ok">/experience-landrani/</span></td>
         </tr>
         <tr>
           <td>7</td>
           <td class="url-cell">/swap-the-busy-city-life/</td>
-          <td>Contact Us - LANDRANI®</td>
-          <td><span class="badge ok">22</span></td>
-          <td>Swap the busy city life for a magical retreat to LANDRANI® Luxury Lodge…</td>
-          <td><span class="badge ok">134 ✓</span></td>
-          <td><span class="badge missing">✗ Missing</span></td>
-          <td><span class="badge missing">⚠ Non-keyword slug</span></td>
+          <td style="font-size:12px;">Contact Us - LANDRANI®</td>
+          <td><span class="badge critical">22 ✗</span></td>
+          <td><span class="desc-text">Swap the busy city life for a magical retreat to LANDRANI® Luxury Lodge. We look forward to welcoming you to a luxurious stay with us.</span></td>
+          <td><span class="badge short">134 ⚠</span></td>
+          <td><span class="badge missing">✗</span></td>
+          <td><span class="badge missing">⚠ Non-keyword</span></td>
         </tr>
         <tr>
           <td>8</td>
           <td class="url-cell">/privacy-policy/</td>
-          <td>Privacy Policy - LANDRANI®</td>
-          <td><span class="badge ok">26</span></td>
-          <td style="color:#aaa;font-style:italic;">—</td>
+          <td style="font-size:12px;">Privacy Policy - LANDRANI®</td>
+          <td><span class="badge critical">26 ✗</span></td>
+          <td><span class="desc-missing">— not set —</span></td>
           <td><span class="badge missing">0 ✗</span></td>
-          <td><span class="badge ok">✓ Present</span></td>
+          <td><span class="badge ok">✓</span></td>
           <td><span class="badge ok">/privacy-policy/</span></td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <!-- Legend -->
+  <p style="font-size:11px;color:var(--muted);margin:-20px 0 32px;padding:0 2px;">
+    <strong>Title length:</strong> ✗ = under 60 characters (needs improvement) &nbsp;|&nbsp;
+    <strong>Desc length:</strong> ✓ = 140–160 chars (optimal) · ⚠ = outside range · ✗ = missing &nbsp;|&nbsp;
+    <strong>H1:</strong> ✓ = present · ✗ = missing
+  </p>
 
   <!-- WHY SEO MATTERS -->
   <div class="section-head">
@@ -396,7 +405,7 @@
     </div>
     <div class="explain-card">
       <div class="explain-icon">🤖</div>
-      <h3>ChatGPT & AI Search — The New Discovery Channel</h3>
+      <h3>ChatGPT &amp; AI Search — The New Discovery Channel</h3>
       <p>When someone asks ChatGPT or Perplexity "what are the best luxury lodges near Oudtshoorn?", the AI reads your website to decide whether to mention LANDRANI®. Clear H1s, well-structured descriptions, and strong on-page signals dramatically increase the chance your lodge is cited in AI-generated answers — a channel growing faster than traditional SEO.</p>
     </div>
     <div class="explain-card">
@@ -411,66 +420,17 @@
     </div>
   </div>
 
-  <!-- RECOMMENDATIONS -->
-  <div class="section-head">
-    <h2>Recommendations — Prioritised Action Plan</h2>
-    <p>These fixes are ordered by impact. Most can be completed in a single working session.</p>
-  </div>
-
-  <div class="rec-list">
-    <div class="rec-item">
-      <div class="rec-num">1</div>
-      <div class="rec-body">
-        <h4>Add H1 Tags to All 6 Pages</h4>
-        <p>Each page needs one clear H1 that includes the page's primary keyword + location where relevant. For example, the Dining page should have an H1 like <em>"Farm-to-Table Dining at LANDRANI® Lodge, Oudtshoorn"</em> rather than no heading at all. This is a WordPress/Divi text edit — no developer required.</p>
-        <div class="rec-effort">⏱ Effort: Low (1–2 hours) &nbsp;|&nbsp; 🎯 Impact: High</div>
-      </div>
-    </div>
-    <div class="rec-item">
-      <div class="rec-num">2</div>
-      <div class="rec-body">
-        <h4>Rewrite 5 Meta Descriptions to 130–155 Characters</h4>
-        <p>Target pages: /luxury-cabins/, /dining/, /included-activities/, /experience-landrani/, and /privacy-policy/. Each description should include a unique benefit, a location reference (Klein Karoo / Oudtshoorn), and a soft call to action. In Divi / Yoast SEO this is a one-field update per page.</p>
-        <div class="rec-effort">⏱ Effort: Low (1 hour) &nbsp;|&nbsp; 🎯 Impact: High (15–30% CTR improvement)</div>
-      </div>
-    </div>
-    <div class="rec-item">
-      <div class="rec-num">3</div>
-      <div class="rec-body">
-        <h4>Fix the Contact Page Slug</h4>
-        <p>Redirect <code style="background:#f0f2f5;padding:2px 5px;border-radius:3px;font-size:11px;">/swap-the-busy-city-life/</code> to <code style="background:#f0f2f5;padding:2px 5px;border-radius:3px;font-size:11px;">/contact/</code> using a 301 redirect in WordPress. Update the internal navigation link to point to the new URL. This takes less than 5 minutes and immediately improves keyword relevance for the Contact page.</p>
-        <div class="rec-effort">⏱ Effort: Very Low (5 minutes) &nbsp;|&nbsp; 🎯 Impact: Medium</div>
-      </div>
-    </div>
-    <div class="rec-item">
-      <div class="rec-num">4</div>
-      <div class="rec-body">
-        <h4>Strengthen Page Titles — Dining &amp; Activities Pages</h4>
-        <p>The Dining page title is just "Dining - LANDRANI®" (18 characters). A better title: <em>"Klein Karoo Farm Dining &amp; Lamb BBQ Experiences | LANDRANI® Lodge"</em>. Richer titles rank for more long-tail searches and look far more compelling in Google results, especially when competing with OTAs like Booking.com.</p>
-        <div class="rec-effort">⏱ Effort: Low (30 minutes) &nbsp;|&nbsp; 🎯 Impact: Medium</div>
-      </div>
-    </div>
-    <div class="rec-item">
-      <div class="rec-num">5</div>
-      <div class="rec-body">
-        <h4>Add Schema Markup (Structured Data)</h4>
-        <p>Adding LodgingBusiness and Accommodation schema tells Google — and AI search engines — exactly what LANDRANI® is, where it is, what it offers, and how to book. This is one of the strongest signals for appearing in AI-generated travel recommendations (ChatGPT, Perplexity, Google AI Overviews). This is a one-time technical implementation.</p>
-        <div class="rec-effort">⏱ Effort: Medium (3–4 hours) &nbsp;|&nbsp; 🎯 Impact: High (AI citation + rich results)</div>
-      </div>
-    </div>
-  </div>
-
   <!-- CTA -->
   <div class="cta-section">
     <h2>Ready to Fix These Issues?</h2>
-    <p>Our SEO team can implement all five recommendations for LANDRANI® and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6–8 weeks.</p>
-    <a href="mailto:info@tmsa.digital?subject=SEO%20Audit%20-%20LANDRANI%C2%AE%20Luxury%20Lodge" class="cta-btn">Get in Touch →</a>
+    <p>Our SEO team can implement all the improvements for LANDRANI® and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6–8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=Please%20assist%20with%20SEO%20Audit%20for%20LANDRANI%C2%AE%20Luxury%20Lodge" class="cta-btn">Get in Touch →</a>
   </div>
 
 </div><!-- /wrap -->
 
 <div class="footer">
-  <strong>Tourism Marketing South Africa</strong> &nbsp;·&nbsp; SEO Audit for LANDRANI® Luxury Lodge &nbsp;·&nbsp; March 2026<br>
+  <strong>TourismMarketing.co.za</strong> &nbsp;·&nbsp; SEO Audit for LANDRANI® Luxury Lodge &nbsp;·&nbsp; March 2026<br>
   <span style="margin-top:6px;display:block;">This report was generated from a live crawl of landrani.com conducted on 14 March 2026.</span>
 </div>
 
