@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TMSA SEO Automation System - Project Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:    #2563EB;
+      --green:   #16A34A;
+      --amber:   #D97706;
+      --red:     #E05A4E;
+      --purple:  #7C3AED;
+      --teal:    #0891B2;
+      --navy:    #1a1a2e;
+      --bg:      #f0f2f5;
+      --card:    #ffffff;
+      --border:  #e4e7eb;
+      --muted:   #6c757d;
+      --radius:  12px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--navy); font-size: 15px; line-height: 1.7; }
+
+    /* NAV */
+    .topbar { background: var(--navy); color: rgba(255,255,255,0.7); padding: 12px 48px; font-size: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .topbar strong { color: #d4a574; }
+
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1a1a2e 100%); padding: 72px 48px 80px; color: #fff; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #d4a574; margin-bottom: 18px; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+    .hero h1 span { color: #60a5fa; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,0.72); max-width: 680px; line-height: 1.7; margin-bottom: 36px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 6px 16px; font-size: 12px; color: rgba(255,255,255,0.7); }
+    .chip strong { color: #fff; }
+
+    /* LAYOUT */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    .spacer { height: 56px; }
+    .spacer-sm { height: 28px; }
+
+    /* SECTION HEADS */
+    .section-head { margin: 56px 0 28px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: var(--navy); }
+    .section-head p { font-size: 15px; color: var(--muted); margin-top: 6px; max-width: 680px; }
+
+    /* WHAT IS THIS */
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 16px; }
+    .intro-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); padding: 28px; }
+    .intro-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .intro-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .intro-card .tag { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 12px; }
+    .tag.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .tag.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .tag.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .tag.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .tag.teal   { background: rgba(8,145,178,0.10); color: var(--teal); }
+
+    /* WORKFLOW BLOCKS */
+    .workflow { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 28px; overflow: hidden; }
+    .workflow-header { padding: 24px 28px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 18px; }
+    .workflow-icon { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .workflow-icon svg { width: 24px; height: 24px; }
+    .workflow-icon.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .workflow-icon.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .workflow-icon.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .workflow-icon.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .workflow-icon.teal   { background: rgba(8,145,178,0.10); color: var(--teal); }
+    .workflow-title h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+    .workflow-title p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .workflow-body { padding: 24px 28px; }
+
+    /* INVOKE BOX */
+    .invoke-box { border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; margin-bottom: 24px; font-size: 13px; line-height: 1.7; }
+    .invoke-box.blue   { background: #f0f7ff; border: 1px solid #c3d9f7; border-left: 4px solid var(--blue); }
+    .invoke-box.teal   { background: #f0fbff; border: 1px solid #b3e0f0; border-left: 4px solid var(--teal); }
+    .invoke-box.green  { background: #f0fff4; border: 1px solid #b3e8c8; border-left: 4px solid var(--green); }
+    .invoke-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 8px; }
+    .invoke-box.blue  .invoke-label { color: var(--blue); }
+    .invoke-box.teal  .invoke-label { color: var(--teal); }
+    .invoke-box.green .invoke-label { color: var(--green); }
+    .invoke-box code { font-family: monospace; font-size: 12px; background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 4px; color: var(--navy); display: block; margin: 4px 0; }
+    .invoke-box .invoke-note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #f0f2f5; }
+    .step:last-child { border-bottom: none; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .step-num.blue   { background: rgba(37,99,235,0.12); color: var(--blue); }
+    .step-num.green  { background: rgba(22,163,74,0.12); color: var(--green); }
+    .step-num.amber  { background: rgba(217,119,6,0.12); color: var(--amber); }
+    .step-num.purple { background: rgba(124,58,237,0.12); color: var(--purple); }
+    .step-num.teal   { background: rgba(8,145,178,0.12); color: var(--teal); }
+    .step-body { flex: 1; }
+    .step-body strong { font-size: 14px; font-weight: 600; display: block; margin-bottom: 3px; }
+    .step-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .step-body code { font-family: monospace; font-size: 11px; background: #f0f2f5; padding: 2px 6px; border-radius: 4px; color: #555; }
+    .step-stop { border: 1.5px dashed #f59e0b; background: #fffbf0; border-radius: 6px; padding: 10px 14px; margin-top: 6px; font-size: 12px; color: #92400e; }
+
+    /* OUTPUT BADGES */
+    .output-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #f0f2f5; }
+    .output-badge { display: flex; align-items: center; gap: 7px; background: #f8f9fa; border: 1px solid var(--border); border-radius: 6px; padding: 7px 14px; font-size: 12px; font-weight: 500; }
+    .output-badge svg { width: 14px; height: 14px; color: var(--muted); }
+
+    /* TOOL STACK */
+    .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stack-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); padding: 20px; text-align: center; }
+    .stack-card .stack-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+    .stack-card .stack-icon svg { width: 22px; height: 22px; }
+    .stack-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+    .stack-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* CLIENTS TABLE */
+    .clients-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; }
+    .clients-table table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .clients-table th { background: #f8f9fa; padding: 10px 16px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .clients-table td { padding: 13px 16px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; }
+    .clients-table tr:last-child td { border-bottom: none; }
+    .status-badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.6px; }
+    .status-badge.complete      { background: rgba(22,163,74,0.10); color: var(--green); }
+    .status-badge.review        { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .status-badge.prospect      { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .status-badge.report-ready  { background: rgba(8,145,178,0.10); color: var(--teal); }
+    .clients-table a { color: var(--blue); text-decoration: none; font-size: 12px; }
+    .clients-table a:hover { text-decoration: underline; }
+
+    /* CALLOUT */
+    .callout { background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber); border-radius: 0 var(--radius) var(--radius) 0; padding: 16px 20px; margin: 20px 0; font-size: 13px; color: #444; line-height: 1.7; }
+    .callout strong { color: var(--navy); }
+
+    /* FOOTER */
+    .footer { background: var(--navy); color: rgba(255,255,255,0.45); text-align: center; padding: 32px 48px; font-size: 12px; margin-top: 56px; }
+    .footer strong { color: #d4a574; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px; }
+      .hero h1 { font-size: 28px; }
+      .wrap { padding: 0 20px; }
+      .intro-grid { grid-template-columns: 1fr; }
+      .stack-grid { grid-template-columns: repeat(2, 1fr); }
+      .topbar { padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span><strong>TourismMarketing.co.za</strong> - Internal Project Reference</span>
+  <span>Last updated: 15 March 2026</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Project Overview</div>
+    <h1>TMSA <span>SEO Automation</span><br>System</h1>
+    <p class="hero-sub">
+      A Claude Code-powered SEO audit and optimisation system for South African tourism properties.
+      Three workflows - leads pipeline (full), leads pipeline (quick batch), and client delivery.
+      All produce HTML reports and write structured data to Google Sheets.
+    </p>
+    <div class="hero-chips">
+      <span class="chip"><strong>3</strong> active workflows</span>
+      <span class="chip"><strong>31+</strong> prospects in pipeline</span>
+      <span class="chip"><strong>Platform:</strong> Claude Code + Playwright + Google Sheets</span>
+      <span class="chip"><strong>Hosting:</strong> Cloudflare Pages</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- WHAT IS THIS -->
+  <div class="section-head">
+    <h2>What This Project Does</h2>
+    <p>Three distinct workflows serve two purposes - lead generation for new prospects, and deep SEO delivery for paying clients.</p>
+  </div>
+
+  <div class="intro-grid">
+    <div class="intro-card">
+      <div class="tag blue">Workflows 1a + 1b</div>
+      <h3>Leads Audit Pipeline</h3>
+      <p>
+        Finds tourism properties running Google Ads, crawls their website, and produces a free SEO audit report published live on Cloudflare Pages.
+        Two modes: <strong>Quick Cycle</strong> (batch-process the entire queue, you decide which sites get a Gmail) and
+        <strong>Full Pipeline</strong> (single site, end-to-end including Gmail draft - use when you are ready to send immediately).
+      </p>
+    </div>
+    <div class="intro-card">
+      <div class="tag green">Workflow 2</div>
+      <h3>Client SEO Audit (Phase 1-4)</h3>
+      <p>
+        A multi-phase SEO engagement for paying clients. Phase 1 crawls and audits the site. Phase 2-3 generates
+        optimised titles, descriptions and H1s for every page. Phase 4 produces a before-and-after summary report.
+        All data lives in the client's own Google Sheet for full transparency.
+      </p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>Target sites for both workflows:</strong> Independent South African guesthouses, boutique hotels, safari lodges, and B&Bs with 8-30 pages.
+    Group/chain hotel sites (20+ properties) are not suitable - skip these.
+  </div>
+
+
+  <!-- WORKFLOW DECISION -->
+  <div style="background:#fff; border:2px solid #2563EB; border-radius:14px; padding:32px 36px; margin-bottom:40px;">
+    <div style="font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#2563EB; margin-bottom:16px;">Which Workflow Do I Use?</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px;">
+
+      <div style="background:#f0f7ff; border-radius:10px; padding:22px 24px; border-left:4px solid #2563EB;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; margin-bottom:6px; color:#1a1a2e;">1b - Quick Cycle</div>
+        <div style="font-size:13px; font-weight:600; color:#2563EB; margin-bottom:12px;">Step 1 of the batch flow</div>
+        <p style="font-size:13px; color:#444; line-height:1.7; margin-bottom:12px;">
+          Process all Pending prospects in one go - crawl, report, publish to Cloudflare.
+          When done, every report is live with a link in column D.
+          Review reports and mark chosen rows <code style="font-size:11px;">Draft Email</code>.
+        </p>
+        <div style="font-size:12px; color:#555; background:#fff; border-radius:6px; padding:10px 14px; font-family:monospace;">
+          "Run the Leads Audit Quick Cycle"
+        </div>
+      </div>
+
+      <div style="background:#f5f0ff; border-radius:10px; padding:22px 24px; border-left:4px solid #7C3AED;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; margin-bottom:6px; color:#1a1a2e;">1c - Email Cycle</div>
+        <div style="font-size:13px; font-weight:600; color:#7C3AED; margin-bottom:12px;">Step 2 of the batch flow</div>
+        <p style="font-size:13px; color:#444; line-height:1.7; margin-bottom:12px;">
+          After reviewing 1b reports - run this to batch-draft Gmail outreach for every row marked <code style="font-size:11px;">Draft Email</code>.
+          Pulls top 3 issues from each site's crawl data. Marks rows <code style="font-size:11px;">Email Drafted</code> when done.
+        </p>
+        <div style="font-size:12px; color:#555; background:#fff; border-radius:6px; padding:10px 14px; font-family:monospace;">
+          "Run the Leads Audit Email Cycle"
+        </div>
+      </div>
+
+      <div style="background:#f0fff4; border-radius:10px; padding:22px 24px; border-left:4px solid #16A34A;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; margin-bottom:6px; color:#1a1a2e;">1a - Full Pipeline</div>
+        <div style="font-size:13px; font-weight:600; color:#16A34A; margin-bottom:12px;">Single site, end-to-end</div>
+        <p style="font-size:13px; color:#444; line-height:1.7; margin-bottom:12px;">
+          For a specific site you want to process immediately - crawl, report, Cloudflare publish, Gmail draft - without batch review.
+          Ends with a Gmail draft ready to send manually.
+        </p>
+        <div style="font-size:12px; color:#555; background:#fff; border-radius:6px; padding:10px 14px; font-family:monospace;">
+          "Run the Leads Audit Pipeline for [domain]"
+        </div>
+      </div>
+
+    </div>
+    <div style="margin-top:20px; padding-top:18px; border-top:1px solid #e4e7eb; font-size:13px; color:#555; line-height:1.7;">
+      <strong style="color:#1a1a2e;">The normal batch flow:</strong>
+      Add prospects to Audit Queue &rarr; Run <strong>1b Quick Cycle</strong> &rarr; Review live Cloudflare reports &rarr; Mark chosen rows <code>Draft Email</code> &rarr; Run <strong>1c Email Cycle</strong> &rarr; Review &amp; send drafts in Gmail &rarr; Mark <code>Complete</code>.
+    </div>
+  </div>
+
+  <!-- WORKFLOW 1a -->
+  <div class="section-head">
+    <h2>Workflow 1a - Full Pipeline (Single Site, End-to-End)</h2>
+    <p>Use when you have already decided a specific site is worth sending. Runs all 9 steps for one site - ends with a Gmail draft ready to review and send.</p>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-header">
+      <div class="workflow-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.55 3.49 2 2 0 0 1 3.54 1.33h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l1.9-1.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </div>
+      <div class="workflow-title">
+        <h3>Leads Audit Pipeline</h3>
+        <p>Prospect finds a tourism property running Google Ads - adds URL to queue - full audit runs automatically - Gmail draft created ready to send.</p>
+      </div>
+    </div>
+    <div class="workflow-body">
+
+      <div class="invoke-box blue">
+        <div class="invoke-label">How to start this workflow</div>
+        <code>"Run the Leads Audit Pipeline - follow WORKFLOW-LEADS-AUDIT.md"</code>
+        <code>"Process [domain] from the Audit Queue using the full Leads Audit Pipeline"</code>
+        <div class="invoke-note">Workflow doc: <strong>WORKFLOW-LEADS-AUDIT.md</strong> - runs all 9 steps including Cloudflare publish and Gmail draft.</div>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num blue">1</div>
+          <div class="step-body">
+            <strong>Add URL to Audit Queue (Google Sheet)</strong>
+            <p>Open the master Google Sheet and add the property URL in Column A. Set Status = <code>Pending</code>. That is the only manual step.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">2</div>
+          <div class="step-body">
+            <strong>Read the Queue</strong>
+            <p>Claude reads the Audit Queue tab and finds all <code>Pending</code> entries. Creates a numbered client folder (<code>08-landrani/</code>, <code>09-leschambres/</code>, etc.) and marks the row <code>In Progress</code>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">3</div>
+          <div class="step-body">
+            <strong>Crawl the Website (Playwright)</strong>
+            <p>Breadth-first crawl from homepage. Extracts page title, meta description, H1, slug and page type for every page. Also extracts all email addresses found on the site and identifies the best hero image for the report header. Saves to <code>pages_data.json</code>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">4</div>
+          <div class="step-body">
+            <strong>Write Crawl Data to Google Sheet</strong>
+            <p>Crawl data is written to a new tab in the master sheet named after the domain (e.g. <code>landrani.com</code>). Full metadata preserved - no truncation.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">5</div>
+          <div class="step-body">
+            <strong>Analyse Issues and Calculate Health Score</strong>
+            <p>From the crawl data: counts short titles (&lt; 50 chars), missing descriptions, descriptions &gt; 160 chars, missing H1s. Calculates weighted health score per page (Title 50pts + Desc 35pts + H1 15pts). Site score = average across all pages. Identifies the top 3 most impactful issues for this specific site.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">6</div>
+          <div class="step-body">
+            <strong>Generate HTML Audit Report</strong>
+            <p>Populates the master HTML template with all client-specific variables. Includes 4 KPI cards, a critical issues section, Google Ads callout, 3 issue cards (customised per site), full page-by-page table with tooltips, and a green CTA section. Saved to the client's output folder.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">7</div>
+          <div class="step-body">
+            <strong>Update Audit Queue + Publish to Cloudflare Pages</strong>
+            <p>Four sub-steps run in sequence: (7a) Mark <code>Report Ready</code> + write health score to column C. (7b) Strip tracking params from URL in column A, leaving clean base URL. (7c) Copy HTML report to GitHub repo (<code>tmsatech-2026/seo-phase1-reports</code>) and push - Cloudflare auto-deploys within 60 seconds. (7d) Write live Cloudflare URL to column D. Live URL: <code>seo-phase1-reports.pages.dev/clients/[slug]/seo-audit-report.html</code></p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">8</div>
+          <div class="step-body">
+            <strong>Draft Gmail Outreach Email</strong>
+            <p>Gmail draft created via MCP. To: first email found on site. CC: any additional emails. Subject: "We audited [domain] - here's what we found". HTML email with issue summary, live report link, and Google Ads connection callout. Saved as draft - reviewed and sent manually.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num blue">9</div>
+          <div class="step-body">
+            <strong>Mark Complete</strong>
+            <p>Audit Queue row updated to <code>Complete</code>. Workflow moves to next <code>Pending</code> entry in the queue.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="output-row">
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          pages_data.json
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Google Sheet tab (crawl data)
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Live HTML report (Cloudflare Pages)
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Gmail draft (ready to send)
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- WORKFLOW 1b -->
+  <div class="section-head">
+    <h2>Workflow 1b - Quick Cycle (Batch, All Pending Sites)</h2>
+    <p>The starting point for any new batch of prospects. Processes every Pending entry in the queue without stopping - crawl, report, Cloudflare publish. You review live reports and run Gmail outreach only for the sites you choose.</p>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-header">
+      <div class="workflow-icon teal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/>
+        </svg>
+      </div>
+      <div class="workflow-title">
+        <h3>Leads Audit Quick Cycle</h3>
+        <p>Processes the entire Audit Queue end-to-end - crawl, sheet, analyse, HTML report, Cloudflare publish - without stopping between sites. Human reviews live reports and decides which get a Gmail outreach.</p>
+      </div>
+    </div>
+    <div class="workflow-body">
+
+      <div class="invoke-box teal">
+        <div class="invoke-label">How to start this workflow</div>
+        <code>"Run the Leads Audit Quick Cycle - follow WORKFLOW-LEADS-AUDIT-QUICK-CYCLE.md"</code>
+        <code>"Process all Pending entries in the Audit Queue - Quick Cycle only, no Gmail"</code>
+        <div class="invoke-note">Workflow doc: <strong>WORKFLOW-LEADS-AUDIT-QUICK-CYCLE.md</strong> - processes every Pending entry without stopping. Each site published to Cloudflare and marked <code>Report Ready</code> with live link in column D.</div>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num teal">1</div>
+          <div class="step-body">
+            <strong>Read the Queue - All Pending Entries</strong>
+            <p>Claude reads the Audit Queue tab and collects all <code>Pending</code> entries. Processes them sequentially, top to bottom, without pausing between sites.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num teal">2</div>
+          <div class="step-body">
+            <strong>Create Client Folder + Mark In Progress</strong>
+            <p>For each site: creates numbered client folder (<code>10-newsite/</code>, <code>11-nextsite/</code> etc.), creates a sheet tab named after the domain, marks the queue row <code>In Progress</code>.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num teal">3</div>
+          <div class="step-body">
+            <strong>Crawl the Website (Playwright)</strong>
+            <p>Breadth-first crawl from homepage. Extracts page title, meta description, H1, slug, page type, email addresses, and hero image. Saves to <code>pages_data.json</code>. If site is a hotel group or chain, marks <code>Skipped - Group Site</code> and moves on.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num teal">4</div>
+          <div class="step-body">
+            <strong>Write Crawl Data to Google Sheet</strong>
+            <p>Crawl data written to the domain tab in the master sheet. Full metadata preserved. Also copies <code>pages_data.json</code> to the client output folder.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num teal">5</div>
+          <div class="step-body">
+            <strong>Analyse Issues and Calculate Health Score</strong>
+            <p>Calculates all template variables. Identifies the top 3 most impactful issues for this specific site. Counts short titles, missing descriptions, long descriptions, missing H1s.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num teal">6</div>
+          <div class="step-body">
+            <strong>Generate HTML Audit Report - Then Move to Next Site</strong>
+            <p>Populates the HTML template with all variables. Customises issue cards to reflect this site's actual top 3 issues. Saves HTML to client output folder. Marks queue row <code>Report Ready</code> with health score, cleans URL in column A, publishes to Cloudflare Pages, writes live link to column D. Immediately processes the next Pending entry - no pause.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:#f0fbff; border:1px solid #b3e0f0; border-left:4px solid var(--teal); border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:16px 0 0; font-size:13px; color:#0e4a5c; line-height:1.7;">
+        <strong>After the Quick Cycle:</strong> All sites are marked <code>Report Ready</code> with live Cloudflare links in column D. Review each report via those links. For sites worth sending - manually change the row status to <code>Draft Email</code>. For sites where SEO looks healthy - set to <code>Skipped - SEO OK</code>. Then run <strong>Workflow 1c - Email Cycle</strong> to batch-draft the Gmail outreach for all <code>Draft Email</code> rows.
+      </div>
+
+      <div class="output-row">
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          pages_data.json (per site)
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Google Sheet tab (per site)
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          HTML audit report (local, per site)
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Live Cloudflare link (column D)
+        </div>
+        <div class="output-badge" style="border-style:dashed; color:var(--muted);">
+          No Gmail draft
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- WORKFLOW 1c -->
+  <div class="section-head">
+    <h2>Workflow 1c - Email Cycle (Batch Gmail Drafts)</h2>
+    <p>Runs after you have reviewed the 1b Quick Cycle reports and marked chosen rows "Draft Email". Batch-drafts a personalised Gmail outreach email for every marked row, pulling the top 3 issues from each site's crawl data. Marks each row "Email Drafted" when done.</p>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-header">
+      <div class="workflow-icon" style="background:rgba(124,58,237,0.12); color:#7C3AED;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <div class="workflow-title">
+        <h3>Leads Audit Email Cycle</h3>
+        <p>Reads all "Draft Email" rows from the Audit Queue. For each row, derives the client folder slug from the Cloudflare URL in col D, reads the <strong>live HTML report as the source of truth</strong>, extracts the top 3 issue cards and critical-impact paragraph, then creates a Gmail draft. Report content drives the email - not pages_data.json.</p>
+      </div>
+    </div>
+    <div class="workflow-body">
+
+      <div class="invoke-box" style="border-left-color:#7C3AED; background:rgba(124,58,237,0.04);">
+        <div class="invoke-label">How to start this workflow</div>
+        <code>"Run the Leads Audit Email Cycle - follow WORKFLOW-LEADS-AUDIT-EMAIL-CYCLE.md"</code>
+        <div class="invoke-note">Workflow doc: <strong>WORKFLOW-LEADS-AUDIT-EMAIL-CYCLE.md</strong> - processes every "Draft Email" row. Pre-condition: rows must be manually set to <code>Draft Email</code> after reviewing 1b reports.</div>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num" style="background:#7C3AED;">1</div>
+          <div class="step-body">
+            <strong>Read the Queue - All "Draft Email" Entries</strong>
+            <p>Reads the Audit Queue tab and filters for rows with <code>status === "Draft Email"</code>. If none found, stops. Logs the list of domains to be processed before starting.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:#7C3AED;">2</div>
+          <div class="step-body">
+            <strong>Locate the HTML Report</strong>
+            <p>For each row: reads URL (col A), Cloudflare URL (col D), and emails (col E). Parses the client folder slug from the Cloudflare URL (e.g. <code>21-rustygate</code>). Globs for the <code>*.html</code> audit report in the client's <code>output/</code> folder. This HTML file is the single source of truth for all email content.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:#7C3AED;">3</div>
+          <div class="step-body">
+            <strong>Extract Content from the HTML Report</strong>
+            <p>Reads the <code>.issue-card</code> elements directly from the report HTML - extracting <code>.stat-line</code>, <code>h3</code>, and the first <code>&lt;p&gt;</code> from each of the 3 cards. Synthesises the bold summary sentence from the <code>.critical-impact</code> paragraph. Client name from the hero <code>&lt;h1&gt;</code>. No recalculation - what's in the report is what goes in the email.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:#7C3AED;">4</div>
+          <div class="step-body">
+            <strong>Draft Gmail Email via MCP</strong>
+            <p>Creates a Gmail draft via the Gmail MCP. Subject: <em>"We built a free SEO report for [domain] - thought you should see it..."</em>. HTML email with 3 issue bullets drawn from the report cards, a CTA button to the live report with UTM tracking params (<code>?utm_source=email&amp;utm_medium=direct&amp;utm_campaign=seo-outreach&amp;utm_content=[slug]</code>), and a Google Ads Quality Score callout box. All inline styles - Gmail strips style blocks.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num" style="background:#7C3AED;">5</div>
+          <div class="step-body">
+            <strong>Mark "Email Drafted" + Move to Next</strong>
+            <p>Updates the Audit Queue row to <code>Email Drafted</code>. Immediately processes the next "Draft Email" entry. When all are done, prints a summary of drafts created.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="background:#faf5ff; border:1px solid #d8b4fe; border-left:4px solid #7C3AED; border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:16px 0 0; font-size:13px; color:#4c1d95; line-height:1.7;">
+        <strong>After the Email Cycle:</strong> Open Gmail Drafts folder. Review and personalise each email if needed. Send. Then manually set each sent row in the Audit Queue to <code>Complete</code>.
+      </div>
+
+      <div class="output-row">
+        <div class="output-badge" style="border-color:#7C3AED; color:#7C3AED;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Gmail draft (per site)
+        </div>
+        <div class="output-badge" style="border-color:#7C3AED; color:#7C3AED;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Status → "Email Drafted"
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- WORKFLOW 2 -->
+  <div class="section-head">
+    <h2>Workflow 2 - Client SEO Audit (Phase 1-4)</h2>
+    <p>For paying clients. A structured multi-phase engagement. Each phase requires client sign-off before proceeding. Deeper analysis than the leads audit - includes actual SEO recommendations written directly into their Google Sheet.</p>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-header">
+      <div class="workflow-icon green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+      </div>
+      <div class="workflow-title">
+        <h3>Phase 1 - Website Crawl and Baseline Report</h3>
+        <p>Crawl the client's live site, write data to their dedicated Google Sheet, generate a Phase 1 HTML report. Stop here and wait for client to verify the data before any further work.</p>
+      </div>
+    </div>
+    <div class="workflow-body">
+
+      <div class="invoke-box green">
+        <div class="invoke-label">How to start this workflow</div>
+        <code>"Run Phase 1 for [client name] - follow WORKFLOW-PHASE1-MANUAL.md"</code>
+        <code>"Start a new Phase 1 client SEO audit for [domain] - client folder [NN-clientname], Sheet ID [xxx]"</code>
+        <div class="invoke-note">Workflow doc: <strong>WORKFLOW-PHASE1-MANUAL.md</strong> - have client name, URL, folder number, and Google Sheet ID ready before starting.</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num green">1</div>
+          <div class="step-body">
+            <strong>Client Setup</strong>
+            <p>Create numbered client folder (<code>01-leschambres/</code> etc.). Create a blank Google Sheet for the client, share with the service account. Rename first tab to exactly <code>SEO Audit</code> (case-sensitive).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num green">2</div>
+          <div class="step-body">
+            <strong>Crawl and Save Data</strong>
+            <p>Playwright breadth-first crawl. Extracts title, meta description, H1, slug, page type. Saves to <code>pages_data.json</code>. Writes full data to the client's Google Sheet.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num green">3</div>
+          <div class="step-body">
+            <strong>Generate Phase 1 HTML Report</strong>
+            <p>KPI cards, critical issues dashboard, top 3 issues section with business-impact explanations, full page table. Published to Cloudflare Pages for the client to review.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num green">4</div>
+          <div class="step-body">
+            <strong>Client Review Gate - STOP</strong>
+            <p>Client verifies the crawl data against their live site. Confirms all pages were captured. Approves the critical issues summary. Only after approval do we proceed to Phase 2-3.</p>
+            <div class="step-stop">Do not proceed to Phase 2-3 until client has reviewed and approved the Google Sheet data and HTML report.</div>
+          </div>
+        </div>
+      </div>
+      <div class="output-row">
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Client Google Sheet (current metadata)
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Live Phase 1 HTML report
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-header">
+      <div class="workflow-icon amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+        </svg>
+      </div>
+      <div class="workflow-title">
+        <h3>Phase 2-3 - Analysis and Recommendations</h3>
+        <p>After client approves Phase 1. Reads each page's content, generates optimised SEO copy, writes recommendations side-by-side with current content in the Google Sheet.</p>
+      </div>
+    </div>
+    <div class="workflow-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num amber">1</div>
+          <div class="step-body">
+            <strong>Fetch Page Content</strong>
+            <p>WebFetch each page URL to read the actual body text, headings, and context. Understands what the page is about before writing recommendations.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num amber">2</div>
+          <div class="step-body">
+            <strong>Generate Optimised SEO Copy Per Page</strong>
+            <p>For every page: writes an optimised title (50-65 chars), meta description (140-160 chars), H1, and recommended slug. Tailored to the property type, location, and target guest.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num amber">3</div>
+          <div class="step-body">
+            <strong>Write to Google Sheet (Interleaved Layout)</strong>
+            <p>Recommendations written directly into the client's Sheet - current value and suggested value side-by-side in each row. Client can see exactly what is changing and why.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num amber">4</div>
+          <div class="step-body">
+            <strong>Client Reviews and Approves</strong>
+            <p>Client reviews every suggested change in their Sheet. Can edit any suggested copy before approval. No changes go live until the client signs off.</p>
+          </div>
+        </div>
+      </div>
+      <div class="output-row">
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Google Sheet with current vs. suggested SEO copy
+        </div>
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          recommendations.json (local backup)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow">
+    <div class="workflow-header">
+      <div class="workflow-icon purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+        </svg>
+      </div>
+      <div class="workflow-title">
+        <h3>Phase 4 - Before and After Report</h3>
+        <p>After recommendations are implemented. Generates a final HTML report showing the before-and-after for every page, with the measurable improvement in health score.</p>
+      </div>
+    </div>
+    <div class="workflow-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num purple">1</div>
+          <div class="step-body">
+            <strong>Re-crawl the Live Site</strong>
+            <p>After the client has implemented the recommended changes on their website, the site is re-crawled to capture the updated metadata.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num purple">2</div>
+          <div class="step-body">
+            <strong>Generate Before-After HTML Report</strong>
+            <p>Compares original crawl data vs. the new crawl. Shows the change in health score, which pages improved, and the overall metadata quality delta. Published to Cloudflare Pages.</p>
+          </div>
+        </div>
+      </div>
+      <div class="output-row">
+        <div class="output-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+          Before-after HTML report (Cloudflare Pages)
+        </div>
+        <div class="output-badge" style="color: var(--muted); border-style: dashed;">
+          Status: not yet built - planned
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- TECH STACK -->
+  <div class="section-head">
+    <h2>Technology Stack</h2>
+    <p>All tools run inside Claude Code sessions. No separate server or infrastructure required.</p>
+  </div>
+
+  <div class="stack-grid">
+    <div class="stack-card">
+      <div class="stack-icon" style="background:rgba(37,99,235,0.10); color:var(--blue);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h4>Playwright MCP</h4>
+      <p>Headless browser crawling. Extracts live metadata from every page including JavaScript-rendered content.</p>
+    </div>
+    <div class="stack-card">
+      <div class="stack-icon" style="background:rgba(22,163,74,0.10); color:var(--green);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <h4>Google Sheets API</h4>
+      <p>All crawl data and recommendations written to sheets. Clients can view, edit and approve in a familiar interface.</p>
+    </div>
+    <div class="stack-card">
+      <div class="stack-icon" style="background:rgba(217,119,6,0.10); color:var(--amber);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <h4>Gmail MCP</h4>
+      <p>Creates outreach email drafts programmatically. HTML emails with issue summaries and live report links. Sent manually after review.</p>
+    </div>
+    <div class="stack-card">
+      <div class="stack-icon" style="background:rgba(124,58,237,0.10); color:var(--purple);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h4>Cloudflare Pages</h4>
+      <p>HTML reports hosted at a live URL via GitHub auto-deploy. Reports are live within 60 seconds of a git push. Professional shareable links.</p>
+    </div>
+  </div>
+
+
+  <!-- CLIENTS -->
+  <div class="section-head">
+    <h2>Clients and Audits to Date</h2>
+    <p>31 properties in the leads pipeline + 5 in Phase 1-4 client engagement, since February 2026.</p>
+  </div>
+
+  <div class="clients-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Client</th>
+          <th>Domain</th>
+          <th>Workflow</th>
+          <th>Health Score</th>
+          <th>Status</th>
+          <th>Report</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- PHASE 1-4 CLIENTS -->
+        <tr><td colspan="6" style="background:#f8f9fa; padding:8px 16px; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted);">Phase 1-4 Client Engagements</td></tr>
+        <tr>
+          <td><strong>Les Chambres Guesthouse</strong></td>
+          <td style="font-family:monospace;font-size:12px;">leschambres.co.za</td>
+          <td>Phase 1-4</td>
+          <td>-</td>
+          <td><span class="status-badge complete">Complete</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/leschambres/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>La Kruger Lifestyle Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">lakruger.com</td>
+          <td>Phase 1-4</td>
+          <td>-</td>
+          <td><span class="status-badge review">Awaiting review</span></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>Gubas-deHoek</strong></td>
+          <td style="font-family:monospace;font-size:12px;">gubas-dehoek.com</td>
+          <td>Phase 1-4</td>
+          <td>-</td>
+          <td><span class="status-badge review">Awaiting review</span></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>Wild Blue Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">wildbluelodge.com</td>
+          <td>Phase 1-4</td>
+          <td>-</td>
+          <td><span class="status-badge review">Awaiting review</span></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>Grace of Africa</strong></td>
+          <td style="font-family:monospace;font-size:12px;">graceofafrica.com</td>
+          <td>Phase 1-4</td>
+          <td>-</td>
+          <td><span class="status-badge review">Recs in Sheet</span></td>
+          <td>-</td>
+        </tr>
+
+        <!-- LEADS AUDIT - COMPLETE -->
+        <tr><td colspan="6" style="background:#f8f9fa; padding:8px 16px; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted);">Leads Audit - Complete (email sent)</td></tr>
+        <tr>
+          <td><strong>Nima Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">nimalodge.com</td>
+          <td>Leads Audit</td>
+          <td>17% · Critical</td>
+          <td><span class="status-badge complete">Complete</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/nimalodge/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Angala Boutique Hotel</strong></td>
+          <td style="font-family:monospace;font-size:12px;">angala.co.za</td>
+          <td>Leads Audit</td>
+          <td>23% · Critical</td>
+          <td><span class="status-badge complete">Complete</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/28-angala/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Grootvlei Guest Farm</strong></td>
+          <td style="font-family:monospace;font-size:12px;">grootvleiguestfarm.co.za</td>
+          <td>Leads Audit</td>
+          <td>31% · Critical</td>
+          <td><span class="status-badge complete">Complete</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/22-grootvlei/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Kagga Kamma Nature Reserve</strong></td>
+          <td style="font-family:monospace;font-size:12px;">kaggakamma.co.za</td>
+          <td>Leads Audit</td>
+          <td>36% · Critical</td>
+          <td><span class="status-badge complete">Complete</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/23-kaggakamma/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Petite Provence</strong></td>
+          <td style="font-family:monospace;font-size:12px;">petiteprovence.co.za</td>
+          <td>Leads Audit</td>
+          <td>36% · Critical</td>
+          <td><span class="status-badge complete">Complete</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/25-petiteprovence/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>LANDRANI Luxury Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">landrani.com</td>
+          <td>Leads Audit</td>
+          <td>37% · Critical</td>
+          <td><span class="status-badge complete">Complete</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/landrani/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+
+        <!-- LEADS AUDIT - DRAFT EMAIL -->
+        <tr><td colspan="6" style="background:#f8f9fa; padding:8px 16px; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted);">Leads Audit - Draft Email (ready to send)</td></tr>
+        <tr>
+          <td><strong>West Coast Villa Rentals</strong></td>
+          <td style="font-family:monospace;font-size:12px;">westcoastvillarentals.com</td>
+          <td>Leads Audit</td>
+          <td>38% · Critical</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/westcoastvillarentals/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Kogman &amp; Keisie</strong></td>
+          <td style="font-family:monospace;font-size:12px;">kogmanandkeisie.co.za</td>
+          <td>Leads Audit</td>
+          <td>41% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/35-kogmanandkeisie/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Lethabo Estate</strong></td>
+          <td style="font-family:monospace;font-size:12px;">lethaboestate.com</td>
+          <td>Leads Audit</td>
+          <td>51% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/32-lethaboestate/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Disandt House (Neighbourgood)</strong></td>
+          <td style="font-family:monospace;font-size:12px;">neighbourgood.co.za</td>
+          <td>Leads Audit</td>
+          <td>51% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/38-neighbourgood/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Klawerjas Escape</strong></td>
+          <td style="font-family:monospace;font-size:12px;">klawerjasescape.co.za</td>
+          <td>Leads Audit</td>
+          <td>54% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/klawerjasescape/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Harmony Game Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">harmonygamelodge.com</td>
+          <td>Leads Audit</td>
+          <td>55% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/harmonygamelodge/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Cape Diamond Hotel</strong></td>
+          <td style="font-family:monospace;font-size:12px;">capediamondhotel.com</td>
+          <td>Leads Audit</td>
+          <td>55% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/capediamondhotel/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Lions Valley Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">lionsvalley.co.za</td>
+          <td>Leads Audit</td>
+          <td>56% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/31-lionsvalley/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Samara Karoo Reserve</strong></td>
+          <td style="font-family:monospace;font-size:12px;">samara.co.za</td>
+          <td>Leads Audit</td>
+          <td>58% · Poor</td>
+          <td><span class="status-badge" style="background:#fef3c7;color:#92400e;border-color:#fcd34d;">Draft Email</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/19-samara/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+
+        <!-- LEADS AUDIT - REPORT READY -->
+        <tr><td colspan="6" style="background:#f8f9fa; padding:8px 16px; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--muted);">Leads Audit - Report Ready (awaiting review)</td></tr>
+        <tr>
+          <td><strong>Les Chambres Guesthouse</strong></td>
+          <td style="font-family:monospace;font-size:12px;">leschambres.co.za</td>
+          <td>Leads Audit</td>
+          <td>60% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/leschambres/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Emily Moon River Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">emilymoon.co.za</td>
+          <td>Leads Audit</td>
+          <td>60% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/20-emilymoon/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Zebra Hills Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">zebrahills.com</td>
+          <td>Leads Audit</td>
+          <td>66% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/36-zebrahills/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Leopard Mountain Game Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">leopardmountain.co.za</td>
+          <td>Leads Audit</td>
+          <td>69% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/30-leopardmountain/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>55 on Mjejane</strong></td>
+          <td style="font-family:monospace;font-size:12px;">55mjejane.co.za</td>
+          <td>Leads Audit</td>
+          <td>69% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/33-55mjejane/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Kingfisher Creek Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">kingfishercreek.co.za</td>
+          <td>Leads Audit</td>
+          <td>72% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/26-kingfishercreek/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Hazyview Cabanas</strong></td>
+          <td style="font-family:monospace;font-size:12px;">hazyviewcabanas.co.za</td>
+          <td>Leads Audit</td>
+          <td>74% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/hazyviewcabanas/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Rusty Gate Retreat</strong></td>
+          <td style="font-family:monospace;font-size:12px;">rustygate.co.za</td>
+          <td>Leads Audit</td>
+          <td>74% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/21-rustygate/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Bartholomeus Klip Farmhouse</strong></td>
+          <td style="font-family:monospace;font-size:12px;">bartholomeusklip.com</td>
+          <td>Leads Audit</td>
+          <td>75% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/bartholomeusklip/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>African Vineyard</strong></td>
+          <td style="font-family:monospace;font-size:12px;">africanvineyard.co.za</td>
+          <td>Leads Audit</td>
+          <td>79% · Needs Work</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/29-africanvineyard/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Mbazo Safari Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">mbazolodge.co.za</td>
+          <td>Leads Audit</td>
+          <td>80% · Good</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/37-mbazolodge/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Inverdoorn Private Game Reserve</strong></td>
+          <td style="font-family:monospace;font-size:12px;">inverdoorn.com</td>
+          <td>Leads Audit</td>
+          <td>88% · Good</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/24-inverdoorn/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Botlierskop Private Game Reserve</strong></td>
+          <td style="font-family:monospace;font-size:12px;">botlierskop.co.za</td>
+          <td>Leads Audit</td>
+          <td>91% · Good</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/27-botlierskop/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Tuningi Safari Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">tuningi.com</td>
+          <td>Leads Audit</td>
+          <td>91% · Good</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/34-tuningi/phase1-report.html" target="_blank">View report</a></td>
+        </tr>
+        <tr>
+          <td><strong>Spanish Farm Guest Lodge</strong></td>
+          <td style="font-family:monospace;font-size:12px;">spanishfarm.co.za</td>
+          <td>Leads Audit</td>
+          <td>93% · Good</td>
+          <td><span class="status-badge report-ready">Report Ready</span></td>
+          <td><a href="https://seo-phase1-reports.pages.dev/clients/spanishfarm/seo-audit-report.html" target="_blank">View report</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- KEY FILES -->
+  <div class="section-head">
+    <h2>Key Files and Where to Find Them</h2>
+    <p>All project files live in <code>/Users/jacques/Documents/Claude/12-springnest-seo/</code></p>
+  </div>
+
+  <div style="background:var(--card); border-radius:var(--radius); border:1px solid var(--border); overflow:hidden; margin-bottom:28px;">
+    <table style="width:100%; border-collapse:collapse; font-size:13px;">
+      <thead>
+        <tr style="background:#f8f9fa; border-bottom:1px solid var(--border);">
+          <th style="padding:10px 16px; text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--muted);">File</th>
+          <th style="padding:10px 16px; text-align:left; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--muted);">Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--blue);">WORKFLOW-LEADS-AUDIT.md</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">Full 9-step Leads Audit Pipeline. Read queue → crawl → sheet → analyse → HTML report → Cloudflare publish + sheet update → Gmail draft. One site at a time.</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--teal);">WORKFLOW-LEADS-AUDIT-QUICK-CYCLE.md</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">1B: Quick Cycle batch workflow. Processes all Pending entries without stopping - crawl, report, Cloudflare publish, sheet update. Live links in column D for review. No Gmail.</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--purple);">WORKFLOW-LEADS-AUDIT-EMAIL-CYCLE.md</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">1C: Email Cycle batch workflow. Processes all "Draft Email" rows - reads the HTML report (source of truth), extracts top 3 issue cards and critical-impact paragraph, creates Gmail draft per client with UTM-tracked CTA link. Marks "Email Drafted".</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--blue);">seo-leads-audit-template.html</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">Master HTML template for leads audit reports. Copy and substitute [VARIABLES] for each new client.</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--blue);">WORKFLOW-PHASE1-MANUAL.md</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">Step-by-step guide for the Phase 1 client SEO audit. Includes client setup, crawl, Google Sheet write, and report generation.</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--blue);">seo-springnest-meta-simple-report.html</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">Master HTML template for Phase 1 client reports. Parameterised with [VARIABLES].</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--blue);">CLIENTS.md</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">Central registry of all clients, their phase status, page counts, and Google Sheet IDs.</td>
+        </tr>
+        <tr style="border-bottom:1px solid #f0f2f5;">
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--blue);">tools/sheets-helper.js</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">Node.js Google Sheets API helper. Actions: read-leads, create-tab, write-crawl, write-recommendations, update-status, clean-url, write-cloudflare-link.</td>
+        </tr>
+        <tr>
+          <td style="padding:12px 16px; font-family:monospace; font-size:12px; color:var(--blue);">config/google-service-account.json</td>
+          <td style="padding:12px 16px; font-size:13px; color:#333;">Google service account credentials for Sheets API access. Never commit this file.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- PIPELINE ENHANCEMENTS -->
+  <div class="section-head">
+    <h2>Pipeline Intelligence — What's Been Built</h2>
+    <p>Key improvements implemented since launch. All baked into workflow docs and templates — no manual steps needed.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:28px;">
+
+    <div style="background:var(--card); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--purple); margin-bottom:8px;">Health Score</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px;">Weighted Scoring Model</div>
+      <p style="font-size:13px; color:#444; line-height:1.6;">Per-page score: Title (50pts) + Meta Description (35pts) + H1 (15pts) = 100 max. Site score = average across all pages. Bands: Good 80-100% / Needs Work 60-79% / Poor 40-59% / Critical 0-39%. Replaces the old binary pass/fail ratio. Score and tooltip in report now match.</p>
+    </div>
+
+    <div style="background:var(--card); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--red); margin-bottom:8px;">Accuracy</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px;">Zero-SEO Detection + Accurate SERP Framing</div>
+      <p style="font-size:13px; color:#444; line-height:1.6;">Detects when all pages share identical descriptions or match known theme placeholders (BeHotel2, "Just another WordPress site"). Switches to accurate "lost control" framing - Google ignores useless descriptions and generates its own snippets. Never say "Google shows [placeholder] in search results" - it does not.</p>
+    </div>
+
+    <div style="background:var(--card); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); margin-bottom:8px;">Email Cycle</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px;">HTML Report as Source of Truth</div>
+      <p style="font-size:13px; color:#444; line-height:1.6;">Email Cycle now reads the live HTML report - not pages_data.json. Issue bullets are extracted directly from <code style="font-size:11px; background:#f0f2f5; padding:2px 4px; border-radius:3px;">.issue-card</code> elements. What the client sees in the report is exactly what's in the email. No drift, no recalculation, no new claims.</p>
+    </div>
+
+    <div style="background:var(--card); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); margin-bottom:8px;">Analytics</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px;">Report Link Tracking</div>
+      <p style="font-size:13px; color:#444; line-height:1.6;">Cloudflare Web Analytics enabled on seo-phase1-reports.pages.dev. CTA button in every email includes UTM params: <code style="font-size:11px; background:#f0f2f5; padding:2px 4px; border-radius:3px;">?utm_source=email&utm_medium=direct&utm_campaign=seo-outreach&utm_content=[slug]</code>. Filter by path in Cloudflare Analytics to see per-client report visits.</p>
+    </div>
+
+    <div style="background:var(--card); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--amber); margin-bottom:8px;">Report UX</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px;">Cleaner Issue Cards + Health Score Tooltip</div>
+      <p style="font-size:13px; color:#444; line-height:1.6;">"Why it matters" sections removed from all issue cards - too much text, distracts from the finding. Health score KPI card now has a hover tooltip explaining the weighted calculation. KPI card formatting fixed: score and band label correctly separated across all reports.</p>
+    </div>
+
+    <div style="background:var(--card); border-radius:var(--radius); border:1px solid var(--border); padding:20px 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue); margin-bottom:8px;">Email Copy</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; margin-bottom:6px;">Copy and Tone Standards</div>
+      <p style="font-size:13px; color:#444; line-height:1.6;">No em-dashes anywhere - hyphens only. "We ran a detailed SEO Audit of" (not "crawl"). "Tourism Marketing SA" signature throughout. "3 SEO Opportunities Found" (not "critical issues"). Issues framed as opportunities, never problems. Bullets match report exactly - no new claims, no different numbers.</p>
+    </div>
+
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong>TourismMarketing.co.za</strong> - TMSA SEO Automation System<br>
+  <span style="margin-top:6px; display:block;">Internal project reference - not for external distribution. Last updated 15 March 2026 — 31 prospects in pipeline, 6 complete.</span>
+</div>
+
+</body>
+</html>
