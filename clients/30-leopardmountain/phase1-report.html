@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Leopard Mountain Safari Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://leopardmountain.co.za/wp-content/uploads/2025/06/Asset-167-1.webp') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* KPI CARDS */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* WRAP */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* CRITICAL ISSUES SECTION */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* SECTION HEADINGS */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* GOOGLE ADS CALLOUT */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* ISSUE CARDS */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* TOOLTIPS */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+      background: #1a1a2e; color: #fff; padding: 9px 13px; border-radius: 7px;
+      font-size: 11px; font-weight: 400; line-height: 1.5; width: 230px;
+      white-space: normal; text-align: left; opacity: 0; pointer-events: none;
+      z-index: 200; transition: opacity 0.15s; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: ''; position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%);
+      border: 5px solid transparent; border-top-color: #1a1a2e;
+      opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after, [data-tip]:hover::before { opacity: 1; }
+
+    /* PAGE TABLE */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok   { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad  { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    /* TABLE LEGEND */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* WHY IT MATTERS */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block; background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20); transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* FOOTER */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Leopard Mountain Safari Lodge
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - leopardmountain.co.za &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>5</strong> pages audited</span>
+      <span class="chip"><strong>Manyoni Private Game Reserve, KwaZulu-Natal</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress</span>
+      <span class="chip"><strong>Audit date:</strong> 15 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- KPI CARDS -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">5</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">2</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">3</div>
+    <div class="kpi-label">Need Work (60%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num">69%</div>
+    <div class="kpi-label">Health Score - Needs Work</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- CRITICAL ISSUES SECTION -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - leopardmountain.co.za</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">1</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">3/5</div>
+        <div class="cstat-lbl">Titles Outside Ideal Range</div>
+      </div>
+    </div>
+
+    <div class="critical-impact">
+      <strong>Impact:</strong> 3 of 5 pages on leopardmountain.co.za have page titles that are too short to rank competitively - under 40 characters compared to the ideal 50-70. Short titles cannot include both the property name and key location or category keywords that travellers use to search. The blog page has no meta description at all, leaving Google to auto-generate a random snippet for what could be a strong content-driven traffic source.
+    </div>
+  </div>
+
+  <!-- TOP 3 KEY ISSUES -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        We noticed you are currently running Google Ads
+      </div>
+      Good news - your Google Ads landing page (the homepage) is very well optimised, scoring <strong>100/100</strong> for title, meta description, and H1. That means your paid traffic is landing on a page that Google sees as high-quality. But the pages that earn <em>organic</em> clicks - your Experiences, Gallery, and Blog pages - still have short titles that limit their visibility in unpaid search results.
+      <br><br>
+      SEO builds what Google Ads cannot: <strong>lasting organic visibility</strong>. The moment you pause your budget, paid traffic disappears. A well-optimised Experiences page with a proper 60-character title earns organic rankings that compound over months at no ongoing cost - and reduces cost-per-click by improving your <strong>Quality Score</strong> across the whole account.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">3/5</div>
+      <h3>Page Titles Too Short to Rank</h3>
+      <p>Three pages - Experiences, Gallery, and Blog - have titles between 23 and 38 characters, well below the 50-70 character ideal. These short "Page Name | Brand" titles cannot include location keywords or property differentiators that travellers search for.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Page titles are the single strongest on-page ranking signal. A title like "Experiences | Leopard Mountain" (30 chars) wastes 30+ characters that could say "Safari Experiences in Manyoni Game Reserve | Leopard Mountain Lodge" - directly targeting the searches your prospective guests are using.
+      </div>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">1/5</div>
+      <h3>Blog Page Has No Meta Description</h3>
+      <p>The Blog landing page has a missing meta description. Google auto-generates a snippet from body text - usually a random excerpt that does not position the lodge or invite clicks from search results.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Meta descriptions are the marketing copy that appears below your title in Google results. They do not rank directly, but they drive click-through rates by 15-30%. For a content-rich lodge blog covering safari experiences and conservation, a compelling description is essential to capturing the interest of travellers in the research phase.
+      </div>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">30</div>
+      <h3>Experiences Page Title Too Generic</h3>
+      <p>"Experiences | Leopard Mountain" is only 30 characters and targets no specific search terms. A rewritten title like "Big 5 Safari Experiences in KwaZulu-Natal | Leopard Mountain" (61 chars) directly targets how travellers search for lodge activities.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        The Experiences page is likely one of the most visited pages on the site after the homepage. When travellers search "safari experiences KwaZulu-Natal" or "Big 5 game drive lodge", a 30-character title gives Google very little signal to match this page against those queries - reducing visibility in the exact searches that lead to bookings.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PAGE-BY-PAGE TABLE -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 5 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+          <th>Slug</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://leopardmountain.co.za/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Leopard Mountain Safari Lodge | Luxury Safari in South Africa</td>
+          <td><span class="badge ok" data-tip="Title is 61 characters - within the ideal 50-70 character range. Includes brand name and key value proposition. Well optimised.">61 ✓</span></td>
+          <td><span class="desc-text">Discover Leopard Mountain Safari Lodge, a luxury South African safari destination. Enjoy wildlife, relaxation, and breathtaking views in Zululand.</span></td>
+          <td><span class="badge ok" data-tip="146 characters - within the ideal 120-160 character range. Clearly describes the property and its location. Well optimised.">146 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'LET NATURE SERENADE YOUR SOUL AT LEOPARD MOUNTAIN'. Strong, brand-forward heading.">✓</span></td>
+          <td><span class="badge ok">/</span></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://leopardmountain.co.za/experiences/" target="_blank" rel="noopener">/experiences/</a></td>
+          <td style="font-size:12px;">Experiences | Leopard Mountain</td>
+          <td><span class="badge bad" data-tip="Title is only 30 characters - well below the 50-70 character ideal. Rewrite to include activity types and location, e.g. 'Big 5 Safari Experiences in Manyoni Game Reserve | Leopard Mountain Lodge' (73 chars - trim slightly).">30 ✗</span></td>
+          <td><span class="desc-text">Discover unforgettable Leopard Mountain experiences, from thrilling safari adventures to luxury relaxation in the heart of South Africa's Zululand.</span></td>
+          <td><span class="badge ok" data-tip="148 characters - within the ideal 120-160 character range. Good description that highlights both adventure and relaxation.">148 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'EXPERIENCES'. Present but could be more keyword-rich - consider 'Big 5 Safari Experiences'.">✓</span></td>
+          <td><span class="badge ok">/experiences/</span></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://leopardmountain.co.za/gallery/" target="_blank" rel="noopener">/gallery/</a></td>
+          <td style="font-size:12px;">Gallery | Stunning Safari Lodge Photos</td>
+          <td><span class="badge bad" data-tip="Title is 38 characters - just below the 40-character minimum. Expand to include location: 'Safari Lodge Photo Gallery - Leopard Mountain | KwaZulu-Natal' (61 chars).">38 ✗</span></td>
+          <td><span class="desc-text">Explore the Leopard Mountain gallery featuring breathtaking safari lodge photos, wildlife encounters, and luxurious accommodations in South Africa.</span></td>
+          <td><span class="badge ok" data-tip="147 characters - within the ideal 120-160 character range. Well-written description with good keyword coverage.">147 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'LODGE'. Present but very generic - consider 'Leopard Mountain Safari Lodge Gallery'.">✓</span></td>
+          <td><span class="badge ok">/gallery/</span></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://leopardmountain.co.za/rates/" target="_blank" rel="noopener">/rates/</a></td>
+          <td style="font-size:12px;">Leopard Mountain Rates | Luxury Safari Lodge Pricing</td>
+          <td><span class="badge ok" data-tip="Title is 52 characters - within the ideal 50-70 character range. Includes brand name, page purpose, and positioning. Well optimised.">52 ✓</span></td>
+          <td><span class="desc-text">View Leopard Mountain's rates for a luxury safari lodge experience. Discover affordable pricing for unforgettable wildlife and luxury stays.</span></td>
+          <td><span class="badge ok" data-tip="141 characters - within the ideal 120-160 character range. Clear description that sets expectations and invites clicks.">141 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'FULLY INCLUSIVE RATE'. Clear and relevant to page content.">✓</span></td>
+          <td><span class="badge ok">/rates/</span></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://leopardmountain.co.za/blog/" target="_blank" rel="noopener">/blog/</a></td>
+          <td style="font-size:12px;">Blog | Leopard Mountain</td>
+          <td><span class="badge bad" data-tip="Title is only 23 characters. The blog has strong conservation and safari content that could drive significant organic traffic. Suggest: 'Safari Blog - Leopard Mountain | Conservation, Wildlife & Zululand' (65 chars).">23 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description. Google will auto-generate a snippet from body text, typically a random excerpt that does not position the lodge. Add a description like: 'Discover safari insights, wildlife encounters, and conservation stories from Leopard Mountain Lodge in Manyoni Private Game Reserve, KwaZulu-Natal.' (151 chars).">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'BLOG'. Present but could be more descriptive.">✓</span></td>
+          <td><span class="badge ok">/blog/</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-70 chars &nbsp;|&nbsp; Description sweet spot: 120-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="section-head">
+    <h2>Why This Matters for Leopard Mountain Safari Lodge</h2>
+    <p>Organic search and AI visibility are increasingly important channels for luxury safari lodges.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>Travellers searching "luxury safari lodge KwaZulu-Natal" or "Big 5 game drive Manyoni" are actively looking to book. Short page titles mean Google cannot match these searches to your pages. A 60-character title on the Experiences page - written once - captures that traffic permanently at zero ongoing cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks ChatGPT or Perplexity "what are the best safari lodges in KwaZulu-Natal for a Big 5 experience?", the AI reads your website to decide whether to mention Leopard Mountain. Clear, keyword-rich titles and well-written descriptions dramatically increase the chance your lodge is cited in AI-generated answers.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Your Blog is an Untapped Organic Traffic Asset</h3>
+        <p>Leopard Mountain's blog covers conservation, pangolin tracking, rhino guardianship, and safari experiences - high-value content that travellers search for. Without a meta description and with a 23-character title, this content is invisible to Google. Add proper metadata to each blog post and the blog becomes a significant organic traffic driver.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Awards and Accreditations Need to Be Found</h3>
+        <p>Leopard Mountain holds multiple awards and UN Tourism accreditation - powerful trust signals that guests actively search for. Better on-site SEO ensures that when travellers search "award-winning safari lodge Zululand" or "UN tourism certified lodge South Africa", your pages surface before competitors with weaker metadata.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Leopard Mountain Safari Lodge and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Leopard%20Mountain%20Safari%20Lodge" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for Leopard Mountain Safari Lodge &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of leopardmountain.co.za conducted on 15 March 2026.</span>
+</div>
+
+</body>
+</html>
