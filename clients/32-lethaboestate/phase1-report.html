@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Lethabo Estate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#d4a574; --blue:#2563EB; --green:#16A34A; --amber:#D97706; --red:#E05A4E; --purple:#7C3AED; --bg:#f0f2f5; --card:#ffffff; --border:#e4e7eb; --text:#1a1a2e; --muted:#6c757d; --radius:12px; --shadow:0 2px 8px rgba(0,0,0,0.08); --shadow-md:0 4px 16px rgba(0,0,0,0.11); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+    .hero { background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%), url('https://www.lethaboestate.com/wp-content/uploads/2019/04/rock-pool-lodge.jpg') center/cover no-repeat; border-bottom: 3px solid var(--gold); padding: 72px 48px 68px; color: #fff; }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45); border-radius: 6px; padding: 5px 14px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero-sub { font-size: 1.0rem; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1200px; margin: -32px auto 0; padding: 0 48px; }
+    .kpi { border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 22px 16px 18px; color: #fff; text-align: center; }
+    .kpi.c-blue { background: var(--blue); } .kpi.c-green { background: var(--green); } .kpi.c-red { background: #e74c3c; } .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .critical-section { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); border-radius: var(--radius); padding: 28px; margin: 32px 0 0; color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32); }
+    .critical-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92); }
+    .critical-impact strong { color: #fff; }
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .ads-callout { background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0; font-size: 13px; color: #444; line-height: 1.7; }
+    .ads-callout .callout-title { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--amber); margin-bottom: 8px; }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); } .issue-card.medium { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); } .issue-priority.medium { background: rgba(217,119,6,0.12); color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1a1a2e; color: #fff; padding: 9px 13px; border-radius: 7px; font-size: 11px; line-height: 1.5; width: 230px; white-space: normal; text-align: left; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
+    [data-tip]::before { content: ''; position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #1a1a2e; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; }
+    [data-tip]:hover::after, [data-tip]:hover::before { opacity: 1; }
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent; }
+    .badge.ok { background: rgba(22,163,74,0.08); color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn { background: rgba(217,119,6,0.08); color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad { background: rgba(224,90,78,0.08); color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .cta-section { background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%); border-radius: var(--radius); padding: 52px 48px; margin: 32px 0; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 8px 32px rgba(15,76,53,0.35); }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn { display: inline-block; background: #fff; color: #0f4c35; font-weight: 800; font-size: 17px; letter-spacing: 0.3px; padding: 18px 52px; border-radius: 10px; text-decoration: none; box-shadow: 0 6px 24px rgba(0,0,0,0.20); transition: transform 0.15s, box-shadow 0.15s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+    .spacer-lg { height: 44px; }
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .hero { padding: 48px 20px 52px; } .hero h1 { font-size: 24px; } .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; } .wrap { padding: 0 20px; } .issue-grid { grid-template-columns: 1fr; } .explain-grid { grid-template-columns: 1fr; } .critical-stats { grid-template-columns: repeat(2, 1fr); } .cta-section { padding: 32px 20px; } }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>Lethabo Estate<span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span></h1>
+    <p class="hero-sub">Website SEO Health Assessment - lethaboestate.com &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>8</strong> pages audited</span>
+      <span class="chip"><strong>Cradle of Humankind, Lanseria, Gauteng</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress</span>
+      <span class="chip"><strong>Audit date:</strong> 15 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi c-blue"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="kpi-num">8</div><div class="kpi-label">Pages Crawled</div></div>
+  <div class="kpi c-green"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="kpi-num">1</div><div class="kpi-label">Optimized Pages</div></div>
+  <div class="kpi c-red"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="kpi-num">7</div><div class="kpi-label">Need Work (88%)</div></div>
+  <div class="kpi c-purple"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="kpi-num">51%</div><div class="kpi-label">Health Score - Poor</div></div>
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <h2>Critical SEO Issues Identified - lethaboestate.com</h2>
+    </div>
+    <div class="critical-stats">
+      <div class="cstat"><div class="cstat-num">8/8</div><div class="cstat-lbl">Titles Outside Ideal Range</div></div>
+      <div class="cstat"><div class="cstat-num">4</div><div class="cstat-lbl">Descriptions Too Long</div></div>
+      <div class="cstat"><div class="cstat-num">2</div><div class="cstat-lbl">Descriptions Too Short</div></div>
+      <div class="cstat"><div class="cstat-num">1</div><div class="cstat-lbl">Outdated Homepage Content</div></div>
+    </div>
+    <div class="critical-impact">
+      <strong>Impact:</strong> Every single page on lethaboestate.com has a title outside Google's ideal 50-70 character range - most using a short "Page Name - Lethabo Estate" format that cannot include the location keywords and experience types that Gauteng guests search for. Four pages have meta descriptions over 160 characters that Google truncates mid-sentence in search results, and the homepage description still references COVID protocols from 2020 - damaging credibility for new visitors discovering the estate through search.
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        We noticed you are currently running Google Ads
+      </div>
+      Your ads landing page (the homepage) is borderline at <strong>80/100</strong> - it just qualifies as optimised, though its title is slightly too long at 72 characters and the description still mentions COVID protocols from 2020. That outdated content is the first thing a prospective guest sees when they find you organically - it undermines the premium positioning you've built.
+      <br><br>
+      The remaining 7 pages have SEO scores between 35 and 60 out of 100. When Google evaluates your site quality, it considers the <em>whole site</em> - not just the landing page. Weak supporting pages drag down your <strong>Quality Score</strong>, increasing cost-per-click across all campaigns. A site-wide metadata refresh would improve both organic rankings and paid ad efficiency simultaneously.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">8/8</div>
+      <h3>Every Page Title Outside the Ideal Range</h3>
+      <p>All 8 pages use a short "Page Name - Lethabo Estate" format (21-30 characters) that cannot include location keywords, experience types, or key differentiators. Lethabo's unique offerings - Cradle of Humankind setting, horse therapy, river picnics - are invisible in title tags.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Page titles are the single most influential on-page ranking signal. A 25-character title for the Weddings page ("Weddings - Lethabo Estate") tells Google nothing. "Riverside Wedding Venue in the Cradle of Humankind | Lethabo Estate" (67 chars) directly targets searches like "outdoor wedding venue Gauteng" and "wedding venue near Lanseria" - the exact queries your prospective clients use.
+      </div>
+    </div>
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">4/8</div>
+      <h3>Descriptions Truncated by Google</h3>
+      <p>The Accommodation, Picnics, Conferencing, and Contact pages all have meta descriptions over 210 characters - far above Google's 160-character display limit. Google truncates these mid-sentence, cutting off the information before it can invite a click.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Meta descriptions are the marketing copy that appears in Google search results. When Google cuts a description off at 160 characters, the visible text often ends mid-word or mid-sentence - looking unprofessional and reducing click-through rates. All four pages use the same generic description about the Crocodile River location; each should have a unique, 130-155 character description tailored to what that specific page offers.
+      </div>
+    </div>
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium - Urgent</span>
+      <div class="stat-line">2020</div>
+      <h3>Homepage Description References COVID Protocols</h3>
+      <p>The homepage meta description reads: "Contact us HERE for the BEST PRICING. Full COVID protocols observed. Your safety is our concern." This outdated content from 2020 appears in Google search results today, signalling to guests that the estate's online presence hasn't been maintained.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        The meta description is the first impression a prospective guest gets when they find Lethabo in a Google search - before they've visited the website. A description mentioning 2020 COVID protocols undermines the premium, soulful positioning that the estate delivers. This should be replaced immediately with a compelling 130-155 character description of the Lethabo experience.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 8 pages - hover over any indicator for details.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Page</th><th>Title (current)</th><th>Title Len</th><th>Meta Description (current)</th><th>Desc Len</th><th>H1</th><th>Slug</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Lethabo Estate - Romantic Picnics, Weddings, Spa, Conference, Restaurant</td>
+          <td><span class="badge warn" data-tip="Title is 72 characters - slightly over the 70-character ideal. Google may truncate it. Also, listing 5 service types in a homepage title is too generic - consider focusing on the primary positioning.">72 ⚠</span></td>
+          <td><span class="desc-text" style="color:#c0392b;font-style:italic;">"Contact us HERE for the BEST PRICING. Full COVID protocols observed. Your safety is our concern. Near Lanseria Airport close to Pretoria & Johannesburg Gauteng."</span></td>
+          <td><span class="badge ok" data-tip="160 characters - at the upper limit of the ideal range. However, the content references COVID protocols from 2020. This outdated text appears in Google search results today.">160 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Lethabo Estate - Reset. Restore. Rekindle. Book Now - Where soul meets soil'. Strong brand positioning.">✓</span></td>
+          <td><span class="badge ok">/</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/about-us/" target="_blank" rel="noopener">/about-us/</a></td>
+          <td style="font-size:12px;">About Us - Lethabo Estate</td>
+          <td><span class="badge bad" data-tip="Title is only 25 characters. Suggest: 'About Lethabo Estate | Cradle of Humankind Riverside Retreat, Gauteng' (68 chars) to include location and category keywords.">25 ✗</span></td>
+          <td><span class="desc-text">Lethabo Estate is in The Crocodile River Reserve, a private reserve just a short drive from Pretoria and Johannesburg.</span></td>
+          <td><span class="badge bad" data-tip="118 characters - just below the 120-character minimum. Extend to include what makes Lethabo unique: 150-acre estate, organic gardens, horse therapy, spa, and romantic hideaways.">118 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'About Lethabo Estate'.">✓</span></td>
+          <td><span class="badge ok">/about-us/</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/accommodation/" target="_blank" rel="noopener">/accommodation/</a></td>
+          <td style="font-size:12px;">Accommodation - Lethabo Estate</td>
+          <td><span class="badge bad" data-tip="Title is only 30 characters. Suggest: 'Romantic Accommodation in the Cradle of Humankind | Lethabo Estate' (66 chars) to target accommodation searches near Lanseria/Pretoria.">30 ✗</span></td>
+          <td><span class="desc-text">Lethabo Estate in the Cradle of Humankind, Lanseria, is set on the banks of the Crocodile River, centrally positioned very near Lanseria International Airport and a short commute from Pretoria and Johannesburg.</span></td>
+          <td><span class="badge warn" data-tip="210 characters - well over the 160-character limit. Google truncates this at around 160 chars, cutting off mid-sentence. The description is also identical to those of the Conferencing and Contact pages.">210 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Seven Sanctuaries. Seven Stories. One Soul.' - Creative but contains no keywords.">✓</span></td>
+          <td><span class="badge ok">/accommodation/</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/weddings/" target="_blank" rel="noopener">/weddings/</a></td>
+          <td style="font-size:12px;">Weddings - Lethabo Estate</td>
+          <td><span class="badge bad" data-tip="Title is only 25 characters. Suggest: 'Riverside Wedding Venue near Pretoria | Lethabo Estate Gauteng' (61 chars) to target outdoor wedding venue searches.">25 ✗</span></td>
+          <td><span class="desc-text">Lethabo Estate a wedding venue in Gauteng near Pretoria offers bespoke intimate ceremonies or more flamboyant celebrations up to 120 guests.</span></td>
+          <td><span class="badge ok" data-tip="140 characters - within the ideal 120-160 range. Good description mentioning capacity (120 guests) and positioning (bespoke). Could be stronger with more emotional language.">140 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Your Lethabo Wedding'. Warm and personal.">✓</span></td>
+          <td><span class="badge ok">/weddings/</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/picnics/" target="_blank" rel="noopener">/picnics/</a></td>
+          <td style="font-size:12px;">Picnics - Lethabo Estate</td>
+          <td><span class="badge bad" data-tip="Title is only 24 characters. Suggest: 'Romantic Riverside Picnics near Johannesburg | Lethabo Estate' (61 chars) to target 'romantic picnic Gauteng' searches.">24 ✗</span></td>
+          <td><span class="desc-text">Escape for a romantic riverside picnic, gourmet delights, and breathtaking scenery. Perfect for couples, families, and special celebrations. Close to Johannesburg and Pretoria.</span></td>
+          <td><span class="badge warn" data-tip="218 characters - well over the 160-character limit. Trim to 140-155 chars ending at a natural sentence break. The first 160 characters are strong - the rest gets cut by Google anyway.">218 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Riverside Picnics'.">✓</span></td>
+          <td><span class="badge ok">/picnics/</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/conferencing/" target="_blank" rel="noopener">/conferencing/</a></td>
+          <td style="font-size:12px;">Conferencing - Lethabo Estate</td>
+          <td><span class="badge bad" data-tip="Title is only 29 characters. Suggest: 'Conference Venue near Lanseria | Lethabo Estate Gauteng' (54 chars) to target corporate venue searches near Johannesburg.">29 ✗</span></td>
+          <td><span class="desc-text">Lethabo Estate in the Cradle of Humankind, Lanseria, is set on the banks of the Crocodile River, centrally positioned very near Lanseria International Airport...</span></td>
+          <td><span class="badge warn" data-tip="210 characters - same generic location description used on three other pages. Each page needs a unique description tailored to its specific offering. Conferencing description should mention capacity, nature setting, and team-building differentiators.">210 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Conferencing, Teambuilding and Immersive Experiences at Lethabo Estate'. Keyword-rich H1.">✓</span></td>
+          <td><span class="badge ok">/conferencing/</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/heal/" target="_blank" rel="noopener">/heal/</a></td>
+          <td style="font-size:12px;">Equine | Horse Therapy [HEAL] - Lethabo Estate</td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - below the ideal 50-70 range. The brackets and pipe format is also unusual for Google. Suggest: 'Equine Horse Therapy and Leadership Coaching | Lethabo Estate' (60 chars).">46 ⚠</span></td>
+          <td><span class="desc-text">Improve your company's team building for better communication, conflict resolution, and team effectiveness.</span></td>
+          <td><span class="badge bad" data-tip="107 characters - below the 120-character minimum. Also misses the unique nature-based setting. Add: 'Horse-guided leadership coaching and equine therapy at Lethabo Estate in the Cradle of Humankind, near Johannesburg and Pretoria.' (130 chars).">107 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 is technically present but reads 'Sign Up For News and Specials' - this is the newsletter section, not the page's primary heading. The actual HEAL content should have its own H1.">✓</span></td>
+          <td><span class="badge ok">/heal/</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://www.lethaboestate.com/contact-us/" target="_blank" rel="noopener">/contact-us/</a></td>
+          <td style="font-size:12px;">Contact Us - Lethabo Estate</td>
+          <td><span class="badge bad" data-tip="Title is only 27 characters. Suggest: 'Contact Lethabo Estate | Cradle of Humankind, Lanseria' (53 chars) to include location for local searches.">27 ✗</span></td>
+          <td><span class="desc-text">Lethabo Estate in the Cradle of Humankind, Lanseria, is set on the banks of the Crocodile River, centrally positioned very near Lanseria International Airport...</td>
+          <td><span class="badge warn" data-tip="210 characters - same generic description as Accommodation, Conferencing pages. Contact pages should have a direct, action-oriented description: 'Contact Lethabo Estate to book accommodation, picnics, weddings or conferencing near Lanseria Airport, Gauteng. Call 082 654 1690.' (135 chars).">210 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 'Where To Find Us'.">✓</span></td>
+          <td><span class="badge ok">/contact-us/</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-70 chars &nbsp;|&nbsp; Description sweet spot: 120-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <div class="section-head">
+    <h2>Why This Matters for Lethabo Estate</h2>
+    <p>Lethabo's unique positioning - Cradle of Humankind, horse therapy, organic river picnics - is not discoverable through search because the metadata doesn't communicate it.</p>
+  </div>
+
+  <div class="explain-grid">
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>Your Unique Offerings Are Invisible to Google</h3>
+        <p>Lethabo offers horse therapy, organic river picnics, and romantic hideaways in the Cradle of Humankind - genuinely rare experiences. But none of these appear in page titles. Someone searching "horse therapy Gauteng", "romantic picnic near Pretoria", or "Cradle of Humankind wedding venue" will not find Lethabo through organic search. The SEO gap between what Lethabo is and what Google can see is vast.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>AI Search Cannot Recommend What It Cannot Read</h3>
+        <p>When someone asks ChatGPT "what are the best romantic day trips from Johannesburg?", the AI reads your website to decide whether to include Lethabo. Short, generic titles like "Picnics - Lethabo Estate" give the AI almost no signal. A title like "Romantic Riverside Picnics near Johannesburg | Lethabo Estate" immediately communicates what the page is about and makes Lethabo recommendable.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>Duplicate Descriptions Across 3 Pages - Google Penalises This</h3>
+        <p>The Accommodation, Conferencing, and Contact pages all use identical 210-character meta descriptions about the Crocodile River location. Google treats duplicate metadata as a quality signal - it indicates a site where metadata hasn't been thoughtfully maintained. Unique, page-specific descriptions fix this and also dramatically improve click-through rates from search results.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>TripAdvisor "Bravo!" Award - Now Make Google Find It</h3>
+        <p>Lethabo holds a TripAdvisor "Bravo!" award and an AfriStay Certificate of Excellence - strong trust signals that guests value. With better SEO, guests who discover Lethabo through Google search will already know about these accolades from the well-crafted meta description before they even visit the site, arriving with higher confidence and lower friction to book.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Lethabo Estate and monitor results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Lethabo%20Estate" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for Lethabo Estate &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of lethaboestate.com conducted on 15 March 2026.</span>
+</div>
+
+</body>
+</html>
