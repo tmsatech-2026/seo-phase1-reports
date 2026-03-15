@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Kagga Kamma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --gold:#d4a574; --blue:#2563EB; --green:#16A34A; --amber:#D97706; --red:#E05A4E; --purple:#7C3AED; --bg:#f0f2f5; --card:#ffffff; --border:#e4e7eb; --text:#1a1a2e; --muted:#6c757d; --radius:12px; --shadow:0 2px 8px rgba(0,0,0,0.08); --shadow-md:0 4px 16px rgba(0,0,0,0.11); }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+    .hero { background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%), url('https://kaggakamma.co.za/wp-content/uploads/2025/10/Accomodation_3.jpg') center/cover no-repeat; border-bottom: 3px solid var(--gold); padding: 72px 48px 68px; color: #fff; }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45); border-radius: 6px; padding: 5px 14px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero-sub { font-size: 1.0rem; color: rgba(255,255,255,0.78); margin-top: 14px; margin-bottom: 24px; line-height: 1.5; max-width: 680px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1200px; margin: -32px auto 0; padding: 0 48px; }
+    .kpi { border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 22px 16px 18px; color: #fff; text-align: center; }
+    .kpi.c-blue{background:var(--blue);} .kpi.c-green{background:var(--green);} .kpi.c-red{background:#e74c3c;} .kpi.c-purple{background:var(--purple);}
+    .kpi-icon { display: flex; justify-content: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+    .critical-section { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); border-radius: var(--radius); padding: 28px; margin: 32px 0 0; color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32); }
+    .critical-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92); }
+    .critical-impact strong { color: #fff; }
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .ads-callout { background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0; font-size: 13px; color: #444; line-height: 1.7; }
+    .ads-callout .callout-title { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--amber); margin-bottom: 8px; }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium { background: rgba(217,119,6,0.12); color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1a1a2e; color: #fff; padding: 9px 13px; border-radius: 7px; font-size: 11px; line-height: 1.5; width: 230px; white-space: normal; text-align: left; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
+    [data-tip]::before { content: ''; position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #1a1a2e; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; }
+    [data-tip]:hover::after, [data-tip]:hover::before { opacity: 1; }
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent; }
+    .badge.ok{background:rgba(22,163,74,0.08);color:#15803d;border-color:rgba(22,163,74,0.25);}
+    .badge.warn{background:rgba(217,119,6,0.08);color:#b45309;border-color:rgba(217,119,6,0.30);}
+    .badge.bad{background:rgba(224,90,78,0.08);color:#c0392b;border-color:rgba(224,90,78,0.30);}
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue{background:rgba(37,99,235,0.10);color:var(--blue);}
+    .explain-icon-wrap.green{background:rgba(22,163,74,0.10);color:var(--green);}
+    .explain-icon-wrap.amber{background:rgba(217,119,6,0.10);color:var(--amber);}
+    .explain-icon-wrap.purple{background:rgba(124,58,237,0.10);color:var(--purple);}
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .cta-section { background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%); border-radius: var(--radius); padding: 52px 48px; margin: 32px 0; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 8px 32px rgba(15,76,53,0.35); }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn { display: inline-block; background: #fff; color: #0f4c35; font-weight: 800; font-size: 17px; letter-spacing: 0.3px; padding: 18px 52px; border-radius: 10px; text-decoration: none; box-shadow: 0 6px 24px rgba(0,0,0,0.20); transition: transform 0.15s, box-shadow 0.15s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+    .spacer-lg { height: 44px; }
+    @media (max-width:900px){.kpi-grid{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:768px){.hero{padding:48px 20px 52px;}.hero h1{font-size:24px;}.kpi-grid{grid-template-columns:repeat(2,1fr);padding:0 20px;margin-top:-20px;}.wrap{padding:0 20px;}.issue-grid{grid-template-columns:1fr;}.explain-grid{grid-template-columns:1fr;}.critical-stats{grid-template-columns:repeat(2,1fr);}.cta-section{padding:32px 20px;}}
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>Kagga Kamma<span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span></h1>
+    <p class="hero-sub">Website SEO Health Assessment - kaggakamma.co.za &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>18</strong> pages audited</span>
+      <span class="chip"><strong>Cederberg Wilderness, Western Cape, South Africa</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress</span>
+      <span class="chip"><strong>Audit date:</strong> 15 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi c-blue"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div><div class="kpi-num">18</div><div class="kpi-label">Pages Crawled</div></div>
+  <div class="kpi c-green"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="kpi-num">0</div><div class="kpi-label">Optimized Pages</div></div>
+  <div class="kpi c-red"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="kpi-num">18</div><div class="kpi-label">Need Work (100%)</div></div>
+  <div class="kpi c-purple"><div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="kpi-num">36%</div><div class="kpi-label">Health Score · Critical</div></div>
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <h2>Critical SEO Issues Identified - kaggakamma.co.za</h2>
+    </div>
+    <div class="critical-stats">
+      <div class="cstat"><div class="cstat-num">18</div><div class="cstat-lbl">Missing H1 Headings</div></div>
+      <div class="cstat"><div class="cstat-num">5</div><div class="cstat-lbl">Weak Descriptions</div></div>
+      <div class="cstat"><div class="cstat-num">1</div><div class="cstat-lbl">404 Broken Page</div></div>
+      <div class="cstat"><div class="cstat-num">18/18</div><div class="cstat-lbl">Titles Too Short</div></div>
+    </div>
+    <div class="critical-impact">
+      <strong>Impact:</strong> Not a single page on kaggakamma.co.za has an H1 heading - the primary signal Google uses to understand what a page is about. This is a site-wide structural issue affecting all 18 pages. Combined with titles averaging just 25 characters (Google's optimal is 50-70), Google has very little on-page data to rank Kagga Kamma's pages for the high-value searches that drive bookings. A world-class Cederberg game lodge with its own Remote Observatory is largely invisible to travellers searching on Google and AI tools - a significant and fixable gap.
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. When you invest in Google Ads, every click costs money - and Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, is partly calculated from the relevance and quality of your landing pages. Pages with no H1 headings and titles that average just 25 characters score lower - meaning you pay <strong>more per click</strong> for the same keywords than a competitor with well-structured pages.
+      <br><br>
+      Beyond reducing your ad costs, SEO builds something Google Ads cannot: <strong>lasting organic visibility</strong>. The moment you pause your Google Ads budget, your visibility disappears. But a well-optimised page earns organic rankings that persist for months or years with no ongoing spend. For a premium destination like Kagga Kamma, organic rankings for "Cederberg game lodge" or "dark sky observatory South Africa" could deliver consistent, commission-free bookings indefinitely.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">18/18</div>
+      <h3>All Pages Missing H1 Headings</h3>
+      <p>Every single page on kaggakamma.co.za lacks an H1 heading in its static HTML. H1 is Google's primary signal for understanding what a page is about - without it, Google must infer page topic from other elements, often resulting in weaker rankings.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        The H1 tag is a core on-page SEO element. For a destination as distinctive as Kagga Kamma - with rock suites, a remote observatory, and Cederberg wilderness experiences - every page should have an H1 that clearly communicates its unique offering. An H1 like "Luxury Rock Suites - Cederberg Wilderness" gives Google an unambiguous ranking signal for high-value accommodation searches.
+      </div>
+    </div>
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">18/18</div>
+      <h3>All Titles Too Short - Average 25 Characters</h3>
+      <p>Every page follows the pattern "Page Name - Kagga Kamma" at 18-37 characters. None include Cederberg, Western Cape, or specific offering keywords that travellers actually search for on Google.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Google's optimal title length is 50-70 characters. A title like "Stargazing Accommodation Cederberg | Kagga Kamma Game Lodge" (58 chars) captures both the unique astro-tourism angle and location context. Short generic titles like "Activities - Kagga Kamma" (24 chars) waste half the available ranking signal space.
+      </div>
+    </div>
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">/news/</div>
+      <h3>Broken 404 Page Linked from Navigation</h3>
+      <p>The /news/ page returns a 404 "Page Not Found" error but is linked internally from the website navigation. Every visitor and search engine crawler who clicks this link encounters a dead end.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Broken internal links waste Google's crawl budget and create a poor user experience. If news/blog content has moved or been merged with /blog/, the internal link should be updated. If news content is planned, the page needs to be created. Every 404 is a lost opportunity to serve content and build internal link equity.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 18 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr><th>#</th><th>Page</th><th>Title (current)</th><th>Title Len</th><th>Meta Description (current)</th><th>Desc Len</th><th>H1</th><th>Slug</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Home - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 18 characters. Ideal is 50-70 characters. Homepage title should include location and unique selling point: 'Kagga Kamma Game Lodge | Cederberg Wilderness Retreat' (52 chars).">18 ✗</span></td>
+          <td><span class="desc-text">Kagga Kamma is not 'just' a holiday destination… It is an experience of time feeling as though it is standing still as the sun travels across the sky,casting</span></td>
+          <td><span class="badge ok" data-tip="157 characters - within the ideal 120-160 range. However the description appears to be auto-generated and cuts off mid-sentence ('casting'). Rewrite with a strong call to action.">157 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found in page HTML. This is the most critical page on the site - the homepage H1 should clearly state what Kagga Kamma is and where it is.">✗</span></td>
+          <td><span class="badge ok">/</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/home/" target="_blank" rel="noopener">/home/</a></td>
+          <td style="font-size:12px;">Home - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 18 characters. Duplicate of homepage - /home/ and / serve identical content and should be consolidated via canonical tag or redirect.">18 ✗</span></td>
+          <td><span class="desc-text">Kagga Kamma is not 'just' a holiday destination… It is an experience of time feeling as though it is standing still as the sun travels across the sky,casting</span></td>
+          <td><span class="badge ok" data-tip="157 characters - same as homepage. Duplicate page - set a canonical tag or 301 redirect to consolidate.">157 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. Duplicate of / - consolidate these pages.">✗</span></td>
+          <td><span class="badge warn" data-tip="Duplicate of homepage (/) - both pages serve identical content. Use a 301 redirect from /home/ to / or add canonical tag.">/home/ ⚠</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/about-us/" target="_blank" rel="noopener">/about-us/</a></td>
+          <td style="font-size:12px;">About Us - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 22 characters. 'About Kagga Kamma - Cederberg Wilderness Game Lodge' (50 chars) gives Google meaningful context.">22 ✗</span></td>
+          <td><span class="desc-text">Our Story | SUSTAINABLE TOURISM | WILDERNESS | HERITAGE</span></td>
+          <td><span class="badge bad" data-tip="67 characters - too short. This description reads like a navigation menu, not a compelling summary. Write 150-160 chars describing the lodge's story, sustainable ethos, and heritage.">67 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. The About page should open with an H1 like 'Our Story' or 'About Kagga Kamma'.">✗</span></td>
+          <td><span class="badge ok">/about-us/</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/accommodation/" target="_blank" rel="noopener">/accommodation/</a></td>
+          <td style="font-size:12px;">Accommodation - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 27 characters. 'Luxury Rock Suites and Cave Accommodation | Kagga Kamma Cederberg' (65 chars) captures the unique selling point.">27 ✗</span></td>
+          <td><span class="desc-text">We crave destinations where the push and pull of the daily commute and the noise of the ever-humming city gives way to wide open spaces, where wecan</span></td>
+          <td><span class="badge warn" data-tip="148 characters - acceptable range but the description is generic 'we crave destinations' copy that doesn't mention rock suites, cave rooms, or the Cederberg setting. Rewrite to be specific.">148 ⚠</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. The accommodation page needs an H1 like 'Luxury Accommodation at Kagga Kamma' to anchor the page topic for Google.">✗</span></td>
+          <td><span class="badge ok">/accommodation/</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/activities/" target="_blank" rel="noopener">/activities/</a></td>
+          <td style="font-size:12px;">Activities - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 24 characters. 'Stargazing, Hiking and Rock Art Activities | Kagga Kamma' (55 chars) targets the key activity search terms.">24 ✗</span></td>
+          <td><span class="desc-text">We crave destinations where the push and pull of the daily commute and the noise of the ever-humming city give way to wide-open spaces where we can experience</span></td>
+          <td><span class="badge ok" data-tip="158 characters - within ideal range. However same generic copy as facilities page. Both should have unique descriptions specific to their content.">158 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. Activities page should open with an H1 like 'Things to Do at Kagga Kamma'.">✗</span></td>
+          <td><span class="badge ok">/activities/</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/astropark/" target="_blank" rel="noopener">/astropark/</a></td>
+          <td style="font-size:12px;">Home - Kagga Kamma Remote Observatory</td>
+          <td><span class="badge bad" data-tip="Title is 37 characters and starts with 'Home' - incorrectly labelled. Should be 'Kagga Kamma Remote Observatory - Dark Sky Stargazing Cederberg' (62 chars).">37 ✗</span></td>
+          <td><span class="desc-text">Unlock the Universe from One of Earth's Darkest Skies</span></td>
+          <td><span class="badge bad" data-tip="53 characters - far too short. This tagline is compelling but needs expansion to 150-160 chars covering the observatory, dark sky location, and stargazing experiences available.">53 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. The Remote Observatory is a highly differentiated attraction - it deserves a prominent H1 to help Google rank this page for astro-tourism searches.">✗</span></td>
+          <td><span class="badge ok">/astropark/</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/awards/" target="_blank" rel="noopener">/awards/</a></td>
+          <td style="font-size:12px;">Awards - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 20 characters. 'Awards and Accolades | Kagga Kamma Cederberg Game Lodge' (54 chars) adds useful context.">20 ✗</span></td>
+          <td><span class="desc-text">While Kagga Kamma's focus remains on the guest's experience, we are elated to be able to share the below awards and accolades received. These achievements</span></td>
+          <td><span class="badge ok" data-tip="154 characters - within acceptable range. Cuts off at 'achievements' - consider completing the sentence within 160 chars.">154 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. An H1 like 'Awards and Recognition' would anchor the page.">✗</span></td>
+          <td><span class="badge ok">/awards/</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/blog/" target="_blank" rel="noopener">/blog/</a></td>
+          <td style="font-size:12px;">Blog - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 18 characters. 'Kagga Kamma Blog - Cederberg Nature and Travel Stories' (53 chars) is more descriptive and rankable.">18 ✗</span></td>
+          <td><span class="desc-text">RECENT POSTS</span></td>
+          <td><span class="badge bad" data-tip="12 characters - 'RECENT POSTS' is not a meta description, it is a heading label. Write a real 150-160 char description summarising the blog's content and topics.">12 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on the blog index page.">✗</span></td>
+          <td><span class="badge ok">/blog/</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/facilities/" target="_blank" rel="noopener">/facilities/</a></td>
+          <td style="font-size:12px;">Facilities - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 24 characters. 'Facilities and Amenities at Kagga Kamma Cederberg Lodge' (54 chars) covers both keyword categories.">24 ✗</span></td>
+          <td><span class="desc-text">We crave destinations where the push and pull of the daily commute and the noise of the ever-humming city give way to wide-open spaces where we can experience</span></td>
+          <td><span class="badge ok" data-tip="158 characters - within range but identical to the activities page description. Each page needs a unique description specific to its content.">158 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. Facilities page needs an H1 like 'What to Expect at Kagga Kamma'.">✗</span></td>
+          <td><span class="badge ok">/facilities/</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/gallery/" target="_blank" rel="noopener">/gallery/</a></td>
+          <td style="font-size:12px;">Gallery - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters. 'Photo Gallery - Kagga Kamma Cederberg Wilderness Lodge' (53 chars) adds location context.">21 ✗</span></td>
+          <td><span class="desc-text">Kagga Kamma is not 'just' a holiday destination… It is an experience of time feeling as though it is standing still as the sun travels across the sky,casting</span></td>
+          <td><span class="badge ok" data-tip="157 characters - within range but identical to homepage description. Gallery should have a unique description about the visual experience of Kagga Kamma.">157 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on the gallery page.">✗</span></td>
+          <td><span class="badge ok">/gallery/</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/location/" target="_blank" rel="noopener">/location/</a></td>
+          <td style="font-size:12px;">Contact Us - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 24 characters. 'Contact and Directions - Kagga Kamma Cederberg Wilderness' (57 chars) matches what travellers search for when trying to reach a remote lodge.">24 ✗</span></td>
+          <td><span class="desc-text">Lodge Reservations and EnquiriesTel: +27 (0) 21 872 4343Email: reservations@kaggakamma.co.za</td>
+          <td><span class="badge bad" data-tip="92 characters but this is contact info, not a meta description. Write a 150-160 char description covering location (Cederberg), how to get there, and booking contact details.">92 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on contact/location page.">✗</span></td>
+          <td><span class="badge warn" data-tip="Slug /location/ for a page titled 'Contact Us' creates a mismatch. Consider renaming to /contact/ for consistency.">/location/ ⚠</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/news/" target="_blank" rel="noopener">/news/</a></td>
+          <td style="font-size:12px;">Page Not Found - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="This page returns a 404 error. 'Page Not Found' should never appear in a page title in your live navigation.">404 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="404 page - no meta description. This broken page is linked from the site navigation. Fix or redirect urgently.">0 ✗</span></td>
+          <td><span class="badge bad" data-tip="404 error page - linked from internal navigation. Every visitor and crawler who clicks this link hits a dead end.">✗</span></td>
+          <td><span class="badge bad" data-tip="404 broken page still linked in site navigation. Update or remove the link.">/news/ ✗</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/occasions/" target="_blank" rel="noopener">/occasions/</a></td>
+          <td style="font-size:12px;">Occasions - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 23 characters. 'Weddings and Special Occasions | Kagga Kamma Cederberg' (53 chars) is more competitive for venue searches.">23 ✗</span></td>
+          <td><span class="desc-text">The opportunity to leave our demanding lives behind for a while, and spend time in a true unspoilt wilderness, especially one with as much heart and substance</span></td>
+          <td><span class="badge ok" data-tip="158 characters - within ideal range. However the description doesn't mention weddings or occasions specifically - rewrite to highlight the venue offering.">158 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. Occasions/venue page needs an H1 to help Google understand it as a wedding and events venue page.">✗</span></td>
+          <td><span class="badge ok">/occasions/</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/offers-packages/" target="_blank" rel="noopener">/offers-packages/</a></td>
+          <td style="font-size:12px;">Offers &amp; Packages - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 31 characters. 'Accommodation Offers and Packages | Kagga Kamma Cederberg' (57 chars) adds location and context.">31 ✗</span></td>
+          <td><span class="desc-text">These exclusive offers have been thoughtfully curated to provide guests with a meaningful experience, set against the quiet and tranquillity of Kagga Kamma,</span></td>
+          <td><span class="badge ok" data-tip="156 characters - within ideal range. Good description but cuts off - ensure it completes a thought within 160 chars.">156 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on the packages page.">✗</span></td>
+          <td><span class="badge ok">/offers-packages/</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/privacy-policy/" target="_blank" rel="noopener">/privacy-policy/</a></td>
+          <td style="font-size:12px;">Privacy Policy - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 28 characters. Lower priority page - but minimum 50 characters still applies.">28 ✗</span></td>
+          <td><span class="desc-text">Legal Notices - Last review: August 2020</span></td>
+          <td><span class="badge bad" data-tip="40 characters - not a proper description. Lower priority page but should still have a basic 50+ char description.">40 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on privacy policy page.">✗</span></td>
+          <td><span class="badge ok">/privacy-policy/</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/rates/" target="_blank" rel="noopener">/rates/</a></td>
+          <td style="font-size:12px;">Rates - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 19 characters. 'Accommodation Rates and Pricing | Kagga Kamma Cederberg' (53 chars) targets travellers searching for pricing.">19 ✗</span></td>
+          <td><span class="desc-text">Treat yourself to a stay at magical Kagga Kamma and enjoy unique air-conditioned accommodation with an en-suite bathroom. Your Full Board stay will also</span></td>
+          <td><span class="badge ok" data-tip="152 characters - within ideal range. Good start but the description cuts off ('will also') - complete the sentence within 160 chars to improve its effectiveness.">152 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on the rates page.">✗</span></td>
+          <td><span class="badge ok">/rates/</span></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/terms-and-conditions/" target="_blank" rel="noopener">/terms-and-conditions/</a></td>
+          <td style="font-size:12px;">Terms and Conditions - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 34 characters. Lower priority page - but minimum 50 characters still applies.">34 ✗</span></td>
+          <td><span class="desc-text">Please see below the Terms and Conditions pertaining to Kagga Kamma reservations as well as important information about the activities and excursions on offer.</span></td>
+          <td><span class="badge ok" data-tip="160 characters - exactly at the ideal maximum. Well done on this page.">160 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading on the terms page.">✗</span></td>
+          <td><span class="badge ok">/terms-and-conditions/</span></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td class="url-cell"><a href="https://kaggakamma.co.za/visiting-soon/" target="_blank" rel="noopener">/visiting-soon/</a></td>
+          <td style="font-size:12px;">Visiting Soon - Kagga Kamma</td>
+          <td><span class="badge bad" data-tip="Title is 27 characters. 'Visiting Kagga Kamma Soon - Getting There and What to Expect' (59 chars) is far more informative.">27 ✗</span></td>
+          <td><span class="desc-text">The Kagga Kamma Team wishes you a pleasant journey and hopes you enjoy the adventure of travelling to this oasis on the edge of time, though some of South</span></td>
+          <td><span class="badge ok" data-tip="154 characters - within ideal range. Cuts off at 'South' - complete the phrase within 160 chars.">154 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading. Pre-arrival information page needs an H1 like 'Preparing for Your Stay at Kagga Kamma'.">✗</span></td>
+          <td><span class="badge ok">/visiting-soon/</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-60 chars &nbsp;|&nbsp; Description sweet spot: 150-160 chars (120-149 acceptable) &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <div class="section-head">
+    <h2>Why This Matters for Kagga Kamma</h2>
+    <p>A world-class game lodge with a Remote Observatory in the Cederberg deserves to be found by the travellers who are searching for it.</p>
+  </div>
+
+  <div class="explain-grid">
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>People searching "Cederberg game lodge", "dark sky stargazing South Africa", or "rock cave accommodation Western Cape" are actively looking to book. Without H1 headings and short generic titles, Google ranks these pages weakly - leaving your most differentiated experiences invisible to the travellers most likely to book them at premium rates.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/></svg></div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks ChatGPT "what are the best dark sky observatories in South Africa to stay at?" or "luxury wilderness lodges in the Cederberg", the AI reads your website to decide whether to mention Kagga Kamma. Without H1s and clear on-page signals, AI models struggle to understand what your pages offer - resulting in your unique Remote Observatory being omitted from AI-generated recommendations.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>Google's Quality Score penalises landing pages that lack proper on-page structure. Pages with no H1 headings and generic 18-37 character titles signal low relevance - increasing your cost-per-click above what it should be. The fix - adding H1 headings and optimising titles - is a one-time investment that permanently reduces your ad costs while simultaneously boosting organic rankings.</p>
+      </div>
+    </div>
+    <div class="explain-card">
+      <div class="explain-icon-wrap green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="explain-body">
+        <h3>Your Remote Observatory is a Global SEO Opportunity</h3>
+        <p>Kagga Kamma's Remote Observatory is one of the most unique accommodation features in South Africa - possibly the continent. Dark sky tourism is a growing global niche with motivated international travellers. But the /astropark/ page has a 53-character description, no H1, and a title that says "Home - Kagga Kamma Remote Observatory". This unique asset is effectively invisible to search - an enormous missed opportunity.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can add H1 headings to all 18 pages, optimise every title for Cederberg and wilderness keywords, fix the broken /news/ link, and rewrite descriptions for Kagga Kamma's most unique pages - including the Remote Observatory.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20Review%20-%20Kagga%20Kamma" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for Kagga Kamma &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of kaggakamma.co.za conducted on 15 March 2026.</span>
+</div>
+
+</body>
+</html>
