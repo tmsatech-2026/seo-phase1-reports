@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit - Neighbourgood / Disandt House | TourismMarketing.co.za</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #dc2626; --red-light: #fef2f2; --red-border: #fecaca;
+    --amber: #d97706; --amber-light: #fffbeb; --amber-border: #fde68a;
+    --green: #16a34a; --green-light: #f0fdf4; --green-border: #bbf7d0;
+    --blue: #2563eb; --blue-light: #eff6ff;
+    --purple: #7c3aed; --purple-light: #f5f3ff;
+    --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+    --gray-400: #9ca3af; --gray-600: #4b5563; --gray-700: #374151; --gray-900: #111827;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; color: var(--gray-900); background: #fff; line-height: 1.6; }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 420px; display: flex; align-items: flex-end;
+    background: url('https://images.squarespace-cdn.com/content/v1/5eae94ea770d356055bc66e0/af50e9e6-1241-49f8-8d7a-f7576f9b9737/NeighbourgoodDisandtHouseFresnaye%2831of36%29.jpg') center/cover no-repeat;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: rgba(10,10,20,0.46);
+    border-bottom: 4px solid #c9a84c;
+  }
+  .hero-content { position: relative; z-index: 1; padding: 48px 40px; max-width: 900px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #c9a84c; margin-bottom: 12px; }
+  .hero h1 { font-size: 36px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 10px; }
+  .hero-sub { font-size: 16px; color: rgba(255,255,255,0.82); margin-bottom: 20px; }
+  .hero-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+  .hero-meta span { font-size: 13px; color: rgba(255,255,255,0.7); }
+  .hero-meta strong { color: #fff; }
+
+  /* CONTAINER */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* KPI CARDS */
+  .kpi-section { background: var(--gray-50); border-bottom: 1px solid var(--gray-200); padding: 32px 0; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+  .kpi-card { background: #fff; border-radius: 10px; padding: 20px 16px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+  .kpi-number { font-size: 36px; font-weight: 700; line-height: 1; }
+  .kpi-label { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--gray-600); margin-top: 6px; }
+  .kpi-card.blue .kpi-number { color: var(--blue); }
+  .kpi-card.green .kpi-number { color: var(--green); }
+  .kpi-card.red .kpi-number { color: var(--red); }
+  .kpi-card.purple .kpi-number { color: var(--purple); }
+
+  /* CRITICAL SECTION */
+  .critical-section {
+    background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    color: #fff; padding: 40px 0;
+  }
+  .critical-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+  .critical-icon { font-size: 32px; flex-shrink: 0; }
+  .critical-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .critical-subtitle { font-size: 14px; opacity: 0.85; }
+  .critical-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 24px; }
+  .cstat { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 16px 12px; text-align: center; }
+  .cstat-num { font-size: 28px; font-weight: 700; }
+  .cstat-label { font-size: 11px; opacity: 0.8; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .critical-impact { background: rgba(255,255,255,0.1); border-radius: 8px; padding: 16px 20px; font-size: 14px; line-height: 1.7; opacity: 0.92; }
+
+  /* GOOGLE ADS CALLOUT */
+  .ads-callout { background: var(--amber-light); border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 20px 24px; margin: 32px 0 0; }
+  .ads-callout h3 { font-size: 14px; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .ads-callout p { font-size: 14px; color: var(--gray-700); line-height: 1.7; }
+  .ads-callout strong { color: var(--gray-900); }
+
+  /* SECTION */
+  .section { padding: 48px 0; border-bottom: 1px solid var(--gray-200); }
+  .section-title { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .section-sub { font-size: 14px; color: var(--gray-600); margin-bottom: 28px; }
+
+  /* ISSUE GRID */
+  .issue-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .issue-card { background: #fff; border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .issue-card .card-top { height: 5px; }
+  .issue-card.critical .card-top { background: var(--red); }
+  .issue-card.medium .card-top { background: var(--amber); }
+  .card-body { padding: 20px; }
+  .issue-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 12px; }
+  .issue-card.critical .issue-badge { background: var(--red-light); color: var(--red); }
+  .issue-card.medium .issue-badge { background: var(--amber-light); color: var(--amber); }
+  .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+  .issue-count { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .issue-card.critical .issue-count { color: var(--red); }
+  .issue-card.medium .issue-count { color: var(--amber); }
+  .issue-percent { font-size: 12px; color: var(--gray-600); margin-bottom: 12px; }
+  .issue-impact { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+
+  /* PAGE TABLE */
+  .page-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .page-table th { background: var(--gray-100); padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-600); border-bottom: 2px solid var(--gray-200); }
+  .page-table td { padding: 12px 12px; border-bottom: 1px solid var(--gray-100); vertical-align: top; }
+  .page-table tr:hover td { background: var(--gray-50); }
+  .page-url { font-weight: 500; color: var(--blue); font-family: monospace; font-size: 12px; }
+  .page-type-badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 6px; border-radius: 4px; background: var(--gray-100); color: var(--gray-600); }
+  .ads-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber-border); margin-left: 4px; }
+  .meta-text { color: var(--gray-700); max-width: 260px; font-size: 12px; }
+  .meta-len { font-size: 11px; color: var(--gray-400); margin-top: 2px; }
+  .score-col { font-weight: 700; font-size: 14px; text-align: center; }
+  .score-good { color: var(--green); }
+  .score-warn { color: var(--amber); }
+  .score-bad { color: var(--red); }
+  .cell-missing { color: var(--red); font-weight: 600; font-size: 12px; }
+
+  /* BADGES */
+  .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; cursor: help; position: relative; }
+  .badge.ok { background: var(--green-light); color: var(--green); border: 1px solid var(--green-border); }
+  .badge.warn { background: var(--amber-light); color: var(--amber); border: 1px solid var(--amber-border); }
+  .badge.bad { background: var(--red-light); color: var(--red); border: 1px solid var(--red-border); }
+  .badge.missing { background: var(--red-light); color: var(--red); border: 1px solid var(--red-border); }
+  [data-tip] { position: relative; }
+  [data-tip]:hover::after {
+    content: attr(data-tip); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+    background: var(--gray-900); color: #fff; font-size: 11px; font-weight: 400; padding: 6px 10px;
+    border-radius: 6px; white-space: nowrap; z-index: 100; margin-bottom: 6px; pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* EXPLAIN GRID */
+  .explain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .explain-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 20px; display: flex; gap: 14px; }
+  .explain-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .explain-icon.blue { background: var(--blue-light); }
+  .explain-icon.purple { background: var(--purple-light); }
+  .explain-icon.amber { background: var(--amber-light); }
+  .explain-icon.green { background: var(--green-light); }
+  .explain-icon svg { width: 20px; height: 20px; }
+  .explain-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .explain-card p { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section { background: linear-gradient(135deg, #14532d 0%, #166534 100%); padding: 56px 0; text-align: center; }
+  .cta-section h2 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+  .cta-section p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .cta-btn { display: inline-block; background: #fff; color: #14532d; font-size: 17px; font-weight: 700; padding: 16px 40px; border-radius: 8px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+  /* FOOTER */
+  .footer { background: var(--gray-900); color: rgba(255,255,255,0.5); padding: 24px; text-align: center; font-size: 13px; }
+  .footer a { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 768px) {
+    .kpi-grid { grid-template-columns: repeat(2,1fr); }
+    .critical-stats { grid-template-columns: repeat(2,1fr); }
+    .issue-grid { grid-template-columns: 1fr; }
+    .explain-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 26px; }
+    .hero-content { padding: 32px 20px; }
+    .container { padding: 0 16px; }
+    .page-table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">SEO Audit Report - March 2026</div>
+    <h1>Neighbourgood - Disandt House</h1>
+    <div class="hero-sub">neighbourgood.co - Fresnaye, Atlantic Seaboard, Cape Town</div>
+    <div class="hero-meta">
+      <span><strong>10</strong> pages audited</span>
+      <span><strong>0</strong> fully optimised</span>
+      <span><strong>Health Score:</strong> 51% - Poor</span>
+      <span><strong>Prepared by:</strong> TourismMarketing.co.za</span>
+    </div>
+  </div>
+</div>
+
+<!-- KPI CARDS -->
+<div class="kpi-section">
+  <div class="container">
+    <div class="kpi-grid">
+      <div class="kpi-card blue">
+        <div class="kpi-number">10</div>
+        <div class="kpi-label">Pages Crawled</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-number">0</div>
+        <div class="kpi-label">Optimised Pages</div>
+      </div>
+      <div class="kpi-card red">
+        <div class="kpi-number">10</div>
+        <div class="kpi-label">Need Work</div>
+      </div>
+      <div class="kpi-card purple">
+        <div class="kpi-number">51%</div>
+        <div class="kpi-label">SEO Health Score</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CRITICAL SECTION -->
+<div class="critical-section">
+  <div class="container">
+    <div class="critical-header">
+      <div class="critical-icon">&#9888;</div>
+      <div>
+        <div class="critical-title">Critical SEO Issues - Site-Wide Metadata Missing</div>
+        <div class="critical-subtitle">Every page on neighbourgood.co shares the same generic title. No page has a unique description or H1 heading. This is a systemic platform configuration issue.</div>
+      </div>
+    </div>
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">10/10</div>
+        <div class="cstat-label">Identical Titles</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">9/10</div>
+        <div class="cstat-label">Missing Descriptions</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">10/10</div>
+        <div class="cstat-label">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">50/100</div>
+        <div class="cstat-label">Ads Landing Score</div>
+      </div>
+    </div>
+    <div class="critical-impact">
+      Every single page on neighbourgood.co uses the identical generic title: "Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco". Google cannot distinguish Disandt House from Ravenscraig, or the Experiences page from the Contact page. Nine of ten pages are completely missing meta descriptions. Not one page has an H1 heading. This is a systemic Squarespace SEO configuration issue - it requires a one-time fix in the platform settings that would immediately improve all pages at once. The Google Ads landing page (/disandt-house) scores just 50/100, directly harming your Quality Score and increasing your cost-per-click.
+    </div>
+    <div class="ads-callout">
+      <h3>&#9888; Critical Google Ads Impact</h3>
+      <p>Your Google Ads points to <strong>/disandt-house</strong> - which scores just <strong>50/100</strong>. A generic title, missing description, and no H1 heading signals to Google that this page is a poor match for your ad keywords. This suppresses your <strong>Quality Score</strong>, which directly increases your cost-per-click and reduces your ad position. <strong>Fixing the metadata on /disandt-house alone could lower your CPC and improve your ad rank without increasing your budget.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ISSUE CARDS -->
+<div class="section">
+  <div class="container">
+    <div class="section-title">Top SEO Issues Identified</div>
+    <div class="section-sub">All three issues stem from the same root cause: Squarespace SEO settings have not been configured at the page level</div>
+    <div class="issue-grid">
+
+      <div class="issue-card critical">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <span class="issue-badge">Critical</span>
+          <h3>All 10 Pages Share One Generic Title</h3>
+          <div class="issue-count">10/10 pages</div>
+          <div class="issue-percent">100% of site - every page identical</div>
+          <div class="issue-impact">Every page from Disandt House to the Coworking hub displays "Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco". Google treats each URL as a separate page - if they all look the same, none can rank for specific searches like "boutique hotel Fresnaye" or "Cape Town coworking space".</div>
+        </div>
+      </div>
+
+      <div class="issue-card critical">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <span class="issue-badge">Critical</span>
+          <h3>9 of 10 Pages Missing Meta Descriptions</h3>
+          <div class="issue-count">9/10 pages</div>
+          <div class="issue-percent">90% of site - including the ads landing page</div>
+          <div class="issue-impact">The meta description is the first line travellers read in Google search results before deciding to click. With no descriptions set, Google generates its own snippets - usually pulling fragments of body text that don't sell your property. The homepage description is present but at 63 characters it's less than half the optimal length.</div>
+        </div>
+      </div>
+
+      <div class="issue-card critical">
+        <div class="card-top"></div>
+        <div class="card-body">
+          <span class="issue-badge">Critical</span>
+          <h3>Zero H1 Headings Anywhere on the Site</h3>
+          <div class="issue-count">10/10 pages</div>
+          <div class="issue-percent">100% of site - no H1 found on any page</div>
+          <div class="issue-impact">The H1 is the primary on-page signal that tells Google what each page is about. On the Disandt House page, the property name appears as an H3 - three levels below where Google expects to find the main heading. This reduces the page's topical relevance score for every "Disandt House Fresnaye" search query.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PAGE TABLE -->
+<div class="section">
+  <div class="container">
+    <div class="section-title">Full Page Audit</div>
+    <div class="section-sub">All 10 pages scored: Title (50pts) + Description (35pts) + H1 (15pts). No page reaches the 80/100 optimised threshold.</div>
+    <div style="overflow-x:auto;">
+      <table class="page-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Page</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>H1</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><div class="page-url">/</div><div class="page-type-badge">homepage</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco</div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but generic across entire site">65 chars - ok</span></div>
+            </td>
+            <td>
+              <div class="meta-text">We create connected spaces where good people belong and thrive.</div>
+              <div class="meta-len"><span class="badge bad" data-tip="63 chars: too short, well below 120-char minimum">63 chars - bad</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found - property name is H3">Missing</span></td>
+            <td class="score-col score-warn">60/100</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><div class="page-url">/stay-cape-town</div><div class="page-type-badge">info</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><div class="page-url">/stay-with-us</div><div class="page-type-badge">info</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><div class="page-url">/coworking</div><div class="page-type-badge">info</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><div class="page-url">/experiences</div><div class="page-type-badge">activities</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><div class="page-url">/contact</div><div class="page-type-badge">contact</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr style="background: #fffbeb;">
+            <td>7</td>
+            <td>
+              <div class="page-url">/disandt-house</div>
+              <div class="page-type-badge">accommodation</div>
+              <div class="ads-tag">ADS LANDING</div>
+            </td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but generic, not about Disandt House">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description - Google writes its own">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="Property name Disandt House appears as H3, not H1">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><div class="page-url">/hill</div><div class="page-type-badge">accommodation</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><div class="page-url">/ravenscraig</div><div class="page-type-badge">accommodation</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><div class="page-url">/113-loop</div><div class="page-type-badge">accommodation</div></td>
+            <td>
+              <div class="meta-text">Neighbourgood - Stay, Work &amp; Experience Cape Town &amp; San Francisco <em style="color:var(--red);font-size:11px;">(same as all pages)</em></div>
+              <div class="meta-len"><span class="badge ok" data-tip="65 chars: technically ok but not page-specific">65 chars - ok</span></div>
+            </td>
+            <td>
+              <span class="cell-missing">MISSING &#9888;&#9888;</span>
+              <div class="meta-len"><span class="badge missing" data-tip="No meta description set">0 chars - MISSING</span></div>
+            </td>
+            <td><span class="badge bad" data-tip="No H1 heading found">Missing</span></td>
+            <td class="score-col score-bad">50/100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- WHY IT MATTERS -->
+<div class="section" style="background:var(--gray-50); border-top: 1px solid var(--gray-200);">
+  <div class="container">
+    <div class="section-title">Why This Matters for Neighbourgood</div>
+    <div class="section-sub">A one-time Squarespace SEO setup that protects your ad spend and unlocks organic search growth</div>
+    <div class="explain-grid">
+      <div class="explain-card">
+        <div class="explain-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div>
+          <h4>Google Can't Rank What It Can't Differentiate</h4>
+          <p>When Disandt House, Ravenscraig, and Hill all have the same title and no description, Google has no way to know which page is most relevant for "boutique hotel Fresnaye" vs "Cape Town co-living". Each property needs its own unique SEO identity so Google can send the right guests to the right page.</p>
+        </div>
+      </div>
+      <div class="explain-card">
+        <div class="explain-icon purple">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+        </div>
+        <div>
+          <h4>Your Google Ads Are Paying for a Broken Landing Page</h4>
+          <p>Google Ads grades your landing page for relevance to your ad keywords. A generic title that says nothing about "Disandt House" or "Fresnaye boutique hotel" earns a low Quality Score - resulting in a higher cost-per-click and lower ad position. Every day this goes unfixed, your ad budget is working harder than it needs to.</p>
+        </div>
+      </div>
+      <div class="explain-card">
+        <div class="explain-icon amber">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div>
+          <h4>The Fix is a One-Time Platform Setup</h4>
+          <p>Unlike most SEO problems, this one has a clean solution: configure Squarespace's SEO settings at the page level. Each page needs its own title (50-70 chars), description (120-160 chars), and an H1 heading. This is a one-time investment that permanently improves every page's ranking potential and your ad Quality Score.</p>
+        </div>
+      </div>
+      <div class="explain-card">
+        <div class="explain-icon green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div>
+          <h4>High Upside: Starting from Zero</h4>
+          <p>Neighbourgood has strong brand recognition, a compelling multi-property offering, and excellent content within each page. The SEO issue here is purely technical - the metadata layer is missing. Once properly configured, you have immediate potential to rank for "Cape Town boutique hotel", "Fresnaye accommodation", and every individual property name across 12+ listings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="container">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>We can configure unique titles, descriptions and H1 headings across all Neighbourgood property pages - improving your Google Ads Quality Score and organic rankings in one go.</p>
+    <a href="mailto:hello@tourismmarketing.co.za?subject=SEO%20Audit%20Follow-Up%20-%20Neighbourgood%20Disandt%20House" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Prepared by <a href="https://tourismmarketing.co.za" target="_blank">TourismMarketing.co.za</a> &nbsp;|&nbsp; Neighbourgood - Disandt House SEO Audit &nbsp;|&nbsp; March 2026 &nbsp;|&nbsp; Confidential</p>
+</div>
+
+</body>
+</html>
