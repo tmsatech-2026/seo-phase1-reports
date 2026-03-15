@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Kogman & Keisie Guest Farm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://www.kogmanandkeisie.com/wp-content/uploads/2025/06/Kogman-Keisie-Guest-Farm-Montagu-Western-Cape-South-Africa.png') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45); border-radius: 6px; padding: 5px 14px; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1200px; margin: -32px auto 0; padding: 0 48px; }
+    .kpi { border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 22px 16px 18px; color: #fff; text-align: center; }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    .critical-section { background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%); border-radius: var(--radius); padding: 28px; margin: 32px 0 0; color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32); }
+    .critical-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92); }
+    .critical-impact strong { color: #fff; }
+
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    .ads-callout { background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0; font-size: 13px; color: #444; line-height: 1.7; }
+    .ads-callout .callout-title { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--amber); margin-bottom: 8px; }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: #1a1a2e; color: #fff; padding: 9px 13px; border-radius: 7px; font-size: 11px; font-weight: 400; line-height: 1.5; width: 230px; white-space: normal; text-align: left; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
+    [data-tip]::before { content: ''; position: absolute; bottom: calc(100% + 2px); left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top-color: #1a1a2e; opacity: 0; pointer-events: none; z-index: 200; transition: opacity 0.15s; }
+    [data-tip]:hover::after, [data-tip]:hover::before { opacity: 1; }
+
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent; }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap { flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    .cta-section { background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%); border-radius: var(--radius); padding: 52px 48px; margin: 32px 0; color: #fff; text-align: center; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 8px 32px rgba(15,76,53,0.35); }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn { display: inline-block; background: #fff; color: #0f4c35; font-weight: 800; font-size: 17px; letter-spacing: 0.3px; padding: 18px 52px; border-radius: 10px; text-decoration: none; box-shadow: 0 6px 24px rgba(0,0,0,0.20); transition: transform 0.15s, box-shadow 0.15s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+    .spacer-lg { height: 44px; }
+
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; } .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; } .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; } .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Kogman &amp; Keisie Guest Farm
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">TourismMarketing.co.za</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - kogmanandkeisie.com &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>10</strong> pages audited</span>
+      <span class="chip"><strong>Montagu, Western Cape</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress</span>
+      <span class="chip"><strong>Audit date:</strong> 15 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi c-blue">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+    <div class="kpi-num">10</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+  <div class="kpi c-green">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+    <div class="kpi-num">1</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+  <div class="kpi c-red">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+    <div class="kpi-num">9</div>
+    <div class="kpi-label">Need Work (90%)</div>
+  </div>
+  <div class="kpi c-purple">
+    <div class="kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+    <div class="kpi-num">41%</div>
+    <div class="kpi-label">Health Score</div>
+  </div>
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <h2>Critical SEO Issues Identified - kogmanandkeisie.com</h2>
+    </div>
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">6</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">2</div>
+        <div class="cstat-lbl">Missing Descriptions</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">3</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">10/10</div>
+        <div class="cstat-lbl">Titles Too Short</div>
+      </div>
+    </div>
+    <div class="critical-impact">
+      <strong>Impact:</strong> 9 of 10 pages on kogmanandkeisie.com are not displaying optimally in Google search results. <strong>Every single page title is too short</strong> - ranging from just 32 to 47 characters when the optimal is 50-70. Six pages have no H1 heading at all. The homepage description has been auto-populated from a store notice banner ("Make sure to check out our latest events"), not from marketing copy. These structural issues prevent Google from understanding what the farm offers and who it's for - meaning search visibility is significantly below what the property deserves.
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. When you invest in Google Ads, every click costs money - and Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, is partly calculated from the relevance and quality of your landing pages. The current homepage description ("Make sure to check out our latest events and workshops") is not marketing copy - it signals to Google that the landing page is generic, increasing your cost-per-click.
+      <br><br>
+      Beyond reducing your ad costs, SEO builds something Google Ads cannot: <strong>lasting organic visibility</strong>. Kogman &amp; Keisie has a genuinely unique story - organic farm, boutique accommodation, workshops, Montagu. That story should be ranking organically for searches like "guest farm Montagu Western Cape" and "farm stay Langeberg Mountains". Right now, it isn't - because the metadata doesn't tell Google what you are.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">10/10</div>
+      <h3>Every Page Title Is Too Short</h3>
+      <p>All 10 pages follow the pattern "[Page Name] - Kogman & Keisie Guest Farm", producing titles of 32-47 characters. Every one falls below the 50-character minimum. The pattern leaves no room for location keywords (Montagu, Langeberg, Western Cape) or property descriptors that drive search traffic.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        Page titles are the strongest on-page ranking signal. A title like "Guesthouse - Kogman & Keisie Guest Farm" (39 chars) tells Google almost nothing. Compare to "Boutique Guesthouse Montagu - Kogman & Keisie Guest Farm" (56 chars) - the expanded version would rank for "guesthouse Montagu", "boutique accommodation Western Cape", and "farm stay Langeberg" without changing anything else on the page.
+      </div>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">6</div>
+      <h3>Missing H1 Headings on Key Pages</h3>
+      <p>Six pages - Events, About, Contact, Swimming, Greenhouse, and FAQ - have no H1 heading. These are the pages guests visit to evaluate the farm: its facilities, story, and policies. Without an H1, Google cannot determine what each page is about or which keywords to rank it for.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        H1 tags are Google's primary signal for understanding page content. The About page, for example, tells the compelling founder story of Kogman & Keisie - but without an H1, Google can't surface it for searches like "unique guest farm Western Cape" or "boutique farm Montagu owners". An H1 like "Our Story - Building Kogman & Keisie in Montagu's Langeberg Mountains" takes 30 seconds to add and immediately signals relevance.
+      </div>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium - Urgent</span>
+      <div class="stat-line">55</div>
+      <h3>Homepage Description is Banner Text, Not Marketing Copy</h3>
+      <p>The homepage meta description reads: "Make sure to check out our latest events and workshops.Book your place now!" - 75 characters of promotional banner text auto-pulled from a site notice. This is the snippet potential guests see in Google search results instead of a description of the farm itself.</p>
+      <div class="why">
+        <strong>Why it matters</strong>
+        The homepage meta description is the most important piece of copy on the site - it's what Google shows in search results when someone searches for "guest farm Montagu" or "farm accommodation Western Cape". The current description actively undermines first impressions. It should be a 140-160 character invitation that captures the essence of the farm: organic, Langeberg, boutique, hot springs nearby, workshops.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 10 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+          <th>Slug</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Kogman Keisie Home - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge warn" data-tip="Title is 47 characters - just below the 50-character optimal minimum. Also note the title includes 'Kogman Keisie Home' which is a page label, not a keyword. Better: 'Kogman & Keisie Guest Farm - Boutique Farm Stay in Montagu' (58 chars).">47 ⚠</span></td>
+          <td><span class="desc-text" style="color:var(--red);font-style:italic;">Make sure to check out our latest events and workshops.Book your place now!</span></td>
+          <td><span class="badge bad" data-tip="75 characters - well below the 120-character minimum. This description is auto-generated from a site banner notice, not marketing copy. It is the first thing Google shows potential guests in search results.">75 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Kogman & Keisie Guest Farm - Montagu - Western Cape'. Long but informative.">✓</span></td>
+          <td><span class="badge ok">/</span></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/events/" target="_blank" rel="noopener">/events/</a></td>
+          <td style="font-size:12px;">Events - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 35 characters - well below the 50-character minimum. Missing location keywords. Better: 'Farm Events & Workshops - Kogman & Keisie, Montagu' (50 chars).">35 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description found. Google will auto-generate a snippet from the page content, which may not represent the events attractively.">0 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on the Events page. Google cannot determine what this page covers without an H1. Adding 'Events & Workshops at Kogman & Keisie Farm, Montagu' would significantly improve ranking potential.">✗</span></td>
+          <td><span class="badge ok">/events/</span></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/about/" target="_blank" rel="noopener">/about/</a></td>
+          <td style="font-size:12px;">About - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 34 characters - well below the 50-character minimum. The About page is often the second-most-visited page. Better: 'Our Story - Kogman & Keisie Guest Farm, Montagu' (47 chars) or expand further.">34 ✗</span></td>
+          <td><span class="desc-text">A couple of years ago I had a vision of my hand brushing through silver olive leaves while walking in a grove with golden sunlight reflecting on every</span></td>
+          <td><span class="badge ok" data-tip="150 characters - within the ideal 120-160 character range. However, the description reads as narrative prose from the About page body text rather than crafted marketing copy. Worth rewriting to focus on the farm's unique positioning.">150 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on the About page. The founder story is compelling but invisible to Google without an H1. Add 'Our Story - Kogman & Keisie Guest Farm' or 'About Petrus & Liana - The Farm's Founders'.">✗</span></td>
+          <td><span class="badge ok">/about/</span></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/contact/" target="_blank" rel="noopener">/contact/</a></td>
+          <td style="font-size:12px;">Contact - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 36 characters - below the 50-character minimum. Better: 'Contact Kogman & Keisie Guest Farm - Montagu, Western Cape' (57 chars).">36 ✗</span></td>
+          <td><span class="desc-text">Western Cape, South Africa</span></td>
+          <td><span class="badge bad" data-tip="26 characters - critically short. 'Western Cape, South Africa' is not a meta description. It appears to be an auto-pulled location field. Replace with full contact invitation: phone, email, booking details.">26 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on the Contact page. Add 'Contact Us - Kogman & Keisie Guest Farm, Montagu' to establish clear page purpose.">✗</span></td>
+          <td><span class="badge ok">/contact/</span></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/guesthouse/" target="_blank" rel="noopener">/guesthouse/</a></td>
+          <td style="font-size:12px;">Guesthouse - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters - just below the 40-character boundary. Missing location and accommodation type keywords. Better: 'Boutique Guesthouse Montagu - Kogman & Keisie Farm Stay' (54 chars).">39 ✗</span></td>
+          <td><span class="desc-text">Luxury room in the Kogman & Keisie Guesthouse equipped with a queen size bed with percale linen and freestanding Victorian bath and separate shower.</span></td>
+          <td><span class="badge ok" data-tip="148 characters - within the ideal 120-160 character range. Good room-level detail that would appeal to accommodation searchers.">148 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'GUESTHOUSE'.">✓</span></td>
+          <td><span class="badge ok">/guesthouse/</span></td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/mountainview/" target="_blank" rel="noopener">/mountainview/</a></td>
+          <td style="font-size:12px;">Mountain View - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - below the 50-character minimum. Better: 'Mountain View Cottage with Hot Tub - Kogman & Keisie, Montagu' (61 chars).">42 ⚠</span></td>
+          <td><span class="desc-text">MOUNTAIN VIEW COTTAGE WITH HOT TUB Private and comfortable cottage with delightful view of Kogmanskop Mountain. On the boundary of the Montagu Mountain Nature</span></td>
+          <td><span class="badge ok" data-tip="158 characters - within the ideal 120-160 character range. This description targets key features (hot tub, mountain view, Montagu) that accommodation searchers look for.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'MOUNTAIN VIEW COTTAGE WITH HOT TUB'. Clear and descriptive.">✓</span></td>
+          <td><span class="badge ok">/mountainview/</span></td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/swimming/" target="_blank" rel="noopener">/swimming/</a></td>
+          <td style="font-size:12px;">Swimming - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 37 characters - below the minimum. Better: 'Swimming Pools - Hot & Cold - Kogman & Keisie Guest Farm Montagu' (64 chars) - targeting 'hot spring pool Montagu' searches.">37 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description found. This page about the farm's two pools (one hot, one cold) is a strong selling point - it needs a compelling description to appear in relevant searches.">0 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on the Swimming page. Without an H1, Google cannot rank this page for 'farm with pool Montagu' or 'hot pool Western Cape accommodation' searches.">✗</span></td>
+          <td><span class="badge ok">/swimming/</span></td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/greenhouse/" target="_blank" rel="noopener">/greenhouse/</a></td>
+          <td style="font-size:12px;">Greenhouse - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters - just below the minimum. Better: 'The Greenhouse - Organic Farm & Dining Events - Kogman & Keisie' (62 chars).">39 ✗</span></td>
+          <td><span class="desc-text">Our Greenhouse was originally built to realise a dream that both Petrus and Liana harboured for many years. The dream was to have a greenhouse where we could</span></td>
+          <td><span class="badge ok" data-tip="157 characters - within the ideal 120-160 character range. Though the text is body content, it tells a compelling origin story. Could be improved with more specific keywords.">157 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on the Greenhouse page. This unique venue - used for dinners and events - needs an H1 to rank for 'greenhouse dining Montagu' or 'farm venue Western Cape'.">✗</span></td>
+          <td><span class="badge ok">/greenhouse/</span></td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/faq/" target="_blank" rel="noopener">/faq/</a></td>
+          <td style="font-size:12px;">FAQ - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 32 characters - the shortest on the site. Better: 'Frequently Asked Questions - Kogman & Keisie Guest Farm Montagu' (62 chars).">32 ✗</span></td>
+          <td><span class="desc-text">1. Are you pet friendly?As much as we would like to be, we have 5 dogs, a cat and plenty of chickens, geese, ducks and sheep. Adding an additional dog (or</span></td>
+          <td><span class="badge ok" data-tip="154 characters - within the ideal 120-160 character range. However, opening with raw Q&A text is not ideal - the description should invite guests rather than immediately answering a specific question.">154 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on the FAQ page. FAQ pages attract long-tail searches (pet policy, cancellation, check-in times). Without an H1, Google cannot surface this page for those queries.">✗</span></td>
+          <td><span class="badge ok">/faq/</span></td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://www.kogmanandkeisie.com/booknow/" target="_blank" rel="noopener">/booknow/</a></td>
+          <td style="font-size:12px;">Book Now - Kogman &amp; Keisie Guest Farm</td>
+          <td><span class="badge bad" data-tip="Title is 37 characters - below the minimum. Better: 'Book Your Stay - Kogman & Keisie Guest Farm Montagu' (51 chars).">37 ✗</span></td>
+          <td><span class="desc-text">Cancellation policy and Terms &amp; Conditions</span></td>
+          <td><span class="badge bad" data-tip="42 characters - critically short. 'Cancellation policy and Terms & Conditions' is legal text, not an invitation to book. Replace with a compelling booking prompt that highlights availability and what guests will experience.">42 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'REAL-TIME AVAILABILITY & BOOKINGS'.">✓</span></td>
+          <td><span class="badge ok">/booknow/</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-70 chars &nbsp;|&nbsp; Description sweet spot: 120-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <div class="section-head">
+    <h2>Why This Matters for Kogman &amp; Keisie</h2>
+    <p>Organic search is the primary discovery channel for boutique farm accommodation in the Western Cape.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>People searching "guest farm Montagu", "boutique farm stay Western Cape", or "farm accommodation with pool Langeberg" are actively looking to book. Right now, Kogman & Keisie's pages don't give Google enough information to rank for these searches - because every title is too short and six pages have no H1 at all. Fixing this directly captures high-intent traffic that is currently going to competitors.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks ChatGPT "what are the best farm stays near Montagu Western Cape?", the AI reads your website to evaluate whether to recommend Kogman & Keisie. With 6 pages missing H1 headings and titles that don't include "Montagu" or "Western Cape", the AI has very little to work with. Better metadata dramatically increases the chance of AI citation in recommendation searches.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Quality Score is Reduced by Poor Landing Pages</h3>
+        <p>Your current Google Ads landing page (homepage) has a description that reads "Make sure to check out our latest events and workshops" - not a description of the farm. Google's Quality Score algorithm evaluates landing page relevance, and this homepage description signals low relevance to accommodation searches, increasing cost-per-click. Fixing the homepage description is a direct ad cost reduction.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="explain-body">
+        <h3>The Content is Good - The Metadata Needs to Match</h3>
+        <p>Kogman & Keisie has a compelling story: organic farm, greenhouse dinners, workshops, Victorian bathrooms, hot and cold pools, minutes from Montagu hot springs. This is excellent, differentiating content - but none of it appears in the site's metadata. Once the titles, H1s, and descriptions reflect what's actually on the pages, Google will finally be able to rank the site for the searches it deserves.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Kogman &amp; Keisie Guest Farm and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Inquiry%20-%20Kogman%20%26%20Keisie%20Guest%20Farm" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">TourismMarketing.co.za</a></strong> &nbsp;·&nbsp; SEO Audit for Kogman &amp; Keisie Guest Farm &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of kogmanandkeisie.com conducted on 15 March 2026.</span>
+</div>
+
+</body>
+</html>
