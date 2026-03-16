@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Karoo 1 Hotel Village</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://www.karoo1.com/wp-content/uploads/karoo1-old-barn-suite-2023-845x684.jpg') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero-meta { display: flex; gap: 24px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-meta-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); font-size: 13px; }
+    .hero-meta-item strong { color: #fff; }
+
+    /* MAIN LAYOUT */
+    .main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* KPI CARDS */
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .kpi-card { background: var(--card); border-radius: var(--radius); padding: 24px 20px; box-shadow: var(--shadow); text-align: center; border-top: 4px solid transparent; }
+    .kpi-card.blue  { border-top-color: var(--blue); }
+    .kpi-card.green { border-top-color: var(--green); }
+    .kpi-card.red   { border-top-color: var(--red); }
+    .kpi-card.purple{ border-top-color: var(--purple); }
+    .kpi-number { font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; line-height: 1; }
+    .kpi-card.blue   .kpi-number { color: var(--blue); }
+    .kpi-card.green  .kpi-number { color: var(--green); }
+    .kpi-card.red    .kpi-number { color: var(--red); }
+    .kpi-card.purple .kpi-number { color: var(--purple); }
+    .kpi-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-top: 8px; }
+    .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* CRITICAL BANNER */
+    .critical-banner {
+      background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #b91c1c 100%);
+      border-radius: var(--radius); padding: 28px 32px; margin-bottom: 24px;
+      color: #fff; box-shadow: 0 4px 20px rgba(224,90,78,0.25);
+    }
+    .critical-banner h2 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .critical-banner h2::before { content: '!'; display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: rgba(255,255,255,0.2); border-radius: 50%; font-weight: 800; font-size: 15px; flex-shrink: 0; }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 16px; }
+    .critical-stat { text-align: center; background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 10px; }
+    .critical-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; line-height: 1; }
+    .critical-stat-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.75); margin-top: 5px; }
+    .critical-impact { font-size: 13px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+
+    /* ISSUE CARDS */
+    .issues-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .issues-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); padding: 22px 20px; box-shadow: var(--shadow); border-top: 4px solid var(--red); }
+    .issue-card.amber-top { border-top-color: var(--amber); }
+    .issue-card.blue-top  { border-top-color: var(--blue); }
+    .issue-priority { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
+    .issue-priority.critical { background: #fef2f2; color: var(--red); }
+    .issue-priority.high     { background: #fffbeb; color: var(--amber); }
+    .issue-priority.medium   { background: #eff6ff; color: var(--blue); }
+    .issue-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+    .issue-stat { font-size: 22px; font-weight: 700; color: var(--red); margin-bottom: 6px; font-family: 'Space Grotesk', sans-serif; }
+    .issue-card.amber-top .issue-stat { color: var(--amber); }
+    .issue-card.blue-top  .issue-stat { color: var(--blue); }
+    .issue-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+    /* GOOGLE ADS CALLOUT */
+    .ads-callout { background: var(--card); border-left: 4px solid var(--amber); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 32px; box-shadow: var(--shadow); }
+    .ads-callout h3 { font-size: 14px; font-weight: 700; color: var(--amber); margin-bottom: 8px; }
+    .ads-callout p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* PAGE TABLE */
+    .table-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .table-wrap { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 32px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 700px; }
+    thead th { background: #1a1a2e; color: #fff; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; padding: 13px 14px; text-align: left; white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #f8f9fa; }
+    tbody td { padding: 11px 14px; font-size: 12.5px; vertical-align: top; }
+    .td-url { font-size: 11.5px; color: var(--blue); font-weight: 500; word-break: break-all; max-width: 160px; }
+    .td-title { max-width: 220px; word-break: break-word; }
+    .td-desc  { max-width: 200px; word-break: break-word; color: var(--muted); font-size: 12px; }
+    .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; white-space: nowrap; cursor: help; }
+    .badge-ok     { background: #dcfce7; color: #166534; }
+    .badge-warn   { background: #fef9c3; color: #854d0e; }
+    .badge-bad    { background: #fee2e2; color: #991b1b; }
+    .badge-missing{ background: #f3f4f6; color: #374151; border: 1px dashed #9ca3af; }
+    .cell-missing { color: var(--red); font-weight: 700; font-size: 11px; }
+
+    /* WHY IT MATTERS */
+    .why-section { margin-bottom: 32px; }
+    .why-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .why-card { background: var(--card); border-radius: var(--radius); padding: 22px 20px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: flex-start; }
+    .why-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .why-icon.blue   { background: #eff6ff; }
+    .why-icon.purple { background: #f5f3ff; }
+    .why-icon.amber  { background: #fffbeb; }
+    .why-icon.green  { background: #f0fdf4; }
+    .why-icon svg { width: 22px; height: 22px; }
+    .why-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .why-card p  { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, #14532d 0%, #166534 50%, #15803d 100%); border-radius: var(--radius); padding: 44px 40px; text-align: center; color: #fff; margin-bottom: 32px; box-shadow: 0 4px 20px rgba(22,163,74,0.25); }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+    .cta-section p { font-size: 15px; color: rgba(255,255,255,0.82); margin-bottom: 28px; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; background: #fff; color: #14532d; font-size: 17px; font-weight: 700; padding: 15px 36px; border-radius: 8px; text-decoration: none; box-shadow: 0 2px 12px rgba(0,0,0,0.15); transition: transform 0.15s, box-shadow 0.15s; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 24px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); }
+    footer a { color: var(--blue); text-decoration: none; }
+
+    /* TOOLTIP via title attribute - using CSS data-tip */
+    [data-tip] { position: relative; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 44px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .issues-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .main { padding: 24px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Karoo 1 Hotel Village
+      <span class="by-line">SEO Health Report prepared by <a href="https://tourismmarketing.co.za" target="_blank">TourismMarketing.co.za</a></span>
+    </h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <span>Audit Date: <strong>16 March 2026</strong></span>
+      </div>
+      <div class="hero-meta-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+        <span>Domain: <strong>karoo1.com</strong></span>
+      </div>
+      <div class="hero-meta-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        <span>SEO Health: <strong>43% - Poor</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- KPI CARDS -->
+  <div class="kpi-grid">
+    <div class="kpi-card blue">
+      <div class="kpi-number">18</div>
+      <div class="kpi-label">Pages Crawled</div>
+      <div class="kpi-sub">Full site audit</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-number">0</div>
+      <div class="kpi-label">Optimized Pages</div>
+      <div class="kpi-sub">Score &ge;80/100</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-number">18</div>
+      <div class="kpi-label">Need Work</div>
+      <div class="kpi-sub">All 18 pages</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-number" style="color: var(--amber);">43%</div>
+      <div class="kpi-label">Health Score</div>
+      <div class="kpi-sub" style="color: var(--amber); font-weight: 600;">Poor</div>
+    </div>
+  </div>
+
+  <!-- CRITICAL BANNER -->
+  <div class="critical-banner">
+    <h2>Critical SEO Issues Found</h2>
+    <div class="critical-stats">
+      <div class="critical-stat">
+        <div class="critical-stat-num">18</div>
+        <div class="critical-stat-label">Missing Descriptions</div>
+      </div>
+      <div class="critical-stat">
+        <div class="critical-stat-num">4</div>
+        <div class="critical-stat-label">Titles Too Short</div>
+      </div>
+      <div class="critical-stat">
+        <div class="critical-stat-num">12</div>
+        <div class="critical-stat-label">Suboptimal Titles</div>
+      </div>
+      <div class="critical-stat">
+        <div class="critical-stat-num">100%</div>
+        <div class="critical-stat-label">Pages Affected</div>
+      </div>
+    </div>
+    <p class="critical-impact">Every single page on karoo1.com is missing its meta description - a field Google uses to write the snippet shown in search results. Without it, Google auto-generates snippets from random page text, reducing click-through rates by up to 31%. Combined with 16 out of 18 pages having suboptimal title lengths, the site is leaving significant organic traffic on the table.</p>
+  </div>
+
+  <!-- TOP 3 ISSUES -->
+  <div class="issues-section">
+    <h2>Top 3 SEO Issues to Fix</h2>
+    <div class="issues-grid">
+      <div class="issue-card">
+        <span class="issue-priority critical">Critical</span>
+        <h3>Zero Meta Descriptions Across Entire Site</h3>
+        <div class="issue-stat">18 / 18 pages</div>
+        <p class="issue-desc">Not a single page on karoo1.com has a meta description. Google auto-generates snippets that may not accurately represent the page, directly hurting click-through rates from search results. This is the single highest-impact fix available - writing 18 descriptions could meaningfully increase organic traffic without any other changes.</p>
+      </div>
+      <div class="issue-card amber-top">
+        <span class="issue-priority high">High</span>
+        <h3>4 Page Titles Too Short (&lt;40 Characters)</h3>
+        <div class="issue-stat" style="color:var(--amber);">4 pages (22%)</div>
+        <p class="issue-desc">Pages including Safari (36 chars), Contact (37 chars), Hiking (36 chars), and About (35 chars) have titles that are too brief to be competitive in search. Short titles waste valuable ranking signal space and appear visually thin in search results. Google expects 50-70 characters that describe the page and its context.</p>
+      </div>
+      <div class="issue-card blue-top">
+        <span class="issue-priority medium">Medium</span>
+        <h3>12 Titles in Suboptimal Length Range (40-49 Chars)</h3>
+        <div class="issue-stat" style="color:var(--blue);">12 pages (67%)</div>
+        <p class="issue-desc">The bulk of the site uses a boilerplate title pattern like "Page Name - Karoo 1 Hotel Accommodation" which produces titles in the 40-49 character warning zone. These titles lack keyword specificity - for example, "Rooms - Karoo 1 Hotel Accommodation" misses "Klein Karoo", "De Doorns", "farm hotel", and other terms guests actually search for.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOOGLE ADS CALLOUT -->
+  <div class="ads-callout">
+    <h3>Why This Directly Affects Your Google Ads Costs</h3>
+    <p>Google Ads Quality Score is partly determined by your landing page experience - which includes SEO fundamentals like meta descriptions and title tags. Low Quality Scores mean higher cost-per-click and lower ad positions. Fixing your on-page SEO doesn't just improve organic rankings - it can directly reduce what you pay for every ad click to karoo1.com.</p>
+  </div>
+
+  <!-- PAGE TABLE -->
+  <div class="table-section">
+    <h2>Page-by-Page SEO Audit</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Page</th>
+            <th>Title Tag</th>
+            <th>Title</th>
+            <th>Meta Description</th>
+            <th>Desc</th>
+            <th>H1</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="td-url"><a href="https://www.karoo1.com/" target="_blank">karoo1.com/</a></td>
+            <td class="td-title">Karoo 1 Hotel Accommodation - Klein Karoo Escape</td>
+            <td><span class="badge badge-warn" title="48 chars - aim for 50-70">48 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td class="td-url"><a href="https://www.karoo1.com/rooms/" target="_blank">/rooms/</a></td>
+            <td class="td-title">Karoo 1 Hotel Rooms - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="49 chars - aim for 50-70">49 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td class="td-url"><a href="https://www.karoo1.com/restaurant/" target="_blank">/restaurant/</a></td>
+            <td class="td-title">Restaurant - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="40 chars - aim for 50-70">40 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td class="td-url"><a href="https://www.karoo1.com/activities/" target="_blank">/activities/</a></td>
+            <td class="td-title">Activities - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="40 chars - aim for 50-70">40 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td class="td-url"><a href="https://www.karoo1.com/glamping/" target="_blank">/glamping/</a></td>
+            <td class="td-title">Karoo Glamping - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="44 chars - aim for 50-70">44 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td class="td-url"><a href="https://www.karoo1.com/weddings/" target="_blank">/weddings/</a></td>
+            <td class="td-title">The Timeless Karoo Wedding - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-ok" title="56 chars - good length">56 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>65</strong></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td class="td-url"><a href="https://www.karoo1.com/safari/" target="_blank">/safari/</a></td>
+            <td class="td-title">Safari - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-bad" title="36 chars - too short, needs 50-70">36 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>25</strong></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td class="td-url"><a href="https://www.karoo1.com/contact/" target="_blank">/contact/</a></td>
+            <td class="td-title">Contact - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-bad" title="37 chars - too short, needs 50-70">37 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>25</strong></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td class="td-url"><a href="https://www.karoo1.com/mountain-biking/" target="_blank">/mountain-biking/</a></td>
+            <td class="td-title">Mountain Biking - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="45 chars - aim for 50-70">45 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td class="td-url"><a href="https://www.karoo1.com/hiking/" target="_blank">/hiking/</a></td>
+            <td class="td-title">Hiking - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-bad" title="36 chars - too short, needs 50-70">36 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>25</strong></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td class="td-url"><a href="https://www.karoo1.com/rock-climbing/" target="_blank">/rock-climbing/</a></td>
+            <td class="td-title">Rock Climbing - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="43 chars - aim for 50-70">43 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td class="td-url"><a href="https://www.karoo1.com/conferences-events/" target="_blank">/conferences-events/</a></td>
+            <td class="td-title">Conferences &amp; Events - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-ok" title="50 chars - good length">50 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>65</strong></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td class="td-url"><a href="https://www.karoo1.com/about/" target="_blank">/about/</a></td>
+            <td class="td-title">About - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-bad" title="35 chars - too short, needs 50-70">35 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>25</strong></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td class="td-url"><a href="https://www.karoo1.com/rooms/deluxe-rooms/" target="_blank">/rooms/deluxe-rooms/</a></td>
+            <td class="td-title">Deluxe Rooms - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="42 chars - aim for 50-70">42 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td class="td-url"><a href="https://www.karoo1.com/rooms/standard-rooms/" target="_blank">/rooms/standard-rooms/</a></td>
+            <td class="td-title">Standard Rooms - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="44 chars - aim for 50-70">44 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td class="td-url"><a href="https://www.karoo1.com/rooms/family-rooms/" target="_blank">/rooms/family-rooms/</a></td>
+            <td class="td-title">Family Rooms - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="42 chars - aim for 50-70">42 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td class="td-url"><a href="https://www.karoo1.com/rooms/old-barn-suites/" target="_blank">/rooms/old-barn-suites/</a></td>
+            <td class="td-title">Old Barn Suites - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="45 chars - aim for 50-70">45 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td class="td-url"><a href="https://www.karoo1.com/rooms/courtyard-rooms/" target="_blank">/rooms/courtyard-rooms/</a></td>
+            <td class="td-title">Courtyard Rooms - Karoo 1 Hotel Accommodation</td>
+            <td><span class="badge badge-warn" title="45 chars - aim for 50-70">45 chars</span></td>
+            <td class="td-desc"><span class="cell-missing">MISSING ⚠⚠</span></td>
+            <td><span class="badge badge-missing" title="0 chars - missing">0</span></td>
+            <td><span class="badge badge-ok" title="H1 present">OK</span></td>
+            <td><strong>45</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="why-section">
+    <h2>Why This Matters for Karoo 1</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon blue">
+          <svg fill="none" stroke="#2563EB" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        </div>
+        <div>
+          <h3>Invisible to Searchers Planning a Klein Karoo Trip</h3>
+          <p>When travellers search "Klein Karoo accommodation" or "farm hotel De Doorns", Google's algorithm relies heavily on meta descriptions and complete title tags to match intent. Without them, Karoo 1 is systematically under-represented in results - even when the content on the page is exactly what the guest is looking for.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon purple">
+          <svg fill="none" stroke="#7C3AED" stroke-width="2" viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+        </div>
+        <div>
+          <h3>Losing Clicks Even When You Do Rank</h3>
+          <p>Studies show well-written meta descriptions improve click-through rates by up to 31%. When Karoo 1 appears in search results without a description, Google pulls random text - often a navigation item or menu listing - that does nothing to convince the traveller to click. Every missing description is a missed conversion opportunity.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon amber">
+          <svg fill="none" stroke="#D97706" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 13v-1m0-4c-1.657 0-3-.895-3-2"/></svg>
+        </div>
+        <div>
+          <h3>Higher Cost Per Click on Google Ads</h3>
+          <p>Google Ads Quality Score factors in landing page experience - which includes meta tags and on-page SEO signals. Pages running paid ads without optimized titles and descriptions receive lower Quality Scores, which translates to higher bid costs for the same position. Better SEO directly reduces your paid advertising spend.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon green">
+          <svg fill="none" stroke="#16A34A" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h3>Easy to Fix, High Return on Effort</h3>
+          <p>Unlike technical SEO overhauls, meta descriptions and title tags are simple text changes in any CMS. Karoo 1 runs on WordPress, where Yoast SEO or Rank Math makes this a 5-10 minute task per page. With 18 pages to update, a focused afternoon of work could meaningfully improve rankings, click-through rates, and paid ad efficiency across the entire site.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Let's Fix This Together</h2>
+    <p>We specialise in SEO for South African tourism properties. A focused optimization session for Karoo 1 would address all 18 missing descriptions, strengthen every title tag, and set the site up to compete effectively for Klein Karoo search traffic.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Karoo%201%20Hotel%20Village" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>SEO Audit prepared by <a href="https://tourismmarketing.co.za" target="_blank">TourismMarketing.co.za</a> &mdash; Specialist tourism marketing for South Africa &bull; Report date: 16 March 2026</p>
+</footer>
+
+</body>
+</html>
