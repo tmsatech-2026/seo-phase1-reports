@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Evolv Sports Global</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://evolvsportsglobal.com/wp-content/uploads/2025/06/home-banner-01-cropped.png') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* ── KPI CARDS (4-up) ── */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* ── WRAP ── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* ── CRITICAL ISSUES SECTION ── */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* ── SECTION HEADINGS ── */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* ── GOOGLE ADS CALLOUT ── */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* ── ISSUE CARDS ── */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* ── TOOLTIPS ── */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* ── PAGE TABLE ── */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    /* ── TABLE LEGEND ── */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── WHY IT MATTERS (vector icon cards) ── */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Evolv Sports Global
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">Tourism Marketing SA</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - evolvsportsglobal.com &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>44</strong> pages audited</span>
+      <span class="chip"><strong>Cape Town, Western Cape</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress / Avada (Fusion Builder)</span>
+      <span class="chip"><strong>Audit date:</strong> 19 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KPI CARDS ══ -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">44</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">0</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">44</div>
+    <div class="kpi-label">Need Work (100%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num" data-tip="Score per page: Title (50pts) + Meta Description (35pts) + H1 (15pts) = 100 max. Site score = average across all pages. Bands: Good 80-100% · Needs Work 60-79% · Poor 40-59% · Critical 0-39%.">16%</div>
+    <div class="kpi-label">Health Score · Critical</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- ══ CRITICAL ISSUES SECTION ══ -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - evolvsportsglobal.com</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">32</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">12</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">44/44</div>
+        <div class="cstat-lbl">Titles Under 50 Chars</div>
+      </div>
+    </div>
+
+    <div class="critical-impact">
+      <strong>Impact:</strong> All 44 pages on evolvsportsglobal.com are underperforming in Google search. The 31 athlete profile pages - the core commercial inventory of the platform - have broken title tags that output only &ldquo;| Evolv Sports Global&rdquo;, stripping the athlete&rsquo;s name entirely. A brand manager searching for &ldquo;Corne Krige brand ambassador&rdquo; or &ldquo;Herschelle Gibbs corporate speaker&rdquo; will find no result from this site. Not one page across the entire site has a meta description within the ideal 120-160 character range, giving Google no approved copy to display in search results.
+    </div>
+  </div>
+
+  <!-- ══ TOP 3 KEY ISSUES ══ -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. When you invest in Google Ads, every click costs money - and Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, is partly calculated from the relevance and quality of your landing pages. Pages with thin meta descriptions and short titles score lower - meaning you pay <strong>more per click</strong> for the same keywords than a competitor with well-optimised pages.
+      <br><br>
+      Beyond reducing your ad costs, SEO builds something Google Ads cannot: <strong>lasting organic visibility</strong>. The moment you pause your Google Ads budget, your visibility disappears. But a well-optimised page earns organic rankings that persist for months or years with no ongoing spend. Investing in SEO alongside your ads protects the return on every rand you are already spending, and creates a second channel that compounds over time.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">31/44</div>
+      <h3>Athlete Profile Pages Have Broken Title Tags</h3>
+      <p>The WordPress theme is outputting &ldquo;| Evolv Sports Global&rdquo; as the title on every athlete profile page, stripping the athlete&rsquo;s name completely. Google cannot identify who the page is about, meaning searches for specific athletes - &ldquo;Corne Krige speaker&rdquo;, &ldquo;Greg Minnaar brand ambassador&rdquo;, &ldquo;Herschelle Gibbs corporate event&rdquo; - return no result from this site.</p>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">44/44</div>
+      <h3>No Page Has an Optimised Meta Description</h3>
+      <p>32 pages have no description at all and 12 have descriptions under 120 characters that simply repeat the page heading. Not one page on the site has the 120-160 character description that appears as free advertising copy in every Google search result - giving Google full control over what searchers see.</p>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">44/44</div>
+      <h3>All Page Titles Too Short for Competitive Ranking</h3>
+      <p>Every title uses a bare pattern such as &ldquo;Athletes - Evolv Sports Global&rdquo; (30 chars) that falls well short of the 50-65 character sweet spot. Athlete pages should include sport, role, and agency - for example &ldquo;Corne Krige - Springbok Rugby Captain &amp; Speaker - Evolv Sports Global&rdquo; - to capture the branded searches brands actually run.</p>
+    </div>
+
+  </div>
+
+  <!-- ══ PAGE-BY-PAGE TABLE ══ -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 44 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+          <th>Slug</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Home - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="26 characters. Ideal page titles are 60-65 characters. The homepage title should include primary keywords — e.g. 'Evolv Sports Global - South African Athlete Management &amp; Brand Partnerships'.">26 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description. Google generates its own search snippet from body text — ESG has no control over what appears in search results for the homepage.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/</span></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/brands-connect/" target="_blank" rel="noopener">/brands-connect/</a></td>
+          <td style="font-size:12px;">Brands Connect - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="36 characters. Ideal is 60-65 characters. Expand to include what brands get — e.g. 'Connect with South African Athletes for Sponsorship - Evolv Sports Global'.">36 ✗</span></td>
+          <td><span class="desc-text">Connect with Credibility</span></td>
+          <td><span class="badge bad" data-tip="24 characters — too short. Ideal is 120-160 characters. This page needs a full description of ESG's brand partnership offering to drive clicks from marketing managers.">24 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/brands-connect/</span></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/esg-partnerships/" target="_blank" rel="noopener">/esg-partnerships/</a></td>
+          <td style="font-size:12px;">ESG Partnerships - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="38 characters. Ideal is 60-65 characters. Include what kind of partnerships — e.g. 'Athlete Brand Partnerships &amp; Sponsorship Deals - Evolv Sports Global'.">38 ✗</span></td>
+          <td><span class="desc-text">Collaborating with Purpose. Partnering for Impact.</span></td>
+          <td><span class="badge bad" data-tip="50 characters — too short. Ideal is 120-160 characters. This reads as a tagline, not a description. A searcher needs to know what ESG partnerships actually are.">50 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/esg-partnerships/</span></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/athletes/" target="_blank" rel="noopener">/athletes/</a></td>
+          <td style="font-size:12px;">Athletes - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="30 characters. Ideal is 60-65 characters. Expand to include what the page offers — e.g. 'South African Athletes for Sponsorship &amp; Brand Campaigns - Evolv Sports Global'.">30 ✗</span></td>
+          <td><span class="desc-text">Browse our credible community of champions</span></td>
+          <td><span class="badge bad" data-tip="42 characters — too short. Ideal is 120-160 characters. Include sports represented, types of athletes, and what brands can do here.">42 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/athletes/</span></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/game-changers/" target="_blank" rel="noopener">/game-changers/</a></td>
+          <td style="font-size:12px;">Game Changers - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="35 characters. Ideal is 60-65 characters. Expand to describe who Game Changers are — e.g. 'Sport Coaches, Commentators &amp; Specialists - Evolv Sports Global Game Changers'.">35 ✗</span></td>
+          <td><span class="desc-text">Commentators, coaches, medical professionals, and specialists with insight that elevates every opportunity.</span></td>
+          <td><span class="badge bad" data-tip="106 characters — too short. Ideal is 120-160 characters. Very close — adding 15-50 more characters with a call to action would bring this into range.">106 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/game-changers/</span></td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/contact-us/" target="_blank" rel="noopener">/contact-us/</a></td>
+          <td style="font-size:12px;">Contact Us - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="32 characters. Ideal is 60-65 characters. Include what you do — e.g. 'Contact Evolv Sports Global - Athlete Partnerships &amp; Brand Bookings'.">32 ✗</span></td>
+          <td><span class="desc-text">Let's Start the Conversation</span></td>
+          <td><span class="badge bad" data-tip="28 characters — too short. Ideal is 120-160 characters. Include what brands and athletes should contact ESG about, and how to reach the team.">28 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/contact-us/</span></td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/rugby-legends/" target="_blank" rel="noopener">/rugby-legends/</a></td>
+          <td style="font-size:12px;">Rugby Legends - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="35 characters. Ideal is 60-65 characters. Include the SA Rugby Legends partnership — e.g. 'South African Rugby Legends - Brand Ambassadors &amp; Speakers - Evolv Sports Global'.">35 ✗</span></td>
+          <td><span class="desc-text">Rugby LegendsA curated line-up of South African rugby greats, represented in partnership with SA Rugby Legends.</span></td>
+          <td><span class="badge bad" data-tip="111 characters — too short. Ideal is 120-160 characters. Note: the description appears to be missing a space after 'Rugby Legends'. Very close to ideal length — fix formatting and add 10-50 chars.">111 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/rugby-legends/</span></td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/athlete-sign-up/" target="_blank" rel="noopener">/athlete-sign-up/</a></td>
+          <td style="font-size:12px;">Athlete Sign-up - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="37 characters. Ideal is 60-65 characters. Expand to include what athletes get — e.g. 'Join Evolv Sports Global - Athlete Registration for Brand Partnerships'.">37 ✗</span></td>
+          <td><span class="desc-text">Step Into What's Next</span></td>
+          <td><span class="badge bad" data-tip="21 characters — too short. Ideal is 120-160 characters. This is a tagline, not a description. Tell athletes what they are signing up for.">21 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/athlete-sign-up/</span></td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/game-changer-sign-up/" target="_blank" rel="noopener">/game-changer-sign-up/</a></td>
+          <td style="font-size:12px;">Game Changer Sign-up - Evolv Sports Global</td>
+          <td><span class="badge warn" data-tip="42 characters. Ideal is 60-65 characters. Needs to be expanded to describe what a Game Changer is and why specialists should sign up.">42 ⚠</span></td>
+          <td><span class="desc-text">The Game ChangersShaping performance across the sporting landscape</span></td>
+          <td><span class="badge bad" data-tip="65 characters — too short. Ideal is 120-160 characters. Note: appears to be missing a space or punctuation between 'The Game Changers' and 'Shaping'. Fix formatting and expand significantly.">65 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/game-changer-sign-up/</span></td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/brand-sign-up/" target="_blank" rel="noopener">/brand-sign-up/</a></td>
+          <td style="font-size:12px;">Brand Sign-up - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="35 characters. Ideal is 60-65 characters. Expand to explain what brands access — e.g. 'Brand Registration - Book South African Athletes for Campaigns - Evolv Sports Global'.">35 ✗</span></td>
+          <td><span class="desc-text">Your ESG Booking Profile</span></td>
+          <td><span class="badge bad" data-tip="24 characters — too short. Ideal is 120-160 characters. Tell brands what creating an ESG profile gives them access to.">24 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/brand-sign-up/</span></td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/terms-conditions/" target="_blank" rel="noopener">/terms-conditions/</a></td>
+          <td style="font-size:12px;">Terms &amp; Conditions - Evolv Sports Global</td>
+          <td><span class="badge warn" data-tip="40 characters. Legal pages are lower priority for SEO, but the title is still too short. Ideal is 50-65 characters.">40 ⚠</span></td>
+          <td><span class="desc-text">Evolv Sports Global - Terms and Conditions</span></td>
+          <td><span class="badge bad" data-tip="42 characters — too short. Legal pages are lower SEO priority but a description is still indexed by Google.">42 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/terms-conditions/</span></td>
+        </tr>
+
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/privacy-policy/" target="_blank" rel="noopener">/privacy-policy/</a></td>
+          <td style="font-size:12px;">Privacy Policy - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="36 characters. Legal pages are lower SEO priority but the title is still too short.">36 ✗</span></td>
+          <td><span class="desc-text">Evolv Sports Global - Privacy Policy</span></td>
+          <td><span class="badge bad" data-tip="36 characters — too short. Legal pages are lower SEO priority.">36 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/privacy-policy/</span></td>
+        </tr>
+
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/esg-hub/" target="_blank" rel="noopener">/esg-hub/</a></td>
+          <td style="font-size:12px;">ESG Hub - Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="29 characters. Ideal is 60-65 characters. Clarify what 'ESG Hub' is — e.g. 'ESG Hub - Athlete News, Sport Stories &amp; Updates - Evolv Sports Global'.">29 ✗</span></td>
+          <td><span class="desc-text">PHEW!</span></td>
+          <td><span class="badge bad" data-tip="5 characters — this appears to be a placeholder or test text, not a real meta description. Replace with a full 120-160 character description of the ESG Hub content section.">5 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present.">✓</span></td>
+          <td><span class="badge ok">/esg-hub/</span></td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/corne-krige/" target="_blank" rel="noopener">/author/corne-krige/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — and missing the athlete name entirely. The WordPress author archive title template is broken. Google sees this page as being about nothing identifiable.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description. With a broken title tag and no description, this page cannot rank for 'Corne Krige' searches.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Corne Krige.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL. Not ideal for an athlete profile — a dedicated /athletes/corne-krige/ URL would rank better for athlete-specific searches.">/author/corne-krige/</span></td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/greg-minnaar/" target="_blank" rel="noopener">/author/greg-minnaar/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely. WordPress author archive title template is broken for all athlete profiles.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description. This page cannot surface for 'Greg Minnaar mountain bike' or 'Greg Minnaar brand ambassador' searches.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Greg Minnaar.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL. Not ideal for an athlete profile page.">/author/greg-minnaar/</span></td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/adele-zeelie/" target="_blank" rel="noopener">/author/adele-zeelie/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name. Note: the H1 shows 'Adele Niemand' but the URL slug is 'adele-zeelie' — a possible name change that was not reflected in the URL.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Adele Niemand.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL. The slug 'adele-zeelie' does not match the displayed name 'Adele Niemand' — this is an additional inconsistency to resolve.">/author/adele-zeelie/</span></td>
+        </tr>
+
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/dave-callaghan/" target="_blank" rel="noopener">/author/dave-callaghan/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Dave Callaghan.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/dave-callaghan/</span></td>
+        </tr>
+
+        <tr>
+          <td>18</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/conrad-stoltz/" target="_blank" rel="noopener">/author/conrad-stoltz/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Conrad Stoltz.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/conrad-stoltz/</span></td>
+        </tr>
+
+        <tr>
+          <td>19</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/deon-bing/" target="_blank" rel="noopener">/author/deon-bing/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Deon Bing.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/deon-bing/</span></td>
+        </tr>
+
+        <tr>
+          <td>20</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/gowan-jones/" target="_blank" rel="noopener">/author/gowan-jones/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Gowan Jones.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/gowan-jones/</span></td>
+        </tr>
+
+        <tr>
+          <td>21</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/greg-emslie/" target="_blank" rel="noopener">/author/greg-emslie/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Greg Emslie.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/greg-emslie/</span></td>
+        </tr>
+
+        <tr>
+          <td>22</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/hannele-steyn/" target="_blank" rel="noopener">/author/hannele-steyn/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Hannele Steyn.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/hannele-steyn/</span></td>
+        </tr>
+
+        <tr>
+          <td>23</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/henri-schoeman/" target="_blank" rel="noopener">/author/henri-schoeman/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Henri Schoeman.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/henri-schoeman/</span></td>
+        </tr>
+
+        <tr>
+          <td>24</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/herschelle-gibbs/" target="_blank" rel="noopener">/author/herschelle-gibbs/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description. 'Herschelle Gibbs' is a well-known name with strong search volume — this page misses every one of those searches.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Herschelle Gibbs.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/herschelle-gibbs/</span></td>
+        </tr>
+
+        <tr>
+          <td>25</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/jacques-janse-van-rensburg/" target="_blank" rel="noopener">/author/jacques-janse-van-rensburg/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Jacques Janse van Rensburg.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/jacques-janse-van-rensburg/</span></td>
+        </tr>
+
+        <tr>
+          <td>26</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/jon-williams/" target="_blank" rel="noopener">/author/jon-williams/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Jon Williams.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/jon-williams/</span></td>
+        </tr>
+
+        <tr>
+          <td>27</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/liezel-stoltz/" target="_blank" rel="noopener">/author/liezel-stoltz/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Liezel Stoltz.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/liezel-stoltz/</span></td>
+        </tr>
+
+        <tr>
+          <td>28</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/mariske-strauss/" target="_blank" rel="noopener">/author/mariske-strauss/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Mariske Strauss.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/mariske-strauss/</span></td>
+        </tr>
+
+        <tr>
+          <td>29</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/meyrick-pringle/" target="_blank" rel="noopener">/author/meyrick-pringle/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Meyrick Pringle.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/meyrick-pringle/</span></td>
+        </tr>
+
+        <tr>
+          <td>30</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/seth-hulley/" target="_blank" rel="noopener">/author/seth-hulley/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Seth Hulley.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/seth-hulley/</span></td>
+        </tr>
+
+        <tr>
+          <td>31</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/andrew-stodel/" target="_blank" rel="noopener">/author/andrew-stodel/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Andrew Stodel.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/andrew-stodel/</span></td>
+        </tr>
+
+        <tr>
+          <td>32</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/tim-drummond/" target="_blank" rel="noopener">/author/tim-drummond/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Tim Drummond.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/tim-drummond/</span></td>
+        </tr>
+
+        <tr>
+          <td>33</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/vicky-van-der-merwe/" target="_blank" rel="noopener">/author/vicky-van-der-merwe/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Vicky van der Merwe.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/vicky-van-der-merwe/</span></td>
+        </tr>
+
+        <tr>
+          <td>34</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/eugene-eloff/" target="_blank" rel="noopener">/author/eugene-eloff/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Eugene Eloff.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/eugene-eloff/</span></td>
+        </tr>
+
+        <tr>
+          <td>35</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/edgar-marutlulle/" target="_blank" rel="noopener">/author/edgar-marutlulle/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Edgar Marutlulle.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/edgar-marutlulle/</span></td>
+        </tr>
+
+        <tr>
+          <td>36</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/seabelo-senatla/" target="_blank" rel="noopener">/author/seabelo-senatla/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Seabelo Senatla.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/seabelo-senatla/</span></td>
+        </tr>
+
+        <tr>
+          <td>37</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/rosko-shane-specman/" target="_blank" rel="noopener">/author/rosko-shane-specman/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely. Note: H1 shows 'Rosko Specman' but slug is 'rosko-shane-specman'.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Rosko Specman.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/rosko-shane-specman/</span></td>
+        </tr>
+
+        <tr>
+          <td>38</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/andrew-lanning/" target="_blank" rel="noopener">/author/andrew-lanning/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Andrew Lanning.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/andrew-lanning/</span></td>
+        </tr>
+
+        <tr>
+          <td>39</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/barry-austin/" target="_blank" rel="noopener">/author/barry-austin/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Barry Austin.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/barry-austin/</span></td>
+        </tr>
+
+        <tr>
+          <td>40</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/gerald-de-kock/" target="_blank" rel="noopener">/author/gerald-de-kock/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Gerald de Kock.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/gerald-de-kock/</span></td>
+        </tr>
+
+        <tr>
+          <td>41</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/jeroen-swart/" target="_blank" rel="noopener">/author/jeroen-swart/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Jeroen Swart.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/jeroen-swart/</span></td>
+        </tr>
+
+        <tr>
+          <td>42</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/anton/" target="_blank" rel="noopener">/author/anton/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely. Note: the slug '/author/anton/' is unusually short and does not include a surname — this may cause confusion.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Anton van Zyl.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL. The slug '/author/anton/' does not include a surname, making it non-descriptive.">/author/anton/</span></td>
+        </tr>
+
+        <tr>
+          <td>43</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/warren-brosnihan/" target="_blank" rel="noopener">/author/warren-brosnihan/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Warren Brosnihan.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/warren-brosnihan/</span></td>
+        </tr>
+
+        <tr>
+          <td>44</td>
+          <td class="url-cell"><a href="https://evolvsportsglobal.com/author/paul-delport/" target="_blank" rel="noopener">/author/paul-delport/</a></td>
+          <td style="font-size:12px;">| Evolv Sports Global</td>
+          <td><span class="badge bad" data-tip="21 characters — missing athlete name entirely.">21 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: Paul Delport.">✓</span></td>
+          <td><span class="badge warn" data-tip="WordPress author archive URL.">/author/paul-delport/</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-65 chars &nbsp;|&nbsp; Description sweet spot: 120-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- ══ WHY IT MATTERS ══ -->
+  <div class="section-head">
+    <h2>Why This Matters for Evolv Sports Global</h2>
+    <p>Brand discovery and athlete search are driven by organic search — and right now, ESG's roster is invisible to it.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Brand &amp; Sponsorship Search - Your Highest-Intent Channel</h3>
+        <p>A marketing manager searching &ldquo;South African rugby legends for brand campaigns&rdquo; or &ldquo;Springbok cricket speaker Cape Town&rdquo; is ready to brief an agency. If the athlete profile pages have broken titles and no descriptions, they will never appear in these searches — sending the brief to a competitor agency whose website actually works.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - Athletes Get Recommended Here</h3>
+        <p>When a brand asks ChatGPT &ldquo;who are the top South African rugby ambassadors for corporate events?&rdquo;, the AI reads athlete profile pages to decide who to recommend. A page that outputs &ldquo;| Evolv Sports Global&rdquo; in the title tag gives the AI nothing — the athlete is not cited, regardless of their achievements or profile on the platform.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>Google&rsquo;s Quality Score — which sets your cost-per-click — is partly determined by landing page relevance, including title tags and metadata. Poor on-page SEO means higher ad costs for the same keywords. Fix the SEO and your ads get cheaper, while organic visibility compounds in the background at no extra cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>A World-Class Roster That Google Cannot Find</h3>
+        <p>Evolv Sports Global represents an exceptional lineup of South African champions across rugby, cricket, cycling, triathlon, and more. But that roster is invisible to Google — athlete profile pages that lack proper titles, descriptions, and structured metadata cannot rank for the athlete&rsquo;s own name, let alone their sport or sponsorship keywords.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ CTA ══ -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Evolv Sports Global and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Evolv%20Sports%20Global" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Tourism Marketing SA</a></strong> &nbsp;&middot;&nbsp; SEO Audit for Evolv Sports Global &nbsp;&middot;&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of evolvsportsglobal.com conducted on 19 March 2026.</span>
+</div>
+
+</body>
+</html>
