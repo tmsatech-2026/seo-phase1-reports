@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Pumula Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* -- HERO -- */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://b-cdn.springnest.com/media/img/1mu/22_2e0c96cf.jpg?crop=2667%2C1334%2C0%2C178&width=1500') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* -- KPI CARDS -- */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* -- WRAP -- */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* -- CRITICAL ISSUES SECTION -- */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* -- SECTION HEADINGS -- */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* -- GOOGLE ADS CALLOUT -- */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* -- ISSUE CARDS -- */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* -- TOOLTIPS -- */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* -- PAGE TABLE -- */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; max-width: 270px; line-height: 1.5; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-all; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    /* -- TABLE LEGEND -- */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* -- WHY IT MATTERS -- */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* -- CTA -- */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* -- FOOTER -- */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Pumula Lodge
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">Tourism Marketing SA</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - pumulalodge.co.za &nbsp;|&nbsp; Prepared March 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>17</strong> pages audited</span>
+      <span class="chip"><strong>Knysna, Garden Route, Western Cape</strong></span>
+      <span class="chip"><strong>Platform:</strong> Springnest</span>
+      <span class="chip"><strong>Audit date:</strong> 23 March 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- KPI CARDS -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">17</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">0</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">17</div>
+    <div class="kpi-label">Need Work (100%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num" data-tip="Score per page: Title (50pts) + Meta Description (35pts) + H1 (15pts) = 100 max. Site score = average across all pages. Bands: Good 80-100% - Needs Work 60-79% - Poor 40-59% - Critical 0-39%.">39%</div>
+    <div class="kpi-label">Health Score - Critical</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- CRITICAL ISSUES SECTION -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - pumulalodge.co.za</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">1</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">5</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">17/17</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
+      </div>
+    </div>
+
+    <div class="critical-impact">
+      <strong>Impact:</strong> 17 of 17 pages on pumulalodge.co.za score in the Critical band. Every page title follows the "[Page Name] - Pumula Lodge" format, producing titles of 19-44 characters - none reach Google's optimal 50-character threshold. The Springnest CMS auto-generates meta descriptions by extracting all page body text, creating entries of 400 to 1,200+ characters that Google ignores completely and replaces with its own generated snippets. Five pages have no description at all. This means Pumula Lodge has zero control over how it appears in every Google search result - competitor properties that have taken 30 minutes to write proper titles and descriptions will outrank and out-click pumulalodge.co.za on every relevant search.
+    </div>
+  </div>
+
+  <!-- TOP 3 KEY ISSUES -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        We noticed you are currently running Google Ads
+      </div>
+      This is exactly why we are reaching out. When you invest in Google Ads, every click costs money - and Google's <strong>Quality Score</strong>, which directly determines your cost-per-click, is partly calculated from the relevance and quality of your landing pages. Pages without H1 headings, with auto-generated meta descriptions, and short titles score lower - meaning you pay <strong>more per click</strong> for the same keywords than a competitor with well-optimised pages.
+      <br><br>
+      Beyond reducing your ad costs, SEO builds something Google Ads cannot: <strong>lasting organic visibility</strong>. The moment you pause your Google Ads budget, your visibility disappears. But a well-optimised page earns organic rankings that persist for months or years with no ongoing spend. Investing in SEO alongside your ads is not just smart - it protects the return on every rand you are already spending, and creates a second channel that compounds over time.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">17/17</div>
+      <h3>All Page Titles Too Short</h3>
+      <p>Every page on the site follows the "[Page Name] - Pumula Lodge" pattern, producing titles of 19 to 44 characters. Google's optimal range is 50-65 characters. Short titles give Google fewer keyword signals and reduce click-through rates in search results - all 17 pages are in the red zone.</p>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">12/17</div>
+      <h3>Descriptions Auto-Generated by Springnest CMS</h3>
+      <p>Springnest auto-generates meta descriptions by pulling all page body text, producing descriptions of 400 to 1,200+ characters - up to 8x longer than Google's 160-character limit. Google ignores these entirely and generates its own snippets, leaving Pumula Lodge with no control over its first impression in every search result.</p>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">5</div>
+      <h3>Pages With No Meta Description</h3>
+      <p>The Homepage, Location, Contact, Special Offers, and Privacy pages have no meta description at all - not even an auto-generated one. These are high-value pages (Homepage and Contact especially) where a well-crafted 150-160 character description can significantly increase click-through from Google search results.</p>
+    </div>
+
+  </div>
+
+  <!-- PAGE-BY-PAGE TABLE -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 17 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+          <th>Slug</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Home - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 19 characters. Ideal page titles are 50-65 characters. The homepage title should lead with your core offering and location - e.g. 'Pumula Lodge - Knysna Guesthouse &amp; Garden Retreat'.">19 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="0 characters - no meta description set. The homepage is your most important page. A 150-160 character description should lead with your key selling points and location to drive clicks from Knysna accommodation searches.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Pumula Lodge'">✓</span></td>
+          <td><span class="badge ok">/</span></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/collections/rooms/" target="_blank" rel="noopener">/collections/rooms/</a></td>
+          <td style="font-size:12px;">Accommodation at Pumula Lodge - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 44 characters. Ideal is 50-65 characters. Add the location to reach optimal length - e.g. 'Accommodation at Pumula Lodge - Knysna Guesthouse'.">44 ✗</span></td>
+          <td><span class="desc-text">Accommodation Near Life Knysna Private Hospital &amp; Advanced Health Knysna. Pumula Lodge offers a peaceful place of rest in Knysna, conveniently located for...</span></td>
+          <td><span class="badge bad" data-tip="1,249 characters - massively over the 160-character limit. Springnest CMS has auto-generated this from all page body text. Google ignores it entirely and generates its own snippet. This description needs to be manually written at 120-160 characters.">1249 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Accommodation at Pumula Lodge'">✓</span></td>
+          <td><span class="badge ok">/collections/rooms/</span></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/rooms/room-1/" target="_blank" rel="noopener">/rooms/room-1/</a></td>
+          <td style="font-size:12px;">Room 1 - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters. Ideal is 50-65 characters. Use the room type and a key feature - e.g. 'Room 1 - Triple Room with Garden Balcony | Pumula Lodge Knysna'.">21 ✗</span></td>
+          <td><span class="desc-text">Bedroom size: 7m x 2.8m. Triple room with 1 x double bed and a single bed with en-suite western bathroom with shower. This room can sleep 3 in total...</span></td>
+          <td><span class="badge bad" data-tip="742 characters - over 4x the 160-character limit. Springnest has auto-generated this from all page body content. Google ignores it and replaces it with its own snippet. A manually written 120-160 character description is needed for this room.">742 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Room 1'">✓</span></td>
+          <td><span class="badge ok">/rooms/room-1/</span></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/rooms/room-2/" target="_blank" rel="noopener">/rooms/room-2/</a></td>
+          <td style="font-size:12px;">Room 2 - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters. Ideal is 50-65 characters. Name the room type - e.g. 'Room 2 - King Room with Garden Balcony | Pumula Lodge Knysna'.">21 ✗</span></td>
+          <td><span class="desc-text">Bedroom size: 6m x 2.8m. King Room with 1 x king size mattress (1.9 x 1.8 meters) en-suite western bathroom with shower. A private entrance leads to...</span></td>
+          <td><span class="badge bad" data-tip="655 characters - over 4x the 160-character limit. Auto-generated from page body text by Springnest CMS. Needs a manually written 120-160 character description highlighting the king bed, balcony and garden views.">655 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Room 2'">✓</span></td>
+          <td><span class="badge ok">/rooms/room-2/</span></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/rooms/room-3/" target="_blank" rel="noopener">/rooms/room-3/</a></td>
+          <td style="font-size:12px;">Room 3 - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters. Ideal is 50-65 characters. Name the room type - e.g. 'Room 3 - Twin Room with Balcony | Pumula Lodge Knysna'.">21 ✗</span></td>
+          <td><span class="desc-text">Bedroom size: 6m x 2.8m. Twin room with two single beds (2 x 1.9 x 0.90 meters) en-suite western bathroom with shower. A private entrance leads to...</span></td>
+          <td><span class="badge bad" data-tip="640 characters - over 4x the 160-character limit. Auto-generated from page body text. Needs a manually written 120-160 character description for this twin room.">640 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Room 3'">✓</span></td>
+          <td><span class="badge ok">/rooms/room-3/</span></td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/rooms/room-4/" target="_blank" rel="noopener">/rooms/room-4/</a></td>
+          <td style="font-size:12px;">Room 4 - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters. Ideal is 50-65 characters. Name the room type - e.g. 'Room 4 - Twin Room with Garden View | Pumula Lodge Knysna'.">21 ✗</span></td>
+          <td><span class="desc-text">Bedroom size: 6m x 2.8m. Twin room with two single beds (2 x 1.9 x 0.90 meters) with en-suite western bathroom with shower. A private entrance leads...</span></td>
+          <td><span class="badge bad" data-tip="628 characters - over 4x the 160-character limit. Auto-generated from page body text. Needs a manually written 120-160 character description for this twin room with garden view.">628 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Room 4'">✓</span></td>
+          <td><span class="badge ok">/rooms/room-4/</span></td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/rooms/room-5/" target="_blank" rel="noopener">/rooms/room-5/</a></td>
+          <td style="font-size:12px;">Room 5 - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters. Ideal is 50-65 characters. Highlight the upgrade - e.g. 'Room 5 - King Room with Full Bath and Garden Views | Pumula Lodge'.">21 ✗</span></td>
+          <td><span class="desc-text">Bedroom size: 6m x 2.8m. King Room with 1 x king size mattress (1.9 x 1.8 meters) full en-suite western bathroom (bath and shower). A private entrance...</span></td>
+          <td><span class="badge bad" data-tip="641 characters - over 4x the 160-character limit. Auto-generated from page body text. This premium room (only one with a bath) deserves a carefully crafted 120-160 character description to justify its position.">641 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Room 5'">✓</span></td>
+          <td><span class="badge ok">/rooms/room-5/</span></td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/pages/things-to-do/" target="_blank" rel="noopener">/pages/things-to-do/</a></td>
+          <td style="font-size:12px;">Things To Do - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 27 characters. Ideal is 50-65 characters. Add location and context - e.g. 'Things To Do in Knysna - Activities Near Pumula Lodge Garden Route'.">27 ✗</span></td>
+          <td><span class="desc-text">Nestled in the heart of the Garden Route, Pumula Lodge offers more than just a peaceful retreat. From the moment you step outside, the natural beauty...</span></td>
+          <td><span class="badge bad" data-tip="471 characters - nearly 3x the 160-character limit. Auto-generated by Springnest from all page body text. Google ignores it. A manually written 120-160 character description targeting 'Knysna activities' would perform far better.">471 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Things To Do'">✓</span></td>
+          <td><span class="badge ok">/pages/things-to-do/</span></td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/pages/birding/" target="_blank" rel="noopener">/pages/birding/</a></td>
+          <td style="font-size:12px;">Birding - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 22 characters. Ideal is 50-65 characters. Target the birding audience - e.g. 'Birding at Pumula Lodge - 120+ Bird Species in Knysna Garden Route'.">22 ✗</span></td>
+          <td><span class="desc-text">The magnificent, indigenous garden at Pumula Lodge is the perfect setting for nature lovers and bird watchers alike. Pumula boasts an abundant bird...</span></td>
+          <td><span class="badge bad" data-tip="472 characters - nearly 3x the 160-character limit. Auto-generated from page body text. A targeted 120-160 character description mentioning the 120+ species, Woodbourne sanctuary and Narina Trogon would rank well for birding searches.">472 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Birding'">✓</span></td>
+          <td><span class="badge ok">/pages/birding/</span></td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/pages/garden/" target="_blank" rel="noopener">/pages/garden/</a></td>
+          <td style="font-size:12px;">Garden - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters. Ideal is 50-65 characters. Lead with the garden's unique story - e.g. 'Indigenous Garden at Pumula Lodge - Knysna Fynbos &amp; Bird Sanctuary'.">21 ✗</span></td>
+          <td><span class="desc-text">Originally designed by the late Professor Ken Durham, Pumula boasts a low maintenance, water-wise garden using as many indigenous plants as possible...</span></td>
+          <td><span class="badge bad" data-tip="678 characters - over 4x the 160-character limit. Auto-generated from page body text. A focused 120-160 character description leading with the Professor Ken Durham design story and King Protea would stand out in garden and birding searches.">678 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Garden'">✓</span></td>
+          <td><span class="badge ok">/pages/garden/</span></td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/pages/about-us/" target="_blank" rel="noopener">/pages/about-us/</a></td>
+          <td style="font-size:12px;">About Us - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 23 characters. Ideal is 50-65 characters. Convey the property's story - e.g. 'About Pumula Lodge - Four-Star Guesthouse in Knysna Since 1997'.">23 ✗</span></td>
+          <td><span class="desc-text">True relaxation is the order of the day. Pumula Lodge, a four-star guesthouse, opened its doors in December 1997. Through the years, owners Pieter...</span></td>
+          <td><span class="badge bad" data-tip="494 characters - over 3x the 160-character limit. Auto-generated from page body text. The genuine 1997 history and owner story would make a compelling 120-160 character description that ranks for 'Knysna guesthouse' searches.">494 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'About Us'">✓</span></td>
+          <td><span class="badge ok">/pages/about-us/</span></td>
+        </tr>
+
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/maps/location/" target="_blank" rel="noopener">/maps/location/</a></td>
+          <td style="font-size:12px;">Location - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 23 characters. Ideal is 50-65 characters. Include the location context - e.g. 'Pumula Lodge Location - Central Knysna, Garden Route, South Africa'.">23 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="0 characters - no meta description. The Location page is critical for local SEO. A description mentioning the Knysna address, proximity to the Knysna Heads, and hospital distances (0.75 km from Life Knysna) would help rank for location-based searches.">0 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found on this page. The Location page has no H1 - a critical signal for Google to understand the page content. An H1 like 'How to Find Pumula Lodge' or 'Pumula Lodge - Knysna Location &amp; Directions' is needed.">✗</span></td>
+          <td><span class="badge ok">/maps/location/</span></td>
+        </tr>
+
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/pages/faqs-2/" target="_blank" rel="noopener">/pages/faqs-2/</a></td>
+          <td style="font-size:12px;">FAQ's - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 20 characters. Ideal is 50-65 characters. Target the question-based searches - e.g. 'Frequently Asked Questions - Pumula Lodge Knysna Accommodation'.">20 ✗</span></td>
+          <td><span class="desc-text">Planning your stay at Pumula Lodge should be simple and enjoyable. To help you prepare for your visit, we have answered some of the most common...</span></td>
+          <td><span class="badge bad" data-tip="355 characters - over 2x the 160-character limit. Auto-generated from page body text. FAQ pages have high potential for Google's 'People Also Ask' rich results - a well-crafted 120-160 character description would help.">355 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'FAQ's'">✓</span></td>
+          <td><span class="badge warn" data-tip="The URL /pages/faqs-2/ contains a '-2' suffix suggesting this is a duplicate or revision. Consider consolidating FAQ content under /pages/faqs/ for a cleaner URL structure.">/pages/faqs-2/ ⚠</span></td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/contact/contact-us/" target="_blank" rel="noopener">/contact/contact-us/</a></td>
+          <td style="font-size:12px;">Contact Us - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 25 characters. Ideal is 50-65 characters. A longer title helps - e.g. 'Contact Pumula Lodge - Knysna Guesthouse Bookings &amp; Enquiries'.">25 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="0 characters - no meta description. The Contact page is the last step before a booking enquiry. A 120-160 character description mentioning direct booking benefits and WhatsApp contact would improve conversions from search.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Contact Us'">✓</span></td>
+          <td><span class="badge ok">/contact/contact-us/</span></td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/offers/" target="_blank" rel="noopener">/offers/</a></td>
+          <td style="font-size:12px;">Special Offers - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 29 characters. Ideal is 50-65 characters. Add urgency and location - e.g. 'Special Offers at Pumula Lodge Knysna - Current Deals &amp; Packages'.">29 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="0 characters - no meta description. Deals pages can generate strong click-through from Google if they have compelling descriptions. A 120-160 character description mentioning current offers and direct booking rates would perform well.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Special Offers'">✓</span></td>
+          <td><span class="badge ok">/offers/</span></td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/terms/" target="_blank" rel="noopener">/terms/</a></td>
+          <td style="font-size:12px;">Terms and Conditions - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 35 characters. Closest to optimal on the site but still under 50 characters. Consider 'Terms and Conditions - Pumula Lodge Knysna Accommodation' (58 chars).">35 ✗</span></td>
+          <td><span class="desc-text">Master and Visa credit cards accepted. Regret no children under 10 without prearrangement. Children and guides pay full rate. Non-smoking lodge...</span></td>
+          <td><span class="badge bad" data-tip="377 characters - over 2x the 160-character limit. Auto-generated from page body text. While T&amp;C pages are low SEO priority, a 120-160 character summary would be cleaner than Google picking random policy text for its snippet.">377 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Terms and Conditions'">✓</span></td>
+          <td><span class="badge ok">/terms/</span></td>
+        </tr>
+
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://www.pumulalodge.co.za/privacy/" target="_blank" rel="noopener">/privacy/</a></td>
+          <td style="font-size:12px;">Privacy Policy - Pumula Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 29 characters. Consider 'Privacy Policy - Pumula Lodge Knysna Guesthouse' (47 chars) as a minimum improvement.">29 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="0 characters - no meta description. Privacy policy pages are low SEO priority but a brief description prevents Google from pulling random legal text as the search snippet.">0 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: 'Privacy Policy'">✓</span></td>
+          <td><span class="badge ok">/privacy/</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-65 chars &nbsp;|&nbsp; Description sweet spot: 120-160 chars &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- WHY IT MATTERS -->
+  <div class="section-head">
+    <h2>Why This Matters for Pumula Lodge</h2>
+    <p>Organic search and AI visibility are increasingly important channels for Knysna accommodation.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Controls How Pumula Lodge Appears in Every Search Result</h3>
+        <p>Because no meta descriptions have been manually written for this site, Google ignores the auto-generated Springnest content and creates its own search snippets from whatever body text it finds on each page. Pumula Lodge has no control over what that snippet says. A properly written 120-160 character description appears directly below the page title in every search result, 24 hours a day - making the case for why a traveller should click. Not a single page on pumulalodge.co.za has one.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Invisible to AI Search - ChatGPT, Perplexity and Claude</h3>
+        <p>When someone asks ChatGPT or Perplexity "best guesthouses in Knysna" or "birding accommodation Garden Route", the AI reads your website to decide whether to cite Pumula Lodge in its answer. It relies on clear H1 headings, well-labelled page sections, and descriptive metadata to understand what your property offers. With oversized auto-generated descriptions and short generic titles on every page, Pumula Lodge is giving AI search very little to work with - while competitors with structured, well-labelled pages are being cited directly in AI answers.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>Google's Quality Score - which sets your cost-per-click - is partly determined by landing page relevance, including H1s and metadata. Pages with short generic titles and auto-generated descriptions that Google ignores score lower on Quality Score. Fix the SEO and your ads get cheaper for the same keywords, while organic traffic compounds in the background at no extra cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>The Garden and Birding Pages Are a Missed Opportunity</h3>
+        <p>Pumula Lodge has a genuine competitive advantage - a 120+ species indigenous garden designed by a university professor, featuring King Proteas and the rare Narina Trogon. These are extraordinary search differentiators. A birder searching "Narina Trogon Knysna accommodation" should land on Pumula Lodge. Right now, no page has a title or description long enough to rank for any of those searches.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Pumula Lodge and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Pumula%20Lodge" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Tourism Marketing SA</a></strong> &nbsp;·&nbsp; SEO Audit for Pumula Lodge &nbsp;·&nbsp; March 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of pumulalodge.co.za conducted on 23 March 2026.</span>
+</div>
+
+</body>
+</html>
