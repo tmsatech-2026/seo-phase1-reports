@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Leeuwenzee Guest House</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://www.leeuwenzee.co.za/wp-content/uploads/2025/06/sea-point-cape-town.png') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* ── KPI CARDS (5-up) ── */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* ── WRAP ── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* ── CRITICAL ISSUES SECTION ── */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* ── SECTION HEADINGS ── */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* ── GOOGLE ADS CALLOUT ── */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* ── ISSUE CARDS ── */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* ── TOOLTIPS ── */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* ── PAGE TABLE ── */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; line-height: 1.5; display: block; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .page-table td:last-child .badge { background: transparent; border-color: transparent; color: #6b7280; font-weight: 400; padding: 0; white-space: normal; word-break: break-word; overflow-wrap: anywhere; display: inline-block; max-width: 100%; font-family: monospace; font-size: 11px; text-align: left; line-height: 1.4; }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-word; overflow-wrap: anywhere; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    /* ── TABLE LEGEND ── */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── WHY IT MATTERS (vector icon cards) ── */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  LEADS AUDIT REPORT TEMPLATE - TourismMarketing.co.za
+  Version: 2026-03-14
+
+  VARIABLES TO SUBSTITUTE:
+
+  CLIENT INFO:
+    Leeuwenzee Guest House           Full property name, e.g. "LANDRANI® Luxury Lodge"
+    leeuwenzee.co.za         Domain only, e.g. "landrani.com"
+    Sea Point - Cape Town, South Africa       City/region, e.g. "Klein Karoo - Oudtshoorn, South Africa"
+    WordPress       CMS, e.g. "WordPress / Divi"
+    14 April 2026            e.g. "14 March 2026"
+    April 2026      e.g. "March 2026"
+    https://www.leeuwenzee.co.za/wp-content/uploads/2025/06/sea-point-cape-town.png        Full URL to property hero/slider image (first slide, >1000px wide)
+    SEO%20Audit%20-%20Leeuwenzee%20Guest%20House URL-encoded email subject for CTA button
+
+  KPI METRICS (calculated from pages_data.json):
+    69         Total pages found
+    36       Pages with title>=60 AND desc 140-160 AND H1 present
+    33       PAGES_CRAWLED - OPTIMIZED_PAGES
+    48%         round(NEED_WORK_COUNT/PAGES_CRAWLED*100)%
+    75%          round(OPTIMIZED_PAGES/PAGES_CRAWLED*100)%
+
+  CRITICAL STATS:
+    2      Pages where current_h1 === ""
+    0    Pages where current_description === ""
+    6      Pages where desc length > 0 and < 140
+    41     Pages where title length < 60
+
+  TOP 3 ISSUES:
+    [ISSUE1_STAT]           e.g. "75%" or a count
+    [ISSUE1_DESC]           One-sentence description of issue 1
+    [ISSUE2_STAT]           e.g. "87%"
+    [ISSUE2_DESC]           One-sentence description of issue 2
+    [ISSUE3_STAT]           e.g. "1"
+    [ISSUE3_SLUG]           The problematic slug, e.g. "/swap-the-busy-city-life/"
+
+  PAGE TABLE:
+    Replace tbody comment block with one <tr> per page (see instructions in tbody)
+  ═══════════════════════════════════════════════════════════════
+-->
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Leeuwenzee Guest House
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">Tourism Marketing SA</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - leeuwenzee.co.za &nbsp;|&nbsp; Prepared April 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>69</strong> pages audited</span>
+      <span class="chip"><strong>Sea Point - Cape Town, South Africa</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress</span>
+      <span class="chip"><strong>Audit date:</strong> 14 April 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KPI CARDS (5-up with vector icons) ══ -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">69</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">36</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">33</div>
+    <div class="kpi-label">Need Work (48%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num" data-tip="Score per page: Title (50pts) + Meta Description (35pts) + H1 (15pts) = 100 max. Site score = average across all pages. Bands: Good 80-100% · Needs Work 60-79% · Poor 40-59% · Critical 0-39%.">75%</div>
+    <div class="kpi-label">Health Score · Needs Work</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- ══ CRITICAL ISSUES SECTION ══ -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - leeuwenzee.co.za</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">2</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">6</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">41/69</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
+      </div>
+    </div>
+
+    <!-- CRITICAL IMPACT PARAGRAPH
+         Standard case (mixed/partial metadata):
+         Use the default text below.
+
+         ZERO SEO CONFIGURED case (all pages share the same placeholder description,
+         e.g. "BeHotel2 | Best WordPress theme for hotels", or descriptions are all empty):
+         Replace with this variant:
+
+         "33 of 69 pages on leeuwenzee.co.za contain the WordPress
+         theme's default placeholder as their meta description - a clear sign the site was
+         launched without any SEO configuration. Google ignores this placeholder and generates
+         its own search snippets from page body text. Leeuwenzee Guest House has never written a single
+         meta description, meaning Google's algorithm controls the first impression on every
+         search result. Combined with 41 page titles outside the optimal range
+         and 2 pages with no H1 heading, the website has been running entirely
+         on Google's guesswork since launch."
+
+         IMPORTANT: Do NOT write "Google shows [placeholder text] in search results" - this is
+         factually wrong. Google overrides useless placeholders with auto-generated snippets from
+         page body text. The accurate impact is lost control, not a bad string being displayed.
+    -->
+    <div class="critical-impact">
+      <strong>Impact:</strong> 33 of 69 pages on leeuwenzee.co.za are not displaying optimally in Google search results. 41 page titles fall outside the ideal 50-70 character range (25 critical, 16 borderline), 16 meta descriptions exceed 160 characters and get truncated, 6 descriptions are too short to use the available snippet space, and 2 pages have no H1 heading at all. These issues directly reduce click-through rates and organic visibility across your key pages.
+    </div>
+  </div>
+
+  <!-- ══ TOP 3 KEY ISSUES ══ -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        The three issues below are shaping your Google visibility
+      </div>
+      The title tag, meta description and H1 are the first things Google and travellers see about a page - in the search results snippet, on social shares and in AI-generated answers. When titles fall outside the ideal length, descriptions get truncated or left blank, or H1s are missing, you lose click-through on the searches you already rank for and you make it harder to rank for the ones you do not. The three issues below are ranked by the number of Leeuwenzee pages affected and the size of the visibility impact.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">41/69</div>
+      <h3>Page Titles Outside Ideal Length</h3>
+      <p>41 of 69 pages have titles that are either too short to rank competitively or too long (Google truncates them in search results). The sweet spot is 50-70 characters - long enough to include location keywords like "Sea Point" and "Cape Town", short enough to display in full.</p>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">16</div>
+      <h3>Meta Descriptions Too Long</h3>
+      <p>16 pages have meta descriptions over 160 characters - Google truncates these in search results, cutting off your message mid-sentence. Several "Explore" pages also share identical duplicated descriptions, which dilutes relevance and confuses Google about which page should rank for which query.</p>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">6</div>
+      <h3>Meta Descriptions Too Short</h3>
+      <p>6 pages have descriptions under 120 characters - you are leaving valuable snippet space unused. Every character up to 160 is an opportunity to sell the booking: location, amenities, proximity to attractions, and a clear call to action.</p>
+    </div>
+
+  </div>
+
+  <!-- ══ PAGE-BY-PAGE TABLE ══ -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 69 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <colgroup>
+        <col style="width:4%">
+        <col style="width:20%">
+        <col style="width:24%">
+        <col style="width:8%">
+        <col style="width:30%">
+        <col style="width:8%">
+        <col style="width:6%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/" target="_blank" rel="noopener">/</a></td>
+          <td><span style="font-size:12px;">Leeuwenzee Guest House | B&amp;B In Sea Point</span></td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">41 ⚠</span></td>
+          <td><span class="desc-text">Leeuwenzee Guest House is perfectly situated for people visiting Sea Point, Cape Town. We have 9 guest house rooms and 9 furnished serviced apartments.</span></td>
+          <td><span class="badge ok" data-tip="Description is 151 characters - within the ideal 120-160 range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;About Leeuwenzee Guest House&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/about-our-guest-house/" target="_blank" rel="noopener">/about-our-guest-house/</a></td>
+          <td><span style="font-size:12px;">About Our Guest House In Sea Point</span></td>
+          <td><span class="badge bad" data-tip="Title is only 34 characters - too short. Google truncates or rewrites short titles. Ideal range is 50-70 characters.">34 ✗</span></td>
+          <td><span class="desc-text">Leeuwenzee is a 4-star Guest House in Sea Point. It is close to a number of local attractions and perfectly situated in the sea-facing suburb of Sea Point!</span></td>
+          <td><span class="badge ok" data-tip="Description is 155 characters - within the ideal 120-160 range.">155 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Why you should visit our Guest House in Sea Point&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/contact-us/" target="_blank" rel="noopener">/contact-us/</a></td>
+          <td><span style="font-size:12px;">Contact Us - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is only 35 characters - too short. Google truncates or rewrites short titles. Ideal range is 50-70 characters.">35 ✗</span></td>
+          <td><span class="desc-text">Contact Leeuwenzee Guest House Feel free to contact us and one of our team members will be happy to assist. WhatsApp: Click to Chat Tel: +27 82 303 7872 +27</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Contact Leeuwenzee Guest House&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/accommodation/" target="_blank" rel="noopener">/accommodation/</a></td>
+          <td><span style="font-size:12px;">Leeuwenzee Guest House Accommodation</span></td>
+          <td><span class="badge bad" data-tip="Title is only 36 characters - too short. Google truncates or rewrites short titles. Ideal range is 50-70 characters.">36 ✗</span></td>
+          <td><span class="desc-text">Leeuwenzee's Guest House accommodation feature all the amenities you need for a comfortable stay for both leisure and business travel in Sea Point!</span></td>
+          <td><span class="badge ok" data-tip="Description is 147 characters - within the ideal 120-160 range.">147 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Guest House Accommodation&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/moullie-point-apartments/" target="_blank" rel="noopener">/moullie-point-apartments/</a></td>
+          <td><span style="font-size:12px;">Moullie Point Apartments - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 49 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">49 ⚠</span></td>
+          <td><span class="desc-text">PLEASE NOTE THAT THESE APARTMENTS ARE NOT SITUATED IN SEA POINT</span></td>
+          <td><span class="badge warn" data-tip="Description is only 63 characters - too short. You are wasting valuable snippet space. Ideal is 120-160 characters.">63 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Mouille Point Apartments&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/sustainability/" target="_blank" rel="noopener">/sustainability/</a></td>
+          <td><span style="font-size:12px;">Sustainability At Leeuwenzee - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 53 characters - within the ideal 50-70 range.">53 ✓</span></td>
+          <td><span class="desc-text">Sustainability is a journey and our 2026 goal is to achieve official eco-certification in sustainable tourism and hospitality. Because caring for our guests</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. Google and AI assistants rely on the H1 to understand the main topic of the page.">✗</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/blog/" target="_blank" rel="noopener">/blog/</a></td>
+          <td><span style="font-size:12px;">Blog - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is only 29 characters - too short. Google truncates or rewrites short titles. Ideal range is 50-70 characters.">29 ✗</span></td>
+          <td><span class="desc-text">Cape Town is home to some of the most beautiful beaches in the world, and staying at Leeuwenzee Guest House in Sea Point puts you right at the doorstep of...</span></td>
+          <td><span class="badge ok" data-tip="Description is 157 characters - within the ideal 120-160 range.">157 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. Google and AI assistants rely on the H1 to understand the main topic of the page.">✗</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/" target="_blank" rel="noopener">/explore/</a></td>
+          <td><span style="font-size:12px;">Explore Sea Point | A Great List Of Attractions Nearby</span></td>
+          <td><span class="badge ok" data-tip="Title is 54 characters - within the ideal 50-70 range.">54 ✓</span></td>
+          <td><span class="desc-text">Sea Point is a vibrant area located along the Atlantic seaboard in Cape Town and is the ideal location for international and local guests.</span></td>
+          <td><span class="badge ok" data-tip="Description is 138 characters - within the ideal 120-160 range.">138 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Sea Point | A Guide for our Guests&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/" target="_blank" rel="noopener">/explore/sea-point/</a></td>
+          <td><span style="font-size:12px;">Explore Sea Point | A Great List Of Attractions Nearby</span></td>
+          <td><span class="badge ok" data-tip="Title is 54 characters - within the ideal 50-70 range.">54 ✓</span></td>
+          <td><span class="desc-text">Sea Point is a vibrant area located along the Atlantic seaboard in Cape Town and is the ideal location for international and local guests.</span></td>
+          <td><span class="badge ok" data-tip="Description is 138 characters - within the ideal 120-160 range.">138 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Sea Point | A Guide for our Guests&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/sea-point-pavilion/" target="_blank" rel="noopener">/explore/sea-point/sea-point-pavilion/</a></td>
+          <td><span style="font-size:12px;">Explore The Sea Point Pavilion | Salt Water Swimming Pools</span></td>
+          <td><span class="badge ok" data-tip="Title is 58 characters - within the ideal 50-70 range.">58 ✓</span></td>
+          <td><span class="desc-text">The Sea Point Pavilion is a popular swimming pool complex located in Sea Point, Cape Town which opened in the 1950's. Boasting two large salt water pools,</span></td>
+          <td><span class="badge ok" data-tip="Description is 154 characters - within the ideal 120-160 range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore The Sea Point Pavilion&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/iziko-bo-kaap-museum/" target="_blank" rel="noopener">/explore/sea-point/iziko-bo-kaap-museum/</a></td>
+          <td><span style="font-size:12px;">Explore Iziko Bo-Kaap Museum | A Great Short Summary</span></td>
+          <td><span class="badge ok" data-tip="Title is 52 characters - within the ideal 50-70 range.">52 ✓</span></td>
+          <td><span class="desc-text">The Iziko Bo-Kaap museum highlights the unique Islamic traditions and customs that have been preserved for generations in this vibrant community. Explore Today!</span></td>
+          <td><span class="badge ok" data-tip="Description is 160 characters - within the ideal 120-160 range.">160 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Iziko Bo-Kaap Museum&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/lions-head/" target="_blank" rel="noopener">/explore/sea-point/lions-head/</a></td>
+          <td><span style="font-size:12px;">Explore Lion's Head | Bucket List Hike In Cape Town</span></td>
+          <td><span class="badge ok" data-tip="Title is 51 characters - within the ideal 50-70 range.">51 ✓</span></td>
+          <td><span class="desc-text">Lion’s Head is the most popular hiking trail in Cape Town with ocean, mountain and city views. A bucket list experience!</span></td>
+          <td><span class="badge ok" data-tip="Description is 120 characters - within the ideal 120-160 range.">120 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Lion's Head&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/sea-point-promenade/" target="_blank" rel="noopener">/explore/sea-point/sea-point-promenade/</a></td>
+          <td><span style="font-size:12px;">Explore Sea Point Promenade: A Lively Oceanfront Walkway In Cape Town | Our Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 87 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">87 ✗</span></td>
+          <td><span class="desc-text">Discover Sea Point Promenade, a popular 6km stretch of oceanfront walkway in Cape Town. Jog, walk, or just take in the stunning views of the Atlantic Ocean. Our guest house is conveniently located nearby. Book your stay today!</span></td>
+          <td><span class="badge warn" data-tip="Description is 226 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">226 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Sea Point Promenade: A Lively Oceanfront Walkway in Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/kayaking-in-sea-point/" target="_blank" rel="noopener">/explore/sea-point/kayaking-in-sea-point/</a></td>
+          <td><span style="font-size:12px;">Explore Kayaking In Sea Point | Sun, Sea, Sea Life</span></td>
+          <td><span class="badge ok" data-tip="Title is 50 characters - within the ideal 50-70 range.">50 ✓</span></td>
+          <td><span class="desc-text">Camps Bay is a picturesque beachfront suburb located in Cape Town. Renowned for its stunning natural beauty, Camps Bay boasts a long stretch of white sandy beach framed by the Twelve Apostles mountain range.</span></td>
+          <td><span class="badge warn" data-tip="Description is 207 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">207 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Kayaking Adventures in Sea Point | Sun, Sea, Sea Life&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/explore-clifton-blue-waters-white-sands/" target="_blank" rel="noopener">/explore/sea-point/explore-clifton-blue-waters-white-sands/</a></td>
+          <td><span style="font-size:12px;">Explore Clifton | Blue Waters, White Sands</span></td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">42 ⚠</span></td>
+          <td><span class="desc-text">Camps Bay is a picturesque beachfront suburb located in Cape Town. Renowned for its stunning natural beauty, Camps Bay boasts a long stretch of white sandy beach framed by the Twelve Apostles mountain range.</span></td>
+          <td><span class="badge warn" data-tip="Description is 207 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">207 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Clifton | Blue Waters, White Sands&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/va-waterfront/" target="_blank" rel="noopener">/explore/sea-point/va-waterfront/</a></td>
+          <td><span style="font-size:12px;">Explore The V&amp;A Waterfront | Shop And Eat</span></td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">41 ⚠</span></td>
+          <td><span class="desc-text">The V&amp;A Waterfront offers visitors exciting options of shopping, food and entertainment making this one of the most popular attractions in Cape Town.</span></td>
+          <td><span class="badge ok" data-tip="Description is 149 characters - within the ideal 120-160 range.">149 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore The V&amp;A Waterfront&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/two-oceans-aquarium/" target="_blank" rel="noopener">/explore/sea-point/two-oceans-aquarium/</a></td>
+          <td><span style="font-size:12px;">Explore The Two Oceans Aquarium | Diverse Marine Life</span></td>
+          <td><span class="badge ok" data-tip="Title is 53 characters - within the ideal 50-70 range.">53 ✓</span></td>
+          <td><span class="desc-text">With its extensive collection of exhibits and interactive experiences, The Two Oceans Aquarium offers a unique perspective on the diverse marine life that can be found along the South African coastline.</span></td>
+          <td><span class="badge warn" data-tip="Description is 202 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">202 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore The Two Oceans Aquarium&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/table-mountain/" target="_blank" rel="noopener">/explore/sea-point/table-mountain/</a></td>
+          <td><span style="font-size:12px;">Explore Table Mountain | Cape Town's Natural Wonder</span></td>
+          <td><span class="badge ok" data-tip="Title is 51 characters - within the ideal 50-70 range.">51 ✓</span></td>
+          <td><span class="desc-text">Table Mountain is one of the most popular and recognizable landmarks in Cape Town. One of the most photographed mountains in South Africa, Table Mountain is a</span></td>
+          <td><span class="badge ok" data-tip="Description is 158 characters - within the ideal 120-160 range.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Table Mountain&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/castle-of-good-hope/" target="_blank" rel="noopener">/explore/sea-point/castle-of-good-hope/</a></td>
+          <td><span style="font-size:12px;">Explore Castle Of Good Hope | South Africa's Oldest Building</span></td>
+          <td><span class="badge ok" data-tip="Title is 60 characters - within the ideal 50-70 range.">60 ✓</span></td>
+          <td><span class="desc-text">The Castle of Good Hope was the headquarters for the South African army in the province. The museum showcases the rich military history of the Western Cape.</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Castle Of Good Hope&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/mojo-market/" target="_blank" rel="noopener">/explore/sea-point/mojo-market/</a></td>
+          <td><span style="font-size:12px;">Explore Mojo Market | Food, Drink And Live Music In Sea Point</span></td>
+          <td><span class="badge ok" data-tip="Title is 61 characters - within the ideal 50-70 range.">61 ✓</span></td>
+          <td><span class="desc-text">Mojo Market is a trendy market in Sea Point offering a unique fusion of food, art, and entertainment, making it a popular spot for locals and tourists.</span></td>
+          <td><span class="badge ok" data-tip="Description is 151 characters - within the ideal 120-160 range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Mojo Market&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/sea-point/camps-bay/" target="_blank" rel="noopener">/explore/sea-point/camps-bay/</a></td>
+          <td><span style="font-size:12px;">Explore Camps Bay | Sea, Sun, Sand, Serenity</span></td>
+          <td><span class="badge warn" data-tip="Title is 44 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">44 ⚠</span></td>
+          <td><span class="desc-text">Camps Bay is a picturesque beachfront suburb located in Cape Town. Renowned for its stunning natural beauty, Camps Bay boasts a long stretch of white sandy beach framed by the Twelve Apostles mountain range.</span></td>
+          <td><span class="badge warn" data-tip="Description is 207 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">207 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Camps Bay | Sea, Sun, Sand, Serenity&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/explore/explore-the-museum-of-dogs-for-the-love-of-dogs/" target="_blank" rel="noopener">/explore/explore-the-museum-of-dogs-for-the-love-of-dogs/</a></td>
+          <td><span style="font-size:12px;">Explore The Museum Of Dogs | For The Love Of Dogs</span></td>
+          <td><span class="badge warn" data-tip="Title is 49 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">49 ⚠</span></td>
+          <td><span class="desc-text">The Museum of Dogs celebrates the enduring bond between humans and dogs, showcasing their roles as comforters, companions, and workers through engaging stories and interactive exhibits.</span></td>
+          <td><span class="badge warn" data-tip="Description is 185 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">185 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Explore Museum of Dogs&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/the-top-5-best-beaches-near-leeuwenzee-guest-house-close-to-sea-point/" target="_blank" rel="noopener">/the-top-5-best-beaches-near-leeuwenzee-guest-house-close-to-sea-point/</a></td>
+          <td><span style="font-size:12px;">The Best Beaches Near Leeuwenzee Guest House, Close To Sea Point</span></td>
+          <td><span class="badge ok" data-tip="Title is 64 characters - within the ideal 50-70 range.">64 ✓</span></td>
+          <td><span class="desc-text">Leeuwenzee Guest House, located in the vibrant neighborhood of Sea Point, Cape Town, is the ideal destination for beach lovers seeking a tranquil coastal getaway. With its prime location, guests have easy access to some of the most breathtaking beaches in the area.</span></td>
+          <td><span class="badge warn" data-tip="Description is 265 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">265 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;The Best Beaches near Leeuwenzee Guest House, Close to Sea Point&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/bb-in-sea-point-what-to-expect-why-location-matters/" target="_blank" rel="noopener">/bb-in-sea-point-what-to-expect-why-location-matters/</a></td>
+          <td><span style="font-size:12px;">B&amp;B In Sea Point: What To Expect &amp; Why Location Matters - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 80 characters - slightly long. Aim for 50-70 characters to avoid truncation in search results.">80 ⚠</span></td>
+          <td><span class="desc-text">Looking for a B&amp;B in Sea Point, Cape Town? Leeuwenzee Guest House offers warm, personal accommodation in a prime location with easy access to the promenade, beaches, and the best of the city.</span></td>
+          <td><span class="badge warn" data-tip="Description is 191 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">191 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;B&amp;#038;B in Sea Point: What to Expect &amp;#038; Why Location Matters&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/the-ultimate-sea-point-bucket-list/" target="_blank" rel="noopener">/the-ultimate-sea-point-bucket-list/</a></td>
+          <td><span style="font-size:12px;">The Ultimate Sea Point Bucket List: 5 Experiences You Can't Miss - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 89 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">89 ✗</span></td>
+          <td><span class="desc-text">If there is one Sea Point bucket list experience that locals hold most dearly, it is watching the sun sink into the Atlantic from Signal Hill. The viewpoint</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;The Ultimate Sea Point Bucket List: 5 Experiences You Can't Miss&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/sea-point-swimming-pools/" target="_blank" rel="noopener">/sea-point-swimming-pools/</a></td>
+          <td><span style="font-size:12px;">Sea Point Swimming Pools - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 49 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">49 ⚠</span></td>
+          <td><span class="desc-text">Enjoy a day at the popular Sea Point Swimming Pools located at the Sea Point Pavilion in Cape Town. After a refreshing swim, visitors can unwind on the</span></td>
+          <td><span class="badge ok" data-tip="Description is 151 characters - within the ideal 120-160 range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Sea Point Swimming Pools&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/summer-days-at-sea-point-pavilion-your-guide-to-cape-towns-iconic-saltwater-pools/" target="_blank" rel="noopener">/summer-days-at-sea-point-pavilion-your-guide-to-cape-towns-iconic-saltwater-pools/</a></td>
+          <td><span style="font-size:12px;">Summer Days At The Sea Point Pavilion: Your Guide To Cape Town's Iconic Saltwater Pools - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 112 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">112 ✗</span></td>
+          <td><span class="desc-text">Summer in Cape Town means beach days, ocean breezes, and endless sunshine. While the city's Atlantic beaches are spectacular, there's one spot that perfectly</span></td>
+          <td><span class="badge ok" data-tip="Description is 157 characters - within the ideal 120-160 range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Summer Days at the Sea Point Pavilion: Your Guide to Cape Town's Iconic Saltwater Pools&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/your-complete-guide-to-leeuwenzee-guest-house-where-comfort-meets-convenience-in-sea-point/" target="_blank" rel="noopener">/your-complete-guide-to-leeuwenzee-guest-house-where-comfort-meets-convenience-in-sea-point/</a></td>
+          <td><span style="font-size:12px;">Your Complete Guide To Leeuwenzee Guest House: Where Comfort Meets Convenience In Sea Point - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 116 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">116 ✗</span></td>
+          <td><span class="desc-text">When planning your Cape Town adventure, choosing the right accommodation can transform a good trip into an unforgettable experience. Leeuwenzee Guest House in</span></td>
+          <td><span class="badge ok" data-tip="Description is 158 characters - within the ideal 120-160 range.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Your Complete Guide to Leeuwenzee Guest House: Where Comfort Meets Convenience in Sea Point&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>29</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/sea-point-promenade-a-guide-to-cape-towns-most-popular-walkway/" target="_blank" rel="noopener">/sea-point-promenade-a-guide-to-cape-towns-most-popular-walkway/</a></td>
+          <td><span style="font-size:12px;">Sea Point Promenade: A Guide To Cape Town's Most Popular Walkway - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 89 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">89 ✗</span></td>
+          <td><span class="desc-text">The Sea Point Promenade is more than just a walkway. It's the centre of one of Cape Town's most popular neighbourhoods. Stretching for 11 kilometres along the</span></td>
+          <td><span class="badge ok" data-tip="Description is 158 characters - within the ideal 120-160 range.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Sea Point Promenade: A Guide to Cape Town's Most Popular Walkway&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/festive-activities-to-do-in-cape-town/" target="_blank" rel="noopener">/festive-activities-to-do-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">Festive Activities To Do In Cape Town 2025 - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 67 characters - within the ideal 50-70 range.">67 ✓</span></td>
+          <td><span class="desc-text">December in Cape Town is pure magic. As summer arrives in full force, the city transforms into a festive wonderland with sparkling lights, bustling Christmas</span></td>
+          <td><span class="badge ok" data-tip="Description is 157 characters - within the ideal 120-160 range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Festive Activities to do in Cape Town 2025&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/the-best-summer-activities-to-do-in-cape-town/" target="_blank" rel="noopener">/the-best-summer-activities-to-do-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">The Best Summer Activities To Do In Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 70 characters - within the ideal 50-70 range.">70 ✓</span></td>
+          <td><span class="desc-text">Cape Town offers so many activities do in summer, its hard to choose! We've listed some of the most popular summer activities to do in Cape Town below.</span></td>
+          <td><span class="badge ok" data-tip="Description is 151 characters - within the ideal 120-160 range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;The Best Summer Activities to do in Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/the-perfect-sea-point-stay-why-leeuwenzee-guest-house-gets-it-right/" target="_blank" rel="noopener">/the-perfect-sea-point-stay-why-leeuwenzee-guest-house-gets-it-right/</a></td>
+          <td><span style="font-size:12px;">The Perfect Sea Point Stay: Why Leeuwenzee Guest House Gets It Right - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 93 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">93 ✗</span></td>
+          <td><span class="desc-text">Choosing the right accommodation can make or break your Cape Town experience. In Sea Point, one of the city's most popular neighbourhoods, you'll find dozens</span></td>
+          <td><span class="badge ok" data-tip="Description is 157 characters - within the ideal 120-160 range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;The Perfect Sea Point Stay: Why Leeuwenzee Guest House Gets It Right&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/lions-head-vs-table-mountain-which-hike-should-you-choose-during-your-stay/" target="_blank" rel="noopener">/lions-head-vs-table-mountain-which-hike-should-you-choose-during-your-stay/</a></td>
+          <td><span style="font-size:12px;">Lion's Head Vs Table Mountain: Which Hike Should You Choose During Your Stay? - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 102 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">102 ✗</span></td>
+          <td><span class="desc-text">Both hikes offer incredible views and unforgettable experiences, but they cater to different fitness levels, time constraints, and preferences. Here's</span></td>
+          <td><span class="badge ok" data-tip="Description is 150 characters - within the ideal 120-160 range.">150 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Lion's Head vs Table Mountain: Which Hike Should You Choose During Your Stay?&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/spring-in-cape-town-must-do-activities-for-visitors/" target="_blank" rel="noopener">/spring-in-cape-town-must-do-activities-for-visitors/</a></td>
+          <td><span style="font-size:12px;">Spring In Cape Town: Must Do Activities For Visitors - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 77 characters - slightly long. Aim for 50-70 characters to avoid truncation in search results.">77 ⚠</span></td>
+          <td><span class="desc-text">Spring in Cape Town (September to November) is a magical time. As the city emerges from winter, its natural beauty bursts into colour, flowers bloom, skies</span></td>
+          <td><span class="badge ok" data-tip="Description is 155 characters - within the ideal 120-160 range.">155 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Spring in Cape Town: Must Do Activities for Visitors&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/summer-in-sea-point-why-leeuwenzee-guest-house-is-your-perfect-cape-town-getaway/" target="_blank" rel="noopener">/summer-in-sea-point-why-leeuwenzee-guest-house-is-your-perfect-cape-town-getaway/</a></td>
+          <td><span style="font-size:12px;">Summer In Sea Point: Why Leeuwenzee Guest House Is Your Perfect Cape Town Getaway - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 106 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">106 ✗</span></td>
+          <td><span class="desc-text">Cape Town's summer season brings endless sunshine, warm ocean breezes, and that special energy that makes the Mother City irresistible. And there's no better</span></td>
+          <td><span class="badge ok" data-tip="Description is 157 characters - within the ideal 120-160 range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Summer in Sea Point: Why Leeuwenzee Guest House is Your Perfect Cape Town Getaway&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>36</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/upcoming-events-in-cape-town-2025/" target="_blank" rel="noopener">/upcoming-events-in-cape-town-2025/</a></td>
+          <td><span style="font-size:12px;">Upcoming Events In Cape Town 2025 - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 58 characters - within the ideal 50-70 range.">58 ✓</span></td>
+          <td><span class="desc-text">Cape Town, the Mother City, is renowned for its vibrant culture, stunning scenery, and a calendar packed with exciting events. Whether you’re a local or just visiting, there’s always something happening to keep you entertained. Here are some of the top upcoming events in Cape Town 2025:</span></td>
+          <td><span class="badge warn" data-tip="Description is 287 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">287 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Upcoming Events in Cape Town 2025&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>37</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/festive-actvities-to-do-in-cape-town-2024/" target="_blank" rel="noopener">/festive-actvities-to-do-in-cape-town-2024/</a></td>
+          <td><span style="font-size:12px;">Festive Activities To Do In Cape Town 2024 - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 67 characters - within the ideal 50-70 range.">67 ✓</span></td>
+          <td><span class="desc-text">Cape Town is bursting with endless summer experiences and festive activities to enjoy this December. Dive into the holiday spirit with our top picks for</span></td>
+          <td><span class="badge ok" data-tip="Description is 152 characters - within the ideal 120-160 range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Festive Activities to do in Cape Town 2024&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>38</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/the-best-places-to-buy-ice-cream-in-sea-point-cape-town/" target="_blank" rel="noopener">/the-best-places-to-buy-ice-cream-in-sea-point-cape-town/</a></td>
+          <td><span style="font-size:12px;">The Best Places To Buy Ice-Cream In Sea Point, Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 81 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">81 ✗</span></td>
+          <td><span class="desc-text">Address: 148 Main Road, Sea Point, Cape Town</span></td>
+          <td><span class="badge warn" data-tip="Description is only 44 characters - too short. You are wasting valuable snippet space. Ideal is 120-160 characters.">44 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;The Best Places to Buy Ice-Cream in Sea Point, Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>39</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/stay-local-a-sea-point-staycation-at-leeuwenzee-guest-house/" target="_blank" rel="noopener">/stay-local-a-sea-point-staycation-at-leeuwenzee-guest-house/</a></td>
+          <td><span style="font-size:12px;">Stay Local: A Sea Point Staycation At Leeuwenzee Guest House - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 85 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">85 ✗</span></td>
+          <td><span class="desc-text">Looking for the perfect staycation spot in Cape Town? Whether you're a local needing a break from your routine or a traveller seeking a coastal escape without</span></td>
+          <td><span class="badge ok" data-tip="Description is 158 characters - within the ideal 120-160 range.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Stay Local: A Sea Point Staycation at Leeuwenzee Guest House&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>40</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/a-quick-guide-to-leeuwenzee-guest-house-in-sea-point-cape-town/" target="_blank" rel="noopener">/a-quick-guide-to-leeuwenzee-guest-house-in-sea-point-cape-town/</a></td>
+          <td><span style="font-size:12px;">A Quick Guide To Leeuwenzee Guest House In Sea Point, Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 88 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">88 ✗</span></td>
+          <td><span class="desc-text">Located in the vibrant neighborhood of Sea Point, Cape Town, Leeuwenzee Guest House offers a blend of comfort and convenience for tourists, holidaymakers, and</span></td>
+          <td><span class="badge ok" data-tip="Description is 158 characters - within the ideal 120-160 range.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;A Quick Guide to Leeuwenzee Guest House in Sea Point, Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>41</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/cape-towns-must-visit-markets-explore-shop-eat/" target="_blank" rel="noopener">/cape-towns-must-visit-markets-explore-shop-eat/</a></td>
+          <td><span style="font-size:12px;">Cape Town’s Must-Visit Markets: Explore, Shop &amp; Eat - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 76 characters - slightly long. Aim for 50-70 characters to avoid truncation in search results.">76 ⚠</span></td>
+          <td><span class="desc-text">Here is our list of must-visit markets in Cape Town that are worth the visit!</span></td>
+          <td><span class="badge warn" data-tip="Description is only 77 characters - too short. You are wasting valuable snippet space. Ideal is 120-160 characters.">77 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Cape Town’s Must-Visit Markets: Explore, Shop &amp;#038; Eat&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>42</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/stay-green-with-us-at-leeuwenzee-guest-house-in-sea-point-cape-town/" target="_blank" rel="noopener">/stay-green-with-us-at-leeuwenzee-guest-house-in-sea-point-cape-town/</a></td>
+          <td><span style="font-size:12px;">Stay Green With Us At Leeuwenzee Guest House In Sea Point, Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 93 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">93 ✗</span></td>
+          <td><span class="desc-text">At Leeuwenzee Guest House we believe that true hospitality goes beyond providing a comfortable stay, it’s also about making responsible choices that protect</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Stay Green With Us at Leeuwenzee Guest House in Sea Point, Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>43</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/discover-the-10-best-winter-activities-in-cape-town/" target="_blank" rel="noopener">/discover-the-10-best-winter-activities-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">Discover The 15 Best Winter Activities In Cape Town</span></td>
+          <td><span class="badge ok" data-tip="Title is 51 characters - within the ideal 50-70 range.">51 ✓</span></td>
+          <td><span class="desc-text">Cape Town offers many activities you can experience ensuring that you can make the most of your visit even during the winter season.</span></td>
+          <td><span class="badge ok" data-tip="Description is 132 characters - within the ideal 120-160 range.">132 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Discover the 15 Best Winter Activities in Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>44</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/must-visit-breakfast-spots-in-sea-point-cape-town/" target="_blank" rel="noopener">/must-visit-breakfast-spots-in-sea-point-cape-town/</a></td>
+          <td><span style="font-size:12px;">Must Visit Breakfast Spots In Sea Point, Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 75 characters - slightly long. Aim for 50-70 characters to avoid truncation in search results.">75 ⚠</span></td>
+          <td><span class="desc-text">Sea Point, nestled between the Atlantic Ocean and Signal Hill, is not only known for its scenic beauty but also for its vibrant culinary scene. As a guest at</span></td>
+          <td><span class="badge ok" data-tip="Description is 157 characters - within the ideal 120-160 range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Must Visit Breakfast Spots in Sea Point, Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>45</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/leeuwenzee-guest-house-in-sea-point-is-prefect-for-a-winter-getaway/" target="_blank" rel="noopener">/leeuwenzee-guest-house-in-sea-point-is-prefect-for-a-winter-getaway/</a></td>
+          <td><span style="font-size:12px;">Leeuwenzee Guest House In Sea Point Is Prefect For A Winter Getaway</span></td>
+          <td><span class="badge ok" data-tip="Title is 67 characters - within the ideal 50-70 range.">67 ✓</span></td>
+          <td><span class="desc-text">Leeuwenzee Guest House offers a range of comfortable accommodation options, ensuring a cozy stay during the winter months. Leeuwenzee Guest House's prime location makes it an excellent starting point for exploring the city's numerous attractions.</span></td>
+          <td><span class="badge warn" data-tip="Description is 246 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">246 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Leeuwenzee Guest House in Sea Point is Prefect for a Winter Getaway&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>46</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/staying-in-sea-point-heres-why-guests-love-leeuwenzee-guest-house/" target="_blank" rel="noopener">/staying-in-sea-point-heres-why-guests-love-leeuwenzee-guest-house/</a></td>
+          <td><span style="font-size:12px;">Staying In Sea Point? Here’s Why Guests Love Leeuwenzee Guest House - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 92 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">92 ✗</span></td>
+          <td><span class="desc-text">If you're planning a trip to Cape Town, there’s no better place to stay than Sea Point — and no better guest house than Leeuwenzee Guest House. Nestled</span></td>
+          <td><span class="badge ok" data-tip="Description is 151 characters - within the ideal 120-160 range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Staying in Sea Point? Here’s Why Guests Love Leeuwenzee Guest House&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>47</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/top-attractions-near-leeuwenzee-guest-house-in-sea-point-all-within-walking-distance/" target="_blank" rel="noopener">/top-attractions-near-leeuwenzee-guest-house-in-sea-point-all-within-walking-distance/</a></td>
+          <td><span style="font-size:12px;">Top Attractions Near Leeuwenzee Guest House In Sea Point – All Within Walking Distance! - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 112 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">112 ✗</span></td>
+          <td><span class="desc-text">Here are the top attractions near Leeuwenzee Guest House that you can easily explore on foot:</span></td>
+          <td><span class="badge warn" data-tip="Description is only 93 characters - too short. You are wasting valuable snippet space. Ideal is 120-160 characters.">93 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Top Attractions Near Leeuwenzee Guest House in Sea Point – All Within Walking Distance!&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>48</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/instagram-worthy-places-in-cape-town/" target="_blank" rel="noopener">/instagram-worthy-places-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">8 Instagram Photo Worthy Places In Cape Town</span></td>
+          <td><span class="badge warn" data-tip="Title is 44 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">44 ⚠</span></td>
+          <td><span class="desc-text">Looking to capture an Instagram worthy photo during your visit to Cape Town? Here are our top 8 picks.</span></td>
+          <td><span class="badge warn" data-tip="Description is only 102 characters - too short. You are wasting valuable snippet space. Ideal is 120-160 characters.">102 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;8 Instagram Photo Worthy Places In Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>49</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/experience-escape-rooms-at-the-va-waterfront-in-cape-town/" target="_blank" rel="noopener">/experience-escape-rooms-at-the-va-waterfront-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">Experience Escape Rooms At The V&amp;A Waterfront In Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 83 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">83 ✗</span></td>
+          <td><span class="desc-text">If you’re staying at Leeuwenzee Guest House in Sea Point and looking for an exciting activity during your time in Cape Town, HintHunt Escape Rooms at the V&amp;A Waterfront is a must-visit. Just a short drive from Leeuwenzee, this immersive experience is perfect for guests who enjoy fun challenges, teamwork, and adventure.</span></td>
+          <td><span class="badge warn" data-tip="Description is 320 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">320 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Experience Escape Rooms at the V&amp;#038;A Waterfront in Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>50</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/activities-to-do-in-sea-point-cape-town/" target="_blank" rel="noopener">/activities-to-do-in-sea-point-cape-town/</a></td>
+          <td><span style="font-size:12px;">Activities To Do In Sea Point, Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 65 characters - within the ideal 50-70 range.">65 ✓</span></td>
+          <td><span class="desc-text">Enjoy Sea Point, Cape Town’s vibrant seaside neighborhood known for its stunning ocean views, bustling promenade, and endless attractions. Whether you're a guest or a local, there's something for everyone. Here’s our list of the best activities to make your visit unforgettable.</span></td>
+          <td><span class="badge warn" data-tip="Description is 278 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">278 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Activities to do in Sea Point, Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>51</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/cape-town-cycle-tour/" target="_blank" rel="noopener">/cape-town-cycle-tour/</a></td>
+          <td><span style="font-size:12px;">Leeuwenzee Guest House In Sea Point Is The Ideal Accommodation For The Cape Town Cycle Tour 2025 - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 121 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">121 ✗</span></td>
+          <td><span class="desc-text">Here’s why Leeuwenzee Guest House is the perfect accommodation for your Cape Town Cycle Tour Adventure!</span></td>
+          <td><span class="badge warn" data-tip="Description is only 103 characters - too short. You are wasting valuable snippet space. Ideal is 120-160 characters.">103 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Leeuwenzee Guest House in Sea Point is the Ideal Accommodation for the Cape Town Cycle Tour 2025&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>52</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/must-visit-restaurants-in-sea-point/" target="_blank" rel="noopener">/must-visit-restaurants-in-sea-point/</a></td>
+          <td><span style="font-size:12px;">Must Visit Restaurants In Sea Point - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 60 characters - within the ideal 50-70 range.">60 ✓</span></td>
+          <td><span class="desc-text">Sea Point, Cape Town, is a vibrant neighborhood with stunning ocean views and a lively culinary scene. Staying at Leeuwenzee Guest House not only offers a comfortable retreat but also places you at the heart of some of the best dining experiences in the area. Whether you’re looking for a casual brunch, a sophisticated dinner, or a relaxed café, Sea Point has it all. Here are our top five restaurant picks that you simply cannot miss.</span></td>
+          <td><span class="badge warn" data-tip="Description is 436 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">436 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Must Visit Restaurants in Sea Point&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>53</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/the-top-5-free-things-to-do-in-cape-town/" target="_blank" rel="noopener">/the-top-5-free-things-to-do-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">The Top 5 Free Things To Do In Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 65 characters - within the ideal 50-70 range.">65 ✓</span></td>
+          <td><span class="desc-text">In this article, we'll explore the top 5 free things to do in Cape Town and won't cost you a dime, allowing you to make the most of your visit to this</span></td>
+          <td><span class="badge ok" data-tip="Description is 150 characters - within the ideal 120-160 range.">150 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;The Top 5 Free Things To Do In Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>54</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/sea-point-pavilion/" target="_blank" rel="noopener">/sea-point-pavilion/</a></td>
+          <td><span style="font-size:12px;">Sea Point Pavilion</span></td>
+          <td><span class="badge bad" data-tip="Title is only 18 characters - too short. Google truncates or rewrites short titles. Ideal range is 50-70 characters.">18 ✗</span></td>
+          <td><span class="desc-text">The Sea Point Pavilion is a popular and beloved swimming pool complex that first opened its doors to the public in the 1950s, located in the seaside suburb of</span></td>
+          <td><span class="badge ok" data-tip="Description is 158 characters - within the ideal 120-160 range.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Sea Point Pavilion&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>55</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/leeuwenzee-guest-house-in-sea-point-is-the-ultimate-base-for-your-cape-town-adventure/" target="_blank" rel="noopener">/leeuwenzee-guest-house-in-sea-point-is-the-ultimate-base-for-your-cape-town-adventure/</a></td>
+          <td><span style="font-size:12px;">Leeuwenzee Guest House In Sea Point Is The Ultimate Base For Your Cape Town Adventure - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 110 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">110 ✗</span></td>
+          <td><span class="desc-text">When visiting Cape Town, choosing the right accommodation location is crucial to make the most of your trip. Leeuwenzee Guest House, situated on the Atlantic</span></td>
+          <td><span class="badge ok" data-tip="Description is 157 characters - within the ideal 120-160 range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Leeuwenzee Guest House in Sea Point is the Ultimate Base for Your Cape Town Adventure&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>56</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/the-most-popular-hiking-trails-in-cape-town/" target="_blank" rel="noopener">/the-most-popular-hiking-trails-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">The Most Popular Hiking Trails In Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 68 characters - within the ideal 50-70 range.">68 ✓</span></td>
+          <td><span class="desc-text">Cape Town is surrounded by the majestic mountains and the Atlantic Ocean, offering some of the most spectacular hiking trails in the world. Whether you're a</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;The Most Popular Hiking Trails in Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>57</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/embracing-winter-in-cape-town-winter-activities-to-enjoy-close-to-leeuwenzee-guest-house/" target="_blank" rel="noopener">/embracing-winter-in-cape-town-winter-activities-to-enjoy-close-to-leeuwenzee-guest-house/</a></td>
+          <td><span style="font-size:12px;">Embracing Winter In Cape Town: Winter Activities To Enjoy Close To Leeuwenzee Guest House - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 114 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">114 ✗</span></td>
+          <td><span class="desc-text">As the winter months approach, Cape Town transforms into a cozy and inviting destination, perfect for a relaxing getaway. While the weather may be chilly,</span></td>
+          <td><span class="badge ok" data-tip="Description is 154 characters - within the ideal 120-160 range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Embracing Winter in Cape Town: Winter Activities to Enjoy Close to Leeuwenzee Guest House&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>58</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/discover-the-charm-of-sea-point-why-you-should-visit-and-stay-at-leeuwenzee-guest-house/" target="_blank" rel="noopener">/discover-the-charm-of-sea-point-why-you-should-visit-and-stay-at-leeuwenzee-guest-house/</a></td>
+          <td><span style="font-size:12px;">Discover The Charm Of Sea Point: Why You Should Visit And Stay At Leeuwenzee Guest House - Leeuwenzee Guest House</span></td>
+          <td><span class="badge bad" data-tip="Title is 113 characters - too long. Google will truncate this in search results. Ideal range is 50-70 characters.">113 ✗</span></td>
+          <td><span class="desc-text">At Leeuwenzee Guest House, we offer comfortable and stylish accommodation, tailored to meet your every need. WE are walking distance to the Sea Point</span></td>
+          <td><span class="badge ok" data-tip="Description is 149 characters - within the ideal 120-160 range.">149 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Discover the Charm of Sea Point: Why You Should Visit and Stay at Leeuwenzee Guest House&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>59</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/easter-activities-to-do-in-cape-town-2024/" target="_blank" rel="noopener">/easter-activities-to-do-in-cape-town-2024/</a></td>
+          <td><span style="font-size:12px;">Easter Activities To Do In Cape Town 2024 - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 66 characters - within the ideal 50-70 range.">66 ✓</span></td>
+          <td><span class="desc-text">Discover the Easter magic awaiting in Cape Town for 2024! From enchanting outdoor cinema screenings under the stars to vibrant Easter markets and delectable</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Easter Activities to do in Cape Town 2024&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>60</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/christmas-activities-to-do-in-cape-town-2023/" target="_blank" rel="noopener">/christmas-activities-to-do-in-cape-town-2023/</a></td>
+          <td><span style="font-size:12px;">Christmas Activities To Do In Cape Town 2023 - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 69 characters - within the ideal 50-70 range.">69 ✓</span></td>
+          <td><span class="desc-text">Cape Town not only offers endless summer experiences but also festive actvities to enjoy this December. We've listed our top picks below.</span></td>
+          <td><span class="badge ok" data-tip="Description is 137 characters - within the ideal 120-160 range.">137 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Christmas Activities to do in Cape Town 2023&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>61</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/10-interesting-facts-about-sea-point-in-cape-town/" target="_blank" rel="noopener">/10-interesting-facts-about-sea-point-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">10 Interesting Facts About Sea Point In Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 74 characters - slightly long. Aim for 50-70 characters to avoid truncation in search results.">74 ⚠</span></td>
+          <td><span class="desc-text">Located along the Atlantic coastline of Cape Town, South Africa, lies the vibrant suburb of Sea Point. With its stunning ocean views, iconic promenade, and</span></td>
+          <td><span class="badge ok" data-tip="Description is 155 characters - within the ideal 120-160 range.">155 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;10 Interesting Facts About Sea Point in Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>62</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/ways-to-get-around-cape-town-from-our-guest-house/" target="_blank" rel="noopener">/ways-to-get-around-cape-town-from-our-guest-house/</a></td>
+          <td><span style="font-size:12px;">Ways To Get Around Cape Town From Leeuwenzee</span></td>
+          <td><span class="badge warn" data-tip="Title is 44 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">44 ⚠</span></td>
+          <td><span class="desc-text">Leeuwenzee is conveniently located to the MyCiti bus stop. Our location is perfectly situated to be within walking distance of many attractions that Cape Town has to offer.</span></td>
+          <td><span class="badge warn" data-tip="Description is 172 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">172 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Ways To Get Around Cape Town From Leeuwenzee&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>63</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/popular-attractions-in-cape-town/" target="_blank" rel="noopener">/popular-attractions-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">10 Popular Attractions Close To Leeuwenzee In Cape Town</span></td>
+          <td><span class="badge ok" data-tip="Title is 55 characters - within the ideal 50-70 range.">55 ✓</span></td>
+          <td><span class="desc-text">Leeuwenzee Guest House is conveniently located in close proximity to many popular attractions in Cape Town such as Lion's Head and Sea Point Promenade.</span></td>
+          <td><span class="badge ok" data-tip="Description is 151 characters - within the ideal 120-160 range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;10 Popular Attractions Close To Leeuwenzee In Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>64</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/leeuwenzee-guest-house-bb-in-sea-point-cape-town/" target="_blank" rel="noopener">/leeuwenzee-guest-house-bb-in-sea-point-cape-town/</a></td>
+          <td><span style="font-size:12px;">Leeuwenzee Guest House B&amp;B In Sea Point, Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge warn" data-tip="Title is 75 characters - slightly long. Aim for 50-70 characters to avoid truncation in search results.">75 ⚠</span></td>
+          <td><span class="desc-text">Nestled in the heart of the breathtaking city of Cape Town, you'll discover Leeuwenzee Guest House B&amp;B, a hidden gem in the seaside suburb of Sea Point.</span></td>
+          <td><span class="badge ok" data-tip="Description is 152 characters - within the ideal 120-160 range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Leeuwenzee Guest House B&amp;#038;B in Sea Point, Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>65</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/5-spring-activities-to-do-in-cape-town/" target="_blank" rel="noopener">/5-spring-activities-to-do-in-cape-town/</a></td>
+          <td><span style="font-size:12px;">5 Spring Activities To Do In Cape Town - Leeuwenzee Guest House</span></td>
+          <td><span class="badge ok" data-tip="Title is 63 characters - within the ideal 50-70 range.">63 ✓</span></td>
+          <td><span class="desc-text">Cape Town is known for its stunning natural landscapes and mild springtime weather. In this post, we'll explore five delightful spring activities that allow</span></td>
+          <td><span class="badge ok" data-tip="Description is 156 characters - within the ideal 120-160 range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;5 Spring Activities to do in Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>66</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/10-reasons-to-stay-at-leeuwenzee-guest-house-in-sea-point-cape-town/" target="_blank" rel="noopener">/10-reasons-to-stay-at-leeuwenzee-guest-house-in-sea-point-cape-town/</a></td>
+          <td><span style="font-size:12px;">10 Reasons To Stay At Leeuwenzee Guest House In Sea Point, Cape Town</span></td>
+          <td><span class="badge ok" data-tip="Title is 68 characters - within the ideal 50-70 range.">68 ✓</span></td>
+          <td><span class="desc-text">If you're considering a trip to Cape Town, look no further than Leeuwenzee Guest House in Sea Point. Leeuwenzee offers affordable, comfortable and convenient accommodation options for business travelers, tourists and holiday makers.</span></td>
+          <td><span class="badge warn" data-tip="Description is 232 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">232 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;10 Reasons to Stay at Leeuwenzee Guest House in Sea Point, Cape Town&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>67</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/kayaking-in-sea-point/" target="_blank" rel="noopener">/kayaking-in-sea-point/</a></td>
+          <td><span style="font-size:12px;">Kayaking In Sea Point</span></td>
+          <td><span class="badge bad" data-tip="Title is only 21 characters - too short. Google truncates or rewrites short titles. Ideal range is 50-70 characters.">21 ✗</span></td>
+          <td><span class="desc-text">Kayaking is a popular activity in Sea Point due to its scenic coastline and calm ocean waters. You can either rent a kayak for those who prefer to go out on their own or you can go on a guided kayak tour for those who prefer.</span></td>
+          <td><span class="badge warn" data-tip="Description is 225 characters - too long. Google will truncate this in search results. Aim for 120-160 characters.">225 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Kayaking in Sea Point&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>68</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/book-a-weekend-stay-in-sea-point/" target="_blank" rel="noopener">/book-a-weekend-stay-in-sea-point/</a></td>
+          <td><span style="font-size:12px;">8 Things To Do For A Weekend Stay In Sea Point</span></td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - slightly short. Aim for 50-70 characters to use the available space in Google search results.">46 ⚠</span></td>
+          <td><span class="desc-text">Here are 8 things you can do for your weekend stay in Sea Point. Leeuwenzee Guest House is conveniently located to many popular attractions in Sea Point.</span></td>
+          <td><span class="badge ok" data-tip="Description is 153 characters - within the ideal 120-160 range.">153 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;8 Things to do for a weekend stay in Sea Point&quot;">✓</span></td>
+        </tr>
+        <tr>
+          <td>69</td>
+          <td class="url-cell"><a href="https://www.leeuwenzee.co.za/why-leeuwenzee-is-a-convenient-guest-house-in-sea-point/" target="_blank" rel="noopener">/why-leeuwenzee-is-a-convenient-guest-house-in-sea-point/</a></td>
+          <td><span style="font-size:12px;">Why Leeuwenzee Is A Convenient Guest House In Sea Point</span></td>
+          <td><span class="badge ok" data-tip="Title is 55 characters - within the ideal 50-70 range.">55 ✓</span></td>
+          <td><span class="desc-text">Leeuwenzee is a modern, convenient and charming guest house located in the popular Sea Point neighborhood in Cape Town. Our guest house is well suited for</span></td>
+          <td><span class="badge ok" data-tip="Description is 154 characters - within the ideal 120-160 range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 heading is present: &quot;Why Leeuwenzee is a convenient Guest House in Sea Point&quot;">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-60 chars &nbsp;|&nbsp; Description sweet spot: 150-160 chars (120-149 acceptable) &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- ══ WHY IT MATTERS ══ -->
+  <div class="section-head">
+    <h2>Why This Matters for Leeuwenzee Guest House</h2>
+    <p>Organic search and AI visibility are increasingly important channels for guest houses competing in Cape Town.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <!-- EXPLAIN CARD 1 (blue - search snippet control)
+         Standard case: use "Google Search - Your Highest-Intent Channel" below.
+
+         ZERO SEO CONFIGURED case (theme placeholder or all-empty descriptions):
+         Replace card title and body with:
+
+         Title: "Google Controls How Leeuwenzee Guest House Appears in Every Search Result"
+         Body: "Because no meta descriptions have ever been written for this site, Google ignores
+         the placeholder and generates its own search snippets from whatever body text it can find
+         on each page - navigation menus, introductory paragraphs, page headings. Leeuwenzee Guest House
+         has no control over what that snippet says. A properly written 120-160 character
+         description appears directly below the page title in every search result, 24 hours a day,
+         making the case for why a traveller should click. Not a single page on leeuwenzee.co.za
+         has one."
+    -->
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>People searching "guest house Sea Point" or "B&amp;B Cape Town with sea views" are actively looking to book. If your page titles are too short or too long, and your descriptions get truncated, Google will not display your pages competitively - leaving high-intent traffic to competitors who have spent 30 minutes fixing their metadata.</p>
+      </div>
+    </div>
+
+    <!-- EXPLAIN CARD 2 (purple - AI search)
+         Standard case: use copy below.
+
+         ZERO SEO CONFIGURED case: strengthen to emphasise that a site with no descriptions,
+         no H1s and unstructured content gives AI assistants nothing to work with. Use:
+
+         Title: "Invisible to AI Search - ChatGPT, Perplexity and Claude"
+         Body: "When someone asks ChatGPT or Perplexity 'best boutique hotels in [LOCATION]', the
+         AI reads your website to decide whether to cite Leeuwenzee Guest House in its answer. It relies
+         on clear H1 headings, well-labelled page sections and descriptive metadata to understand
+         what your property offers and where it is. With no meta descriptions and no H1 headings
+         on 2 of 69 pages, Leeuwenzee Guest House is giving AI search
+         nothing to work with - while competitors with structured, well-labelled pages are being
+         cited directly in AI answers."
+    -->
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When someone asks ChatGPT or Perplexity "what are the best guest houses in Sea Point?", the AI reads your website to decide whether to mention Leeuwenzee Guest House. Clear H1s, well-structured descriptions, and unique snippets for every page dramatically increase the chance your property is cited in AI-generated answers.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>Google's Quality Score - which sets your cost-per-click - is partly determined by landing page relevance, including title tags, H1s and metadata. Poor on-page SEO means higher ad costs for the same keywords. Fix the SEO and your ads get cheaper, while organic traffic compounds in the background at no extra cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>You Have the Reviews - But Google Can't Find You</h3>
+        <p>Leeuwenzee Guest House has a strong presence on booking platforms and review sites. That social proof is valuable - but it lives on third-party platforms that take commission. Better on-site SEO transfers that authority to your own website, driving more direct bookings with zero OTA commission.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ CTA ══ -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Leeuwenzee Guest House and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=SEO%20Audit%20-%20Leeuwenzee%20Guest%20House" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Tourism Marketing SA</a></strong> &nbsp;·&nbsp; SEO Audit for Leeuwenzee Guest House &nbsp;·&nbsp; April 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of leeuwenzee.co.za conducted on 14 April 2026.</span>
+</div>
+
+</body>
+</html>
