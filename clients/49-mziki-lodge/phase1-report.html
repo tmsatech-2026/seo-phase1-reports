@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Mziki Safari Lodge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://www.mziki.co.za/wp-content/uploads/2023/06/20220102_190518-scaled.jpg') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* ── KPI CARDS (5-up) ── */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* ── WRAP ── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* ── CRITICAL ISSUES SECTION ── */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* ── SECTION HEADINGS ── */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* ── GOOGLE ADS CALLOUT ── */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* ── ISSUE CARDS ── */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* ── TOOLTIPS ── */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* ── PAGE TABLE ── */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; line-height: 1.5; display: block; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-word; overflow-wrap: anywhere; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    /* ── TABLE LEGEND ── */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── WHY IT MATTERS (vector icon cards) ── */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  LEADS AUDIT REPORT TEMPLATE - TourismMarketing.co.za
+  Version: 2026-03-14
+
+  VARIABLES TO SUBSTITUTE:
+
+  CLIENT INFO:
+    Mziki Safari Lodge           Full property name, e.g. "LANDRANI® Luxury Lodge"
+    mziki.co.za         Domain only, e.g. "landrani.com"
+    Pilanesberg, North West, South Africa       City/region, e.g. "Klein Karoo - Oudtshoorn, South Africa"
+    WordPress / Rank Math SEO       CMS, e.g. "WordPress / Divi"
+    22 May 2026            e.g. "14 March 2026"
+    May 2026      e.g. "March 2026"
+    https://www.mziki.co.za/wp-content/uploads/2023/06/20220102_190518-scaled.jpg        Full URL to property hero/slider image (first slide, >1000px wide)
+    Mziki%20Safari%20Lodge%20-%20SEO%20Audit%20May%202026 URL-encoded email subject for CTA button
+
+  KPI METRICS (calculated from pages_data.json):
+    58         Total pages found
+    23       Pages with title>=60 AND desc 140-160 AND H1 present
+    35       PAGES_CRAWLED - OPTIMIZED_PAGES
+    60%         round(NEED_WORK_COUNT/PAGES_CRAWLED*100)%
+    69%          round(OPTIMIZED_PAGES/PAGES_CRAWLED*100)%
+
+  CRITICAL STATS:
+    0      Pages where current_h1 === ""
+    3    Pages where current_description === ""
+    9      Pages where desc length > 0 and < 140
+    28     Pages where title length < 60
+
+  TOP 3 ISSUES:
+    17           e.g. "75%" or a count
+    17 of 58 pages have meta descriptions exceeding Google's 160-character display limit. Google truncates the tail with "…", cutting off your call to action.           One-sentence description of issue 1
+    11           e.g. "87%"
+    11 of 58 pages have titles longer than 70 characters - the most aggressive offenders push past 80. Google cuts titles at roughly 580 pixels, truncating the closing brand or keyword.           One-sentence description of issue 2
+    41           e.g. "1"
+    /activities-on-safari-in-pilanesberg/           The problematic slug, e.g. "/swap-the-busy-city-life/"
+
+  PAGE TABLE:
+    Replace tbody comment block with one <tr> per page (see instructions in tbody)
+  ═══════════════════════════════════════════════════════════════
+-->
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Mziki Safari Lodge
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">Tourism Marketing SA</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - mziki.co.za &nbsp;|&nbsp; Prepared May 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>58</strong> pages audited</span>
+      <span class="chip"><strong>Pilanesberg, North West, South Africa</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress / Rank Math SEO</span>
+      <span class="chip"><strong>Audit date:</strong> 22 May 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KPI CARDS (5-up with vector icons) ══ -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">58</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">23</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">35</div>
+    <div class="kpi-label">Need Work (60%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num" data-tip="Score per page: Title (50pts) + Meta Description (35pts) + H1 (15pts) = 100 max. Site score = average across all pages. Bands: Good 80-100% · Needs Work 60-79% · Poor 40-59% · Critical 0-39%.">69%</div>
+    <div class="kpi-label">Health Score · Needs Work</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- ══ CRITICAL ISSUES SECTION ══ -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - mziki.co.za</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">0</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">3</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">9</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">28/58</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
+      </div>
+    </div>
+
+    <!-- CRITICAL IMPACT PARAGRAPH
+         Standard case (mixed/partial metadata):
+         Use the default text below.
+
+         ZERO SEO CONFIGURED case (all pages share the same placeholder description,
+         e.g. "BeHotel2 | Best WordPress theme for hotels", or descriptions are all empty):
+         Replace with this variant:
+
+         "35 of 58 pages on mziki.co.za contain the [CMS]
+         theme's default placeholder as their meta description - a clear sign the site was
+         launched without any SEO configuration. Google ignores this placeholder and generates
+         its own search snippets from page body text. Mziki Safari Lodge has never written a single
+         meta description, meaning Google's algorithm controls the first impression on every
+         search result. Combined with 28 page titles outside the optimal range
+         and 0 pages with no H1 heading, the website has been running entirely
+         on Google's guesswork since launch."
+
+         IMPORTANT: Do NOT write "Google shows [placeholder text] in search results" - this is
+         factually wrong. Google overrides useless placeholders with auto-generated snippets from
+         page body text. The accurate impact is lost control, not a bad string being displayed.
+    -->
+    <div class="critical-impact">
+      <strong>Observation:</strong> Mziki has invested in SEO metadata - every page has a title, every page has a meta description set up through Rank Math, and the overall health score reflects that. The findings below are refinements, not foundational gaps. The biggest improvements available are tightening 17 descriptions that currently exceed Google's 160-character display limit (the tail gets truncated), shortening 11 titles that push past the safe 60-65 character range, and resolving the 3 pages with no meta description at all (both Special offer pages and one category archive).
+    </div>
+  </div>
+
+  <!-- ══ TOP 3 KEY ISSUES ══ -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <!-- INTRO CALLOUT: default is generic visibility intro.
+         If the client is actively running Google Ads, swap the block below for the [ADS_CALLOUT_BLOCK]
+         variant at the bottom of this template (search: "ADS_CALLOUT_BLOCK"). -->
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        The three issues below are shaping your Google visibility
+      </div>
+      Mziki's metadata is in good shape overall - this audit surfaces the refinements that will sharpen click-through on the searches the site already ranks for. The three issues below are ranked by the number of Mziki pages affected. Fixing them is mostly a Rank Math editor task: tighten long descriptions to 120-160 characters, trim long titles to 60 characters, and write a description for the two Special offer pages that are currently blank.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">17</div>
+      <h3>Missing H1 Headings</h3>
+      <p>17 of 58 pages have meta descriptions exceeding Google's 160-character display limit. Google truncates the tail with "…", cutting off your call to action.</p>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">11</div>
+      <h3>Meta Descriptions Too Short or Missing</h3>
+      <p>11 of 58 pages have titles longer than 70 characters - the most aggressive offenders push past 80. Google cuts titles at roughly 580 pixels, truncating the closing brand or keyword.</p>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">41</div>
+      <h3>Inconsistent Title Separator</h3>
+      <p>Multiple titles use the lowercase letter "l" instead of the pipe character "|" as a separator (e.g. "Safari Rates l Affordable Safari l Mziki Safari Lodge"). It is consistent enough to look intentional but reads oddly in SERPs and confuses screen readers.</p>
+    </div>
+
+  </div>
+
+  <!-- ══ PAGE-BY-PAGE TABLE ══ -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 58 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <colgroup>
+        <col style="width:4%">
+        <col style="width:20%">
+        <col style="width:24%">
+        <col style="width:8%">
+        <col style="width:30%">
+        <col style="width:8%">
+        <col style="width:6%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Mziki Safari Lodge l Family Friendly Lodge l Mziki Private Game Reserve</td>
+          <td><span class="badge warn" data-tip="Title is 71 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">71 ⚠</span></td>
+          <td><span class="desc-text">Experience a One of a Kind Wildlife Safari at Mziki Safari Lodge, Our Lodge Offers an Affordable, Family Getaway from Johannesburg and Pilanesberg.</span></td>
+          <td><span class="badge ok" data-tip="147 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">147 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Safari Lodge">✓</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/about-us/" target="_blank" rel="noopener">/about-us/</a></td>
+          <td style="font-size:12px;">About Mziki | History, Mission &amp; More | Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 58 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">58 ✓</span></td>
+          <td><span class="desc-text">Learn About The Mziki Safari Lodge History, Mission &amp; Team. A Family Owned &amp; Operated Safari Lodge in South Africa.</span></td>
+          <td><span class="badge bad" data-tip="115 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">115 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: About Us">✓</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/rates-and-specials/" target="_blank" rel="noopener">/rates-and-specials/</a></td>
+          <td style="font-size:12px;">Safari Rates &amp; Specials l Affordable Safari l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 64 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">64 ✓</span></td>
+          <td><span class="desc-text">Explore Our Unbeatable Safari Lodge and Private Game Reserve Specials at Mziki Safari Lodge. Book Now for an Unforgettable Wildlife Adventure.</span></td>
+          <td><span class="badge ok" data-tip="142 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">142 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Rates &amp; Specials">✓</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/safari-lodge-near-pilanesberg/" target="_blank" rel="noopener">/safari-lodge-near-pilanesberg/</a></td>
+          <td style="font-size:12px;">Accommodation l Near Johannesburg l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 54 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">54 ✓</span></td>
+          <td><span class="desc-text">Choose from Our 4 Accommodation Types to Suit All Travellers. Mziki Safari Lodge Provides Comfort, Style, and Seclusion on Safari near Johannesburg.</span></td>
+          <td><span class="badge ok" data-tip="148 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">148 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Accommodation">✓</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/activities-on-safari-in-pilanesberg/" target="_blank" rel="noopener">/activities-on-safari-in-pilanesberg/</a></td>
+          <td style="font-size:12px;">Mziki Private Game Reserve l Animal &amp; Bird Rich Hidden Gem l Near Johannesburg</td>
+          <td><span class="badge warn" data-tip="Title is 78 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">78 ⚠</span></td>
+          <td><span class="desc-text">Set On 6000ha Of Prime Malaria-Free Bushveld, Mziki Private Game Reserve Is Home To Four Of The &quot;Big Five, And Over 50 Species Of Mammals And 372 Species Of Birds. View Activities On Offer On The Reserve.</span></td>
+          <td><span class="badge warn" data-tip="204 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">204 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Private Game Reserve">✓</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/contact-us/" target="_blank" rel="noopener">/contact-us/</a></td>
+          <td style="font-size:12px;">Enquire Now l Contact Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 40 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">40 ⚠</span></td>
+          <td><span class="desc-text">Contact Us On +27 (0) 82 902 2058 Or Via Email Reservations@mziki.co.za For More Information, Or To Make A Booking At Mziki Safari Lodge Today.</span></td>
+          <td><span class="badge ok" data-tip="143 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">143 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Contact Us">✓</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/contact-us/meet-the-team/" target="_blank" rel="noopener">/contact-us/meet-the-team/</a></td>
+          <td style="font-size:12px;">Meet the Team l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 34 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">34 ✗</span></td>
+          <td><span class="desc-text">Meet the Mziki Safari Lodge Team. A Family Owned and Operated Safari Lodge. Our Team is Available Throughout Your Stay to Cater to Your Needs.</span></td>
+          <td><span class="badge ok" data-tip="142 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">142 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Meet The Team">✓</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/contact-us/directions/" target="_blank" rel="noopener">/contact-us/directions/</a></td>
+          <td style="font-size:12px;">Directions &amp; Map l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 37 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">37 ✗</span></td>
+          <td><span class="desc-text">Directions to Mziki Safari Lodge with Our Detailed Map and Directions. Discover Mziki Just 90 Minutes from Johannesburg North and Pilanesberg.</span></td>
+          <td><span class="badge ok" data-tip="142 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">142 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Directions">✓</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/facilities/" target="_blank" rel="noopener">/facilities/</a></td>
+          <td style="font-size:12px;">Facilities at Mziki Safari Lodge l Affordable South African Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 72 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">72 ⚠</span></td>
+          <td><span class="desc-text">Since 1981, The Pallamar Family Have Been Running Mziki Safari Lodge. Discover the Range of Facilities on Offer on the Property. View the Facilities on Offer at the Lodge.</span></td>
+          <td><span class="badge warn" data-tip="171 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">171 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Safari Lodge">✓</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/gallery/" target="_blank" rel="noopener">/gallery/</a></td>
+          <td style="font-size:12px;">Gallery l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 28 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">28 ✗</span></td>
+          <td><span class="desc-text">Mziki Gallery Lodge Photos Room Photos Activity Photos Reserve &amp; Wildlife Photos</span></td>
+          <td><span class="badge bad" data-tip="80 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">80 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Gallery">✓</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/downloads/" target="_blank" rel="noopener">/downloads/</a></td>
+          <td style="font-size:12px;">Downloads l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 30 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">30 ✗</span></td>
+          <td><span class="desc-text">Digital Downloads Download links Fact Sheet COVID Health Info Rates 2025 The Ridge @ Plettenberg Bay Spa Menu Summer Programme Winter Programme Mammal List</span></td>
+          <td><span class="badge ok" data-tip="155 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">155 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Digital Downloads">✓</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/family-friendly/" target="_blank" rel="noopener">/family-friendly/</a></td>
+          <td style="font-size:12px;">Family Friendly Safaris l Near Johannesburg l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 64 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">64 ✓</span></td>
+          <td><span class="desc-text">Mziki Safari Lodge is Dedicated to Offering Family Friendly Safaris in South Africa. Our Convenient Location near Johannesburg &amp; Pretoria Make Us the Perfect Family Safari Option.</span></td>
+          <td><span class="badge warn" data-tip="179 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">179 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Family Friendly Lodge">✓</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/responsible-tourism/" target="_blank" rel="noopener">/responsible-tourism/</a></td>
+          <td style="font-size:12px;">Responsible Tourism l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 40 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">40 ⚠</span></td>
+          <td><span class="desc-text">Responsible Tourism Is an Important Part of Who We Are at Mziki Safari Lodge. Through Recycling Initiatives, Local Community Engagement, and More We Can Give Back.</span></td>
+          <td><span class="badge warn" data-tip="163 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">163 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Responsible Tourism">✓</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/investment/" target="_blank" rel="noopener">/investment/</a></td>
+          <td style="font-size:12px;">Investment l Game Reserve Investment l Mziki Private Game Reserve</td>
+          <td><span class="badge ok" data-tip="Title is 65 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">65 ✓</span></td>
+          <td><span class="desc-text">A Rare Opportunity is Available for a Select Group of Individuals to Become Private Owners of Their Own Piece of Africa. Invest in Mziki Private Game Reserve Today.</span></td>
+          <td><span class="badge warn" data-tip="164 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">164 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Investment">✓</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/faq/" target="_blank" rel="noopener">/faq/</a></td>
+          <td style="font-size:12px;">Downloads l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 30 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">30 ✗</span></td>
+          <td><span class="desc-text">Answering Your Most Frequently Asked Questions, Read Our FAQ Document. If You Have Any More Questions Before Your Stay, Reach Out with Our Contact Form.</span></td>
+          <td><span class="badge ok" data-tip="152 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Faq">✓</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/travel-info/" target="_blank" rel="noopener">/travel-info/</a></td>
+          <td style="font-size:12px;">South Africa Safari Travel Info l Tips From a Safari Lodge l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 79 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">79 ⚠</span></td>
+          <td><span class="desc-text">Preparing For A South African Safari? We’ve Covered All The Key Travel Information From The Point Of View Of A Safari Lodge. We’re Here To Help Make Your Adventure Unforgettable.</span></td>
+          <td><span class="badge warn" data-tip="178 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">178 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Travel Info">✓</span></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/mziki-blog/" target="_blank" rel="noopener">/mziki-blog/</a></td>
+          <td style="font-size:12px;">Our Blog l Safari Lodge Blog l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 49 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">49 ⚠</span></td>
+          <td><span class="desc-text">Discover The Wonders Of Mziki Safari Lodge Through Captivating Stories, Travel Tips, And Wildlife Insights. Keep Up To Date On Our Blog Page.</span></td>
+          <td><span class="badge ok" data-tip="141 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">141 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Safari Lodge Blog">✓</span></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/nightsbridge/" target="_blank" rel="noopener">/nightsbridge/</a></td>
+          <td style="font-size:12px;">Book Now l Check Live Availability l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 55 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">55 ✓</span></td>
+          <td><span class="desc-text">Browse Our Live Room Availability and Book Online. Book Direct with Mziki Safari Lodge and Save.</span></td>
+          <td><span class="badge bad" data-tip="96 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">96 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Make A Booking">✓</span></td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/safari-rustenburg/" target="_blank" rel="noopener">/safari-rustenburg/</a></td>
+          <td style="font-size:12px;">Safari from Rustenburg – Choose Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 50 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">50 ✓</span></td>
+          <td><span class="desc-text">Mziki Safari Lodge is a hidden gem for wildlife enthusiasts. It is a private game reserve near Rustenburg that lies in the bush away from the bustling cityscape, creating a close and convenient getaway for you to get some fresh air and a safari adventure.</span></td>
+          <td><span class="badge warn" data-tip="255 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">255 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Safari from Rustenburg – Why Choose Mziki Safari Lodge">✓</span></td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/pilanesberg-alternative/" target="_blank" rel="noopener">/pilanesberg-alternative/</a></td>
+          <td style="font-size:12px;">Pilanesberg National Park Alternatives – Why Choose Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 70 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">70 ✓</span></td>
+          <td><span class="desc-text">If you're seeking the best Pilanesberg National Park alternative, look no further than Mziki Safari Lodge located within the Mziki Private Game Reserve.</span></td>
+          <td><span class="badge ok" data-tip="152 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Pilanesberg National Park Alternatives – Why Choose Mziki Safari Lodge">✓</span></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/safari-johannesburg/" target="_blank" rel="noopener">/safari-johannesburg/</a></td>
+          <td style="font-size:12px;">Safari from Johannesburg | Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 45 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">45 ⚠</span></td>
+          <td><span class="desc-text">Looking to find the best location for a quick safari away from Johannesburg? Look no further than Mziki Safari Lodge located on the Mziki Private Game Reserve.</span></td>
+          <td><span class="badge ok" data-tip="159 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">159 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Safari Destination near Johannesburg">✓</span></td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/room/" target="_blank" rel="noopener">/room/</a></td>
+          <td style="font-size:12px;">Accommodation l Near Johannesburg l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 54 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">54 ✓</span></td>
+          <td><span class="desc-text">Choose from Our 4 Accommodation Types to Suit All Travellers. Mziki Safari Lodge Provides Comfort, Style, and Seclusion on Safari near Johannesburg.</span></td>
+          <td><span class="badge ok" data-tip="148 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">148 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Accommodation">✓</span></td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/room/chalets/" target="_blank" rel="noopener">/room/chalets/</a></td>
+          <td style="font-size:12px;">Chalets l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 28 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">28 ✗</span></td>
+          <td><span class="desc-text">Our Chalets Are Nestled Within Mziki's Safari Lodge's Beautiful Indigenous Gardens. The Perfect Accommodation Just 90 Minutes From Johannesburg.</span></td>
+          <td><span class="badge ok" data-tip="144 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">144 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Garden Chalets">✓</span></td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/room/family-chalet/" target="_blank" rel="noopener">/room/family-chalet/</a></td>
+          <td style="font-size:12px;">Family Chalet l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 34 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">34 ✗</span></td>
+          <td><span class="desc-text">The Newly Built Family Chalet is the Perfect Accommodation for Families Looking for a South African Safari. Mziki Safari Lodge is Fully Equipped and Welcome to Families.</span></td>
+          <td><span class="badge warn" data-tip="169 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">169 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Family Suites">✓</span></td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/room/rondavel/" target="_blank" rel="noopener">/room/rondavel/</a></td>
+          <td style="font-size:12px;">Rondavels l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 30 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">30 ✗</span></td>
+          <td><span class="desc-text">Mziki Safari Lodge Offers Two Thatched Rondavels Each with Their Own Veranda Overlooking the Quiet Indigenous Gardens and Bushveld Beyond.</span></td>
+          <td><span class="badge ok" data-tip="138 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">138 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Rondavels">✓</span></td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/" target="_blank" rel="noopener">/attraction/</a></td>
+          <td style="font-size:12px;">Mziki Private Game Reserve l Animal &amp; Bird Rich Hidden Gem l Near Johannesburg</td>
+          <td><span class="badge warn" data-tip="Title is 78 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">78 ⚠</span></td>
+          <td><span class="desc-text">Set On 6000ha Of Prime Malaria-Free Bushveld, Mziki Private Game Reserve Is Home To Four Of The &quot;Big Five, And Over 50 Species Of Mammals And 372 Species Of Birds. View Activities On Offer On The Reserve.</span></td>
+          <td><span class="badge warn" data-tip="204 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">204 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Private Game Reserve">✓</span></td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/game-viewing/" target="_blank" rel="noopener">/attraction/game-viewing/</a></td>
+          <td style="font-size:12px;">Game Drives l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 32 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">32 ✗</span></td>
+          <td><span class="desc-text">Mziki Safari Lodge Offers a Malaria-Free Environment in which Families can Enjoy Game Viewing. Our Experienced Guides will take you on an Unforgettable African Game Drive.</span></td>
+          <td><span class="badge warn" data-tip="171 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">171 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Game Viewing">✓</span></td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/barge-cruises/" target="_blank" rel="noopener">/attraction/barge-cruises/</a></td>
+          <td style="font-size:12px;">Barge Cruises l Near Johannesburg l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 54 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">54 ✓</span></td>
+          <td><span class="desc-text">Mziki Safari Lodge's Boat Cruise Along the Hex River: See Crocodiles, Hippos, and More from the Water.</span></td>
+          <td><span class="badge bad" data-tip="102 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">102 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Barge cruises">✓</span></td>
+        </tr>
+        <tr>
+          <td>29</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/bush-walks/" target="_blank" rel="noopener">/attraction/bush-walks/</a></td>
+          <td style="font-size:12px;">Walking Safari l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 35 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">35 ✗</span></td>
+          <td><span class="desc-text">Discover The Beauty Of South Africa On A Bush Walk Or Walking Safari At Mziki Safari Lodge. You Will Be Accompanied By Our Knowledgeable Rangers During Our Bush Walks.</span></td>
+          <td><span class="badge warn" data-tip="167 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">167 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Bush Walks">✓</span></td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/mini-ranger-course/" target="_blank" rel="noopener">/attraction/mini-ranger-course/</a></td>
+          <td style="font-size:12px;">Junior Ranger Course l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">41 ⚠</span></td>
+          <td><span class="desc-text">Mziki's Mini-Ranger Programme Keeps the Kids Entertained Throughout Your Stay. The Game Ranger Course is Tailored to Age and the Duration of Your Stay.</span></td>
+          <td><span class="badge ok" data-tip="151 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mini &amp; Junior Ranger Course">✓</span></td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/volleyball/" target="_blank" rel="noopener">/attraction/volleyball/</a></td>
+          <td style="font-size:12px;">Volleyball on Safari l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">41 ⚠</span></td>
+          <td><span class="desc-text">Experience volleyball in the heart of the African bush at Mziki Safari Lodge. Book your stay for a unique blend of family-friendly fun and wildlife encounters. Unforgettable safari adventures await!</span></td>
+          <td><span class="badge warn" data-tip="198 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">198 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Volleyball">✓</span></td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/archery/" target="_blank" rel="noopener">/attraction/archery/</a></td>
+          <td style="font-size:12px;">Archery &amp; Pellet Shooting l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">46 ⚠</span></td>
+          <td><span class="desc-text">Experience the Thrill of Archery and Pellet Shooting at Mziki Safari Lodge. Perfect for the Kids and Parents Alike. Book Your Safari Today.</span></td>
+          <td><span class="badge ok" data-tip="139 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">139 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Archery &amp; Pellet Shooting">✓</span></td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/fishing/" target="_blank" rel="noopener">/attraction/fishing/</a></td>
+          <td style="font-size:12px;">Fishing l River Fishing Near Johannesburg l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 62 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">62 ✓</span></td>
+          <td><span class="desc-text">Mziki Safari Lodge Offers River Fishing near Johannesburg, Pilanesberg, and Rustenburg. The Perfect Environment for Fly and Bait Fishermen.</span></td>
+          <td><span class="badge ok" data-tip="139 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">139 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Fishing at Hex River">✓</span></td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/attraction/birding/" target="_blank" rel="noopener">/attraction/birding/</a></td>
+          <td style="font-size:12px;">Birding Safari l Near Johannesburg l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 55 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">55 ✓</span></td>
+          <td><span class="desc-text">Experience Birding Like Never Before at Mziki Safari Lodge, the Birder-Friendly Lodging Near Johannesburg. Explore Our Birding Safaris Today.</span></td>
+          <td><span class="badge ok" data-tip="141 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">141 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Birding">✓</span></td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/service/" target="_blank" rel="noopener">/service/</a></td>
+          <td style="font-size:12px;">Facilities at Mziki Safari Lodge l Affordable South African Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 72 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">72 ⚠</span></td>
+          <td><span class="desc-text">Since 1981, The Pallamar Family Have Been Running Mziki Safari Lodge. Discover the Range of Facilities on Offer on the Property. View the Facilities on Offer at the Lodge.</span></td>
+          <td><span class="badge warn" data-tip="171 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">171 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Safari Lodge">✓</span></td>
+        </tr>
+        <tr>
+          <td>36</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/service/outdoor-safari-lounge-and-swimming-pool/" target="_blank" rel="noopener">/service/outdoor-safari-lounge-and-swimming-pool/</a></td>
+          <td style="font-size:12px;">Lounge &amp; Swimming Pool l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 43 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">43 ⚠</span></td>
+          <td><span class="desc-text">Our Shady Outdoor Safari Lounge Overlooks Mziki Safari Lodge’s Pristine Swimming Pool for a Perfect Quiet Afternoon of Relaxation near Johannesburg.</span></td>
+          <td><span class="badge ok" data-tip="148 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">148 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Lounge &amp; Swimming Pool">✓</span></td>
+        </tr>
+        <tr>
+          <td>37</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/service/reception-and-lounge/" target="_blank" rel="noopener">/service/reception-and-lounge/</a></td>
+          <td style="font-size:12px;">Lounge l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 27 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">27 ✗</span></td>
+          <td><span class="desc-text">Sink Into The Warm Embrace Of Mziki Safari Lodge’s Comfortable Lounge. It's Stocked With Coffee And Tea, Books And Board Games And A Roaring Fire.</span></td>
+          <td><span class="badge ok" data-tip="146 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">146 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Reception &amp; Lounge">✓</span></td>
+        </tr>
+        <tr>
+          <td>38</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/service/selous-boma/" target="_blank" rel="noopener">/service/selous-boma/</a></td>
+          <td style="font-size:12px;">Bar &amp; Restaurant l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 37 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">37 ✗</span></td>
+          <td><span class="desc-text">Mziki’s Open Air Bush Boma Restaurant &amp; Selous Bar: Private Dining Tables Under the Stars, Surrounded by the Sounds of the African Bush.</span></td>
+          <td><span class="badge ok" data-tip="136 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">136 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Selous Bar &amp; Boma Restaurants">✓</span></td>
+        </tr>
+        <tr>
+          <td>39</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/service/ha-lolo-beauty-spa/" target="_blank" rel="noopener">/service/ha-lolo-beauty-spa/</a></td>
+          <td style="font-size:12px;">Beauty Spa l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 31 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">31 ✗</span></td>
+          <td><span class="desc-text">Mziki Safari Lodge Offers Spa Facilities For Our Guests. Enjoy The Comfort Of A Range Of Rejuvenating Treatments In The Comfort Of Your Room.</span></td>
+          <td><span class="badge ok" data-tip="141 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">141 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Ha Lolo Beauty Spa">✓</span></td>
+        </tr>
+        <tr>
+          <td>40</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/service/private-conference-room/" target="_blank" rel="noopener">/service/private-conference-room/</a></td>
+          <td style="font-size:12px;">Conference Room l Enquire About Business Getaways l Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 70 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">70 ✓</span></td>
+          <td><span class="desc-text">Go On Safari With Your Team. Mziki Safari Lodge Is Perfect For Business Meetings Or Team Building With Our Spacious Conference Room. Conveniently Located To Johannesburg And Pretoria.</span></td>
+          <td><span class="badge warn" data-tip="183 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">183 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Private Conference Room">✓</span></td>
+        </tr>
+        <tr>
+          <td>41</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/service/mziki-shop/" target="_blank" rel="noopener">/service/mziki-shop/</a></td>
+          <td style="font-size:12px;">Mziki Safari Gift Shop l Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 43 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">43 ⚠</span></td>
+          <td><span class="desc-text">You May Be in the Bush, but There's Plenty of Novel Things to Browse and Buy at Mziki's Well-Equipped Shop.</span></td>
+          <td><span class="badge bad" data-tip="107 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">107 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Shop">✓</span></td>
+        </tr>
+        <tr>
+          <td>42</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/special/escape-special/" target="_blank" rel="noopener">/special/escape-special/</a></td>
+          <td style="font-size:12px;">Escape Special | Safari Special | Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 52 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">52 ✓</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Escape Special">✓</span></td>
+        </tr>
+        <tr>
+          <td>43</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/special/stay-3-pay-2/" target="_blank" rel="noopener">/special/stay-3-pay-2/</a></td>
+          <td style="font-size:12px;">Stay 3, Pay 2 | Safari Special | Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 51 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">51 ✓</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Stay 3, Pay 2">✓</span></td>
+        </tr>
+        <tr>
+          <td>44</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/mziki-renovations-were-open-and-better-than-ever/" target="_blank" rel="noopener">/mziki-renovations-were-open-and-better-than-ever/</a></td>
+          <td style="font-size:12px;">Mziki Renovations: We’re Open and Better Than Ever! | Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 72 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">72 ⚠</span></td>
+          <td><span class="desc-text">We are thrilled to announce that Mziki Safari Lodge has officially reopened after a brief closure for major renovations. Over the past few months, we have</span></td>
+          <td><span class="badge ok" data-tip="154 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Renovations: We’re Open and Better Than Ever!">✓</span></td>
+        </tr>
+        <tr>
+          <td>45</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/edie-the-cheetah-introduced-into-mziki-private-game-reserve/" target="_blank" rel="noopener">/edie-the-cheetah-introduced-into-mziki-private-game-reserve/</a></td>
+          <td style="font-size:12px;">Cheetah Introduced into Mziki Private Game Reserve | Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 71 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">71 ⚠</span></td>
+          <td><span class="desc-text">In an unprecedented milestone for our reserve, we are thrilled to welcome the first cheetah into Mziki Game Reserve! In the words of our manager Devon, this</span></td>
+          <td><span class="badge ok" data-tip="156 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Renovations: We’re Open and Better Than Ever!">✓</span></td>
+        </tr>
+        <tr>
+          <td>46</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/best-game-reserve-south-africa/" target="_blank" rel="noopener">/best-game-reserve-south-africa/</a></td>
+          <td style="font-size:12px;">Best Game Reserves In South Africa | For Every Type of Traveller | Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 85 characters - too long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">85 ✗</span></td>
+          <td><span class="desc-text">In this article, Mziki has compiled a list of the best game reserves in South Africa, highlighting the top choices in various categories to help you plan the best safari experience.</span></td>
+          <td><span class="badge warn" data-tip="181 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">181 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Renovations: We’re Open and Better Than Ever!">✓</span></td>
+        </tr>
+        <tr>
+          <td>47</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/your-guide-to-tipping-on-safari/" target="_blank" rel="noopener">/your-guide-to-tipping-on-safari/</a></td>
+          <td style="font-size:12px;">Your Guide to Tipping on Safari | Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 52 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">52 ✓</span></td>
+          <td><span class="desc-text">Tipping on safari is not mandatory, but it’s a very good gesture of appreciation that significantly impacts the livelihoods of those working in the industry.</span></td>
+          <td><span class="badge ok" data-tip="157 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Renovations: We’re Open and Better Than Ever!">✓</span></td>
+        </tr>
+        <tr>
+          <td>48</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/safari-north-west-province-where-to-stay-and-what-to-do/" target="_blank" rel="noopener">/safari-north-west-province-where-to-stay-and-what-to-do/</a></td>
+          <td style="font-size:12px;">Safari North West Province: Where To Stay And What To Do | Mziki Safari Lodge</td>
+          <td><span class="badge warn" data-tip="Title is 77 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">77 ⚠</span></td>
+          <td><span class="desc-text">The North Western Province of South Africa is a hidden gem for safari enthusiasts, offering breathtaking wildlife encounters, stunning natural landscapes, and</span></td>
+          <td><span class="badge ok" data-tip="158 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">158 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Renovations: We’re Open and Better Than Ever!">✓</span></td>
+        </tr>
+        <tr>
+          <td>49</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/national-parks-vs-private-game-reserves/" target="_blank" rel="noopener">/national-parks-vs-private-game-reserves/</a></td>
+          <td style="font-size:12px;">National Parks vs. Private Game Reserves: Planning Your Perfect Safari | Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 91 characters - too long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">91 ✗</span></td>
+          <td><span class="desc-text">The decision between visiting one of South Africa's national parks or opting for a private game reserve experience is at the heart of planning your safari adventure. Let's compare the two and learn why private game reserves hold a special allure.</span></td>
+          <td><span class="badge warn" data-tip="246 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">246 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Renovations: We’re Open and Better Than Ever!">✓</span></td>
+        </tr>
+        <tr>
+          <td>50</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/wildlife/" target="_blank" rel="noopener">/wildlife/</a></td>
+          <td style="font-size:12px;">Wildlife | Mziki Private Game Reserve | Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 58 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">58 ✓</span></td>
+          <td><span class="desc-text">Home to Four of the Big 5, Mziki Offers a Malaria-Free Safari near Johannesburg and Pilanesberg. Learn More about the Animals You Are Likely to Encounter.</span></td>
+          <td><span class="badge ok" data-tip="154 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: List of animals found on the Mziki Game Reserve">✓</span></td>
+        </tr>
+        <tr>
+          <td>51</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/birdwatchers-paradise-discovering-the-avian-diversity-at-mziki-private-game-reserve/" target="_blank" rel="noopener">/birdwatchers-paradise-discovering-the-avian-diversity-at-mziki-private-game-reserve/</a></td>
+          <td style="font-size:12px;">Birds | Mziki Private Game Reserve | Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 55 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">55 ✓</span></td>
+          <td><span class="desc-text">One Of The Top 3 Birding Areas In South Africa, Mziki Safari Lodge Offers A Malaria-Free Safari Option Near Johannesburg And Pilanesberg. Learn More About The Birds You Are Likely To Encounter.</span></td>
+          <td><span class="badge warn" data-tip="193 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">193 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Renovations: We’re Open and Better Than Ever!">✓</span></td>
+        </tr>
+        <tr>
+          <td>52</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/photographic-safari-what-camera-gear-to-bring/" target="_blank" rel="noopener">/photographic-safari-what-camera-gear-to-bring/</a></td>
+          <td style="font-size:12px;">Photographic Safari: What camera gear to bring | Mziki Safari Lodge</td>
+          <td><span class="badge ok" data-tip="Title is 67 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">67 ✓</span></td>
+          <td><span class="desc-text">Coming on safari is an amazing experience, use these tips to choose the right gear on your safari.</span></td>
+          <td><span class="badge bad" data-tip="98 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">98 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Camera body">✓</span></td>
+        </tr>
+        <tr>
+          <td>53</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/category/uncategorized/" target="_blank" rel="noopener">/category/uncategorized/</a></td>
+          <td style="font-size:12px;">Uncategorized | Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 34 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">34 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Category: Uncategorized">✓</span></td>
+        </tr>
+        <tr>
+          <td>54</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/privacy-policy/" target="_blank" rel="noopener">/privacy-policy/</a></td>
+          <td style="font-size:12px;">Privacy Policy l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 35 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">35 ✗</span></td>
+          <td><span class="desc-text">Last Updated On 28-May-2023Effective Date 28-May-2023</span></td>
+          <td><span class="badge bad" data-tip="53 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">53 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Privacy Policy">✓</span></td>
+        </tr>
+        <tr>
+          <td>55</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/terms-and-conditions/" target="_blank" rel="noopener">/terms-and-conditions/</a></td>
+          <td style="font-size:12px;">Terms &amp; Conditions l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">39 ✗</span></td>
+          <td><span class="desc-text">Mziki Terms &amp; Conditions Terms &amp; Conditions Peak Season: Requires a 30% non-refundable deposit. Cancellation Policy: A 25% cancellation fee applies if</span></td>
+          <td><span class="badge ok" data-tip="150 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">150 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mziki Terms &amp; Conditions">✓</span></td>
+        </tr>
+        <tr>
+          <td>56</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/ty-newsletter/" target="_blank" rel="noopener">/ty-newsletter/</a></td>
+          <td style="font-size:12px;">Thank You l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 30 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">30 ✗</span></td>
+          <td><span class="desc-text">Thank you for signing up to our newsletter.</span></td>
+          <td><span class="badge bad" data-tip="43 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">43 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Thank you">✓</span></td>
+        </tr>
+        <tr>
+          <td>57</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/thank-you/" target="_blank" rel="noopener">/thank-you/</a></td>
+          <td style="font-size:12px;">Thank You l Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 30 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">30 ✗</span></td>
+          <td><span class="desc-text">Thank you for getting in contact, one of our team members will be in contact as soon as possible.</span></td>
+          <td><span class="badge bad" data-tip="97 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">97 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Thank you">✓</span></td>
+        </tr>
+        <tr>
+          <td>58</td>
+          <td class="url-cell"><a href="https://www.mziki.co.za/sample-page/" target="_blank" rel="noopener">/sample-page/</a></td>
+          <td style="font-size:12px;">Sample Page | Mziki Safari Lodge</td>
+          <td><span class="badge bad" data-tip="Title is 32 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">32 ✗</span></td>
+          <td><span class="desc-text">This is an example page. It's different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most</span></td>
+          <td><span class="badge ok" data-tip="154 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Sample Page">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-60 chars &nbsp;|&nbsp; Description sweet spot: 150-160 chars (120-149 acceptable) &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- ══ WHY IT MATTERS ══ -->
+  <div class="section-head">
+    <h2>Why This Matters for Mziki Safari Lodge</h2>
+    <p>Mziki's metadata is in good shape - here is why the remaining refinements matter, and what they unlock.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <!-- EXPLAIN CARD 1 (blue - search snippet control)
+         Standard case: use "Google Search - Your Highest-Intent Channel" below.
+
+         ZERO SEO CONFIGURED case (theme placeholder or all-empty descriptions):
+         Replace card title and body with:
+
+         Title: "Google Controls How Mziki Safari Lodge Appears in Every Search Result"
+         Body: "Because no meta descriptions have ever been written for this site, Google ignores
+         the placeholder and generates its own search snippets from whatever body text it can find
+         on each page - navigation menus, introductory paragraphs, page headings. Mziki Safari Lodge
+         has no control over what that snippet says. A properly written 120-160 character
+         description appears directly below the page title in every search result, 24 hours a day,
+         making the case for why a traveller should click. Not a single page on mziki.co.za
+         has one."
+    -->
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>Travellers searching "Pilanesberg safari lodge", "family safari near Johannesburg" or "Big Five game reserve North West" are actively planning a booking. Mziki's metadata is in decent shape, but the 17 truncated descriptions and 11 over-length titles mean the SERP snippet is not making its full case. Tightening them is a high-leverage afternoon of work.</p>
+      </div>
+    </div>
+
+    <!-- EXPLAIN CARD 2 (purple - AI search)
+         Standard case: use copy below.
+
+         ZERO SEO CONFIGURED case: strengthen to emphasise that a site with no descriptions,
+         no H1s and unstructured content gives AI assistants nothing to work with. Use:
+
+         Title: "Invisible to AI Search - ChatGPT, Perplexity and Claude"
+         Body: "When someone asks ChatGPT or Perplexity 'best boutique hotels in [LOCATION]', the
+         AI reads your website to decide whether to cite Mziki Safari Lodge in its answer. It relies
+         on clear H1 headings, well-labelled page sections and descriptive metadata to understand
+         what your property offers and where it is. With no meta descriptions and no H1 headings
+         on 0 of 58 pages, Mziki Safari Lodge is giving AI search
+         nothing to work with - while competitors with structured, well-labelled pages are being
+         cited directly in AI answers."
+    -->
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When a traveller asks ChatGPT or Perplexity "best family-friendly safari lodge near Johannesburg" or "Pilanesberg alternative", the AI reads each page's title, description and H1 to decide whether to cite Mziki. The clearer and more accurate those signals are, the more often Mziki appears in AI-generated answers - and AI search referrals are growing quarter on quarter.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>If you run Google Ads, the landing page Quality Score depends on title and meta relevance. Tightening Mziki's metadata means lower cost-per-click on the same keywords - and the organic traffic compounds in the background at no extra cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>You Have the Reviews - But Google Can't Find You</h3>
+        <p>Mziki Safari Lodge has strong reviews on third-party platforms. That social proof is valuable - but it lives on third-party platforms. Better on-site SEO transfers that authority to your own website, driving more direct bookings with no OTA commission.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ CTA ══ -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Mziki Safari Lodge and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=Mziki%20Safari%20Lodge%20-%20SEO%20Audit%20May%202026" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Tourism Marketing SA</a></strong> &nbsp;·&nbsp; SEO Audit for Mziki Safari Lodge &nbsp;·&nbsp; May 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of mziki.co.za conducted on 22 May 2026.</span>
+</div>
+
+</body>
+</html>
