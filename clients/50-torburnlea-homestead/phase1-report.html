@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Audit Report - Torburnlea Homestead</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:     #d4a574;
+      --blue:     #2563EB;
+      --green:    #16A34A;
+      --amber:    #D97706;
+      --red:      #E05A4E;
+      --purple:   #7C3AED;
+      --bg:       #f0f2f5;
+      --card:     #ffffff;
+      --border:   #e4e7eb;
+      --text:     #1a1a2e;
+      --muted:    #6c757d;
+      --radius:   12px;
+      --shadow:   0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md:0 4px 16px rgba(0,0,0,0.11);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, rgba(10,10,20,0.46) 0%, rgba(26,18,8,0.44) 55%, rgba(50,35,10,0.40) 100%),
+                  url('https://www.torburnlea.co.za/wp-content/uploads/2022/08/torburnlea0.jpg') center/cover no-repeat;
+      border-bottom: 3px solid var(--gold);
+      padding: 72px 48px 68px;
+      color: #fff;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(212,165,116,0.20); border: 1px solid rgba(212,165,116,0.45);
+      border-radius: 6px; padding: 5px 14px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.85); margin-bottom: 20px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.25; }
+    .hero h1 .by-line { font-size: 17px; font-weight: 400; color: rgba(255,255,255,0.68); display: block; margin-top: 8px; }
+    .hero h1 .by-line a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(212,165,116,0.4); }
+    .hero h1 .by-line a:hover { border-bottom-color: var(--gold); }
+    .hero-sub { font-size: 1.0rem; font-weight: 400; color: rgba(255,255,255,0.78); margin-bottom: 24px; line-height: 1.5; max-width: 680px; margin-top: 14px; }
+    .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 6px; padding: 5px 14px; font-size: 11px; color: rgba(255,255,255,0.65); }
+    .chip strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* ── KPI CARDS (5-up) ── */
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      max-width: 1200px; margin: -32px auto 0; padding: 0 48px;
+    }
+    .kpi {
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      padding: 22px 16px 18px; color: #fff; text-align: center;
+    }
+    .kpi.c-blue   { background: var(--blue); }
+    .kpi.c-green  { background: var(--green); }
+    .kpi.c-red    { background: #e74c3c; }
+    .kpi.c-amber  { background: var(--amber); }
+    .kpi.c-purple { background: var(--purple); }
+    .kpi-icon { display: flex; justify-content: center; align-items: center; margin-bottom: 10px; opacity: 0.90; }
+    .kpi-icon svg { width: 30px; height: 30px; }
+    .kpi-num   { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+    .kpi-label { font-size: 9px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.80); }
+
+    /* ── WRAP ── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* ── CRITICAL ISSUES SECTION ── */
+    .critical-section {
+      background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+      border-radius: var(--radius); padding: 28px; margin: 32px 0 0;
+      color: #fff; box-shadow: 0 6px 24px rgba(192,57,43,0.32);
+    }
+    .critical-header {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+    }
+    .critical-header svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .critical-header h2 {
+      font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+    }
+    .critical-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+    .cstat { background: rgba(255,255,255,0.14); border-radius: 8px; padding: 16px 12px; text-align: center; }
+    .cstat-num { font-size: 34px; font-weight: 800; line-height: 1; }
+    .cstat-lbl { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 5px; }
+    .critical-impact {
+      background: rgba(255,255,255,0.12); border-radius: 8px; padding: 14px 18px;
+      font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.92);
+    }
+    .critical-impact strong { color: #fff; }
+
+    /* ── SECTION HEADINGS ── */
+    .section-head { margin: 40px 0 18px; }
+    .section-head h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--text); }
+    .section-head p  { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* ── GOOGLE ADS CALLOUT ── */
+    .ads-callout {
+      background: #fffbf0; border: 1px solid #fbbf24; border-left: 4px solid var(--amber);
+      border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 16px 0 0;
+      font-size: 13px; color: #444; line-height: 1.7;
+    }
+    .ads-callout .callout-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--amber); margin-bottom: 8px;
+    }
+    .ads-callout .callout-title svg { width: 16px; height: 16px; }
+    .ads-callout strong { color: var(--text); }
+
+    /* ── ISSUE CARDS ── */
+    .issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 32px; }
+    .issue-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; }
+    .issue-card.critical { border-top: 4px solid var(--red); }
+    .issue-card.medium   { border-top: 4px solid var(--amber); }
+    .issue-priority { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; display: inline-block; margin-bottom: 10px; }
+    .issue-priority.critical { background: rgba(224,90,78,0.12); color: var(--red); }
+    .issue-priority.medium   { background: rgba(217,119,6,0.12);  color: var(--amber); }
+    .issue-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .issue-card .stat-line { font-size: 30px; font-weight: 800; color: var(--red); line-height: 1; margin-bottom: 6px; }
+    .issue-card.medium .stat-line { color: var(--amber); }
+    .issue-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .issue-card .why { background: #f8f9fa; border-left: 3px solid #ddd; border-radius: 0 6px 6px 0; padding: 10px 14px; margin: 10px 0 0; font-size: 12px; color: #444; line-height: 1.6; }
+    .issue-card .why strong { color: var(--text); display: block; margin-bottom: 4px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+
+    /* ── TOOLTIPS ── */
+    [data-tip] { position: relative; cursor: help; }
+    [data-tip]::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a1a2e;
+      color: #fff;
+      padding: 9px 13px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 1.5;
+      width: 230px;
+      white-space: normal;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    [data-tip]::before {
+      content: '';
+      position: absolute;
+      bottom: calc(100% + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #1a1a2e;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: opacity 0.15s;
+    }
+    [data-tip]:hover::after,
+    [data-tip]:hover::before { opacity: 1; }
+
+    /* ── PAGE TABLE ── */
+    .page-table { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 16px; }
+    .page-table table { width: 100%; border-collapse: collapse; font-size: 12px; table-layout: fixed; }
+    .page-table th { background: #f8f9fa; padding: 10px 14px; text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .page-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; vertical-align: middle; line-height: 1.5; }
+    .page-table tr:last-child td { border-bottom: none; }
+    .page-table tr:hover td { background: #fafbfc; }
+    .desc-text { font-size: 11px; color: #333; line-height: 1.5; display: block; }
+    .cell-missing { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--red); letter-spacing: 0.3px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; font-weight: 600; padding: 3px 9px;
+      border-radius: 5px; white-space: nowrap; border: 1.5px solid transparent;
+    }
+    .badge.ok       { background: rgba(22,163,74,0.08);  color: #15803d; border-color: rgba(22,163,74,0.25); }
+    .badge.warn     { background: rgba(217,119,6,0.08);  color: #b45309; border-color: rgba(217,119,6,0.30); }
+    .badge.bad      { background: rgba(224,90,78,0.08);  color: #c0392b; border-color: rgba(224,90,78,0.30); }
+    .url-cell { font-family: monospace; font-size: 11px; color: var(--blue); word-break: break-word; overflow-wrap: anywhere; }
+    .url-cell a { color: var(--blue); text-decoration: none; }
+    .url-cell a:hover { text-decoration: underline; }
+
+    /* ── TABLE LEGEND ── */
+    .table-legend { font-size: 11px; color: var(--muted); margin: 0 0 32px; padding: 10px 14px; background: var(--card); border-radius: 0 0 var(--radius) var(--radius); border: 1px solid var(--border); border-top: none; display: flex; flex-wrap: wrap; gap: 16px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    /* ── WHY IT MATTERS (vector icon cards) ── */
+    .explain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 32px; }
+    .explain-card { background: var(--card); border-radius: var(--radius); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+    .explain-icon-wrap {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .explain-icon-wrap svg { width: 24px; height: 24px; }
+    .explain-icon-wrap.blue   { background: rgba(37,99,235,0.10); color: var(--blue); }
+    .explain-icon-wrap.green  { background: rgba(22,163,74,0.10); color: var(--green); }
+    .explain-icon-wrap.amber  { background: rgba(217,119,6,0.10); color: var(--amber); }
+    .explain-icon-wrap.purple { background: rgba(124,58,237,0.10); color: var(--purple); }
+    .explain-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .explain-body p  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0f4c35 0%, #166534 50%, #15803d 100%);
+      border-radius: var(--radius); padding: 52px 48px; margin: 32px 0;
+      color: #fff; text-align: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 32px rgba(15,76,53,0.35);
+    }
+    .cta-section h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; margin-bottom: 14px; }
+    .cta-section p  { font-size: 16px; color: rgba(255,255,255,0.82); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff; color: #0f4c35;
+      font-weight: 800; font-size: 17px; letter-spacing: 0.3px;
+      padding: 18px 52px; border-radius: 10px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--text); color: rgba(255,255,255,0.50); text-align: center; padding: 28px 48px; font-size: 12px; margin-top: 40px; }
+    .footer strong { color: var(--gold); }
+
+    .spacer-lg { height: 44px; }
+    .spacer-sm { height: 24px; }
+
+    @media (max-width: 900px) {
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 48px 20px 52px; }
+      .hero h1 { font-size: 24px; }
+      .kpi-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; margin-top: -20px; }
+      .wrap { padding: 0 20px; }
+      .issue-grid { grid-template-columns: 1fr; }
+      .explain-grid { grid-template-columns: 1fr; }
+      .critical-stats { grid-template-columns: repeat(2, 1fr); }
+      .cta-section { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  ═══════════════════════════════════════════════════════════════
+  LEADS AUDIT REPORT TEMPLATE - TourismMarketing.co.za
+  Version: 2026-03-14
+
+  VARIABLES TO SUBSTITUTE:
+
+  CLIENT INFO:
+    Torburnlea Homestead           Full property name, e.g. "LANDRANI® Luxury Lodge"
+    torburnlea.co.za         Domain only, e.g. "landrani.com"
+    Mbombela (Nelspruit), Mpumalanga, South Africa       City/region, e.g. "Klein Karoo - Oudtshoorn, South Africa"
+    WordPress / Rank Math SEO       CMS, e.g. "WordPress / Divi"
+    22 May 2026            e.g. "14 March 2026"
+    May 2026      e.g. "March 2026"
+    https://www.torburnlea.co.za/wp-content/uploads/2022/08/torburnlea0.jpg        Full URL to property hero/slider image (first slide, >1000px wide)
+    Torburnlea%20Homestead%20-%20SEO%20Audit%20May%202026 URL-encoded email subject for CTA button
+
+  KPI METRICS (calculated from pages_data.json):
+    71         Total pages found
+    13       Pages with title>=60 AND desc 140-160 AND H1 present
+    58       PAGES_CRAWLED - OPTIMIZED_PAGES
+    82%         round(NEED_WORK_COUNT/PAGES_CRAWLED*100)%
+    56%          round(OPTIMIZED_PAGES/PAGES_CRAWLED*100)%
+
+  CRITICAL STATS:
+    12      Pages where current_h1 === ""
+    6    Pages where current_description === ""
+    23      Pages where desc length > 0 and < 140
+    55     Pages where title length < 60
+
+  TOP 3 ISSUES:
+    55           e.g. "75%" or a count
+    55 of 71 pages have titles under 50 characters. There's room to add a location, modifier or differentiator without risking truncation - and shorter titles tend to underperform in CTR.           One-sentence description of issue 1
+    23           e.g. "87%"
+    23 of 71 pages have meta descriptions shorter than 120 characters. The SERP snippet space is going unused - you have room to add a benefit, a location anchor or a call to action that you currently aren't using.           One-sentence description of issue 2
+    12           e.g. "1"
+               The problematic slug, e.g. "/swap-the-busy-city-life/"
+
+  PAGE TABLE:
+    Replace tbody comment block with one <tr> per page (see instructions in tbody)
+  ═══════════════════════════════════════════════════════════════
+-->
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">SEO Audit Report</div>
+    <h1>
+      Torburnlea Homestead
+      <span class="by-line">- SEO Analysis by <a href="https://tourismmarketing.co.za" target="_blank" rel="noopener">Tourism Marketing SA</a></span>
+    </h1>
+    <p class="hero-sub">Website SEO Health Assessment - torburnlea.co.za &nbsp;|&nbsp; Prepared May 2026</p>
+    <div class="hero-chips">
+      <span class="chip"><strong>71</strong> pages audited</span>
+      <span class="chip"><strong>Mbombela (Nelspruit), Mpumalanga, South Africa</strong></span>
+      <span class="chip"><strong>Platform:</strong> WordPress / Rank Math SEO</span>
+      <span class="chip"><strong>Audit date:</strong> 22 May 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KPI CARDS (5-up with vector icons) ══ -->
+<div class="kpi-grid">
+
+  <div class="kpi c-blue">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+      </svg>
+    </div>
+    <div class="kpi-num">71</div>
+    <div class="kpi-label">Pages Crawled</div>
+  </div>
+
+  <div class="kpi c-green">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+    </div>
+    <div class="kpi-num">13</div>
+    <div class="kpi-label">Optimized Pages</div>
+  </div>
+
+  <div class="kpi c-red">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+    </div>
+    <div class="kpi-num">58</div>
+    <div class="kpi-label">Need Work (82%)</div>
+  </div>
+
+  <div class="kpi c-purple">
+    <div class="kpi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+      </svg>
+    </div>
+    <div class="kpi-num" data-tip="Score per page: Title (50pts) + Meta Description (35pts) + H1 (15pts) = 100 max. Site score = average across all pages. Bands: Good 80-100% · Needs Work 60-79% · Poor 40-59% · Critical 0-39%.">56%</div>
+    <div class="kpi-label">Health Score · Poor</div>
+  </div>
+
+</div>
+
+<div class="spacer-lg"></div>
+
+<div class="wrap">
+
+  <!-- ══ CRITICAL ISSUES SECTION ══ -->
+  <div class="critical-section">
+    <div class="critical-header">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <h2>Critical SEO Issues Identified - torburnlea.co.za</h2>
+    </div>
+
+    <div class="critical-stats">
+      <div class="cstat">
+        <div class="cstat-num">12</div>
+        <div class="cstat-lbl">Missing H1 Headings</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">6</div>
+        <div class="cstat-lbl">Missing Meta Description</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">23</div>
+        <div class="cstat-lbl">Descriptions Too Short</div>
+      </div>
+      <div class="cstat">
+        <div class="cstat-num">55/71</div>
+        <div class="cstat-lbl">Titles Under 60 Chars</div>
+      </div>
+    </div>
+
+    <!-- CRITICAL IMPACT PARAGRAPH
+         Standard case (mixed/partial metadata):
+         Use the default text below.
+
+         ZERO SEO CONFIGURED case (all pages share the same placeholder description,
+         e.g. "BeHotel2 | Best WordPress theme for hotels", or descriptions are all empty):
+         Replace with this variant:
+
+         "58 of 71 pages on torburnlea.co.za contain the [CMS]
+         theme's default placeholder as their meta description - a clear sign the site was
+         launched without any SEO configuration. Google ignores this placeholder and generates
+         its own search snippets from page body text. Torburnlea Homestead has never written a single
+         meta description, meaning Google's algorithm controls the first impression on every
+         search result. Combined with 55 page titles outside the optimal range
+         and 12 pages with no H1 heading, the website has been running entirely
+         on Google's guesswork since launch."
+
+         IMPORTANT: Do NOT write "Google shows [placeholder text] in search results" - this is
+         factually wrong. Google overrides useless placeholders with auto-generated snippets from
+         page body text. The accurate impact is lost control, not a bad string being displayed.
+    -->
+    <div class="critical-impact">
+      <strong>Observation:</strong> Torburnlea's on-page metadata has significant gaps. The findings below are the highest-leverage fixes - addressing them will materially change how the site performs in Google and AI search. The biggest improvements available are tightening 8 descriptions that exceed Google's 160-character display limit, shortening 2 titles that push past the safe 60-65 character range, and resolving the 6 pages with no meta description at all, plus adding H1 headings to 12 pages that are missing them.
+    </div>
+  </div>
+
+  <!-- ══ TOP 3 KEY ISSUES ══ -->
+  <div class="section-head">
+    <h2>Top 3 Key Issues</h2>
+    <p>Ranked by SEO impact - fixing these will deliver the most immediate improvement in Google visibility.</p>
+
+    <!-- INTRO CALLOUT: default is generic visibility intro.
+         If the client is actively running Google Ads, swap the block below for the [ADS_CALLOUT_BLOCK]
+         variant at the bottom of this template (search: "ADS_CALLOUT_BLOCK"). -->
+    <div class="ads-callout">
+      <div class="callout-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        The three issues below are shaping your Google visibility
+      </div>
+      The three issues below are the most impactful gaps in Torburnlea's on-page SEO, ranked by the number of pages affected. Closing each one is straightforward editor work in Rank Math but the combined effect on click-through from Google and inclusion in AI-generated answers is substantial.
+    </div>
+  </div>
+
+  <div class="issue-grid">
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">55</div>
+      <h3>Page Titles Under 50 Characters</h3>
+      <p>55 of 71 pages have titles under 50 characters. There's room to add a location, modifier or differentiator without risking truncation - and shorter titles tend to underperform in CTR.</p>
+    </div>
+
+    <div class="issue-card critical">
+      <span class="issue-priority critical">Critical</span>
+      <div class="stat-line">23</div>
+      <h3>Meta Descriptions Under 120 Characters</h3>
+      <p>23 of 71 pages have meta descriptions shorter than 120 characters. The SERP snippet space is going unused - you have room to add a benefit, a location anchor or a call to action that you currently aren't using.</p>
+    </div>
+
+    <div class="issue-card medium">
+      <span class="issue-priority medium">Medium</span>
+      <div class="stat-line">12</div>
+      <h3>Missing H1 Headings</h3>
+      <p>12 of 71 pages have no H1 heading. H1 is the primary on-page signal Google uses to understand what a page is about, and screen readers rely on it for navigation.</p>
+    </div>
+
+  </div>
+
+  <!-- ══ PAGE-BY-PAGE TABLE ══ -->
+  <div class="section-head">
+    <h2>Page-by-Page Breakdown</h2>
+    <p>Full audit of all 71 pages - hover over any indicator for details on what it means and what the ideal is.</p>
+  </div>
+
+  <div class="page-table">
+    <table>
+      <colgroup>
+        <col style="width:4%">
+        <col style="width:20%">
+        <col style="width:24%">
+        <col style="width:8%">
+        <col style="width:30%">
+        <col style="width:8%">
+        <col style="width:6%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Page</th>
+          <th>Title (current)</th>
+          <th>Title Len</th>
+          <th>Meta Description (current)</th>
+          <th>Desc Len</th>
+          <th>H1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/" target="_blank" rel="noopener">/</a></td>
+          <td style="font-size:12px;">Torburnlea Homestead | Guesthouse in Nelspruit Mbombela near Kruger Park</td>
+          <td><span class="badge warn" data-tip="Title is 72 characters - long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">72 ⚠</span></td>
+          <td><span class="desc-text">Experience 5-star guesthouse luxury at Torburnlea Homestead in Mbombela. A restored 100-year-old heritage farmhouse offering elegant rooms, gourmet breakfast, and tranquil gardens near the N4.</span></td>
+          <td><span class="badge warn" data-tip="192 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">192 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: AUTHENTIC LUXURY. A PLACE OF BELONGING.">✓</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/our-story/" target="_blank" rel="noopener">/our-story/</a></td>
+          <td style="font-size:12px;">History of Torburnlea | Exclusive Heritage Stay in Mbombela</td>
+          <td><span class="badge ok" data-tip="Title is 59 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">59 ✓</span></td>
+          <td><span class="desc-text">From a 1920s Scottish-inspired farmhouse to an upscale boutique guesthouse. Explore the story of Torburnlea, an ethical luxury retreat set within a secure, private farming estate in Nelspruit.</span></td>
+          <td><span class="badge warn" data-tip="192 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">192 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: OUR STORY. PROVIDING “REST FOR THE WEARY TRAVELLER”">✓</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/sleep/" target="_blank" rel="noopener">/sleep/</a></td>
+          <td style="font-size:12px;">Exclusive Boutique Stay Mbombela | Luxury Guest Bedrooms</td>
+          <td><span class="badge ok" data-tip="Title is 56 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">56 ✓</span></td>
+          <td><span class="desc-text">Experience the peace of a 100-year-old heritage farmhouse. Individually decorated rooms with private garden access, premium bedding, and bespoke service in a secure, private estate near the N4.</span></td>
+          <td><span class="badge warn" data-tip="193 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">193 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: SLEEP. LUXURIOUS COMFORT.">✓</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/eat/" target="_blank" rel="noopener">/eat/</a></td>
+          <td style="font-size:12px;">Delicious, conscious hospitality at our luxurious guesthouse in Nelspruit, Mbombela.</td>
+          <td><span class="badge bad" data-tip="Title is 84 characters - too long. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">84 ✗</span></td>
+          <td><span class="desc-text">Indulge in delicious, consciously sourced delicacies while staying at our luxurious heritage guesthouse in Nelspruit, Mbombela.</span></td>
+          <td><span class="badge ok" data-tip="127 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">127 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: EAT. WHOLESOME NOURISHMENT.">✓</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activities/" target="_blank" rel="noopener">/activities/</a></td>
+          <td style="font-size:12px;">Top Things to Do Near Nelspruit | Mpumalanga Activities Guide</td>
+          <td><span class="badge ok" data-tip="Title is 61 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">61 ✓</span></td>
+          <td><span class="desc-text">Explore the best things to do near Nelspruit: from Kruger safaris to waterfalls, hiking, and scenic drives. Find top attractions close to Torburnlea.</span></td>
+          <td><span class="badge ok" data-tip="149 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">149 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: 25 Activities &amp; Experiences in Mbombela (Nelspruit).">✓</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/explore/" target="_blank" rel="noopener">/explore/</a></td>
+          <td style="font-size:12px;">Explore the Lowveld | Private Kruger Safaris &amp; Panorama Tours</td>
+          <td><span class="badge ok" data-tip="Title is 61 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">61 ✓</span></td>
+          <td><span class="desc-text">Discover the heart of Mpumalanga from Torburnlea Homestead. We arrange private guided Kruger Park safaris, helicopter flights over Blyde River Canyon, and curated Panorama Route tours for a meaningful luxury experience.</span></td>
+          <td><span class="badge warn" data-tip="219 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">219 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: EXPLORE. NEAR AND FAR.">✓</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/gatherings/" target="_blank" rel="noopener">/gatherings/</a></td>
+          <td style="font-size:12px;">Boutique Event Venue Mbombela | Intimate Functions &amp; Weddings</td>
+          <td><span class="badge ok" data-tip="Title is 61 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">61 ✓</span></td>
+          <td><span class="desc-text">Discover the perfect venue for intimate celebrations. From garden parties to elegant indoor lunches, Torburnlea Homestead provides a historic, 100-year-old backdrop for your most special gatherings.</span></td>
+          <td><span class="badge warn" data-tip="198 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">198 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: GATHERINGS. WITH-NESS &amp; CELEBRATION.">✓</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/business-travel/" target="_blank" rel="noopener">/business-travel/</a></td>
+          <td style="font-size:12px;">Business Travel Mbombela | Secure Guesthouse Near Nelspruit CBD</td>
+          <td><span class="badge ok" data-tip="Title is 63 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">63 ✓</span></td>
+          <td><span class="desc-text">Ideally located for business in Nelspruit. Secure parking, quick N4 access, and healthy gourmet breakfasts. Experience a seamless, productive stay at Torburnlea Homestead Guesthouse.</span></td>
+          <td><span class="badge warn" data-tip="182 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">182 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: BUSINESS TRAVEL. COMFORT &amp; QUIET.">✓</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/specials/" target="_blank" rel="noopener">/specials/</a></td>
+          <td style="font-size:12px;">Nelspruit Mbombela Special Offers / Discounted Accommodation</td>
+          <td><span class="badge ok" data-tip="Title is 60 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">60 ✓</span></td>
+          <td><span class="desc-text">Nelspruit Mbombela Special Offers, Discounted Accommodation, Discounts and Savings at Torburnlea Homestead.</span></td>
+          <td><span class="badge bad" data-tip="107 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">107 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mbombela Special Offers, Discounted Accommodation, Deals and Savings">✓</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/reviews/" target="_blank" rel="noopener">/reviews/</a></td>
+          <td style="font-size:12px;">Reviews</td>
+          <td><span class="badge bad" data-tip="Title is 7 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">7 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/connect/" target="_blank" rel="noopener">/connect/</a></td>
+          <td style="font-size:12px;">Contact Torburnlea Homestead | Direct Bookings &amp; Enquiries</td>
+          <td><span class="badge ok" data-tip="Title is 58 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">58 ✓</span></td>
+          <td><span class="desc-text">Connect with our team to plan your luxury stay in Nelspruit. Contact us for direct booking rates, private safari arrangements, and personalised concierge services at our heritage guesthouse.</span></td>
+          <td><span class="badge warn" data-tip="190 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">190 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: CONNECT. WE’D LOVE TO MEET YOU.">✓</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/book-now/" target="_blank" rel="noopener">/book-now/</a></td>
+          <td style="font-size:12px;">Book now</td>
+          <td><span class="badge bad" data-tip="Title is 8 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">8 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/social/" target="_blank" rel="noopener">/social/</a></td>
+          <td style="font-size:12px;">Social</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: @torburnlea">✓</span></td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/subscribe/" target="_blank" rel="noopener">/subscribe/</a></td>
+          <td style="font-size:12px;">Subscribe</td>
+          <td><span class="badge bad" data-tip="Title is 9 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">9 ✗</span></td>
+          <td><span class="desc-text">What you consent to By subscribing to our mailing list, you accept that TORBURNLEA HOMESTEAD may collect, store and use the personal data you share with us</span></td>
+          <td><span class="badge ok" data-tip="155 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">155 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: SUBSCRIBE. JOIN THE TORBURNLEA COMMUNITY.">✓</span></td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/newsletter/" target="_blank" rel="noopener">/newsletter/</a></td>
+          <td style="font-size:12px;">Newsletter</td>
+          <td><span class="badge bad" data-tip="Title is 10 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">10 ✗</span></td>
+          <td><span class="desc-text">What you consent to By subscribing to our mailing list, you accept that TORBURNLEA HOMESTEAD may collect, store and use the personal data you share with us</span></td>
+          <td><span class="badge ok" data-tip="155 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">155 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/mbombela-nelspruit/" target="_blank" rel="noopener">/mbombela-nelspruit/</a></td>
+          <td style="font-size:12px;">Events and local attractions in and around Mbombela, Nelspruit</td>
+          <td><span class="badge ok" data-tip="Title is 62 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">62 ✓</span></td>
+          <td><span class="desc-text">Here</span></td>
+          <td><span class="badge bad" data-tip="4 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">4 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Things to do in and around Mbombela">✓</span></td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/nelspruit-mbombela-guesthouse-accommodation/" target="_blank" rel="noopener">/nelspruit-mbombela-guesthouse-accommodation/</a></td>
+          <td style="font-size:12px;">The best and most popular guesthouse in Nelspruit, Mbombela</td>
+          <td><span class="badge ok" data-tip="Title is 59 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">59 ✓</span></td>
+          <td><span class="desc-text">Torburnlea Homestead is in a league of its own, offering exclusive, ethical and luxurious hospitality at a heritage farmhouse near the N4 highway, Kruger Mpumalanga International Airport Sabi Sands, the Kruger National Park, Mbombela Stadium, Nelspruit’s shops, restaurants and town centre, Blyde River Canyon, Mozambique and many other areas of interest in the Lowveld.</span></td>
+          <td><span class="badge warn" data-tip="370 characters - too long. Ideal is 150-160 characters (120-149 acceptable). Google truncates the end with &quot;…&quot;.">370 ⚠</span></td>
+          <td><span class="badge ok" data-tip="H1 present: The best bed and breakfast / guesthouse in Nelspruit, Mbombela">✓</span></td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/website-terms-of-use/" target="_blank" rel="noopener">/website-terms-of-use/</a></td>
+          <td style="font-size:12px;">Website Terms of Use</td>
+          <td><span class="badge bad" data-tip="Title is 20 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">20 ✗</span></td>
+          <td><span class="desc-text">The website www.torburnlea.co.za is owned and managed by Torburnlea Homestead, who may be contacted at info@torburnlea.co.za</span></td>
+          <td><span class="badge ok" data-tip="124 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">124 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/privacy-policy/" target="_blank" rel="noopener">/privacy-policy/</a></td>
+          <td style="font-size:12px;">Privacy Policy</td>
+          <td><span class="badge bad" data-tip="Title is 14 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">14 ✗</span></td>
+          <td><span class="desc-text">Privacy Statement   Contact the Information Officer If you have any requests or complaints relating to the information we process about you and your</span></td>
+          <td><span class="badge ok" data-tip="148 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">148 ✓</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/access-to-information/" target="_blank" rel="noopener">/access-to-information/</a></td>
+          <td style="font-size:12px;">Access to Information</td>
+          <td><span class="badge bad" data-tip="Title is 21 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">21 ✗</span></td>
+          <td><span class="desc-text">Data Access &amp; Protection Manual We make this manual available to assist you in protecting your right to access to information and your right to</span></td>
+          <td><span class="badge ok" data-tip="143 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">143 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Data Access &amp; Protection Manual">✓</span></td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/cookie-statement/" target="_blank" rel="noopener">/cookie-statement/</a></td>
+          <td style="font-size:12px;">Cookie Statement</td>
+          <td><span class="badge bad" data-tip="Title is 16 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">16 ✗</span></td>
+          <td><span class="desc-text">To disable specific cookies only, click here</span></td>
+          <td><span class="badge bad" data-tip="44 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">44 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/" target="_blank" rel="noopener">/room/</a></td>
+          <td style="font-size:12px;">ROOM 7</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">Rooms Archive - Torburnlea Homestead</span></td>
+          <td><span class="badge bad" data-tip="36 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">36 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/room1/" target="_blank" rel="noopener">/room/room1/</a></td>
+          <td style="font-size:12px;">ROOM 1</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">Spacious with high ceilings, Room 1 was the main bedroom of the original homestead. It has a mahogany king size extra-length sleigh bed and a full ensuite</span></td>
+          <td><span class="badge ok" data-tip="154 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: ROOM 1">✓</span></td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/room2/" target="_blank" rel="noopener">/room/room2/</a></td>
+          <td style="font-size:12px;">ROOM 2</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">This intimate and cosy room has a king size extra-length bed, which can be configured as twin beds. Double wooden shutter doors lead into an ensuite bathroom</span></td>
+          <td><span class="badge ok" data-tip="157 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: ROOM 2">✓</span></td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/room3/" target="_blank" rel="noopener">/room/room3/</a></td>
+          <td style="font-size:12px;">ROOM 3</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">A spacious room with high ceilings, extra-length beds in Room 3 can be configured as king or twin. A private anteroom joins the bedroom and full ensuite</span></td>
+          <td><span class="badge ok" data-tip="152 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">152 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: ROOM 3">✓</span></td>
+        </tr>
+        <tr>
+          <td>26</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/room4/" target="_blank" rel="noopener">/room/room4/</a></td>
+          <td style="font-size:12px;">ROOM 4</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">Room 4 is calm and spacious with high ceilings and extra-length beds that can be made up as king or twin. Wooden shutter doors lead into the ensuite bathroom</span></td>
+          <td><span class="badge ok" data-tip="157 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: ROOM 4">✓</span></td>
+        </tr>
+        <tr>
+          <td>27</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/room5/" target="_blank" rel="noopener">/room/room5/</a></td>
+          <td style="font-size:12px;">ROOM 5</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">Room 5 is a gorgeous tongue and groove loft room up a wooden staircase. Extra-length beds can be configured as king or twin and a small adjoining attic room</span></td>
+          <td><span class="badge ok" data-tip="156 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: ROOM 5">✓</span></td>
+        </tr>
+        <tr>
+          <td>28</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/room6/" target="_blank" rel="noopener">/room/room6/</a></td>
+          <td style="font-size:12px;">ROOM 6</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">Decorated with an air of freshness, Room 6 is our second attractive tongue and groove loft room up a wooden staircase. Extra-length beds can be configured as</span></td>
+          <td><span class="badge ok" data-tip="157 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: ROOM 6">✓</span></td>
+        </tr>
+        <tr>
+          <td>29</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/room/room7/" target="_blank" rel="noopener">/room/room7/</a></td>
+          <td style="font-size:12px;">ROOM 7</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="desc-text">Set outside the main homestead, Room 7 is a contemporary, calm, light and airy room with wide doors opening onto a small courtyard leading onto an attractive</span></td>
+          <td><span class="badge ok" data-tip="157 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: ROOM 7">✓</span></td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/" target="_blank" rel="noopener">/activity/</a></td>
+          <td style="font-size:12px;">Market Evenings &amp; Craft Nights in Mbombela</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">42 ⚠</span></td>
+          <td><span class="desc-text">Activities Archive - Torburnlea Homestead</span></td>
+          <td><span class="badge bad" data-tip="41 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">41 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>31</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/kruger-national-park-safari/" target="_blank" rel="noopener">/activity/kruger-national-park-safari/</a></td>
+          <td style="font-size:12px;">Kruger National Park Safari</td>
+          <td><span class="badge bad" data-tip="Title is 27 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">27 ✗</span></td>
+          <td><span class="desc-text">Venture into one of Africa’s premier wildlife reserves, spot the Big Five, enjoy guided or self-drive safaris, sunrise or sunset game drives.</span></td>
+          <td><span class="badge ok" data-tip="141 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">141 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Kruger National Park Safari">✓</span></td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/sudwala-caves/" target="_blank" rel="noopener">/activity/sudwala-caves/</a></td>
+          <td style="font-size:12px;">Sudwala Caves</td>
+          <td><span class="badge bad" data-tip="Title is 13 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">13 ✗</span></td>
+          <td><span class="desc-text">Explore ancient dolomite caverns under the escarpment. Guided tours carry you deep underground through fascinating rock formations.</span></td>
+          <td><span class="badge ok" data-tip="131 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">131 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Sudwala Caves">✓</span></td>
+        </tr>
+        <tr>
+          <td>33</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/zip-lining-gorge-swings-adventure-platforms/" target="_blank" rel="noopener">/activity/zip-lining-gorge-swings-adventure-platforms/</a></td>
+          <td style="font-size:12px;">Zip-Lining, Gorge Swings &amp; Adventure Platforms</td>
+          <td><span class="badge warn" data-tip="Title is 46 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">46 ⚠</span></td>
+          <td><span class="desc-text">High-wire glides, free-fall swings or over-gorge lifts in the Graskop escarpment region for adrenaline-seekers.</span></td>
+          <td><span class="badge bad" data-tip="111 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">111 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Zip-Lining, Gorge Swings &amp; Adventure Platforms">✓</span></td>
+        </tr>
+        <tr>
+          <td>34</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/shopping-markets-in-mbombela-nelspruit/" target="_blank" rel="noopener">/activity/shopping-markets-in-mbombela-nelspruit/</a></td>
+          <td style="font-size:12px;">Shopping &amp; Markets in Mbombela / Nelspruit</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">42 ⚠</span></td>
+          <td><span class="desc-text">Browse fresh produce, boutique crafts, and local food at Riverside Market, Sonpark Sunday Market or city malls.</span></td>
+          <td><span class="badge bad" data-tip="111 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">111 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Shopping &amp; Markets in Mbombela / Nelspruit">✓</span></td>
+        </tr>
+        <tr>
+          <td>35</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/self-drive-or-guided-4x4-safari-routes/" target="_blank" rel="noopener">/activity/self-drive-or-guided-4x4-safari-routes/</a></td>
+          <td style="font-size:12px;">Self-Drive or Guided 4×4 Safari Routes</td>
+          <td><span class="badge bad" data-tip="Title is 38 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">38 ✗</span></td>
+          <td><span class="desc-text">Several reserves and game areas allow self-drives or guided 4x4 tours through less-visited wildlife zones. Contact Nguni Africa for enquiries</span></td>
+          <td><span class="badge ok" data-tip="141 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">141 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Self-Drive or Guided 4×4 Safari Routes">✓</span></td>
+        </tr>
+        <tr>
+          <td>36</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/schoemanskloof-outdoor-adventure-valley/" target="_blank" rel="noopener">/activity/schoemanskloof-outdoor-adventure-valley/</a></td>
+          <td style="font-size:12px;">Schoemanskloof Outdoor &amp; Adventure Valley</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">41 ⚠</span></td>
+          <td><span class="desc-text">Mountain biking, quad-biking, hiking, fishing, and scenic citrus-country landscapes between Machadodorp and Nelspruit.</span></td>
+          <td><span class="badge bad" data-tip="118 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">118 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Schoemanskloof Outdoor &amp; Adventure Valley">✓</span></td>
+        </tr>
+        <tr>
+          <td>37</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/scenic-picnic-riverside-escape/" target="_blank" rel="noopener">/activity/scenic-picnic-riverside-escape/</a></td>
+          <td style="font-size:12px;">Scenic Picnic &amp; Riverside Escape</td>
+          <td><span class="badge bad" data-tip="Title is 32 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">32 ✗</span></td>
+          <td><span class="desc-text">Bring a picnic, wander along river trails, spot wildlife like kingfishers and monitor lizards, and unwind in the lowveld bush.</span></td>
+          <td><span class="badge ok" data-tip="126 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">126 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Scenic Picnic &amp; Riverside Escape">✓</span></td>
+        </tr>
+        <tr>
+          <td>38</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/pilgrims-rest-gold-panning-historic-town-walk/" target="_blank" rel="noopener">/activity/pilgrims-rest-gold-panning-historic-town-walk/</a></td>
+          <td style="font-size:12px;">Pilgrim’s Rest Gold-Panning &amp; Historic Town Walk</td>
+          <td><span class="badge warn" data-tip="Title is 48 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">48 ⚠</span></td>
+          <td><span class="desc-text">Visit this gold-rush era town, pan for gold, explore old buildings and relive an earlier era of South African history.</span></td>
+          <td><span class="badge bad" data-tip="118 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">118 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Pilgrim’s Rest Gold-Panning &amp; Historic Town Walk">✓</span></td>
+        </tr>
+        <tr>
+          <td>39</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/perrys-bridge-reptile-park/" target="_blank" rel="noopener">/activity/perrys-bridge-reptile-park/</a></td>
+          <td style="font-size:12px;">Perry’s Bridge Reptile Park</td>
+          <td><span class="badge bad" data-tip="Title is 27 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">27 ✗</span></td>
+          <td><span class="desc-text">Meet crocodiles, snakes and tortoises in an interactive, family-friendly reptile park in the Hazyview region.</span></td>
+          <td><span class="badge bad" data-tip="109 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">109 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Perry’s Bridge Reptile Park">✓</span></td>
+        </tr>
+        <tr>
+          <td>40</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/mbombela-stadium-sports-events/" target="_blank" rel="noopener">/activity/mbombela-stadium-sports-events/</a></td>
+          <td style="font-size:12px;">Mbombela Stadium Sports &amp; Events</td>
+          <td><span class="badge bad" data-tip="Title is 32 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">32 ✗</span></td>
+          <td><span class="desc-text">Catch a rugby or soccer match in this modern stadium, or attend a special event in the city.</span></td>
+          <td><span class="badge bad" data-tip="92 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">92 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Mbombela Stadium Sports &amp; Events">✓</span></td>
+        </tr>
+        <tr>
+          <td>41</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/market-evenings-craft-nights-in-mbombela/" target="_blank" rel="noopener">/activity/market-evenings-craft-nights-in-mbombela/</a></td>
+          <td style="font-size:12px;">Market Evenings &amp; Craft Nights in Mbombela</td>
+          <td><span class="badge warn" data-tip="Title is 42 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">42 ⚠</span></td>
+          <td><span class="desc-text">Join local markets after hours with food stalls, live music, and handcrafted goods for souvenirs and socialising.</span></td>
+          <td><span class="badge bad" data-tip="113 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">113 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Market Evenings &amp; Craft Nights in Mbombela">✓</span></td>
+        </tr>
+        <tr>
+          <td>42</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/lowveld-national-botanical-garden/" target="_blank" rel="noopener">/activity/lowveld-national-botanical-garden/</a></td>
+          <td style="font-size:12px;">Lowveld National Botanical Garden</td>
+          <td><span class="badge bad" data-tip="Title is 33 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">33 ✗</span></td>
+          <td><span class="desc-text">Wander the lush ~160-hectare garden where the Crocodile and Nels Rivers meet, see rare cycads, rainforest trail – perfect for relaxed nature time.</span></td>
+          <td><span class="badge ok" data-tip="146 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">146 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Lowveld National Botanical Garden">✓</span></td>
+        </tr>
+        <tr>
+          <td>43</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/kaapsehoop-mountain-village-wild-horses/" target="_blank" rel="noopener">/activity/kaapsehoop-mountain-village-wild-horses/</a></td>
+          <td style="font-size:12px;">Kaapsehoop Mountain Village &amp; Wild Horses</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">41 ⚠</span></td>
+          <td><span class="desc-text">A charming high-altitude village with hiking trails, boutique cafés, views over the Lowveld and free-roaming wild horses.</span></td>
+          <td><span class="badge ok" data-tip="121 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">121 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Kaapsehoop Mountain Village &amp; Wild Horses">✓</span></td>
+        </tr>
+        <tr>
+          <td>44</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/horse-riding-trails-at-dakota-ranch-adventure-park/" target="_blank" rel="noopener">/activity/horse-riding-trails-at-dakota-ranch-adventure-park/</a></td>
+          <td style="font-size:12px;">Horse-Riding Trails at Dakota Ranch &amp; Adventure Park</td>
+          <td><span class="badge ok" data-tip="Title is 52 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">52 ✓</span></td>
+          <td><span class="desc-text">Scenic bushveld horse rides, guided trails through indigenous forest and above the Lowveld escarpment.</span></td>
+          <td><span class="badge bad" data-tip="102 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">102 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Horse-Riding Trails at Dakota Ranch &amp; Adventure Park">✓</span></td>
+        </tr>
+        <tr>
+          <td>45</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/helicopter-flights-microlight-paragliding/" target="_blank" rel="noopener">/activity/helicopter-flights-microlight-paragliding/</a></td>
+          <td style="font-size:12px;">Helicopter Flights / Microlight / Paragliding</td>
+          <td><span class="badge warn" data-tip="Title is 45 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">45 ⚠</span></td>
+          <td><span class="desc-text">Soar above gorges, rivers, and escarpment views, experiencing the region from a thrilling aerial perspective.</span></td>
+          <td><span class="badge bad" data-tip="109 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">109 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Helicopter Flights / Microlight / Paragliding">✓</span></td>
+        </tr>
+        <tr>
+          <td>46</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/golf-amid-bushveld-at-mbombela-golf-club-nelspruit-golf-club/" target="_blank" rel="noopener">/activity/golf-amid-bushveld-at-mbombela-golf-club-nelspruit-golf-club/</a></td>
+          <td style="font-size:12px;">Golf amid Bushveld at Mbombela Golf Club / Nelspruit Golf Club</td>
+          <td><span class="badge ok" data-tip="Title is 62 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">62 ✓</span></td>
+          <td><span class="desc-text">Tee off on a scenic 18-hole course where elephants and other wildlife may wander nearby — golf with nature.</span></td>
+          <td><span class="badge bad" data-tip="107 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">107 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Golf amid Bushveld at Mbombela Golf Club / Nelspruit Golf Club">✓</span></td>
+        </tr>
+        <tr>
+          <td>47</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/fly-fishing-on-the-sabie-blyde-rivers/" target="_blank" rel="noopener">/activity/fly-fishing-on-the-sabie-blyde-rivers/</a></td>
+          <td style="font-size:12px;">Fly-Fishing on the Sabie &amp; Blyde Rivers</td>
+          <td><span class="badge bad" data-tip="Title is 39 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">39 ✗</span></td>
+          <td><span class="desc-text">Enjoy peaceful trout fly-fishing in stocked rivers and tributaries, perfect for a quiet day immersed in nature.</span></td>
+          <td><span class="badge bad" data-tip="111 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">111 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Fly-Fishing on the Sabie &amp; Blyde Rivers">✓</span></td>
+        </tr>
+        <tr>
+          <td>48</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/elephant-whispers/" target="_blank" rel="noopener">/activity/elephant-whispers/</a></td>
+          <td style="font-size:12px;">Elephant Whispers</td>
+          <td><span class="badge bad" data-tip="Title is 17 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">17 ✗</span></td>
+          <td><span class="desc-text">Get up close with rescued elephants, learn about their care and behaviour, and safely interact with these gentle giants near the Sabie River.</span></td>
+          <td><span class="badge ok" data-tip="141 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">141 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Elephant Whispers">✓</span></td>
+        </tr>
+        <tr>
+          <td>49</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/day-trip-into-kingdom-of-eswatini/" target="_blank" rel="noopener">/activity/day-trip-into-kingdom-of-eswatini/</a></td>
+          <td style="font-size:12px;">Day Trip into Kingdom of Eswatini</td>
+          <td><span class="badge bad" data-tip="Title is 33 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">33 ✗</span></td>
+          <td><span class="desc-text">Explore crafts, cultural villages, forested hills, and scenic landscapes just beyond the Lowveld on an easy cross-border day trip.</span></td>
+          <td><span class="badge ok" data-tip="130 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">130 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Day Trip into Kingdom of Eswatini">✓</span></td>
+        </tr>
+        <tr>
+          <td>50</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/cultural-tours-craft-markets-in-lowveld-townships/" target="_blank" rel="noopener">/activity/cultural-tours-craft-markets-in-lowveld-townships/</a></td>
+          <td style="font-size:12px;">Cultural Tours &amp; Craft Markets in Lowveld Townships</td>
+          <td><span class="badge ok" data-tip="Title is 51 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">51 ✓</span></td>
+          <td><span class="desc-text">Insightful tours of local cultures, traditions, craft-making and arts at township tours and craft centres near Nelspruit.</span></td>
+          <td><span class="badge ok" data-tip="121 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">121 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Cultural Tours &amp; Craft Markets in Lowveld Townships">✓</span></td>
+        </tr>
+        <tr>
+          <td>51</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/chimp-eden/" target="_blank" rel="noopener">/activity/chimp-eden/</a></td>
+          <td style="font-size:12px;">Chimp Eden</td>
+          <td><span class="badge bad" data-tip="Title is 10 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">10 ✗</span></td>
+          <td><span class="desc-text">Visit the Jane Goodall Institute chimpanzee sanctuary, watch educational tours, and learn about primate rescue &amp; rehabilitation.</span></td>
+          <td><span class="badge ok" data-tip="128 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">128 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Chimp Eden">✓</span></td>
+        </tr>
+        <tr>
+          <td>52</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/cable-trail-rafting-tubing-adventures/" target="_blank" rel="noopener">/activity/cable-trail-rafting-tubing-adventures/</a></td>
+          <td style="font-size:12px;">Cable-Trail, Rafting &amp; Tubing Adventures</td>
+          <td><span class="badge warn" data-tip="Title is 40 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">40 ⚠</span></td>
+          <td><span class="desc-text">Inflatable kayaking, tubing down mild rapids, zip-cable crossings and riverside fun for families and adventure groups.</span></td>
+          <td><span class="badge bad" data-tip="118 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">118 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Cable-Trail, Rafting &amp; Tubing Adventures">✓</span></td>
+        </tr>
+        <tr>
+          <td>53</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/bird-watching-walking-in-steiltes-nature-reserve/" target="_blank" rel="noopener">/activity/bird-watching-walking-in-steiltes-nature-reserve/</a></td>
+          <td style="font-size:12px;">Bird-Watching &amp; Walking in Steiltes Nature Reserve</td>
+          <td><span class="badge ok" data-tip="Title is 50 characters - ideal. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">50 ✓</span></td>
+          <td><span class="desc-text">A quiet green space near Nelspruit, perfect for nature walks and birding with 150+ species.</span></td>
+          <td><span class="badge bad" data-tip="91 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">91 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Bird-Watching &amp; Walking in Steiltes Nature Reserve">✓</span></td>
+        </tr>
+        <tr>
+          <td>54</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/barberton-makhonjwa-mountainlands/" target="_blank" rel="noopener">/activity/barberton-makhonjwa-mountainlands/</a></td>
+          <td style="font-size:12px;">Barberton &amp; Makhonjwa Mountainlands</td>
+          <td><span class="badge bad" data-tip="Title is 35 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">35 ✗</span></td>
+          <td><span class="desc-text">Discover some of Earth’s oldest rocks (3.2-3.5 billion years) in the Barberton area; ideal for geology buffs and curious travellers.</span></td>
+          <td><span class="badge ok" data-tip="132 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">132 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Barberton &amp; Makhonjwa Mountainlands">✓</span></td>
+        </tr>
+        <tr>
+          <td>55</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/abseiling-rock-climbing-near-waterfalls/" target="_blank" rel="noopener">/activity/abseiling-rock-climbing-near-waterfalls/</a></td>
+          <td style="font-size:12px;">Abseiling &amp; Rock-Climbing near Waterfalls</td>
+          <td><span class="badge warn" data-tip="Title is 41 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">41 ⚠</span></td>
+          <td><span class="desc-text">Combine scenic waterfalls and adrenaline with rock-faces and abseils in the escarpment zone (Elands River Falls, Waterval Boven).</span></td>
+          <td><span class="badge ok" data-tip="129 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">129 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Abseiling &amp; Rock-Climbing near Waterfalls">✓</span></td>
+        </tr>
+        <tr>
+          <td>56</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/activity/fruit-farm-tours-local-produce-experience/" target="_blank" rel="noopener">/activity/fruit-farm-tours-local-produce-experience/</a></td>
+          <td style="font-size:12px;">Fruit-Farm Tours &amp; Local Produce Experience</td>
+          <td><span class="badge warn" data-tip="Title is 43 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">43 ⚠</span></td>
+          <td><span class="desc-text">Visit local mango, banana or citrus farms, learn about fruit-growing in the Lowveld, sample fresh produce, and interact with farm life.</span></td>
+          <td><span class="badge ok" data-tip="135 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">135 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Fruit-Farm Tours &amp; Local Produce Experience">✓</span></td>
+        </tr>
+        <tr>
+          <td>57</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/residents/" target="_blank" rel="noopener">/residents/</a></td>
+          <td style="font-size:12px;">Lucy</td>
+          <td><span class="badge bad" data-tip="Title is 4 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">4 ✗</span></td>
+          <td><span class="desc-text">Pets Archive - Torburnlea Homestead</span></td>
+          <td><span class="badge bad" data-tip="35 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">35 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>58</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/residents/oliver/" target="_blank" rel="noopener">/residents/oliver/</a></td>
+          <td style="font-size:12px;">Oliver</td>
+          <td><span class="badge bad" data-tip="Title is 6 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">6 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Oliver">✓</span></td>
+        </tr>
+        <tr>
+          <td>59</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/residents/lucy/" target="_blank" rel="noopener">/residents/lucy/</a></td>
+          <td style="font-size:12px;">Lucy</td>
+          <td><span class="badge bad" data-tip="Title is 4 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">4 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Lucy">✓</span></td>
+        </tr>
+        <tr>
+          <td>60</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/residents/magnolia/" target="_blank" rel="noopener">/residents/magnolia/</a></td>
+          <td style="font-size:12px;">Magnolia</td>
+          <td><span class="badge bad" data-tip="Title is 8 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">8 ✗</span></td>
+          <td><span class="cell-missing">MISSING ⚠⚠</span></td>
+          <td><span class="badge bad" data-tip="No meta description on this page. Google will auto-generate a snippet from page body text - you lose all control over what searchers see.">MISSING ⚠⚠ ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Magnolia">✓</span></td>
+        </tr>
+        <tr>
+          <td>61</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/review/" target="_blank" rel="noopener">/review/</a></td>
+          <td style="font-size:12px;">Sharon Aaron</td>
+          <td><span class="badge bad" data-tip="Title is 12 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">12 ✗</span></td>
+          <td><span class="desc-text">Reviews Archive - Torburnlea Homestead</span></td>
+          <td><span class="badge bad" data-tip="38 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">38 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>62</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/review/frederick-and-victoria-maclean-james-quinnell/" target="_blank" rel="noopener">/review/frederick-and-victoria-maclean-james-quinnell/</a></td>
+          <td style="font-size:12px;">Frederick and Victoria Maclean &amp; James Quinnell</td>
+          <td><span class="badge warn" data-tip="Title is 47 characters - short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">47 ⚠</span></td>
+          <td><span class="desc-text">What a pity! We could only stay one night, and after the fabulous welcome from the Torburnlea team, a relaxing few hours, a delicious dinner with a great red</span></td>
+          <td><span class="badge ok" data-tip="157 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Frederick and Victoria Maclean &amp; James Quinnell">✓</span></td>
+        </tr>
+        <tr>
+          <td>63</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/review/wilma-claassen/" target="_blank" rel="noopener">/review/wilma-claassen/</a></td>
+          <td style="font-size:12px;">Wilma Claassen</td>
+          <td><span class="badge bad" data-tip="Title is 14 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">14 ✗</span></td>
+          <td><span class="desc-text">Our first visit but hopefully not our last. The food, décor, the atmosphere was magical. The staff and the rooms were outstanding. We will return soon, thank</span></td>
+          <td><span class="badge ok" data-tip="157 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">157 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Wilma Claassen">✓</span></td>
+        </tr>
+        <tr>
+          <td>64</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/review/teresa-schwalbach/" target="_blank" rel="noopener">/review/teresa-schwalbach/</a></td>
+          <td style="font-size:12px;">Teresa Schwalbach</td>
+          <td><span class="badge bad" data-tip="Title is 17 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">17 ✗</span></td>
+          <td><span class="desc-text">A magic and wonderful house with friendly people, very professional and always attentive to the well-being of their guests. We enjoyed it very much and hope</span></td>
+          <td><span class="badge ok" data-tip="156 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">156 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Teresa Schwalbach">✓</span></td>
+        </tr>
+        <tr>
+          <td>65</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/review/sharon-aaron/" target="_blank" rel="noopener">/review/sharon-aaron/</a></td>
+          <td style="font-size:12px;">Sharon Aaron</td>
+          <td><span class="badge bad" data-tip="Title is 12 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">12 ✗</span></td>
+          <td><span class="desc-text">Stunning stunning place. Steeped in history. We have loved every second from beginning to end. Good atmosphere, service excellent, staff amazing, décor</span></td>
+          <td><span class="badge ok" data-tip="151 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Sharon Aaron">✓</span></td>
+        </tr>
+        <tr>
+          <td>66</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/special/" target="_blank" rel="noopener">/special/</a></td>
+          <td style="font-size:12px;">Business Travel Special</td>
+          <td><span class="badge bad" data-tip="Title is 23 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">23 ✗</span></td>
+          <td><span class="desc-text">Specials Archive - Torburnlea Homestead</span></td>
+          <td><span class="badge bad" data-tip="39 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">39 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>67</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/special/business-travel-special/" target="_blank" rel="noopener">/special/business-travel-special/</a></td>
+          <td style="font-size:12px;">Business Travel Special</td>
+          <td><span class="badge bad" data-tip="Title is 23 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">23 ✗</span></td>
+          <td><span class="desc-text">Please contact us directly to discuss extra special corporate rates for bookings during the week.</span></td>
+          <td><span class="badge bad" data-tip="97 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">97 ✗</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Business Travel Special">✓</span></td>
+        </tr>
+        <tr>
+          <td>68</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/story/" target="_blank" rel="noopener">/story/</a></td>
+          <td style="font-size:12px;">Siphiwe Shekwa</td>
+          <td><span class="badge bad" data-tip="Title is 14 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">14 ✗</span></td>
+          <td><span class="desc-text">Stories Archive - Torburnlea Homestead</span></td>
+          <td><span class="badge bad" data-tip="38 characters - too short. Ideal is 150-160 characters (120-149 acceptable). Leaves SERP space unused.">38 ✗</span></td>
+          <td><span class="badge bad" data-tip="No H1 heading found. H1 is the primary on-page signal for what a page is about - both for Google and for screen readers.">✗</span></td>
+        </tr>
+        <tr>
+          <td>69</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/story/siphiwe-shekwa/" target="_blank" rel="noopener">/story/siphiwe-shekwa/</a></td>
+          <td style="font-size:12px;">Siphiwe Shekwa</td>
+          <td><span class="badge bad" data-tip="Title is 14 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">14 ✗</span></td>
+          <td><span class="desc-text">Siphiwe is from Zwelisha on the outskirts of Mbombela and is a mother and grandmother. She has been with the Hall family for over 21 years. She initially</span></td>
+          <td><span class="badge ok" data-tip="153 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">153 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Siphiwe Shekwa">✓</span></td>
+        </tr>
+        <tr>
+          <td>70</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/story/george-mazibuko/" target="_blank" rel="noopener">/story/george-mazibuko/</a></td>
+          <td style="font-size:12px;">George Mazibuko</td>
+          <td><span class="badge bad" data-tip="Title is 15 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">15 ✗</span></td>
+          <td><span class="desc-text">George lived in Mozambique up until 1984 when his father died and his family relocated to South Africa. He lives in Kanyamazane with his wife and three</span></td>
+          <td><span class="badge ok" data-tip="151 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">151 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: George Mazibuko">✓</span></td>
+        </tr>
+        <tr>
+          <td>71</td>
+          <td class="url-cell"><a href="https://www.torburnlea.co.za/story/petunia-mthethwa/" target="_blank" rel="noopener">/story/petunia-mthethwa/</a></td>
+          <td style="font-size:12px;">Petunia Mthethwa</td>
+          <td><span class="badge bad" data-tip="Title is 16 characters - too short. Ideal page titles are 50-60 characters. Google truncates titles at roughly 580 pixels (60-65 characters).">16 ✗</span></td>
+          <td><span class="desc-text">Petunia lives in Kanyamazane with her mother and child. For many years she worked with Kim at her physio-therapy practice before moving on to care for the</span></td>
+          <td><span class="badge ok" data-tip="154 characters - ideal. Ideal is 150-160 characters (120-149 acceptable). Within the ideal range.">154 ✓</span></td>
+          <td><span class="badge ok" data-tip="H1 present: Petunia Mthethwa">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-legend">
+    <span class="legend-item"><span class="badge ok">✓</span> Within ideal range</span>
+    <span class="legend-item"><span class="badge warn">⚠</span> Needs improvement</span>
+    <span class="legend-item"><span class="badge bad">✗</span> Critical - action required</span>
+    <span class="legend-item" style="color:var(--muted);font-size:11px;">Title sweet spot: 50-60 chars &nbsp;|&nbsp; Description sweet spot: 150-160 chars (120-149 acceptable) &nbsp;|&nbsp; Hover any indicator for details</span>
+  </div>
+
+  <!-- ══ WHY IT MATTERS ══ -->
+  <div class="section-head">
+    <h2>Why This Matters for Torburnlea Homestead</h2>
+    <p>These are the channels your future guests are using to discover and decide - and the audit findings above directly affect how Torburnlea shows up on each one.</p>
+  </div>
+
+  <div class="explain-grid">
+
+    <!-- EXPLAIN CARD 1 (blue - search snippet control)
+         Standard case: use "Google Search - Your Highest-Intent Channel" below.
+
+         ZERO SEO CONFIGURED case (theme placeholder or all-empty descriptions):
+         Replace card title and body with:
+
+         Title: "Google Controls How Torburnlea Homestead Appears in Every Search Result"
+         Body: "Because no meta descriptions have ever been written for this site, Google ignores
+         the placeholder and generates its own search snippets from whatever body text it can find
+         on each page - navigation menus, introductory paragraphs, page headings. Torburnlea Homestead
+         has no control over what that snippet says. A properly written 120-160 character
+         description appears directly below the page title in every search result, 24 hours a day,
+         making the case for why a traveller should click. Not a single page on torburnlea.co.za
+         has one."
+    -->
+    <div class="explain-card">
+      <div class="explain-icon-wrap blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Search - Your Highest-Intent Channel</h3>
+        <p>Travellers searching "Nelspruit guesthouse", "Mbombela accommodation" or "Kruger gateway lodge" are actively planning a booking. The 8 truncated descriptions and 2 over-length titles mean the SERP snippet for those searches is not making its full case. Tightening these is a high-leverage afternoon of editor work.</p>
+      </div>
+    </div>
+
+    <!-- EXPLAIN CARD 2 (purple - AI search)
+         Standard case: use copy below.
+
+         ZERO SEO CONFIGURED case: strengthen to emphasise that a site with no descriptions,
+         no H1s and unstructured content gives AI assistants nothing to work with. Use:
+
+         Title: "Invisible to AI Search - ChatGPT, Perplexity and Claude"
+         Body: "When someone asks ChatGPT or Perplexity 'best boutique hotels in [LOCATION]', the
+         AI reads your website to decide whether to cite Torburnlea Homestead in its answer. It relies
+         on clear H1 headings, well-labelled page sections and descriptive metadata to understand
+         what your property offers and where it is. With no meta descriptions and no H1 headings
+         on 12 of 71 pages, Torburnlea Homestead is giving AI search
+         nothing to work with - while competitors with structured, well-labelled pages are being
+         cited directly in AI answers."
+    -->
+    <div class="explain-card">
+      <div class="explain-icon-wrap purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10" r="3"/><path d="M17 10a5 5 0 0 0-10 0"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>ChatGPT and AI Search - The New Discovery Channel</h3>
+        <p>When a traveller asks ChatGPT or Perplexity "best guesthouse near Kruger Park" or "where to stay in Mbombela for business", the AI reads each page's title, description and H1 to decide whether to cite Torburnlea. The clearer those signals are, the more often Torburnlea appears in AI-generated answers - and AI search referrals are growing quarter on quarter.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap amber">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>Google Ads Gets More Expensive Without Good SEO</h3>
+        <p>If you run Google Ads, the landing page Quality Score depends on title and meta relevance. Tightening Torburnlea's metadata means lower cost-per-click on the same keywords - and the organic traffic compounds in the background at no extra cost.</p>
+      </div>
+    </div>
+
+    <div class="explain-card">
+      <div class="explain-icon-wrap green">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div class="explain-body">
+        <h3>You Have the Reviews - But Google Can't Find You</h3>
+        <p>Torburnlea Homestead carries strong reviews and a recognisable Lowveld brand. Sharper on-site metadata pulls that authority back to torburnlea.co.za, helping convert more direct bookings without OTA commission - especially for high-intent searches like "Torburnlea Homestead" or "Mbombela boutique guesthouse".</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ CTA ══ -->
+  <div class="cta-section">
+    <h2>Ready to Fix These Issues?</h2>
+    <p>Our SEO team can implement all the improvements for Torburnlea Homestead and monitor the results in Google Search Console. Most clients see measurable improvement in organic visibility within 6-8 weeks.</p>
+    <a href="mailto:jacques@tourismmarketing.co.za?subject=Torburnlea%20Homestead%20-%20SEO%20Audit%20May%202026" class="cta-btn">Get in Touch - Let's Fix This</a>
+  </div>
+
+</div><!-- /wrap -->
+
+<div class="footer">
+  <strong><a href="https://tourismmarketing.co.za" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Tourism Marketing SA</a></strong> &nbsp;·&nbsp; SEO Audit for Torburnlea Homestead &nbsp;·&nbsp; May 2026<br>
+  <span style="margin-top:6px;display:block;">This report was generated from a live crawl of torburnlea.co.za conducted on 22 May 2026.</span>
+</div>
+
+</body>
+</html>
